@@ -154,11 +154,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     # define vars
-    # take_rate = models.DecimalField(max_digits=5, decimal_places=0, min=0, max=100,
-    # widget=widgets.SliderInput(attrs={'value': 50})
-    #take_rate = models.DecimalField(max_digits=5, decimal_places=0, min=0, max=100)
-    take_rate = models.DecimalField(widget=widgets.SliderInput(show_value=False), initial=-5, max_digits=5,
-                                    decimal_places=0, min=0, max=100)
+    take_rate = models.DecimalField(widget=widgets.HiddenInput(), max_digits=5, decimal_places=0, min=0, max=100)
     expected_take_rate = models.DecimalField(max_digits=5, decimal_places=2, min=0, max=100)
     treatment = models.TextField()
     money_taken = models.CurrencyField()
@@ -198,19 +194,6 @@ class Group(BaseGroup):
                                                                     widget=widgets.RadioSelectHorizontal()
                                                                     )
 
-    # for i in range(0, Constants.max_price_list_size):
-    #     Group.add_to_class('list_price_{0}_yes'.format(i), models.BooleanField(
-    #         widget=widgets.RadioSelectHorizontal(),
-    #         choices=['Yes', 'No'],
-    #         verbose_name='{}'.format(i)
-    #         )
-    #                        )
-
-    # tempVAR_0 = models.BooleanField()
-    # tempVAR_1 = models.BooleanField()
-    # tempVAR_2 = models.BooleanField()
-    #
-    # temp = models.CharField(choices=['a', 'b'], widget=widgets.RadioSelect())
 
     # this assigns payoff
     def set_payoffs(self):

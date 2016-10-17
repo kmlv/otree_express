@@ -13,6 +13,8 @@
             }
     </script>
 
+    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
+
     <script>
         jQuery(document).ready(function ($) {
             $("#slider")
@@ -36,6 +38,10 @@
 
 {% endblock %}
 
+{% block styles %}
+    <link href="{% static "jquery-ui/jquery-ui.min.css" %}" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
 
     {% formfield  group.time_ADecides with label=None  %}
@@ -46,11 +52,10 @@
         ({{player.others_task_income}}). </p>
     <p> Use the slider to set the percentage of B's income you want to transfer to your account. </p>
 
-    <div>
+    <div style="width: 80%; margin: auto;">
         <div style="text-align: center">you are taking: <span id="slider_val">_</span>%</div>
         <div><span class="pull-left">0%</span><span class="pull-right">100%</span></div>
-        <div id="slider" style="clear: both;"></div>
-        <input type="hidden" name="take_rate" value="5" id="id_take_rate"/>
+        <div id="slider" style="clear: both; width: 96%; margin: auto;"></div>
     </div>
 
     {% formfield group.take_rate with label=None %}
