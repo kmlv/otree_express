@@ -1,0 +1,38 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Value of Message
+{% endblock %}
+
+{% block content %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+    {% formfield  group.time_ElicitSOP with label=None  %}
+
+        {% if group.value_type == 'WTP' %}
+
+            <p> Would you like to pay {{ group.SOP_price }} for sending your message to
+                {% if group.treatment == 'DM' %} your counterpart, player A?
+                {% elif group.treatment == 'TP' %} the third party reader?
+                {% endif %} </p>
+
+        {% elif group.value_type == 'WTA' %}
+
+            <p> Would you like to receive {{ group.SOP_price }} for NOT sending your message to
+                {% if group.treatment == 'DM' %} your counterpart, player A?
+                {% elif group.treatment == 'TP' %} the third party reader?
+                {% endif %} </p>
+
+        {% endif %}
+
+    {% formfield  group.SOP_yes with label="Use these radio buttons to enter your response" %}
+
+    {% next_button %}
+
+{% endblock %}

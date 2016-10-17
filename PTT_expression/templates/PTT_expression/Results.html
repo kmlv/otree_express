@@ -1,0 +1,84 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Final Earnings ($)
+{% endblock %}
+
+{% block content %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+    {% formfield  group.time_Results with label=None  %}
+    {# this recorded the timestamp #}
+
+    {% if player.role == 'A' or player.role == 'B' %}
+
+      <table class="table table-striped table-bordered table-nonfluid" align="center">
+        <tr>
+          <td class="col-md-1"></td>
+          <td class="col-md-1 text-center">Role A {% if player.role == 'A' %} (<strong>You</strong>) {% endif %}</td>
+          <td class="col-md-1 text-center">Role B {% if player.role == 'B' %} (<strong>You</strong>) {% endif %}</td>
+        </tr>
+        <tr >
+          <td>Endowment</td>
+          <td class="text-center">{{ A_endowment }}</td>
+          <td class="text-center">{{ B_endowment }}</td>
+        </tr>
+        <tr>
+          <td>Task Income</td>
+          <td class="text-center">+ {{ A_task_income}}</td>
+          <td class="text-center">+ {{ B_task_income}}</td>
+        </tr>
+        <tr>
+          <td>Money Transferred</td>
+          <td class="text-center">+ {{group.money_taken}}</td>
+          <td class="text-center">- {{group.money_taken}}</td>
+        </tr>
+          {% if group.msg_sent == True %}
+        <tr >
+          <td>Message Price</td>
+          <td class="text-center">  </td>
+          <td class="text-center"> - {{group.message_price}} </td>
+        </tr>
+          {% endif %}
+        <tr>
+          <td> <strong> Final Earnings </strong> </td>
+          <td class="text-center"> {{A_payoff}} </td>
+          <td class="text-center"> {{B_payoff}} </td>
+        </tr>
+      </table>
+
+
+    {% elif player.role == 'R' %}
+
+      <table class="table table-striped table-bordered table-nonfluid" align="center">
+        <tr>
+          <td class="col-md-1"></td>
+          <td class="col-md-1 text-center">Role R {% if player.role == 'R' %} (<strong>You</strong>) {% endif %}</td>
+        </tr>
+        <tr >
+          <td>Endowment</td>
+          <td class="text-center">{{ R_endowment }}</td>
+        </tr>
+        <tr>
+          <td>Task Income</td>
+          <td class="text-center">+ {{ R_task_income}}</td>
+        </tr>
+        <tr>
+          <td> <strong> Final Earnings </strong> </td>
+          <td class="text-center"> {{R_payoff}} </td>
+        </tr>
+      </table>
+
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}
+
+

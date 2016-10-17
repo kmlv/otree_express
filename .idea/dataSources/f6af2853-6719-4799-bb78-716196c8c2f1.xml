@@ -1,0 +1,1666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Sqlite (Xerial) - db.sqlite3">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+    <schema id="1">
+      <visible>1</visible>
+    </schema>
+    <table id="2" parent="1" name="auth_group"/>
+    <table id="3" parent="1" name="auth_group_permissions"/>
+    <table id="4" parent="1" name="auth_permission"/>
+    <table id="5" parent="1" name="auth_user"/>
+    <table id="6" parent="1" name="auth_user_groups"/>
+    <table id="7" parent="1" name="auth_user_user_permissions"/>
+    <table id="8" parent="1" name="django_admin_log"/>
+    <table id="9" parent="1" name="django_content_type"/>
+    <table id="10" parent="1" name="django_migrations"/>
+    <table id="11" parent="1" name="django_session"/>
+    <table id="12" parent="1" name="otree_browserbotslaunchersessioncode"/>
+    <table id="13" parent="1" name="otree_completedgroupwaitpage"/>
+    <table id="14" parent="1" name="otree_completedsubsessionwaitpage"/>
+    <table id="15" parent="1" name="otree_expectedroomparticipant"/>
+    <table id="16" parent="1" name="otree_failedsessioncreation"/>
+    <table id="17" parent="1" name="otree_globallockmodel"/>
+    <table id="18" parent="1" name="otree_pagecompletion"/>
+    <table id="19" parent="1" name="otree_pagetimeout"/>
+    <table id="20" parent="1" name="otree_participant"/>
+    <table id="21" parent="1" name="otree_participantlockmodel"/>
+    <table id="22" parent="1" name="otree_participantroomvisit"/>
+    <table id="23" parent="1" name="otree_participanttoplayerlookup"/>
+    <table id="24" parent="1" name="otree_roomtosession"/>
+    <table id="25" parent="1" name="otree_session"/>
+    <table id="26" parent="1" name="otree_undefinedformmodel"/>
+    <table id="27" parent="1" name="payment_info_group"/>
+    <table id="28" parent="1" name="payment_info_player"/>
+    <table id="29" parent="1" name="payment_info_subsession"/>
+    <table id="30" parent="1" name="PTT_expression_group"/>
+    <table id="31" parent="1" name="PTT_expression_player"/>
+    <table id="32" parent="1" name="PTT_expression_subsession"/>
+    <table id="33" parent="1" name="sqlite_sequence"/>
+    <table id="34" parent="1" name="zFake_searchTask_group"/>
+    <table id="35" parent="1" name="zFake_searchTask_player"/>
+    <table id="36" parent="1" name="zFake_searchTask_subsession"/>
+    <column id="37" parent="2" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="38" parent="2" name="name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(80)(0,-1)|12</data-type>
+    </column>
+    <index id="39" parent="2" name="sqlite_autoindex_auth_group_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>name</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="40" parent="2">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="41" parent="3" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="42" parent="3" name="group_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="43" parent="3" name="permission_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <index id="44" parent="3" name="sqlite_autoindex_auth_group_permissions_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>group_id
+permission_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="45" parent="3">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="46" parent="3" name="#FAKE_auth_group_permissions_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>group_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_group.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="47" parent="3" name="#FAKE_auth_group_permissions_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>permission_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_permission.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="48" parent="4" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="49" parent="4" name="name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255)(0,-1)|12</data-type>
+    </column>
+    <column id="50" parent="4" name="content_type_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="51" parent="4" name="codename">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    </column>
+    <index id="52" parent="4" name="sqlite_autoindex_auth_permission_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>content_type_id
+codename</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="53" parent="4">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="54" parent="4" name="#FAKE_auth_permission_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>content_type_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.django_content_type.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="55" parent="5" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="56" parent="5" name="password">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(128)(0,-1)|12</data-type>
+    </column>
+    <column id="57" parent="5" name="last_login">
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <column id="58" parent="5" name="is_superuser">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="59" parent="5" name="username">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(30)(0,-1)|12</data-type>
+    </column>
+    <column id="60" parent="5" name="first_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(30)(0,-1)|12</data-type>
+    </column>
+    <column id="61" parent="5" name="last_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(30)(0,-1)|12</data-type>
+    </column>
+    <column id="62" parent="5" name="email">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(254)(0,-1)|12</data-type>
+    </column>
+    <column id="63" parent="5" name="is_staff">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="64" parent="5" name="is_active">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="65" parent="5" name="date_joined">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <index id="66" parent="5" name="sqlite_autoindex_auth_user_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>username</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="67" parent="5">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="68" parent="6" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="69" parent="6" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="70" parent="6" name="group_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <index id="71" parent="6" name="sqlite_autoindex_auth_user_groups_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>user_id
+group_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="72" parent="6">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="73" parent="6" name="#FAKE_auth_user_groups_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>user_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="74" parent="6" name="#FAKE_auth_user_groups_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>group_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_group.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="75" parent="7" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="76" parent="7" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="77" parent="7" name="permission_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <index id="78" parent="7" name="sqlite_autoindex_auth_user_user_permissions_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>user_id
+permission_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="79" parent="7">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="80" parent="7" name="#FAKE_auth_user_user_permissions_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>user_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="81" parent="7" name="#FAKE_auth_user_user_permissions_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>permission_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_permission.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="82" parent="8" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="83" parent="8" name="action_time">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <column id="84" parent="8" name="user_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="85" parent="8" name="content_type_id">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="86" parent="8" name="object_id">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="87" parent="8" name="object_repr">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    </column>
+    <column id="88" parent="8" name="action_flag">
+      <mandatory>1</mandatory>
+      <data-type>SMALLINT UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="89" parent="8" name="change_message">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <key id="90" parent="8">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="91" parent="8" name="#FAKE_django_admin_log_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>user_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.auth_user.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="92" parent="8" name="#FAKE_django_admin_log_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>content_type_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.django_content_type.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="93" parent="9" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="94" parent="9" name="app_label">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    </column>
+    <column id="95" parent="9" name="model">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    </column>
+    <index id="96" parent="9" name="sqlite_autoindex_django_content_type_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>app_label
+model</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="97" parent="9">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="98" parent="10" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="99" parent="10" name="app">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255)(0,-1)|12</data-type>
+    </column>
+    <column id="100" parent="10" name="name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255)(0,-1)|12</data-type>
+    </column>
+    <column id="101" parent="10" name="applied">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <key id="102" parent="10">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="103" parent="11" name="session_key">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(40)(0,-1)|12</data-type>
+    </column>
+    <column id="104" parent="11" name="session_data">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="105" parent="11" name="expire_date">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <index id="106" parent="11" name="django_session_de54fa62">
+      <columns>expire_date</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="107" parent="11">
+      <columns>session_key</columns>
+      <primary>1</primary>
+    </key>
+    <column id="108" parent="12" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="109" parent="12" name="code">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(10)(0,-1)|12</data-type>
+    </column>
+    <column id="110" parent="12" name="is_only_record">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <index id="111" parent="12" name="sqlite_autoindex_otree_browserbotslaunchersessioncode_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>is_only_record</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="112" parent="12">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="113" parent="13" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="114" parent="13" name="page_index">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="115" parent="13" name="session_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="116" parent="13" name="group_pk">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="117" parent="13" name="fully_completed">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <index id="118" parent="13" name="sqlite_autoindex_otree_completedgroupwaitpage_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>page_index
+session_id
+group_pk</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="119" parent="13" name="otree_completedgroupwaitpage_page_index_d00deb7836130bf_idx">
+      <columns>page_index
+session_id
+group_pk</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="120" parent="13">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="121" parent="13" name="#FAKE_otree_completedgroupwaitpage_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="122" parent="14" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="123" parent="14" name="page_index">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="124" parent="14" name="session_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="125" parent="14" name="fully_completed">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <index id="126" parent="14" name="sqlite_autoindex_otree_completedsubsessionwaitpage_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>page_index
+session_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="127" parent="14" name="otree_completedsubsessionwaitpage_page_index_21c6eda8e77302f4_idx">
+      <columns>page_index
+session_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="128" parent="14">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="129" parent="14" name="#FAKE_otree_completedsubsessionwaitpage_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="130" parent="15" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="131" parent="15" name="room_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(50)(0,-1)|12</data-type>
+    </column>
+    <column id="132" parent="15" name="participant_label">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    </column>
+    <index id="133" parent="15" name="sqlite_autoindex_otree_expectedroomparticipant_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>room_name
+participant_label</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="134" parent="15">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="135" parent="16" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="136" parent="16" name="pre_create_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(100)(0,-1)|12</data-type>
+    </column>
+    <column id="137" parent="16" name="message">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <column id="138" parent="16" name="traceback">
+      <mandatory>1</mandatory>
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <index id="139" parent="16" name="otree_failedsessioncreation_8910630c">
+      <columns>pre_create_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="140" parent="16">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="141" parent="17" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="142" parent="17" name="locked">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <key id="143" parent="17">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="144" parent="18" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="145" parent="18" name="app_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <column id="146" parent="18" name="page_index">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="147" parent="18" name="page_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <column id="148" parent="18" name="time_stamp">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="149" parent="18" name="seconds_on_page">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="150" parent="18" name="subsession_pk">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="151" parent="18" name="participant_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="152" parent="18" name="session_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="153" parent="18" name="auto_submitted">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <key id="154" parent="18">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="155" parent="18" name="#FAKE_otree_pagecompletion_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>participant_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_participant.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="156" parent="18" name="#FAKE_otree_pagecompletion_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="157" parent="19" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="158" parent="19" name="participant_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="159" parent="19" name="page_index">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="160" parent="19" name="expiration_time">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <index id="161" parent="19" name="otree_pagetimeout_participant_id_76ff6edec6870726_idx">
+      <columns>participant_id
+page_index</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="162" parent="19">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="163" parent="19" name="#FAKE_otree_pagetimeout_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>participant_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_participant.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="164" parent="20" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="165" parent="20" name="session_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="166" parent="20" name="vars">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="167" parent="20" name="label">
+      <data-type>VARCHAR(50)(0,-1)|12</data-type>
+    </column>
+    <column id="168" parent="20" name="id_in_session">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="169" parent="20" name="exclude_from_data_analysis">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="170" parent="20" name="time_started">
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <column id="171" parent="20" name="mturk_assignment_id">
+      <data-type>VARCHAR(50)(0,-1)|12</data-type>
+    </column>
+    <column id="172" parent="20" name="mturk_worker_id">
+      <data-type>VARCHAR(50)(0,-1)|12</data-type>
+    </column>
+    <column id="173" parent="20" name="start_order">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="174" parent="20" name="_index_in_subsessions">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="175" parent="20" name="_index_in_pages">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="176" parent="20" name="_waiting_for_ids">
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <column id="177" parent="20" name="code">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(16)(0,-1)|12</data-type>
+    </column>
+    <column id="178" parent="20" name="last_request_succeeded">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="179" parent="20" name="visited">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="180" parent="20" name="ip_address">
+      <data-type>CHAR(39)(0,-1)|12</data-type>
+    </column>
+    <column id="181" parent="20" name="_last_page_timestamp">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="182" parent="20" name="_last_request_timestamp">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="183" parent="20" name="is_on_wait_page">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="184" parent="20" name="_current_page_name">
+      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    </column>
+    <column id="185" parent="20" name="_current_app_name">
+      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    </column>
+    <column id="186" parent="20" name="_round_number">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="187" parent="20" name="_current_form_page_url">
+      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    </column>
+    <column id="188" parent="20" name="_max_page_index">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="189" parent="20" name="_browser_bot_finished">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="190" parent="20" name="_is_bot">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <index id="191" parent="20" name="otree_participant_session_id_1f9a81e1bfc87cb3_idx">
+      <columns>session_id
+mturk_worker_id
+mturk_assignment_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="192" parent="20" name="otree_participant_4fd6cbce">
+      <columns>start_order</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="193" parent="20" name="otree_participant_c8740961">
+      <columns>_index_in_pages</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="194" parent="20" name="sqlite_autoindex_otree_participant_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>code</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="195" parent="20" name="otree_participant_07715e6d">
+      <columns>visited</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="196" parent="20">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="197" parent="20" name="#FAKE_otree_participant_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="198" parent="21" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="199" parent="21" name="participant_code">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(16)(0,-1)|12</data-type>
+    </column>
+    <column id="200" parent="21" name="locked">
+      <mandatory>1</mandatory>
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <index id="201" parent="21" name="sqlite_autoindex_otree_participantlockmodel_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>participant_code</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="202" parent="21">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="203" parent="22" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="204" parent="22" name="room_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(50)(0,-1)|12</data-type>
+    </column>
+    <column id="205" parent="22" name="participant_label">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(200)(0,-1)|12</data-type>
+    </column>
+    <column id="206" parent="22" name="tab_unique_id">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(20)(0,-1)|12</data-type>
+    </column>
+    <column id="207" parent="22" name="last_updated">
+      <mandatory>1</mandatory>
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <index id="208" parent="22" name="sqlite_autoindex_otree_participantroomvisit_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>tab_unique_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="209" parent="22">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="210" parent="23" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="211" parent="23" name="participant_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="212" parent="23" name="page_index">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="213" parent="23" name="app_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <column id="214" parent="23" name="player_pk">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="215" parent="23" name="url">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <index id="216" parent="23" name="sqlite_autoindex_otree_participanttoplayerlookup_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>participant_id
+page_index</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="217" parent="23" name="otree_participanttoplayerlookup_participant_id_ac2c11b8ba61258_idx">
+      <columns>participant_id
+page_index</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="218" parent="23">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="219" parent="23" name="#FAKE_otree_participanttoplayerlookup_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>participant_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_participant.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="220" parent="24" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="221" parent="24" name="room_name">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(255)(0,-1)|12</data-type>
+    </column>
+    <column id="222" parent="24" name="session_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <index id="223" parent="24" name="sqlite_autoindex_otree_roomtosession_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>room_name</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="224" parent="24">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="225" parent="24" name="#FAKE_otree_roomtosession_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="226" parent="25" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="227" parent="25" name="config">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="228" parent="25" name="vars">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="229" parent="25" name="label">
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <column id="230" parent="25" name="experimenter_name">
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <column id="231" parent="25" name="ready">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="232" parent="25" name="code">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(16)(0,-1)|12</data-type>
+    </column>
+    <column id="233" parent="25" name="time_scheduled">
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <column id="234" parent="25" name="time_started">
+      <data-type>DATETIME(0,-1)|12</data-type>
+    </column>
+    <column id="235" parent="25" name="mturk_HITId">
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <column id="236" parent="25" name="mturk_HITGroupId">
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <column id="237" parent="25" name="mturk_qualification_type_id">
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <column id="238" parent="25" name="mturk_num_participants">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="239" parent="25" name="mturk_sandbox">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="240" parent="25" name="archived">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="241" parent="25" name="comment">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="242" parent="25" name="_anonymous_code">
+      <mandatory>1</mandatory>
+      <data-type>VARCHAR(10)(0,-1)|12</data-type>
+    </column>
+    <column id="243" parent="25" name="_pre_create_id">
+      <data-type>VARCHAR(300)(0,-1)|12</data-type>
+    </column>
+    <column id="244" parent="25" name="use_browser_bots">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="245" parent="25" name="_cannot_restart_bots">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="246" parent="25" name="_bots_finished">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="247" parent="25" name="_bots_errored">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="248" parent="25" name="_bot_case_number">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="249" parent="25" name="is_demo">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="250" parent="25" name="has_bots">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <index id="251" parent="25" name="sqlite_autoindex_otree_session_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>code</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="252" parent="25" name="otree_session_0d111f56">
+      <columns>archived</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="253" parent="25" name="otree_session_94f5afa9">
+      <columns>_anonymous_code</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="254" parent="25" name="otree_session_efe34866">
+      <columns>_pre_create_id</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="255" parent="25">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="256" parent="26" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <key id="257" parent="26">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="258" parent="27" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="259" parent="27" name="id_in_subsession">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="260" parent="27" name="session_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="261" parent="27" name="round_number">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="262" parent="27" name="subsession_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <index id="263" parent="27" name="payment_info_group_f76ba3c0">
+      <columns>id_in_subsession</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="264" parent="27" name="payment_info_group_fbc8bbe3">
+      <columns>round_number</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="265" parent="27">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="266" parent="27" name="#FAKE_payment_info_group_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="267" parent="27" name="#FAKE_payment_info_group_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>subsession_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.payment_info_subsession.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="268" parent="28" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="269" parent="28" name="id_in_group">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="270" parent="28" name="payoff">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="271" parent="28" name="participant_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="272" parent="28" name="session_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="273" parent="28" name="round_number">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="274" parent="28" name="subsession_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="275" parent="28" name="group_id">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <index id="276" parent="28" name="payment_info_player_055b3612">
+      <columns>id_in_group</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="277" parent="28" name="payment_info_player_fbc8bbe3">
+      <columns>round_number</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="278" parent="28">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="279" parent="28" name="#FAKE_payment_info_player_4">
+      <name-surrogate>1</name-surrogate>
+      <columns>participant_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_participant.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="280" parent="28" name="#FAKE_payment_info_player_3">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="281" parent="28" name="#FAKE_payment_info_player_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>subsession_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.payment_info_subsession.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="282" parent="28" name="#FAKE_payment_info_player_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>group_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.payment_info_group.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="283" parent="29" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="284" parent="29" name="session_id">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="285" parent="29" name="round_number">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <index id="286" parent="29" name="payment_info_subsession_fbc8bbe3">
+      <columns>round_number</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="287" parent="29">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="288" parent="29" name="#FAKE_payment_info_subsession_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="289" parent="30" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="290" parent="30" name="id_in_subsession">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="291" parent="30" name="session_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="292" parent="30" name="round_number">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="293" parent="30" name="take_rate">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="294" parent="30" name="expected_take_rate">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="295" parent="30" name="treatment">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="296" parent="30" name="value_type">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="297" parent="30" name="elicitation_method">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="298" parent="30" name="BDM_type">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="299" parent="30" name="BDM_lolimit">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="300" parent="30" name="BDM_uplimit">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="301" parent="30" name="SOP_price">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="302" parent="30" name="subsession_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="303" parent="30" name="money_taken">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="304" parent="30" name="BDM_list_step">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="305" parent="30" name="b_message">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="306" parent="30" name="b_value">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="307" parent="30" name="message_price">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="308" parent="30" name="msg_sent">
+      <data-type>BOOL(0,-1)|4</data-type>
+    </column>
+    <column id="309" parent="30" name="SOP_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="310" parent="30" name="time_RolesIncome">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="311" parent="30" name="time_ADecides">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="312" parent="30" name="time_BPredicts">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="313" parent="30" name="time_TakeResults">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="314" parent="30" name="time_WriteMessage">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="315" parent="30" name="time_ElicitBdmCont">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="316" parent="30" name="time_ElicitBdmList">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="317" parent="30" name="time_ElicitSOP">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="318" parent="30" name="time_BdmResults">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="319" parent="30" name="time_DisplayMessageToA">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="320" parent="30" name="time_DisplayMessagesToR">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="321" parent="30" name="time_Results">
+      <data-type>TEXT(0,-1)|12</data-type>
+    </column>
+    <column id="322" parent="30" name="list_price_1_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="323" parent="30" name="list_price_2_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="324" parent="30" name="list_price_3_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="325" parent="30" name="list_price_4_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="326" parent="30" name="list_price_5_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="327" parent="30" name="list_price_6_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="328" parent="30" name="list_price_7_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="329" parent="30" name="list_price_8_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="330" parent="30" name="list_price_9_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="331" parent="30" name="list_price_10_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="332" parent="30" name="list_price_11_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="333" parent="30" name="list_price_12_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="334" parent="30" name="list_price_13_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="335" parent="30" name="list_price_14_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="336" parent="30" name="list_price_15_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="337" parent="30" name="list_price_16_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="338" parent="30" name="list_price_17_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="339" parent="30" name="list_price_18_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="340" parent="30" name="list_price_19_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <column id="341" parent="30" name="list_price_0_yes">
+      <data-type>VARCHAR(500)(0,-1)|12</data-type>
+    </column>
+    <index id="342" parent="30" name="PTT_expression_group_f76ba3c0">
+      <columns>id_in_subsession</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="343" parent="30" name="PTT_expression_group_fbc8bbe3">
+      <columns>round_number</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="344" parent="30">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="345" parent="30" name="#FAKE_PTT_expression_group_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="346" parent="30" name="#FAKE_PTT_expression_group_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>subsession_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.PTT_expression_subsession.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="347" parent="31" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="348" parent="31" name="id_in_group">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="349" parent="31" name="payoff">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="350" parent="31" name="participant_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="351" parent="31" name="session_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="352" parent="31" name="round_number">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="353" parent="31" name="endowment">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="354" parent="31" name="task_income">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="355" parent="31" name="available_income0">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="356" parent="31" name="others_task_income">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="357" parent="31" name="available_income1">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="358" parent="31" name="subsession_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="359" parent="31" name="group_id">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <index id="360" parent="31" name="PTT_expression_player_055b3612">
+      <columns>id_in_group</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="361" parent="31" name="PTT_expression_player_fbc8bbe3">
+      <columns>round_number</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="362" parent="31">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="363" parent="31" name="#FAKE_PTT_expression_player_4">
+      <name-surrogate>1</name-surrogate>
+      <columns>participant_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_participant.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="364" parent="31" name="#FAKE_PTT_expression_player_3">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="365" parent="31" name="#FAKE_PTT_expression_player_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>subsession_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.PTT_expression_subsession.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="366" parent="31" name="#FAKE_PTT_expression_player_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>group_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.PTT_expression_group.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="367" parent="32" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="368" parent="32" name="session_id">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="369" parent="32" name="round_number">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <index id="370" parent="32" name="PTT_expression_subsession_fbc8bbe3">
+      <columns>round_number</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="371" parent="32">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="372" parent="32" name="#FAKE_PTT_expression_subsession_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="373" parent="33" name="name">
+      <data-type>(0,-1)|12</data-type>
+    </column>
+    <column id="374" parent="33" name="seq">
+      <data-type>(0,-1)|12</data-type>
+    </column>
+    <column id="375" parent="34" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="376" parent="34" name="id_in_subsession">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="377" parent="34" name="session_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="378" parent="34" name="round_number">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="379" parent="34" name="b_willing">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="380" parent="34" name="subsession_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <index id="381" parent="34" name="zFake_searchTask_group_f76ba3c0">
+      <columns>id_in_subsession</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="382" parent="34" name="zFake_searchTask_group_fbc8bbe3">
+      <columns>round_number</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="383" parent="34">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="384" parent="34" name="#FAKE_zFake_searchTask_group_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="385" parent="34" name="#FAKE_zFake_searchTask_group_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>subsession_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.zFake_searchTask_subsession.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="386" parent="35" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="387" parent="35" name="id_in_group">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="388" parent="35" name="payoff">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="389" parent="35" name="participant_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="390" parent="35" name="session_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="391" parent="35" name="round_number">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <column id="392" parent="35" name="task_income">
+      <data-type>DECIMAL(0,-1)|6</data-type>
+    </column>
+    <column id="393" parent="35" name="subsession_id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="394" parent="35" name="group_id">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <index id="395" parent="35" name="zFake_searchTask_player_055b3612">
+      <columns>id_in_group</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <index id="396" parent="35" name="zFake_searchTask_player_fbc8bbe3">
+      <columns>round_number</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="397" parent="35">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="398" parent="35" name="#FAKE_zFake_searchTask_player_4">
+      <name-surrogate>1</name-surrogate>
+      <columns>participant_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_participant.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="399" parent="35" name="#FAKE_zFake_searchTask_player_3">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="400" parent="35" name="#FAKE_zFake_searchTask_player_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>subsession_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.zFake_searchTask_subsession.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="401" parent="35" name="#FAKE_zFake_searchTask_player_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>group_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.zFake_searchTask_group.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="402" parent="36" name="id">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="403" parent="36" name="session_id">
+      <data-type>INTEGER(0,-1)|4</data-type>
+    </column>
+    <column id="404" parent="36" name="round_number">
+      <data-type>INTEGER UNSIGNED(0,-1)|4</data-type>
+    </column>
+    <index id="405" parent="36" name="zFake_searchTask_subsession_fbc8bbe3">
+      <columns>round_number</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="406" parent="36">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="407" parent="36" name="#FAKE_zFake_searchTask_subsession_1">
+      <name-surrogate>1</name-surrogate>
+      <columns>session_id</columns>
+      <deferrable>1</deferrable>
+      <initially-deferred>1</initially-deferred>
+      <ref-key>~.otree_session.#1</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+  </database-model>
+</dataSource>

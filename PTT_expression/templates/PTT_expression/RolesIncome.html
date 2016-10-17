@@ -1,0 +1,45 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Role and Income
+{% endblock %}
+
+{% block content %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+    {% formfield  group.time_RolesIncome with label=None  %}
+
+    {% if group.treatment != 'TP-R' %}
+        <p> You have received {{player.endowment}} of endowment and earned {{player.task_income}} in the search tasks. </p>
+
+        <p> Your available income is {{player.available_income0}} </p>
+
+        <p> Your role is {{player.role}} </p>
+
+    {% elif group.treatment == 'TP-R' %}
+        <p> You have received {{player.endowment}} of endowment and earned {{player.task_income}} in the search tasks. </p>
+
+        <p> Your role is {{player.role}} (Reader). </p>
+
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}
+
+
+{#<button type="button" class="btn btn-default" data-toggle="collapse" data-target="#instructions">#}
+{#Show Instructions#}
+{#</button>#}
+{##}
+{#<div id="instructions" class="collapse">#}
+{##}
+{#{% include "gift_exchange_sm/Instructions_Emp.html" %}#}
+{#{% include "gift_exchange_sm/Instructions_Wor.html" %}#}
+{#</div>#}

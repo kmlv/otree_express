@@ -1,0 +1,62 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    A makes a decision
+{% endblock %}
+
+{% block scripts %}
+
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+    <script>
+        jQuery(document).ready(function ($) {
+            $("#slider")
+                .slider({
+                    start: function () {
+                        $(this).children(".ui-slider-handle").show();
+                        // removes the start listener after its first calling
+                        // probably not necessary
+                        $(this).slider({start:undefined});
+                    },
+                    slide: function (event, ui) {
+                        $("#slider_val").text(ui.value);
+                    },
+                    stop: function (event, ui) {
+                        $("#id_take_rate").val(ui.value);
+                    }})
+                .children(".ui-slider-handle").hide();
+        });
+    </script>
+
+
+{% endblock %}
+
+{% block content %}
+
+    {% formfield  group.time_ADecides with label=None  %}
+
+    <p> Your role is {{player.role}}. </p>
+    <p> You are given the authority to transfer money from B's account to your own account. </p>
+    <p> The maximum amount you can collect is what B has earned as income in the search tasks
+        ({{player.others_task_income}}). </p>
+    <p> Use the slider to set the percentage of B's income you want to transfer to your account. </p>
+
+    <div>
+        <div style="text-align: center">you are taking: <span id="slider_val">_</span>%</div>
+        <div><span class="pull-left">0%</span><span class="pull-right">100%</span></div>
+        <div id="slider" style="clear: both;"></div>
+        <input type="hidden" name="take_rate" value="5" id="id_take_rate"/>
+    </div>
+
+    {% formfield group.take_rate with label=None %}
+
+{#    {% formfield  group.take_rate with label=None  %}#}
+
+    {% next_button %}
+
+{% endblock %}

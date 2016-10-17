@@ -1,0 +1,67 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags index %}
+
+{% block title %}
+    Value of Message
+{% endblock %}
+
+{% block scripts %}
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+{% endblock %}
+
+{% block content %}
+        {# this records the timestamp #}
+        {% formfield  group.time_ElicitBdmList with label=None  %}
+
+        {% if group.value_type == 'WTP' %}
+
+            <p> For each of the prices you see in the table below, respond the following question: </p>
+            <p> Would you like to pay that price for sending your message to
+                {% if group.treatment == 'DM' %} your counterpart, player A?
+                {% elif group.treatment == 'TP' %} the third party reader?
+                {% endif %} </p>
+
+        {% elif group.value_type == 'WTA' %}
+
+            <p> For each of the amounts you see in the table below, respond the following question: </p>
+            <p> Would you like to receive that amount for NOT sending your message to
+                {% if group.treatment == 'DM' %} your counterpart, player A?
+                {% elif group.treatment == 'TP' %} the third party reader?
+                {% endif %} </p>
+
+        {% endif %}
+
+    <table class="table">
+        <tr>
+            <th> {% if group.value_type == 'WTP' %} Price
+                 {% elif group.value_type == 'WTA' %} Amount {% endif %}
+            </th>
+
+            <th> {% if group.value_type == 'WTP' %} Willing to pay
+                 {% elif group.value_type == 'WTA' %} Willing to receive {% endif %}
+            </th>
+
+        </tr>
+          {% for field in form|allButLast %}
+
+        <tr>
+            <td> Price: {{ prices|index:forloop.counter0 }}  </td>
+            <td> {% formfield field with label=None %} </td>
+        </tr>
+         {% endfor %}
+    </table>
+
+
+
+    {% next_button %}
+
+{% endblock %}
+
+
+{#                    {% formfield group.'list_price_{0}_yes'.format(i) with label=None %}#}
+{#                    {% formfield group.list_price_1_yes with label=None %}#}

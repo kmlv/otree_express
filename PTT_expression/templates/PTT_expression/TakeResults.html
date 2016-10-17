@@ -1,0 +1,32 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Take Results
+{% endblock %}
+
+{% block content %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+    {% formfield  group.time_TakeResults with label=None  %}
+
+    {% if player.role == 'A' %}
+
+        <p> You transferred {{ group.money_taken }} to your own account </p>
+        <p> Your available income is {{ player.available_income1 }} </p>
+
+    {% elif player.role == 'B' %}
+
+        <p> Player A transferred {{ group.money_taken }} to his/her own account </p>
+        <p> Your available income is {{ player.available_income1 }} </p>
+
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}

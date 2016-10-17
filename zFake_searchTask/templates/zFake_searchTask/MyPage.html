@@ -1,0 +1,23 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Fake income generating
+{% endblock %}
+
+{% block content %}
+
+    <p> This is a fake/testing app that replaces a real effort task. It generates task_income variable </p>
+    <p> it closes in 2 seconds </p>
+    <!--
+Documentation on how to write a django template here:
+https://docs.djangoproject.com/en/1.8/ref/templates/language/
+
+Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
+http://getbootstrap.com/components/
+
+-->
+
+    {% next_button %}
+
+{% endblock %}

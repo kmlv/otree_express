@@ -1,0 +1,20 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Trust Game: A sends money
+{% endblock %}
+
+{% block content %}
+
+    {% include 'my_trust/Instructions.html' %}
+
+    <p>
+    You are Participant A. You have {{Constants.endowment}}.
+    </p>
+
+    {% formfield group.sent_amount with label="Money sent to player B" %}
+
+    {% next_button %}
+
+{% endblock %}

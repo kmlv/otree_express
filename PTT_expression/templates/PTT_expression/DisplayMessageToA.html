@@ -1,0 +1,31 @@
+{% extends "global/Base.html" %} {% load staticfiles otree_tags %}
+
+{% block title %} Message from player B {% endblock %}
+
+{% block content %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+    {% formfield  group.time_DisplayMessageToA with label=None  %}
+
+    {% if group.b_message == null or group.b_message == Null %}
+        <p> Player B was unable to send his/her message.</p>
+
+    {% else %}
+        <p>Player B sent this message to you</p>
+
+        <div class="panel panel-default" style="margin-bottom:10px">
+            <div class="panel-body">
+                <p><em>"{{group.b_message}}"</em></p>
+            </div>
+        </div>
+
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}

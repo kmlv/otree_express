@@ -1,0 +1,58 @@
+{% extends "global/Base.html" %} {% load staticfiles otree_tags %}
+
+{% block title %} Message from player B {% endblock %}
+
+{% block content %}
+
+    {# this records the timestamp #}
+    {% formfield  group.time_DisplayMessagesToR with label=None  %}
+
+{#    {% if group.b_message == null or group.b_message == Null %}#}
+{#        <p> Player B was unable to send his/her message.</p>#}
+{#    {% else %}#}
+{#        <p>Player B sent this message to you</p>#}
+{#        <div class="panel panel-default" style="margin-bottom:10px">#}
+{#            <div class="panel-body">#}
+{#                <p><em>"{{group.b_message}}"</em></p>#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endif %}#}
+
+<table class="table">
+	{% for msg in msg_list %}
+        <tr>
+			<td> {{ msg }} </td>
+			<td align="right">
+				<button class="accept_button btn"> OK </button>
+			</td>
+		</tr>
+    {% endfor %}
+	</table>
+
+	<div id="next_wrapper" title="Accept all things to continue">
+		{% next_button %}
+	</div>
+
+	<script type="text/javascript">
+		window.onload = function () {
+            document.getElementById("arrive_time").value = (new Date()).toISOString();
+			var buttons_pressed = 0;
+			document.querySelector("#next_wrapper input").disabled = true
+			var buttons = document.getElementsByClassName("accept_button");
+			for (var index = 0; index < buttons.length; index++) {
+				buttons[index].onclick = function (event) {
+					event.preventDefault();
+					this.style.backgroundColor = "green";
+					this.disabled = true;
+					if (++buttons_pressed === buttons.length) {
+						document.querySelector("#next_wrapper input").disabled = false;
+					}
+				}
+			}
+		}
+	</script>
+
+{% endblock %}
+
+
+

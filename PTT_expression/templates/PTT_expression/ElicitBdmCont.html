@@ -1,0 +1,58 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Value of Message
+{% endblock %}
+
+{% block content %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+    {% formfield  group.time_ElicitBdmCont with label=None  %}
+
+    <p> Your counterpart, player A, has transferred {{group.take_rate}}% of your task income
+        ({{player.task_income}}) to his/her own account. </p>
+    <p> Your available earnings are now {{player.available_income1}} </p>
+
+    {% if group.value_type == 'WTP' %}
+
+        <p> What is the maximum amount you would be willing to pay to send the message you wrote to
+          {% if group.treatment == 'DM' %} your counterpart A?
+          {% elif group.treatment == 'TP' %} a reader in the room (not your counterpart A)?
+          {% endif %}
+        </p>
+
+        {% formfield group.b_value with label="Willingness to pay (in dollars and cents)" %}
+
+        <p>The actual price of sending your message will be displayed on the next screen.</p>
+
+    {% elif group.value_type == 'WTA' %}
+
+        <p> You have the right to send your written message to
+          {% if group.treatment == 'DM' %} your counterpart A.
+          {% elif group.treatment == 'TP' %} someone else in the room (a reader).
+          {% endif %} </p>
+        <p> What is the minimum amount you would be willing to accept in exchange of not sending that message to
+          {% if group.treatment == 'DM' %} your counterpart A?
+          {% elif group.treatment == 'TP' %} someone else in the room (a reader)?
+          {% endif %}
+        </p>
+
+        {% formfield group.b_value with label="Willingness to accept (in dollars and cents)" %}
+
+        <p>The actual amount you would receive for not sending your message will be displayed on the next screen.</p>
+
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}
+
+
+
+
