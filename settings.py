@@ -156,6 +156,25 @@ SESSION_CONFIGS = [
         'debug': True
     },
     {
+        'name': 'PTT_expression_13_paid',
+        'display_name': "PTT Expression 14 subjects only paid treatments",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 13,
+        'targetIncome': [9],
+        'num_readers': 1,
+        'reader_endowment': [12],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end']           , 'end': [3, 4]},
+{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ':   None, 'Met_par': [0.9]                , 'end': [6, 3]},  # end or av_inc in Met_par[1] and step_size in Met_par[1]
+{'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.25]  , 'end': [2, 4]},
+{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'av_inc']        , 'end': [3, 4]},
+{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ':   None, 'Met_par': [1.3]                , 'end': [6, 3]},
+{'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.25]     , 'end': [2, 4]},
+        ],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
         'name': 'PTT_expression_BDM_CONT_WTP',
         'display_name': "PTT_expression_BDM_CONT_WTP",
         'real_world_currency_per_point': 1,

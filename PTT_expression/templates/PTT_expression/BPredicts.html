@@ -5,22 +5,60 @@
     B guesses
 {% endblock %}
 
-{% block content %}
+{% block scripts %}
 
-    {# this records the timestamp #}
     <script type="text/javascript">
             window.onload = function () {
                 document.getElementById("arrive_time").value = (new Date()).toISOString();
             }
     </script>
-    {% formfield  group.time_BPredicts with label=None  %}
 
+    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
+
+    <script>
+        jQuery(document).ready(function ($) {
+            $("#slider")
+                .slider({
+                    start: function () {
+                        $(this).children(".ui-slider-handle").show();
+                        // removes the start listener after its first calling
+                        // probably not necessary
+                        $(this).slider({start:undefined});
+                    },
+                    slide: function (event, ui) {
+                        $("#slider_val").text(ui.value);
+                    },
+                    stop: function (event, ui) {
+                        $("#id_expected_take_rate").val(ui.value);
+                    }})
+                .children(".ui-slider-handle").hide();
+        });
+    </script>
+
+{% endblock %}
+
+
+{% block styles %}
+    <link href="{% static "jquery-ui/jquery-ui.min.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+    {% formfield  group.time_BPredicts with label=None  %}
 
     <p> Your role is {{player.role}}. </p>
     <p> At this moment, your counterpart A is deciding what percentage of your task income ({{player.task_income}})
         to transfer to his/her own account.</p>
     <p> What percentage of your task income do you think A will transfer into his/her own account? </p>
     <p> Use the slider to provide your guess. </p>
+    <p> </p>
+
+    <div style="width: 80%; margin: auto;">
+        <div style="text-align: center">your guess is: <span id="slider_val">_</span>%</div>
+        <div><span class="pull-left">0%</span><span class="pull-right">100%</span></div>
+        <div id="slider" style="clear: both; width: 96%; margin: auto;"></div>
+    </div>
 
     {% formfield  group.expected_take_rate with label=None %}
 

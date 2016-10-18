@@ -18,8 +18,6 @@ questions = """
     -- two buttons?
     -- ask brit
 
-- Slider in A taking rate and B'sp prediction (morgan)
-
 - css template to increase font-size (morgan)
 
 - [kl] check price calculation in TP
@@ -27,8 +25,6 @@ questions = """
 - [kl] text review
 
 - [kl] instructions
-
-- bdm list results
 
 - price in tp is zero
 
@@ -94,15 +90,18 @@ class Subsession(BaseSubsession):
             elif grupo.treatment == 'NM':
                 grupo.message_price = None
             elif grupo.treatment == 'DM' or grupo.treatment == 'TP':
-                if len(grupo.Method_params) == 1:
+                if len(grupo.Method_params) == 1:  # this is when the price is given in the config, not randomly
+                    # generated
                     grupo.message_price = grupo.Method_params[0]
                 else:
                     # this sets as upper limit B's endowment -- but if 'av_inc' is set then the maximum random price,
                     # grupo.message_price is determined dynamically after money has been taken and available income is
                     # calculated
-                    grupo.message_price = random.randrange(0, grupo.endowment[1]) / 100
+                    ul_rnd_price = round(grupo.endowment[1], 2)
+                    grupo.message_price = random.randrange(0, 100 * ul_rnd_price) / 100
+                    print("random price", grupo.message_price)
             else:
-                assert False, " 'treatment' in config is wrong"
+                assert False, " 'treatment' var is incorrectly set in config settings.py"
             i += 1
 
         # adding treatment to reader 'TP-R'
@@ -130,6 +129,7 @@ class Subsession(BaseSubsession):
                        ((grupo.BDM_type is not None and grupo.BDM_lolimit is not None and grupo.BDM_uplimit)
                         or grupo.SOP_price is not None), \
                 "a group in DM or PT does not have the right dictionary in session config"
+
             elif grupo.treatment == 'NM' or grupo.treatment == 'FM' or grupo.treatment == 'TP-R':
                 assert grupo.value_type is None and grupo.elicitation_method is None and \
                        grupo.BDM_type is None and grupo.BDM_lolimit is None and grupo.BDM_uplimit is None and \
@@ -138,24 +138,13 @@ class Subsession(BaseSubsession):
             else:
                 assert False, "treat in config session contains an unspecified treatment"
 
-        # setting list for BDM List
-        # max_size = Constants.max_price_list_size
-        # for grupo in self.get_groups():
-        #     if grupo.BDM_type == 'LIST':
-        #         step = c(self.grupo.BDM_list_step)
-        #         upper_limit = (self.grupo.BDM_uplimit == 'end') * self.player.endowment + \
-        #                       (self.grupo.BDM_uplimit == 'av_inc') * self.player.available_income1
-        #         prices = [i * step for i in range(0, max_size - 1)]  # range(0, max_size) has max_size entries, so we take one
-        #         prices = [p for p in prices if p < upper_limit]
-        #         prices.append(upper_limit)
-        #
-        #         price_list_size = len(prices)
+            print(grupo, "OK treatment config")
 
 
 class Group(BaseGroup):
     # define vars
     take_rate = models.DecimalField(widget=widgets.HiddenInput(), max_digits=5, decimal_places=0, min=0, max=100)
-    expected_take_rate = models.DecimalField(max_digits=5, decimal_places=2, min=0, max=100)
+    expected_take_rate = models.DecimalField(widget=widgets.HiddenInput(), max_digits=5, decimal_places=0, min=0, max=100)
     treatment = models.TextField()
     money_taken = models.CurrencyField()
     value_type = models.TextField()
@@ -283,3 +272,17 @@ class Player(BasePlayer):
 #     widget=widgets.HiddenInput(attrs={'id': 'time_{}'.format(page)}))
 #
 # # time_ = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'time_temp'}))
+
+
+# setting list for BDM List
+# max_size = Constants.max_price_list_size
+# for grupo in self.get_groups():
+#     if grupo.BDM_type == 'LIST':
+#         step = c(self.grupo.BDM_list_step)
+#         upper_limit = (self.grupo.BDM_uplimit == 'end') * self.player.endowment + \
+#                       (self.grupo.BDM_uplimit == 'av_inc') * self.player.available_income1
+#         prices = [i * step for i in range(0, max_size - 1)]  # range(0, max_size) has max_size entries, so we take one
+#         prices = [p for p in prices if p < upper_limit]
+#         prices.append(upper_limit)
+#
+#         price_list_size = len(prices)

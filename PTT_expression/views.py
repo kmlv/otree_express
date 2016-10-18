@@ -47,9 +47,11 @@ class ADecides(Page):
             else:
                 assert False, 'there is an error in available incomes'
 
-        # set price when upper limit of BDM is the interim payoff
+        # set price when upper limit of BDM is the interim payoff ('av_inc' in configs in settings.py)
         if self.group.BDM_uplimit == 'av_inc':
-            self.group.message_price = random.randrange(0, 100*self.group.get_player_by_id(2).available_income1) / 100
+            ul_rnd_price = round(self.group.get_player_by_id(2).available_income1, 2)
+            self.group.message_price = random.randrange(0, 100 * ul_rnd_price) / 100
+            print("random price", self.group.message_price)
 
 
 class BPredicts(Page):
@@ -145,14 +147,6 @@ class ElicitBdmList(Page):
     # defining b values and whether message is sent or not
     def before_next_page(self):
 
-        for i in range(0, Constants.max_price_list_size):
-            Group.add_to_class('list_price_{0}_yes'.format(i), models.BooleanField(
-                widget=widgets.RadioSelectHorizontal(),
-                choices=['Yes', 'No'],
-                verbose_name='{}'.format(i)
-                )
-            )
-
         # reading responses and puting them in a list
         responses_list = []
         for i in range(0, self.group.price_list_size):
@@ -177,6 +171,10 @@ class ElicitBdmList(Page):
             else:
                 self.group.b_value = 0
         print("b_value", self.group.b_value)
+
+        # random price in BDM list needs to be an element of price list (try with two groups with different price lists)
+        if self.group.BDM_type == 'LIST':
+            self.group.message_price = min(self.group.price_list, key=lambda x: abs(x - self.group.message_price))
 
         # setting boolean whether message is sent or not
         if (self.group.value_type == 'WTP' and self.group.b_value >= self.group.message_price) or \
@@ -204,6 +202,20 @@ class ElicitSOP(Page):
     def is_displayed(self):
         return self.player.role() == 'B' and self.group.elicitation_method == 'SOP'
 
+    def before_next_page(self):
+
+        # setting boolean whether message is sent or not
+        if self.group.value_type == 'WTP':
+            if SOP_yes == 'Yes':
+                self.group.msg_sent = True
+            elif SOP_yes == 'No':
+                self.group.msg_sent = False
+
+        if self.group.value_type == 'WTA':
+            if SOP_yes == 'Yes':
+                self.group.msg_sent = False
+            elif SOP_yes == 'No':
+                self.group.msg_sent = True
 
 
 class DisplayMessageToA(Page):

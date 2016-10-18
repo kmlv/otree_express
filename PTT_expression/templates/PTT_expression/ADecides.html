@@ -35,8 +35,8 @@
         });
     </script>
 
-
 {% endblock %}
+
 
 {% block styles %}
     <link href="{% static "jquery-ui/jquery-ui.min.css" %}" rel="stylesheet">
@@ -51,6 +51,7 @@
     <p> The maximum amount you can collect is what B has earned as income in the search tasks
         ({{player.others_task_income}}). </p>
     <p> Use the slider to set the percentage of B's income you want to transfer to your account. </p>
+    <p> </p>
 
     <div style="width: 80%; margin: auto;">
         <div style="text-align: center">you are taking: <span id="slider_val">_</span>%</div>
@@ -59,8 +60,6 @@
     </div>
 
     {% formfield group.take_rate with label=None %}
-
-{#    {% formfield  group.take_rate with label=None  %}#}
 
     {% next_button %}
 
