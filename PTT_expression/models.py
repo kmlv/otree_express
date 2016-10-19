@@ -203,7 +203,9 @@ class Group(BaseGroup):
                 if p.group.treatment in ['FM', 'NM']:
                     p.payoff = p.available_income1
                 elif p.group.treatment in ['DM', 'TP']:
-                    p.payoff = p.available_income1 - p.group.msg_sent * p.group.message_price
+                    p.payoff = p.available_income1 \
+                               - (p.group.value_type == 'WTP') * p.group.msg_sent * p.group.message_price \
+                               + (p.group.value_type == 'WTA') * (not p.group.msg_sent) * p.group.message_price
             elif p.role() == 'R':
                 p.payoff = p.available_income0
 

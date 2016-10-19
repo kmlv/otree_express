@@ -39,11 +39,18 @@
           <td class="text-center">+ {{group.money_taken}}</td>
           <td class="text-center">- {{group.money_taken}}</td>
         </tr>
-          {% if group.msg_sent == True %}
+          {% if group.msg_sent == True and group.value_type == 'WTP' %}
         <tr >
-          <td>Message Price</td>
+          <td>>Randomly Generated Price</td>
           <td class="text-center">  </td>
           <td class="text-center"> - {{group.message_price}} </td>
+        </tr>
+          {% endif %}
+          {% if group.msg_sent == False and group.value_type == 'WTA' %}
+        <tr >
+          <td>Randomly Generated Compensation</td>
+          <td class="text-center">  </td>
+          <td class="text-center"> + {{group.message_price}} </td>
         </tr>
           {% endif %}
         <tr>
