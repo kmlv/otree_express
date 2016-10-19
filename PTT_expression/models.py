@@ -52,7 +52,7 @@ class Subsession(BaseSubsession):
         print(num_groups)  # OK
 
         # group formation
-        num_partic = self.session.config['num_demo_participants']  # reads number of participants
+        num_partic = self.session.config['num_demo_participants']  # reads number of participants - CHANGE for PRODUCT
         shuf_players = random.sample(range(1, num_partic + 1), num_partic)  # shuffle order of "players IDs"
         grouping = [shuf_players[i:i + 2] for i in range(0, len(shuf_players), 2)]  # splits "IDs" into 2-sized groups
         self.set_group_matrix(grouping)  # assigns grouping
@@ -118,9 +118,21 @@ class Subsession(BaseSubsession):
             for player in grupo.get_players():
                 player.endowment = self.session.config['reader_endowment'][0]
 
-        # Check if Params in session config is congruent with number of participants
+        # Check if number of participants in session config is congruent
         assert num_partic == num_groups * 2 + self.session.config['num_readers'], \
             "num_partic != num_groups*2 + num_redrs"
+
+        # Check if when there are TP treats there is a reader too
+        for grupo in self.get_groups()[0:num_groups]:
+            tp = False
+            if grupo.treatment == 'TP' or tp:
+                tp = True
+            else:
+                tp = False
+            assert tp and self.session.config['num_readers'] >= 1, \
+                "there are tp-groups (reader) and no readers (no tp-groups)"
+
+
 
         # Check if Params in session config is congruent with number of participants
         for grupo in self.get_groups():

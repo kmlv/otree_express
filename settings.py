@@ -257,9 +257,9 @@ SESSION_CONFIGS = [
         'name': 'PTT_express_TP_N2_WTP_BDM_CONT__0_end',
         'display_name': "Third Party, N=2, WTP, BDM Continuous [0, endowment] ",
         'real_world_currency_per_point': 1,
-        'num_demo_participants': 2,
+        'num_demo_participants': 3,
         'targetIncome': [10.3],
-        'num_readers': 0,
+        'num_readers': 1,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
@@ -271,9 +271,9 @@ SESSION_CONFIGS = [
         'name': 'PTT_express_TP_N2_WTP_BDM_LIST__0_av_inc',
         'display_name': "Third Party, N=2, WTP, BDM List [0, available_income] ",
         'real_world_currency_per_point': 1,
-        'num_demo_participants': 2,
+        'num_demo_participants': 3,
         'targetIncome': [10.3],
-        'num_readers': 0,
+        'num_readers': 1,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
@@ -285,9 +285,9 @@ SESSION_CONFIGS = [
         'name': 'PTT_express_TP_N2_WTP_SOP',
         'display_name': "Third Party, N=2, WTP, SOP ",
         'real_world_currency_per_point': 1,
-        'num_demo_participants': 2,
+        'num_demo_participants': 3,
         'targetIncome': [10.3],
-        'num_readers': 0,
+        'num_readers': 1,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
@@ -300,9 +300,9 @@ SESSION_CONFIGS = [
         'name': 'PTT_express_TP_N2_WTA_BDM_CONT__0_end',
         'display_name': "Third Party, N=2, WTA, BDM Continuous [0, endowment] ",
         'real_world_currency_per_point': 1,
-        'num_demo_participants': 2,
+        'num_demo_participants': 3,
         'targetIncome': [10.3],
-        'num_readers': 0,
+        'num_readers': 1,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTA','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
@@ -314,9 +314,9 @@ SESSION_CONFIGS = [
         'name': 'PTT_express_TP_N2_WTA_BDM_LIST__0_av_inc',
         'display_name': "Third Party, N=2, WTA, BDM List [0, available_income] ",
         'real_world_currency_per_point': 1,
-        'num_demo_participants': 2,
+        'num_demo_participants': 3,
         'targetIncome': [10.3],
-        'num_readers': 0,
+        'num_readers': 1,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
@@ -328,9 +328,9 @@ SESSION_CONFIGS = [
         'name': 'PTT_express_TP_N2_WTA_SOP',
         'display_name': "Third Party, N=2, WTA, SOP ",
         'real_world_currency_per_point': 1,
-        'num_demo_participants': 2,
+        'num_demo_participants': 3,
         'targetIncome': [10.3],
-        'num_readers': 0,
+        'num_readers': 1,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
