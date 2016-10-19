@@ -138,6 +138,208 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'PTT_express_FM_n2',
+        'display_name': "Free Message, 2 players",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [12],  # to be extended to a list for when there is more than one readers
+        'Params': [
+        {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
+        ],
+        'app_sequence': ['zFake_searchTask','PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
+        'name': 'PTT_express_NM_n2',
+        'display_name': "No Message, 2 players",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [12],  # to be extended to a list for when there is more than one readers
+        'Params': [
+        {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
+        ],
+        'app_sequence': ['zFake_searchTask','PTT_expression', 'payment_info'],
+        'debug': True
+    },
+# DM WTP BLOCK
+    {
+        'name': 'PTT_express_DM_N2_WTP_BDM_CONT__0_end',
+        'display_name': "Direct Message, N=2, WTP, BDM Continuous [0, endowment] ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'DM', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask','PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
+        'name': 'PTT_express_DM_N2_WTP_BDM_LIST__0_av_inc',
+        'display_name': "Direct Message, N=2, WTP, BDM List [0, available_income] ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
+        'name': 'PTT_express_DM_N2_WTP_SOP',
+        'display_name': "Direct Message, N=2, WTP, SOP ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+# DM WTA BLOCK
+    {
+        'name': 'PTT_express_DM_N2_WTA_BDM_CONT__0_end',
+        'display_name': "Direct Message, N=2, WTA, BDM Continuous [0, endowment] ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'DM', 'val_typ': 'WTA','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask','PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
+        'name': 'PTT_express_DM_N2_WTA_BDM_LIST__0_av_inc',
+        'display_name': "Direct Message, N=2, WTA, BDM List [0, available_income] ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
+        'name': 'PTT_express_DM_N2_WTA_SOP',
+        'display_name': "Direct Message, N=2, WTA, SOP ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+
+# TP WTP BLOCK
+    {
+        'name': 'PTT_express_TP_N2_WTP_BDM_CONT__0_end',
+        'display_name': "Third Party, N=2, WTP, BDM Continuous [0, endowment] ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask','PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
+        'name': 'PTT_express_TP_N2_WTP_BDM_LIST__0_av_inc',
+        'display_name': "Third Party, N=2, WTP, BDM List [0, available_income] ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
+        'name': 'PTT_express_TP_N2_WTP_SOP',
+        'display_name': "Third Party, N=2, WTP, SOP ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+# TP WTA BLOCK
+    {
+        'name': 'PTT_express_TP_N2_WTA_BDM_CONT__0_end',
+        'display_name': "Third Party, N=2, WTA, BDM Continuous [0, endowment] ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'TP', 'val_typ': 'WTA','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask','PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
+        'name': 'PTT_express_TP_N2_WTA_BDM_LIST__0_av_inc',
+        'display_name': "Third Party, N=2, WTA, BDM List [0, available_income] ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
+        'name': 'PTT_express_TP_N2_WTA_SOP',
+        'display_name': "Third Party, N=2, WTA, SOP ",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+{'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+#############
+    {
         'name': 'PTT_expression',
         'display_name': "PTT Expression",
         'real_world_currency_per_point': 1,
