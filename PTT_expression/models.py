@@ -123,15 +123,13 @@ class Subsession(BaseSubsession):
             "num_partic != num_groups*2 + num_redrs"
 
         # Check if when there are TP treats there is a reader too
+        treatment_list = []
+        num_readers = self.session.config['num_readers']
         for grupo in self.get_groups()[0:num_groups]:
-            tp = False
-            if grupo.treatment == 'TP' or tp:
-                tp = True
-            else:
-                tp = False
-            assert tp and self.session.config['num_readers'] >= 1, \
-                "there are tp-groups (reader) and no readers (no tp-groups)"
-
+            treatment_list.append(grupo.treatment)
+        print("treatment_list", treatment_list)
+        assert ('TP' in treatment_list and num_readers >= 1) or ('TP' not in treatment_list and num_readers == 0), \
+        "there are tp-groups (reader) and no readers (no tp-groups)"
 
 
         # Check if Params in session config is congruent with number of participants
