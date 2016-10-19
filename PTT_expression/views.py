@@ -206,15 +206,15 @@ class ElicitSOP(Page):
 
         # setting boolean whether message is sent or not
         if self.group.value_type == 'WTP':
-            if SOP_yes == 'Yes':
+            if self.group.SOP_yes == 'Yes':
                 self.group.msg_sent = True
-            elif SOP_yes == 'No':
+            elif self.group.SOP_yes == 'No':
                 self.group.msg_sent = False
 
         if self.group.value_type == 'WTA':
-            if SOP_yes == 'Yes':
+            if self.group.SOP_yes == 'Yes':
                 self.group.msg_sent = False
-            elif SOP_yes == 'No':
+            elif self.group.SOP_yes == 'No':
                 self.group.msg_sent = True
 
 
