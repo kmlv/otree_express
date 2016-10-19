@@ -167,7 +167,7 @@ class Group(BaseGroup):
     b_message = models.TextField()
     b_value = models.CurrencyField(min=c(0))
     message_price = models.CurrencyField()
-    msg_sent = models.BooleanField()
+    msg_sent = models.BooleanField(initial=0)
     SOP_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal())
     price_list = []
     price_list_size = models.IntegerField()
@@ -200,7 +200,10 @@ class Group(BaseGroup):
             if p.role() == 'A':
                 p.payoff = p.available_income1
             elif p.role() == 'B':
-                p.payoff = p.available_income1 - p.group.msg_sent * p.group.message_price  # FIX value and price for BDM LIST
+                if p.group.treatment in ['FM', 'NM']:
+                    p.payoff = p.available_income1
+                elif p.group.treatment in ['DM', 'TP']:
+                    p.payoff = p.available_income1 - p.group.msg_sent * p.group.message_price
             elif p.role() == 'R':
                 p.payoff = p.available_income0
 

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53f830c2-271c-4dc9-a02f-0fe1261e4d4e" name="Default" comment="" />
+    <list default="true" id="53f830c2-271c-4dc9-a02f-0fe1261e4d4e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PTT_expression/models.py" afterPath="$PROJECT_DIR$/PTT_expression/models.py" />
+    </list>
     <ignored path="oTree.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -72,8 +75,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PTT_expression/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+            <state relative-caret-position="611">
+              <caret line="193" column="69" selection-start-line="193" selection-start-column="69" selection-end-line="193" selection-end-column="69" />
               <folding>
                 <element signature="e#0#145#0" expanded="true" />
               </folding>
@@ -87,6 +90,8 @@
             <state relative-caret-position="540">
               <caret line="36" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
+                <marker date="1476855089000" expanded="true" signature="518:871" ph="..." />
+                <marker date="1476855089000" expanded="true" signature="551:860" ph="..." />
                 <marker date="1476855089000" expanded="false" signature="920:938" ph="..." />
               </folding>
             </state>
@@ -100,6 +105,13 @@
               <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
+                <marker date="1476841321000" expanded="true" signature="1000:2084" ph="..." />
+                <marker date="1476841321000" expanded="true" signature="1213:2084" ph="..." />
+                <marker date="1476841321000" expanded="true" signature="1853:2084" ph="..." />
+                <marker date="1476841321000" expanded="true" signature="7570:8265" ph="..." />
+                <marker date="1476841321000" expanded="true" signature="7812:8265" ph="..." />
+                <marker date="1476841321000" expanded="true" signature="7913:7929" ph="..." />
+                <marker date="1476841321000" expanded="true" signature="8206:8265" ph="..." />
               </folding>
             </state>
           </provider>
@@ -120,7 +132,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="811">
               <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
-              <folding />
+              <folding>
+                <marker date="1476819738000" expanded="true" signature="1842:2114" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -210,8 +224,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="width" value="2560" />
+    <option name="height" value="1440" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -267,29 +281,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="payment_info" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="otree_express" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="otree_express" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payment_info" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="payment_info" />
+              <option name="myItemId" value="PTT_expression" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -632,19 +624,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19170243" sideWeight="0.74857146" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.106433675" sideWeight="0.74857146" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32825205" sideWeight="0.4858116" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51116073" sideWeight="0.2640985" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.032904148" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.018268468" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296131" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296131" sideWeight="0.49388048" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21428572" sideWeight="0.53653693" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.51116073" sideWeight="0.2640985" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3619403" sideWeight="0.73590153" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21651785" sideWeight="0.73590153" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06711676" sideWeight="0.25142857" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29979676" sideWeight="0.40238366" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1011,7 +1003,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="811">
           <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
-          <folding />
+          <folding>
+            <marker date="1476819738000" expanded="true" signature="1842:2114" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1029,6 +1023,13 @@
           <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
+            <marker date="1476841321000" expanded="true" signature="1000:2084" ph="..." />
+            <marker date="1476841321000" expanded="true" signature="1213:2084" ph="..." />
+            <marker date="1476841321000" expanded="true" signature="1853:2084" ph="..." />
+            <marker date="1476841321000" expanded="true" signature="7570:8265" ph="..." />
+            <marker date="1476841321000" expanded="true" signature="7812:8265" ph="..." />
+            <marker date="1476841321000" expanded="true" signature="7913:7929" ph="..." />
+            <marker date="1476841321000" expanded="true" signature="8206:8265" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1038,6 +1039,8 @@
         <state relative-caret-position="540">
           <caret line="36" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
+            <marker date="1476855089000" expanded="true" signature="518:871" ph="..." />
+            <marker date="1476855089000" expanded="true" signature="551:860" ph="..." />
             <marker date="1476855089000" expanded="false" signature="920:938" ph="..." />
           </folding>
         </state>
@@ -1053,8 +1056,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PTT_expression/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="133" column="0" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+        <state relative-caret-position="611">
+          <caret line="193" column="69" selection-start-line="193" selection-start-column="69" selection-end-line="193" selection-end-column="69" />
           <folding>
             <element signature="e#0#145#0" expanded="true" />
           </folding>
