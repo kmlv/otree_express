@@ -247,7 +247,7 @@ class Player(BasePlayer):
 
 
 ########################################################################################
-'''Draft zone'''
+#'''Draft zone'''
 
 # # read endowment from config
 # for player in self.get_players():
