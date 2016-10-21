@@ -15,11 +15,17 @@ class InitialWait(WaitPage):
 
     def is_displayed(self):
         # bringing task income from participant.vars. Also calc available_income and other's income
+
+        # for p in self.group.get_players():
+        #     if p.role() == 'B':
+        #         self.group.b_task_income = p.participant.vars['task_income']
+
         for p in self.group.get_players():
             p.task_income = self.participant.vars['task_income']
             p.available_income0 = self.participant.vars['task_income'] + p.endowment
             p.others_task_income = p.get_partner().task_income
         return True
+
 
 class RolesIncome(Page):
     """Page 1: RolesIncome All"""
@@ -34,6 +40,11 @@ class ADecides(Page):
 
     def is_displayed(self):
         return self.player.role() == 'A'
+
+    def vars_for_template(self):
+        return {
+            'b_task_income': float(self.group.get_player_by_role('B').task_income)
+        }
 
     def before_next_page(self):
 
@@ -62,9 +73,16 @@ class BPredicts(Page):
     def is_displayed(self):
         return self.player.role() == 'B'
 
+    def vars_for_template(self):
+        return {
+            'b_task_income': float(self.group.get_player_by_role('B').task_income)
+        }
 
-class WaitGroup(WaitPage):
+
+class BWaitsForGroup(WaitPage):
     pass
+    # def is_displayed(self):
+    #     return self.player.role() == 'B'
 
 
 class TakeResults(Page):
@@ -87,7 +105,7 @@ class WriteMessage(Page):
 
 
 class ElicitBdmCont(Page):
-    """Page 5: """
+    """Page 5: Elicit BDM - Continuous Value Type"""
     form_model = models.Group
     form_fields = ['b_value', 'time_ElicitBdmCont']
 
@@ -113,7 +131,7 @@ class ElicitBdmCont(Page):
 
 
 class ElicitBdmList(Page):
-    """Page _:"""
+    """Page 5: Elicit BDM - List Value Type"""
 
     form_model = models.Group
 
@@ -218,6 +236,13 @@ class ElicitSOP(Page):
                 self.group.msg_sent = True
 
 
+class AWaitsForGroup(WaitPage):
+    pass
+
+    # def is_displayed(self):
+    #     return self.player.role() == 'A'
+
+
 class DisplayMessageToA(Page):
     """Page _: message is shown to player A"""
     form_model = models.Group
@@ -238,7 +263,8 @@ class WaitMessagesInTP(WaitPage):
 
 
 class DisplayMessagesToR(Page):
-    """Page _:"""
+    """Page _: Reader reads messages from B players"""
+
     form_model = models.Group
     form_fields = ['time_DisplayMessagesToR']
 
@@ -247,9 +273,11 @@ class DisplayMessagesToR(Page):
 
     def vars_for_template(self):
         msg_list = []
-        for gg in self.subsession.get_groups():
-            if gg.treatment == 'TP':
-                msg_list.append(gg.b_message)
+        for group in self.subsession.get_groups():
+            if group.treatment == 'TP' and group.msg_sent:
+                msg_list.append(group.b_message)
+        if not msg_list: # this uses that `not []' returns True
+            msg_list = ['None of the B players sent messages for you to read']
         return {
             'msg_list': msg_list
         }
@@ -262,7 +290,7 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
-    """Page _:"""
+    """Page _: Page hosws table of final earnings"""
     form_model = models.Group
     form_fields = ['time_Results']
 
@@ -288,19 +316,20 @@ class Results(Page):
             }
 
 
+## defines page sequence
 page_sequence = [
     InitialWait,
     RolesIncome,
     ADecides,
     BPredicts,
-    WaitGroup,  # B waits for A's decision
+    BWaitsForGroup,  # B waits for A's decision
     TakeResults,
     WriteMessage,
     ElicitBdmCont,
     ElicitBdmList,
-    BdmResults,
     ElicitSOP,
-    WaitGroup,  # A waits for possible message
+    AWaitsForGroup,  # A waits for possible message
+    BdmResults,
     DisplayMessageToA,
     WaitMessagesInTP,
     DisplayMessagesToR,

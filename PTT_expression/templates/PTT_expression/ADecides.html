@@ -27,6 +27,7 @@
                     },
                     slide: function (event, ui) {
                         $("#slider_val").text(ui.value);
+                        $("#dollars_taken").text((ui.value/100 * {{b_task_income}}).toFixed(2));
                     },
                     stop: function (event, ui) {
                         $("#id_take_rate").val(ui.value);
@@ -51,10 +52,11 @@
     <p> The maximum amount you can collect is what B has earned as income in the search tasks
         ({{player.others_task_income}}). </p>
     <p> Use the slider to set the percentage of B's income you want to transfer to your account. </p>
-    <p> </p>
+    <br /> {# line break #}
 
     <div style="width: 80%; margin: auto;">
-        <div style="text-align: center">you are taking: <span id="slider_val">_</span>%</div>
+        <div style="text-align: center">You are taking: <span id="slider_val">__</span>% of B's task income
+            ($<span id="dollars_taken">_.__</span>)</div>
         <div><span class="pull-left">0%</span><span class="pull-right">100%</span></div>
         <div id="slider" style="clear: both; width: 96%; margin: auto;"></div>
     </div>

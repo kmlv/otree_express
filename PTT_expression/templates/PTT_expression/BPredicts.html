@@ -27,6 +27,8 @@
                     },
                     slide: function (event, ui) {
                         $("#slider_val").text(ui.value);
+                        $("#dollars_taken").text((ui.value/100 * {{b_task_income}}).toFixed(2));
+
                     },
                     stop: function (event, ui) {
                         $("#id_expected_take_rate").val(ui.value);
@@ -53,9 +55,11 @@
     <p> What percentage of your task income do you think A will transfer into his/her own account? </p>
     <p> Use the slider to provide your guess. </p>
     <p> </p>
+    <br />
 
     <div style="width: 80%; margin: auto;">
-        <div style="text-align: center">your guess is: <span id="slider_val">_</span>%</div>
+        <div style="text-align: center">You guess A will take <span id="slider_val">__</span>% of your task income
+            ($<span id="dollars_taken">_.__</span>)</div>
         <div><span class="pull-left">0%</span><span class="pull-right">100%</span></div>
         <div id="slider" style="clear: both; width: 96%; margin: auto;"></div>
     </div>
