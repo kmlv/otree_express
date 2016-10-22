@@ -80,9 +80,9 @@ class BPredicts(Page):
 
 
 class BWaitsForGroup(WaitPage):
-    pass
-    # def is_displayed(self):
-    #     return self.player.role() == 'B'
+    # pass
+    def is_displayed(self):
+        return self.player.role() == 'B'
 
 
 class TakeResults(Page):
@@ -237,10 +237,10 @@ class ElicitSOP(Page):
 
 
 class AWaitsForGroup(WaitPage):
-    pass
+    # pass
 
-    # def is_displayed(self):
-    #     return self.player.role() == 'A'
+    def is_displayed(self):
+        return self.player.role() == 'A'
 
 
 class DisplayMessageToA(Page):

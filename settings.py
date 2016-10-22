@@ -443,6 +443,18 @@ SESSION_CONFIGS = [
         """
     },
 #########################################################################################################
+    {
+        'name': 'test',
+        'display_name': "test of waiting",
+        'num_demo_participants': 2,
+        'app_sequence': ['zzz_test_app'],
+    },
+    {
+        'name': 'batson_ques',
+        'display_name': "Batson (1988) Questionnaire",
+        'num_demo_participants': 1,
+        'app_sequence': ['batson_questionnaire'],
+    },
     # {
     #     'name': 'my_public_goods_',
     #     'display_name': "KLV Public Goods",
