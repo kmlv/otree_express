@@ -452,7 +452,7 @@ SESSION_CONFIGS = [
     {
         'name': 'batson_ques',
         'display_name': "Batson (1988) Questionnaire",
-        'num_demo_participants': 1,
+        'num_demo_participants': 3,
         'app_sequence': ['batson_questionnaire'],
     },
     # {

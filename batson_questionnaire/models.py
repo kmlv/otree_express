@@ -43,4 +43,9 @@ class Player(BasePlayer):
 
     for i in range(len(Constants.emotion_list)):
         temp = '_'.join(Constants.emotion_list[i])
-        locals()['{}'.format(temp)] = models.DecimalField(max_digits=5, decimal_places=2, min=0, max=10)
+        locals()['{}'.format(temp)] = models.DecimalField(widget=widgets.HiddenInput(),
+                                                          max_digits=4,
+                                                          decimal_places=2,
+                                                          min=0,
+                                                          max=10
+                                                          )
