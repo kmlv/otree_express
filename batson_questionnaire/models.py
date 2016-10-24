@@ -15,11 +15,28 @@ class Constants(BaseConstants):
     name_in_url = 'batson_questionnaire'
     players_per_group = None
     num_rounds = 1
+
     emotion_list = [
-        ['em11', 'em12'],
-        ['em21', 'em22'],
-        ['em31', 'em32'],
+        ['Bad mood', 'Good mood'],
+        ['Sad', 'Happy'],
+        ['Depressed', 'Elated'],
+        ['Dissatisfied', 'Satisfied'],
+        ['Gloomy', 'Cheerful'],
+        ['Displeased', 'Pleased'],
+        ['Sorrowful', 'Joyful']
     ]
+
+    filler_list = [
+        ['Nervous', 'Calm'],
+        ['Tense', 'Relaxed'],
+        ['Uncomfortable', 'Comfortable'],
+        ['Apathetic', 'Caring'],
+        ['Lethargic', 'Energetic'],
+        ['Unconfident', 'Confident'],
+        ['Unresponsive', 'Emotional'],
+        ['Passive', 'Active']
+    ]
+
 
 class Subsession(BaseSubsession):
 
@@ -33,19 +50,33 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    # for i in range(len(Constants.emotion_list)):
-    #     temp = '_'.join(Constants.emotion_list[i])
-    #     print(temp)
-    #     Player.add_to_class(
-    #         '{}'.format(temp),
-    #         models.DecimalField(max_digits=5, decimal_places=2, min=0, max=10)
-    #     )
-
     for i in range(len(Constants.emotion_list)):
         temp = '_'.join(Constants.emotion_list[i])
         locals()['{}'.format(temp)] = models.DecimalField(widget=widgets.HiddenInput(),
-                                                          max_digits=4,
-                                                          decimal_places=2,
-                                                          min=0,
-                                                          max=10
+                                                          max_digits=3,
+                                                          decimal_places=1,
+                                                          min=1,
+                                                          max=9
                                                           )
+
+    for i in range(len(Constants.filler_list)):
+        temp = '_'.join(Constants.filler_list[i])
+        locals()['{}'.format(temp)] = models.DecimalField(widget=widgets.HiddenInput(),
+                                                          max_digits=3,
+                                                          decimal_places=1,
+                                                          min=1,
+                                                          max=9
+                                                          )
+
+
+
+###################
+# DRAFT
+
+# for i in range(len(Constants.emotion_list)):
+#     temp = '_'.join(Constants.emotion_list[i])
+#     print(temp)
+#     Player.add_to_class(
+#         '{}'.format(temp),
+#         models.DecimalField(max_digits=5, decimal_places=2, min=0, max=10)
+#     )

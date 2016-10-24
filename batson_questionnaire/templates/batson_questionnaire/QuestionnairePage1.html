@@ -20,7 +20,7 @@
 			width: 600px;
 		}
 		.slider-wrapper > span {
-			width: 100px;
+			width: 150px;
 			text-align: center;
 		}
 	</style>
@@ -32,24 +32,26 @@
 
 {% block content %}
 
+    <p> Please use the sliders below to represent how you are feeling right now. </p>
+    <p> Click and drag the slider towards the mood/emotion you are feeling using the 1-9 scale,
+        where [1] indicates that you are not feeling that emotion at all and [9] that you are
+        feeling it very strongly. </p>
+    <br/>
+
     {% for slider in emo_list %}
             <div class="slider-wrapper">
-                <span>{{slider|index:0}} (<span class="left_val">_</span>)</span>
+                <span>{{slider|index:0}} [<span class="left_val">_</span>]</span>
                 <div>
                     <div class="slider">
                         <input type="hidden" name="{{slider|index:0}}_{{slider|index:1}}">
                     </div>
                 </div>
-                <span>(<span class="right_val">_</span>) {{slider|index:1}}</span>
+                <span>[<span class="right_val">_</span>] {{slider|index:1}}</span>
             </div>
-
+        <br/>
     {% endfor %}
 
-{#    {% for var in form %}#}
-{#        {% formfield var with label=None %}#}
-{#    {% endfor %}#}
-
-{#    {{ form.em31_em32.errors }}#}
+    <br/>
 
     {% next_button %}
 
@@ -69,13 +71,15 @@
 				start: function () {
 					$(this).children(".ui-slider-handle").show()
 				},
+                {#  this line defines scale of the questionnaire 9! #}
 				slide: function (event, ui) {
-					$(this).closest(".slider-wrapper").find('.left_val').text(10 - ui.value);
-					$(this).closest(".slider-wrapper").find('.right_val').text(ui.value);
+					$(this).closest(".slider-wrapper").find('.left_val').text((9 - ui.value + 1).toFixed(1));
+					$(this).closest(".slider-wrapper").find('.right_val').text((ui.value).toFixed(1));
 				},
-                {#  this defines the scale of the questionnaire  #}
-				max: 10,
-	            step: .01
+                {#  this defines the scale of the questionnaire 9! #}
+				min: 1,
+                max: 9,
+	            step: .1
 			})
 			.children(".ui-slider-handle").hide();
 	});

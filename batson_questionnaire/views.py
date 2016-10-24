@@ -4,14 +4,8 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 import random
 
-class MyPage(Page):
 
-    # def get_form_fields(self):
-        # form_fields = []
-        # for i in range(len(Constants.emotion_list)):
-        #     var = '_'.join(Constants.emotion_list[i])
-        #     form_fields.append(var)
-        # return ['_'.join(Constants.emotion_list[i]) for i in range(len(Constants.emotion_list))]
+class QuestionnairePage1(Page):
 
     form_fields = ['_'.join(Constants.emotion_list[i]) for i in range(len(Constants.emotion_list))]
     form_model = models.Player
@@ -25,6 +19,20 @@ class MyPage(Page):
         }
 
 
+class QuestionnairePage2(Page):
+
+    form_fields = ['_'.join(Constants.filler_list[i]) for i in range(len(Constants.filler_list))]
+    form_model = models.Player
+
+    def vars_for_template(self):
+        # we shuffle filler lists
+        shuffled_filler_list = random.sample(Constants.filler_list, len(Constants.filler_list))
+        print(shuffled_filler_list)
+        return {
+            'filler_list': shuffled_filler_list
+        }
+
+
 class ResultsWaitPage(WaitPage):
 
     def after_all_players_arrive(self):
@@ -32,14 +40,27 @@ class ResultsWaitPage(WaitPage):
 
 
 class DoneQuestionnaire(Page):
-    pass
 
-
-class Results(Page):
-    pass
+    timeout_seconds = 10
 
 
 page_sequence = [
-    MyPage,
+    QuestionnairePage1,
+    QuestionnairePage2,
     DoneQuestionnaire
 ]
+
+#########################################
+# Draft zoe
+
+# if you want to make it random within the pair of moods
+# for i in range(len(Constants.emotion_list)):
+#     shuffled_emotion_list[i] = random.sample(shuffled_emotion_list[i], len(Constants.emotion_list[i]))
+
+# using a get_form_fields function
+# def get_form_fields(self):
+# form_fields = []
+# for i in range(len(Constants.emotion_list)):
+#     var = '_'.join(Constants.emotion_list[i])
+#     form_fields.append(var)
+# return ['_'.join(Constants.emotion_list[i]) for i in range(len(Constants.emotion_list))]
