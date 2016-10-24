@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
     DEBUG = False
 else:
-    DEBUG = False
+    DEBUG = True
 
 # sentry dsn is for receiving error messages when debug is off
 SENTRY_DSN = 'http://4068d64a59a54b1aa0107e0c158c6194:851eeb1e34924c5ab13371a4bd695efb@sentry.otree.org/91'
