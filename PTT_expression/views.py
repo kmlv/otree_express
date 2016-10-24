@@ -123,10 +123,10 @@ class ElicitBdmCont(Page):
     # defining whether message is sent or not
     def before_next_page(self):
         if (self.group.value_type == 'WTP' and self.group.b_value >= self.group.message_price) or \
-                (self.group.value_type == 'WTA' and self.group.b_value <= self.group.message_price):
+                (self.group.value_type == 'WTA' and self.group.b_value >= self.group.message_price):
             self.group.msg_sent = True
         elif (self.group.value_type == 'WTP' and self.group.b_value < self.group.message_price) or \
-                (self.group.value_type == 'WTA' and self.group.b_value > self.group.message_price):
+                (self.group.value_type == 'WTA' and self.group.b_value < self.group.message_price):
             self.group.msg_sent = False
 
 
@@ -165,14 +165,14 @@ class ElicitBdmList(Page):
     # defining b values and whether message is sent or not
     def before_next_page(self):
 
-        # reading responses and puting them in a list
+        # reading responses and putting them in a list
         responses_list = []
         for i in range(0, self.group.price_list_size):
             # res = getattr(self.group, 'list_price_{}_yes'.format(i))
             responses_list.append(getattr(self.group, 'list_price_{}_yes'.format(i)))
         print(responses_list)
 
-        # WTP: value is highest price to which player b says yes
+        # WTP: value is highest price to which player b says Yes
         if self.group.value_type == 'WTP':
             if 'Yes' in responses_list:
                 posit = len(responses_list) - 1 - responses_list[::-1].index('Yes')  # finds last occurrence of Yes
@@ -190,16 +190,18 @@ class ElicitBdmList(Page):
                 self.group.b_value = 0
         print("b_value", self.group.b_value)
 
+        # Paola agreaga una var que indica consistencia: 1 consistente 0 inconsistente
+
         # random price in BDM list needs to be an element of price list (try with two groups with different price lists)
         if self.group.BDM_type == 'LIST':
             self.group.message_price = min(self.group.price_list, key=lambda x: abs(x - self.group.message_price))
 
         # setting boolean whether message is sent or not
         if (self.group.value_type == 'WTP' and self.group.b_value >= self.group.message_price) or \
-                (self.group.value_type == 'WTA' and self.group.b_value <= self.group.message_price):
+                (self.group.value_type == 'WTA' and self.group.b_value >= self.group.message_price):
             self.group.msg_sent = True
         elif (self.group.value_type == 'WTP' and self.group.b_value < self.group.message_price) or \
-                (self.group.value_type == 'WTA' and self.group.b_value > self.group.message_price):
+                (self.group.value_type == 'WTA' and self.group.b_value < self.group.message_price):
             self.group.msg_sent = False
 
 

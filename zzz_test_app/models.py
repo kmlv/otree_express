@@ -21,12 +21,16 @@ class Subsession(BaseSubsession):
     def before_session_starts(self):
         self.set_group_matrix([[1], [2]])
 
+
 class Group(BaseGroup):
     pass
 
 
 class Player(BasePlayer):
     pass
+
+
+
 
     # roles
     # def role(self):

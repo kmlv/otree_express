@@ -33,12 +33,12 @@
             {% elif group.value_type == 'WTA' %}
 
                 {% if group.msg_sent == True %}
-                    <p> The value you stated ({{group.b_value}}) is at or below the randomly generated amount ({{group.message_price}}).</p>
+                    <p> The value you stated ({{group.b_value}}) is at or above the randomly generated amount ({{group.message_price}}).</p>
                     <p> Therefore, your message will be sent to {% if group.treatment == 'DM' %} your counterpart A.
                         {% elif group.treatment == 'TP' %} the third party reader. {% endif %} </p>
 
                 {% elif group.msg_sent == False %}
-                    <p> The value you stated ({{group.b_value}}) is above the randomly generated amount ({{group.message_price}}).</p>
+                    <p> The value you stated ({{group.b_value}}) is below the randomly generated amount ({{group.message_price}}).</p>
                     <p> Therefore, your message will not be sent to {% if group.treatment == 'DM' %} your counterpart A.
                         {% elif group.treatment == 'TP' %} the third party reader. {% endif %} </p>
 
