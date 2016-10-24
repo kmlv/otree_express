@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
     DEBUG = False
 else:
-    DEBUG = True
+    DEBUG = False
 
 # sentry dsn is for receiving error messages when debug is off
 SENTRY_DSN = 'http://4068d64a59a54b1aa0107e0c158c6194:851eeb1e34924c5ab13371a4bd695efb@sentry.otree.org/91'
@@ -29,7 +29,7 @@ ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 SECRET_KEY = '96nwa*zoa$xhkszukze_a33&s7nm6adewc+l%$ag(lg$71x2zh'
 
 # To use a database other than sqlite,
-# set the DATABASE_URL environment variable.
+# set the DATABASE_URL environment variable.client.captureMessage('Something went fundamentally wrong')
 # Examples:
 # postgres://USER:PASSWORD@HOST:PORT/NAME
 # mysql://USER:PASSWORD@HOST:PORT/NAME
