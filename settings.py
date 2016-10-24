@@ -461,6 +461,14 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['PANAS'],
     },
+    {
+        'name': 'search_task',
+        'display_name': 'Search Task',
+        'num_demo_participants': 2,
+        'app_sequence': ['search_task'],
+        'debug': True,
+        'targetIncome': [10, 12]
+    }
     # {
     #     'name': 'my_public_goods_',
     #     'display_name': "KLV Public Goods",
