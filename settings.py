@@ -455,6 +455,12 @@ SESSION_CONFIGS = [
         'num_demo_participants': 3,
         'app_sequence': ['batson_questionnaire'],
     },
+    {
+        'name': 'Panas',
+        'display_name': "PANAS Questionnaire",
+        'num_demo_participants': 1,
+        'app_sequence': ['PANAS'],
+    },
     # {
     #     'name': 'my_public_goods_',
     #     'display_name': "KLV Public Goods",

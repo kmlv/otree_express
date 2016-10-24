@@ -7,32 +7,27 @@ import random
 
 class QuestionnairePage1(Page):
 
-    form_fields = ['_'.join(Constants.emotion_list[i]) for i in range(len(Constants.emotion_list))]
-    form_fields.append('time_batson1')
     form_model = models.Player
 
+    form_fields = ['panas_{}'.format(var) for var in Constants.panas_list[:10]]
+    form_fields.append('time_panas1')
+
     def vars_for_template(self):
-        # we shuffle emotion lists
-        shuffled_emotion_list = random.sample(Constants.emotion_list, len(Constants.emotion_list))
-        print(shuffled_emotion_list)
         return {
-            'emo_list': shuffled_emotion_list
+            'emotions': Constants.panas_list[:10]
         }
 
 
 class QuestionnairePage2(Page):
 
-    form_fields = ['_'.join(Constants.filler_list[i]) for i in range(len(Constants.filler_list))]
-    form_fields.append('time_batson2')
     form_model = models.Player
 
+    form_fields = ['panas_{}'.format(var) for var in Constants.panas_list[10:]]
+    form_fields.append('time_panas2')
 
     def vars_for_template(self):
-        # we shuffle filler lists
-        shuffled_filler_list = random.sample(Constants.filler_list, len(Constants.filler_list))
-        print(shuffled_filler_list)
         return {
-            'filler_list': shuffled_filler_list
+            'emotions': Constants.panas_list[10:]
         }
 
 

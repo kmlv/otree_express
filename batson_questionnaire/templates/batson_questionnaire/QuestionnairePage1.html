@@ -6,6 +6,43 @@
 {% endblock %}
 
 
+{% block scripts %}
+
+    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
+
+    <script>
+	jQuery(document).ready(function ($) {
+		$(".slider")
+			.slider({
+				stop: function (event, ui) {
+					$(this).children("input").val(ui.value);
+				},
+				start: function () {
+					$(this).children(".ui-slider-handle").show()
+				},
+                {#  this line defines scale of the questionnaire 9! #}
+				slide: function (event, ui) {
+					$(this).closest(".slider-wrapper").find('.left_val').text((9 - ui.value + 1).toFixed(1));
+					$(this).closest(".slider-wrapper").find('.right_val').text((ui.value).toFixed(1));
+				},
+                {#  this defines the scale of the questionnaire 9! #}
+				min: 1,
+                max: 9,
+	            step: .1
+			})
+			.children(".ui-slider-handle").hide();
+	});
+	</script>
+
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+{% endblock %}
+
+
 {% block styles %}
 	<style>
 		.slider-wrapper {
@@ -53,36 +90,8 @@
 
     <br/>
 
+    {% formfield  player.time_batson1 with label=None  %}
+
     {% next_button %}
-
-{% endblock %}
-
-{% block scripts %}
-
-    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
-
-    <script>
-	jQuery(document).ready(function ($) {
-		$(".slider")
-			.slider({
-				stop: function (event, ui) {
-					$(this).children("input").val(ui.value);
-				},
-				start: function () {
-					$(this).children(".ui-slider-handle").show()
-				},
-                {#  this line defines scale of the questionnaire 9! #}
-				slide: function (event, ui) {
-					$(this).closest(".slider-wrapper").find('.left_val').text((9 - ui.value + 1).toFixed(1));
-					$(this).closest(".slider-wrapper").find('.right_val').text((ui.value).toFixed(1));
-				},
-                {#  this defines the scale of the questionnaire 9! #}
-				min: 1,
-                max: 9,
-	            step: .1
-			})
-			.children(".ui-slider-handle").hide();
-	});
-	</script>
 
 {% endblock %}
