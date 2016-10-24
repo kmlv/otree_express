@@ -1,0 +1,23 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Test
+{% endblock %}
+
+{% block scripts %}
+
+    <script type="text/javascript" src="{% static "jsFiles/start.js" %}"></script>
+
+{% endblock %}
+{% block content %}
+
+    <p>
+        test
+    </p>
+
+    {% formfield player.quantity with label='Number of units:' %}
+
+    {% next_button %}
+
+{% endblock %}

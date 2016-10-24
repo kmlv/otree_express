@@ -443,6 +443,32 @@ SESSION_CONFIGS = [
         """
     },
 #########################################################################################################
+    {
+        'name': 'test',
+        'display_name': "test of waiting",
+        'num_demo_participants': 2,
+        'app_sequence': ['zzz_test_app'],
+    },
+    {
+        'name': 'batson_ques',
+        'display_name': "Batson (1988) Questionnaire",
+        'num_demo_participants': 3,
+        'app_sequence': ['batson_questionnaire'],
+    },
+    {
+        'name': 'Panas',
+        'display_name': "PANAS Questionnaire",
+        'num_demo_participants': 1,
+        'app_sequence': ['PANAS'],
+    },
+    {
+        'name': 'search_task',
+        'display_name': 'Search Task',
+        'num_demo_participants': 2,
+        'app_sequence': ['search_task'],
+        'debug': True,
+        'targetIncome': [10, 12]
+    }
     # {
     #     'name': 'my_public_goods_',
     #     'display_name': "KLV Public Goods",
