@@ -4,18 +4,17 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class MyPage(Page):
-    pass
-
-
 class MyPage1(Page):
-    pass
+    form_model = models.Player
+    form_fields = ['contribution']
 
+    def is_displayed(self):
+        return self.player.id_in_group != 3
 
 class ResultsWaitPage(WaitPage):
 
     def after_all_players_arrive(self):
-        pass
+        self.group.set_payoffs()
 
 
 class g1Waits(WaitPage):
@@ -29,9 +28,8 @@ class Results(Page):
 
 
 page_sequence = [
-    MyPage,
-    g1Waits,
     MyPage1,
+    g1Waits,
     ResultsWaitPage,
     Results
 ]
