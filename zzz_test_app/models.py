@@ -13,7 +13,7 @@ Your app description
 
 class Constants(BaseConstants):
     name_in_url = 'zzz_test_app'
-    players_per_group = 1
+    players_per_group = None
     num_groups = 3
     num_rounds = 1
     endowment = c(100)
@@ -21,14 +21,10 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    def before_session_starts(self):
-        matrix = self.get_group_matrix()
-        for row in matrix:
-            row.reverse()
-        self.set_group_matrix(matrix)
-        new_structure = [[1], [2], [3],]
-        self.set_group_matrix(new_structure)
-        self.get_group_matrix()
+    pass
+    #def before_session_starts(self):
+     #   new_structure = [[1], [2], [3]]
+      #  self.set_group_matrix(new_structure)
 class Group(BaseGroup):
     total_contribution = models.CurrencyField()
     individual_share = models.CurrencyField()
@@ -36,7 +32,7 @@ class Group(BaseGroup):
     def set_payoffs(self):
         self.total_contribution = sum(
             [p.contribution for p in self.get_group_matrix()])
-        self.individual_share = self.total_contribution * Constants.efficiency_factor / Constants.players_per_group
+        self.individual_share = self.total_contribution * Constants.efficiency_factor / 2
         for p in self.get_group_matrix():
             p.payoff = Constants.endowment - p.contribution + self.individual_share
 
