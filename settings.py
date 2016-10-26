@@ -110,9 +110,9 @@ ROOMS = [
 # https://boto.readthedocs.org/en/latest/ref/mturk.html?highlight=mturk#module-boto.mturk.qualification
 
 mturk_hit_settings = {
-    'keywords': ['easy', 'bonus', 'choice', 'study'],
-    'title': 'Title for your experiment',
-    'description': 'Description for your experiment',
+    'keywords': ['Demand for Expressing Emotions', 'bonus', 'choice', 'study'],
+    'title': 'On the Demand for Expressing Emotions',
+    'description': 'Our experiment contributes to previous studies discussing the role of mood–emotional states.',
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',
     'minutes_allotted_per_assignment': 60,
