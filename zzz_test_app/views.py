@@ -9,7 +9,7 @@ class MyPage1(Page):
     form_fields = ['contribution']
 
     def is_displayed(self):
-        return self.group.set_group_matrix !=3
+        return self.player.id_in_group != 3
 
 class ResultsWaitPage(WaitPage):
 

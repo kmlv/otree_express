@@ -179,7 +179,7 @@ SESSION_CONFIGS = [
         'num_readers': 0,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
         'app_sequence': ['zFake_searchTask','PTT_expression', 'payment_info'],
         'debug': True
@@ -450,7 +450,7 @@ SESSION_CONFIGS = [
     {
         'name': 'test',
         'display_name': "test of waiting",
-        'num_demo_participants': 2,
+        'num_demo_participants': 3,
         'app_sequence': ['zzz_test_app'],
     },
     {
