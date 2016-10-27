@@ -54,10 +54,8 @@ AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
 
 
 # setting for integration with AWS Mturk
-AWS_ACCESS_KEY_ID = 'AKIAJN6JGJ46B6P5QUOQ'
-AWS_SECRET_ACCESS_KEY = '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'
-#AWSAccessKeyId=AKIAJN6JGJ46B6P5QUOQ
-#AWSSecretKey=a7Umhpq585grTbfO8VdffVamibKeTdUWb84QbTZz
+AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY =  environ.get('AWS_SECRET_ACCESS_KEY')
 
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
