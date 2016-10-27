@@ -103,6 +103,10 @@ class WriteMessage(Page):
         return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
                  self.player.role() == 'B'
 
+    def before_next_page(self):
+        if self.group.treatment == 'FM':
+            self.group.msg_sent = True  # this is because FM needs to set msg_sent somewhere
+
 
 class ElicitBdmCont(Page):
     """Page 5: Elicit BDM - Continuous Value Type"""
@@ -122,11 +126,10 @@ class ElicitBdmCont(Page):
 
     # defining whether message is sent or not
     def before_next_page(self):
-        if (self.group.value_type == 'WTP' and self.group.b_value >= self.group.message_price) or \
-                (self.group.value_type == 'WTA' and self.group.b_value >= self.group.message_price):
+        # setting boolean whether message is sent or not
+        if self.group.b_value >= self.group.message_price:
             self.group.msg_sent = True
-        elif (self.group.value_type == 'WTP' and self.group.b_value < self.group.message_price) or \
-                (self.group.value_type == 'WTA' and self.group.b_value < self.group.message_price):
+        elif self.group.b_value < self.group.message_price:
             self.group.msg_sent = False
 
 
@@ -197,11 +200,9 @@ class ElicitBdmList(Page):
             self.group.message_price = min(self.group.price_list, key=lambda x: abs(x - self.group.message_price))
 
         # setting boolean whether message is sent or not
-        if (self.group.value_type == 'WTP' and self.group.b_value >= self.group.message_price) or \
-                (self.group.value_type == 'WTA' and self.group.b_value >= self.group.message_price):
+        if self.group.b_value >= self.group.message_price:
             self.group.msg_sent = True
-        elif (self.group.value_type == 'WTP' and self.group.b_value < self.group.message_price) or \
-                (self.group.value_type == 'WTA' and self.group.b_value < self.group.message_price):
+        elif self.group.b_value < self.group.message_price:
             self.group.msg_sent = False
 
 
@@ -669,3 +670,10 @@ page_sequence = [
 #     self.subsession.reader_message = json.dumps(messages_list)
 #     print(self.subsession.reader_message)
 
+
+# if (self.group.value_type == 'WTP' and self.group.b_value >= self.group.message_price) or \
+#         (self.group.value_type == 'WTA' and self.group.b_value >= self.group.message_price):
+#     self.group.msg_sent = True
+# elif (self.group.value_type == 'WTP' and self.group.b_value < self.group.message_price) or \
+#         (self.group.value_type == 'WTA' and self.group.b_value < self.group.message_price):
+#     self.group.msg_sent = False
