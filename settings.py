@@ -54,8 +54,10 @@ AUTH_LEVEL = environ.get('OTREE_AUTH_LEVEL')
 
 
 # setting for integration with AWS Mturk
-AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID = 'AKIAJN6JGJ46B6P5QUOQ'
+AWS_SECRET_ACCESS_KEY = 'a7Umhpq585grTbfO8VdffVamibKeTdUWb84QbTZz'
+#AWSAccessKeyId=AKIAJN6JGJ46B6P5QUOQ
+#AWSSecretKey=a7Umhpq585grTbfO8VdffVamibKeTdUWb84QbTZz
 
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
@@ -110,7 +112,7 @@ ROOMS = [
 # https://boto.readthedocs.org/en/latest/ref/mturk.html?highlight=mturk#module-boto.mturk.qualification
 
 mturk_hit_settings = {
-    'keywords': ['Demand for Expressing Emotions', 'bonus', 'choice', 'study'],
+    'keywords': ['Demand for Expressing Emotions', 'emotions', 'takeorleave', 'dictator'],
     'title': 'On the Demand for Expressing Emotions',
     'description': 'Our experiment contributes to previous studies discussing the role of mood–emotional states.',
     'frame_height': 500,
