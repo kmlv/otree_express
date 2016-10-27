@@ -1,0 +1,98 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags index %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+
+{% block scripts %}
+
+    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
+
+    <script>
+	jQuery(document).ready(function ($) {
+		$(".slider")
+			.slider({
+				stop: function (event, ui) {
+					$(this).children("input").val(ui.value);
+				},
+				start: function () {
+					$(this).children(".ui-slider-handle").show()
+				},
+                {#  this line defines scale of the questionnaire 9! #}
+				slide: function (event, ui) {
+					$(this).closest(".slider-wrapper").find('.left_val').text((9 - ui.value + 1).toFixed(1));
+					$(this).closest(".slider-wrapper").find('.right_val').text((ui.value).toFixed(1));
+				},
+                {#  this defines the scale of the questionnaire 9! #}
+				min: 1,
+                max: 9,
+	            step: .1
+			})
+			.children(".ui-slider-handle").hide();
+	});
+	</script>
+
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+{% endblock %}
+
+
+{% block styles %}
+	<style>
+		.slider-wrapper {
+			display: table;
+			margin: auto;
+			margin-top: 20px;
+		}
+		.slider-wrapper > * {
+			display: table-cell;
+		}
+		.slider-wrapper > div {
+			width: 600px;
+		}
+		.slider-wrapper > span {
+			width: 150px;
+			text-align: center;
+		}
+	</style>
+
+    <link href="{% static "jquery-ui/jquery-ui.min.css" %}" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block content %}
+
+    <p> Please use the sliders below to represent how you are feeling right now. </p>
+    <p> Click and drag the slider towards the mood/emotion you are feeling using the 1-9 scale,
+        where [1] indicates that you are not feeling that emotion at all and [9] that you are
+        feeling it very strongly. </p>
+    <br/>
+
+    {% for slider in emo_list %}
+            <div class="slider-wrapper" >
+                <span> {{slider}} [<span class="left_val">_</span>]</span>
+                <div>
+                    <div class="slider">
+                        <input type="hidden" name="{{slider}}">
+                    </div>
+                </div>
+{#                <span>[<span class="right_val">_</span>] {{slider}}</span>#}
+            </div>
+        <br/>
+    {% endfor %}
+
+    <br/>
+
+    {% formfield  player.time_mauss2 with label=None  %}
+
+
+    {% next_button %}
+
+{% endblock %}

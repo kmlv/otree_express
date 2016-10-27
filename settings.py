@@ -472,6 +472,13 @@ SESSION_CONFIGS = [
         'app_sequence': ['search_task'],
         'debug': True,
         'targetIncome': [10, 12]
+    },
+    {
+        'name': 'mauss_questionnaire',
+        'display_name': 'Mauss Questionnaire, n=1',
+        'num_demo_participants': 1,
+        'app_sequence': ['mauss_questionnaire'],
+        'debug': True,
     }
     # {
     #     'name': 'my_public_goods_',

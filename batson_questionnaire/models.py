@@ -4,10 +4,10 @@ from otree.api import (
 )
 
 
-author = 'Your name here'
+author = 'Kristian Lopez Vargas'
 
 doc = """
-Your app description
+This is Batson et al 1988 questionnaire for measuring opposite emotions
 """
 
 
