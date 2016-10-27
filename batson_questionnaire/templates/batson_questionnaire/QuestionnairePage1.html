@@ -69,21 +69,22 @@
 
 {% block content %}
 
-    <p> Please use the sliders below to represent how you are feeling right now. </p>
-    <p> Click and drag the slider towards the mood/emotion you are feeling using the 1-9 scale,
-        where [1] indicates that you are not feeling that emotion at all and [9] that you are
-        feeling it very strongly. </p>
+    <p> Please use the sliders below to represent how you are feeling at the present moment.
+        Click and drag the slider towards the mood/emotion you are feeling using the 1-9 scale,
+        where <strong>1</strong> indicates that you are not feeling that emotion at all, and <strong>9</strong>
+        indicates that you are feeling it very strongly. </p>
+    <p> Make sure you respond to all the items / sliders before you press the next button. Thank you. </p>
     <br/>
 
     {% for slider in emo_list %}
             <div class="slider-wrapper">
-                <span>{{slider|index:0}} [<span class="left_val">_</span>]</span>
+                <span>{{slider|index:0}}: <span class="left_val">_</span></span>
                 <div>
                     <div class="slider">
                         <input type="hidden" name="{{slider|index:0}}_{{slider|index:1}}">
                     </div>
                 </div>
-                <span>[<span class="right_val">_</span>] {{slider|index:1}}</span>
+                <span>{{slider|index:1}}: <span class="right_val">_</span> </span>
             </div>
         <br/>
     {% endfor %}
