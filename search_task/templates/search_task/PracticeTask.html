@@ -17,11 +17,11 @@ Practice Screen
 {% block scripts %}
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="{% static "lib/flot/jquery.flot.js" %}"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{% static "lib/jquery/jquery-ui.js" %}"></script>
 
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
     <script type="text/javascript">
     jQuery(document).ready(function ($) {
@@ -81,7 +81,7 @@ Practice Screen
             </div>
             <br><br>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="row">
                   <div class="col-md-5 text-left">
                     <h5 id="nearness" class="text-center"></h5>
@@ -96,7 +96,7 @@ Practice Screen
                   <div id="placeholder" style="width:400px;height:400px"></div>
                 </div>
               </div>
-              <div class="col-md-6" ng-show="showpage.setup">
+              <div class="col-md-4" ng-show="showpage.setup">
                 <!-- points earned -->
                 <br><br>
                 <div class="row" ng-show="showpage.setup">
@@ -117,7 +117,7 @@ Practice Screen
                 </div>
                 <!-- locator -->
                 <div class="row">
-                  <div class="col-md-11 col-md-offset-4">
+                  <div class="col-md-11 col-md-offset-3">
                     <canvas id="locator" width="150px" height="250px"></canvas>
                   </div>
                 </div>

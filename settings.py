@@ -142,6 +142,14 @@ SESSION_CONFIG_DEFAULTS = {
 
 SESSION_CONFIGS = [
     {
+        'name': 'AMT_ultimatum',
+        'display_name': "AMT ultimatum",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'app_sequence': ['batson_questionnaire', 'ultimatum', 'batson_questionnaire2','payment_info'],
+        'debug': True
+    },
+    {
         'name': 'PTT_express_FM_n2',
         'display_name': "Free Message, 2 players",
         'real_world_currency_per_point': 1,
@@ -472,6 +480,13 @@ SESSION_CONFIGS = [
         'app_sequence': ['search_task'],
         'debug': True,
         'targetIncome': [10, 12]
+    },
+    {
+        'name': 'mauss_questionnaire',
+        'display_name': 'Mauss Questionnaire, n=1',
+        'num_demo_participants': 1,
+        'app_sequence': ['mauss_questionnaire'],
+        'debug': True,
     }
     # {
     #     'name': 'my_public_goods_',
