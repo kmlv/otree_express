@@ -82,6 +82,7 @@ class Subsession(BaseSubsession):
                     grupo.BDM_list_step = grupo.Method_params[2]
             i += 1
 
+
         # setting message PRICE
         i = 0
         for grupo in self.get_groups()[0:num_groups]:  # the slice is because self.get_groups() include a group
@@ -118,6 +119,9 @@ class Subsession(BaseSubsession):
             for player in grupo.get_players():
                 player.endowment = self.session.config['reader_endowment'][0]
 
+
+
+        ### CHECKS ###
         # Check if number of participants in session config is congruent
         assert num_partic == num_groups * 2 + self.session.config['num_readers'], \
             "num_partic != num_groups*2 + num_redrs"
@@ -130,7 +134,6 @@ class Subsession(BaseSubsession):
         print("treatment_list", treatment_list)
         assert ('TP' in treatment_list and num_readers >= 1) or ('TP' not in treatment_list and num_readers == 0), \
         "there are tp-groups (reader) and no readers (no tp-groups)"
-
 
         # Check if Params in session config is congruent with number of participants
         for grupo in self.get_groups():
@@ -147,8 +150,14 @@ class Subsession(BaseSubsession):
                 "a group in NM or FM or TP-R does not have the right dictionary in session config"
             else:
                 assert False, "treat in config session contains an unspecified treatment"
-
             print(grupo, "OK treatment config")
+
+        # transfer vars to participant.vars
+        for p in self.get_players():
+            p.participant.vars['treatment'] = grupo.treatment
+            p.participant.vars['value_type'] = grupo.value_type
+            p.participant.vars['elicitation_method'] = grupo.elicitation_method
+            p.participant.vars['BDM_type'] = grupo.BDM_type
 
 
 class Group(BaseGroup):
