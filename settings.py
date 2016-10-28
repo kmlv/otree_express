@@ -110,13 +110,15 @@ ROOMS = [
 # https://boto.readthedocs.org/en/latest/ref/mturk.html?highlight=mturk#module-boto.mturk.qualification
 
 mturk_hit_settings = {
-    'keywords': ['Demand for Expressing Emotions', 'emotions', 'takeorleave', 'dictator'],
-    'title': 'On the Demand for Expressing Emotions',
-    'description': 'Our experiment contributes to previous studies discussing the role of mood–emotional states.',
+    'keywords': ['short game', 'interaction', 'questionnaire', 'short study'],
+    'title': 'Simple, short interaction.',
+    'description': 'This is a very short study (approx. 10 mins). First, you will be paired \
+    randomly with another AMT participant. Second, you will answer few simple questions. Third, you and your \
+    counterpart will briefly interact via a simple interface.',
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',
-    'minutes_allotted_per_assignment': 60,
-    'expiration_hours': 7*24, # 7 days
+    'minutes_allotted_per_assignment': 15,
+    'expiration_hours': 2*24, # 7 days
     #'grant_qualification_id': 'YOUR_QUALIFICATION_ID_HERE',# to prevent retakes
     'qualification_requirements': [
         # qualification.LocaleRequirement("EqualTo", "US"),
