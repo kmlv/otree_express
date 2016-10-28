@@ -479,7 +479,7 @@ SESSION_CONFIGS = [
         'display_name': 'Search Task',
         'num_demo_participants': 2,
         'app_sequence': ['search_task'],
-        'debug': True,
+        'debug': False,
         'targetIncome': [10, 12]
     },
     {
