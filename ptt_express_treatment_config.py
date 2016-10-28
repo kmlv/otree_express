@@ -11,7 +11,7 @@
 
 real_world_currency_per_point = 1
 num_demo_participants = 10
-targetIncome = [4]
+targetIncome = [7]
 num_readers = 0
 reader_endowment = [3]
 params = [
