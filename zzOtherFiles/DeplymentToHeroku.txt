@@ -1,0 +1,29 @@
+
+-- first deployment
+cd to folder with settings..
+heroku login
+git init
+heroku create
+heroku addons:create heroku-redis:hobby-dev
+pip3 install -U otree-core
+git add .
+git commit -am "comment here"
+git push heroku master
+heroku run otree resetdb
+heroku open
+
+-- deployment after changes
+
+git add .
+git commit -am "comment here"
+git push heroku master
+heroku run otree resetdb
+heroku open
+
+UNLINK
+
+— git remote rm heroku
+
+verify
+
+- git remote -v

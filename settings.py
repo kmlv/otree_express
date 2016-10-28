@@ -6,6 +6,7 @@ from boto.mturk import qualification
 
 import otree.settings
 
+import csv
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -142,15 +143,13 @@ SESSION_CONFIG_DEFAULTS = {
     'mturk_hit_settings': mturk_hit_settings,
 }
 
+################
+# importing param configs
+import ptt_express_treatment_config
+
+################
+
 SESSION_CONFIGS = [
-    {
-        'name': 'AMT_ultimatum',
-        'display_name': "AMT ultimatum",
-        'real_world_currency_per_point': 1,
-        'num_demo_participants': 2,
-        'app_sequence': ['batson_questionnaire', 'ultimatum', 'batson_questionnaire2','payment_info'],
-        'debug': True
-    },
     {
         'name': 'PTT_express_FM_n2',
         'display_name': "Free Message, 2 players",
@@ -162,7 +161,7 @@ SESSION_CONFIGS = [
         'Params': [
         {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
         ],
-        'app_sequence': ['zFake_searchTask','PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -489,6 +488,35 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['mauss_questionnaire'],
         'debug': True,
+    },
+    {
+        'name': 'AMT_ultimatum',
+        'display_name': "AMT ultimatum",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 2,
+        'app_sequence': ['batson_questionnaire', 'ultimatum', 'batson_questionnaire2', 'payment_info'],
+        'debug': True
+    },
+    {
+        'name': 'ptt_express_instructions',
+        'display_name': "Only ptt_express_instructions",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 1,
+        'app_sequence': ['PTT_express_instructions'],
+        'debug': True
+    },
+    #############################################
+    {
+        'name': 'Multiple_treatments_actual_sessions',
+        'display_name': "Multiple treatments - actual sessions - reads Params config from txt file",
+        'real_world_currency_per_point': ptt_express_treatment_config.real_world_currency_per_point,
+        'num_demo_participants': ptt_express_treatment_config.num_demo_participants,
+        'targetIncome': ptt_express_treatment_config.targetIncome,
+        'num_readers': ptt_express_treatment_config.num_readers,
+        'reader_endowment': ptt_express_treatment_config.reader_endowment,
+        'Params': ptt_express_treatment_config.params,
+        'app_sequence': ['batson_questionnaire', 'search_task', 'PTT_expression', 'payment_info','batson_questionnaire2'],
+        'debug': False
     }
     # {
     #     'name': 'my_public_goods_',
