@@ -13,4 +13,6 @@ class PaymentInfo(Page):
         }
 
 
+    timeout_seconds = 60
+
 page_sequence = [PaymentInfo]

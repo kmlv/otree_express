@@ -18,7 +18,7 @@ class QuestionnairePage1(Page):
         return {
             'emo_list': shuffled_emotion_list
         }
-
+    timeout_seconds = 600
 
 class QuestionnairePage2(Page):
 
@@ -34,6 +34,7 @@ class QuestionnairePage2(Page):
         return {
             'filler_list': shuffled_filler_list
         }
+    timeout_seconds = 600
 
 
 class ResultsWaitPage(WaitPage):
