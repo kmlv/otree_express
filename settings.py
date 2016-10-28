@@ -515,7 +515,7 @@ SESSION_CONFIGS = [
         'num_readers': ptt_express_treatment_config.num_readers,
         'reader_endowment': ptt_express_treatment_config.reader_endowment,
         'Params': ptt_express_treatment_config.params,
-        'app_sequence': ['batson_questionnaire', 'search_task', 'PTT_expression', 'payment_info','batson_questionnaire2'],
+        'app_sequence': ['batson_questionnaire', 'PTT_express_instructions' ,'search_task', 'PTT_expression', 'payment_info','batson_questionnaire2'],
         'debug': False
     }
     # {
