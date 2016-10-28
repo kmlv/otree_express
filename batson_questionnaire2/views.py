@@ -37,6 +37,8 @@ class QuestionnairePage2(Page):
             'filler_list': shuffled_filler_list
         }
 
+    timeout_seconds = 600
+
 
 class ResultsWaitPage(WaitPage):
 
