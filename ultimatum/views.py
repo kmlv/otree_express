@@ -47,6 +47,8 @@ class AcceptStrategy(Page):
     def is_displayed(self):
         return self.player.id_in_group == 2 and self.group.strategy
 
+    timeout_seconds = 600
+
 
 class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):
@@ -55,7 +57,7 @@ class ResultsWaitPage(WaitPage):
 
 class Results(Page):
     pass
-
+    timeout_seconds = 150
 
 page_sequence = [Introduction,
                  Offer,
