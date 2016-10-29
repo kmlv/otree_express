@@ -4,9 +4,16 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class MyPage(Page):
-    pass
+# class MyPage(Page):
+#
+#     def vars_for_template(self):
+#         return {
+#             'treatment': self.participant.treatment
+#         }
 
+
+class Instructions(Page):
+    pass
 
 class ResultsWaitPage(WaitPage):
 
@@ -19,7 +26,6 @@ class Results(Page):
 
 
 page_sequence = [
-    MyPage,
-    ResultsWaitPage,
+    Instructions,
     Results
 ]

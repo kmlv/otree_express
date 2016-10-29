@@ -260,8 +260,8 @@ class WaitMessagesInTP(WaitPage):
     wait_for_all_groups = True  # for whom x needs to wait
 
     # x who he/she waits
-    #def is_displayed(self):
-     #   return self.player.role() == 'R'
+    def is_displayed(self):
+       return self.player.role() == 'R'
 
 
 class DisplayMessagesToR(Page):

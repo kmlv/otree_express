@@ -19,7 +19,7 @@ angular.module('Game', []).controller("gameController",
 
     $scope.income = 0;
     $scope.totalincome = 0;
-    $scope.taskGoal = 5;
+    $scope.taskGoal = 20;
     $scope.task = 1;
 
     // time variables
