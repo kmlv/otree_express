@@ -8,8 +8,8 @@ class MyPage1(Page):
     form_model = models.Player
     form_fields = ['contribution']
 
-    def is_displayed(self):
-        return self.player.id_in_group != 3
+    #def is_displayed(self):
+     #   return self.player.id_in_group != 3
 
 class ResultsWaitPage(WaitPage):
 
