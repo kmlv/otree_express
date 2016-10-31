@@ -13,8 +13,8 @@ Your app description
 
 class Constants(BaseConstants):
     name_in_url = 'zzz_test_app'
-    players_per_group = None
-    num_groups = 3
+    players_per_group = 2
+    num_groups = 2
     num_rounds = 1
     endowment = c(100)
     efficiency_factor = 1.8

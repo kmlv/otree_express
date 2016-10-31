@@ -459,7 +459,7 @@ SESSION_CONFIGS = [
     {
         'name': 'test',
         'display_name': "test of waiting",
-        'num_demo_participants': 3,
+        'num_demo_participants': 4,
         'app_sequence': ['zzz_test_app'],
     },
     {
