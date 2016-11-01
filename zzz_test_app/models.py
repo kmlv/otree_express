@@ -22,38 +22,24 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     pass
-    #def get_partner(self):
-     #       return self.get_others_in_subsession()[0]
+    #def before_session_starts(self):
      #  new_structure = [[1], [2], [3]]
       # self.set_group_matrix(new_structure)
 
 class Group(BaseGroup):
-    total_contribution1 = models.CurrencyField()
-    total_contribution2 = models.CurrencyField()
-    individual_share1 = models.CurrencyField()
-    individual_share2 = models.CurrencyField()
+    total_contribution = models.CurrencyField()
+    individual_share = models.CurrencyField()
 
     def set_payoffs(self):
-
-        self.total_contribution1 = sum(
-            [p.contribution for p in self.get_player_by_role('A')])
-        self.total_contribution2 = sum(
-            [p.contribution for p in self.get_player_by_role('B')])
-        self.individual_share1 = self.total_contribution1 * Constants.efficiency_factor / 2
-        self.individual_share2 = self.total_contribution2 * Constants.efficiency_factor / 2
-        for p in self.get_player_by_role('A'):
-            p.payoff = Constants.endowment - p.contribution + self.individual_share1
-        for p in self.get_player_by_role('B'):
-            p.payoff = Constants.endowment - p.contribution + self.individual_share2
+        self.total_contribution = sum(
+            [p.contribution for p in self.get_players()])
+        self.individual_share = self.total_contribution * Constants.efficiency_factor / 2
+        for p in self.get_players():
+            p.payoff = Constants.endowment - p.contribution + self.individual_share
 
 
 class Player(BasePlayer):
     contribution = models.CurrencyField(min=0, max=Constants.endowment)
-    def role(self):
-        if self.id_in_group == 1:
-            return 'A'
-        elif self.id_in_group == 2:
-            return 'B'
     def get_partner(self):
         return self.get_others_in_subsession()[0]
 

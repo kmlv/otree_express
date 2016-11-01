@@ -6,24 +6,21 @@
 {% endblock %}
 
 {% block content %}
-    {% if player.id_in_group == 1 %}
+    {% if player.id_in_group != 3 %}
 
         <p>
             You started with an endowment of {{ Constants.endowment }},
             of which you contributed {{ player.contribution }}.
-            Your group contributed {{ group.total_contribution1 }},
-            resulting in an individual share of {{ group.individual_share1 }}.
+            Your group contributed {{ group.total_contribution }},
+            resulting in an individual share of {{ group.individual_share }}.
             Your profit is therefore {{ player.payoff }}.
         </p>
 
         {% next_button %}
     {% else %}
         <p>
-            You started with an endowment of {{ Constants.endowment }},
-            of which you contributed {{ player.contribution }}.
-            Your group contributed {{ group.total_contribution2 }},
-            resulting in an individual share of {{ group.individual_share2 }}.
-            Your profit is therefore {{ player.payoff }}.
+            You started with an endowment of {{ Constants.endowment }}
+            Your group contributed {{ group.total_contribution }}
         </p>
         {% next_button %}
     {% endif %}
