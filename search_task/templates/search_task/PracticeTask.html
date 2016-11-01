@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block title%}
-Practice Screen
+    Stage 1: Practice Screen
 {% endblock %}
 
 {% block scripts %}
@@ -57,7 +57,7 @@ Practice Screen
         <p class = text-left>This is a practice screen, and it does NOT count towards your income. </p>
 
         <p class="text-left" >
-            In this task, you can earn you a maximum of <span ng-bind="maxpoints"></span> points.
+            In this task, you can earn a maximum of <span ng-bind="maxpoints"></span> points.
             Your current Task Income is $<span ng-bind="parsedIncome"></span>.
         </p>
                     <!-- real tasks -->
@@ -133,24 +133,45 @@ Practice Screen
         <br/>
         <br/>
 
-          {% include 'search_task/GameInstructions.html' %}
-{#        <h5 ng-show="false">Use the <em>left-click</em> of the mouse to <em>move</em>#}
-{#                  the yellow circle (in the left graph) and search for the location that gives you the highest#}
-{#                  score in Points. The Points Indicator is on right (100 points = 1.00 dollar).#}
-{#                  The assigned time is 35 seconds. You can try as many points as you want.</h5>#}
-{##}
+
+    <br/>
+   {# Instructions #}
+    <div class="container">
+        <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Show Instructions</button>
+        <div id="demo" class="collapse">
+            <div class="instructions well well-lg">
+
+                    <p> In this stage, you will perform a sequence of tasks to earn your <em>task income.</em></p>
+                    <p> In the square on the left side of the screen, you will choose different locations using the mouse's left click. Search for the location that gives you the highest number of points. The "points earned" in your current location is shown on right side of the square, where you can also see the time left for the current task.</p>
+                    <p> Right above the square, you can see the direction in which you can earn more points. You can try as many locations as you want, within a time limit of 30 seconds per screen.</p>
+                    <p> The total number of points available in each task will be shown in the header. Your total <em>task income</em> will be the sum of your earnings in all these tasks. For every 100 points you earn, you will receive $1.00 (100 points = $1.00).</p>
+                    <p> You will be given two un-timed trial tasks before the series of actual tasks starts. </p> </br>
+
+            </div>
+        </div>
+    </div>
+
+
     </div>
 </div>
 
+
         <div id="hideNext" style="display: none;" ng-if='showpage.afterGame'>
-        <h5> Done with practice.</h5>
-        <h5> Continue to real task.</h5>
-        <br>
-        <p></p>
-        {% next_button %} </h3>
+            <h5> Done with practice.</h5>
+            <h5> Continue to real task.</h5>
+            <br>
+            <p></p>
+            {% next_button %} </h3>
         </div>
 {#{% if subsession.debug_mode == True %}#}
 {#{% next_button %}#}
 {#{% endif %}#}
 
 {% endblock %}
+
+
+{#        <h5 ng-show="false">Use the <em>left-click</em> of the mouse to <em>move</em>#}
+{#                  the yellow circle (in the left graph) and search for the location that gives you the highest#}
+{#                  score in Points. The Points Indicator is on right (100 points = 1.00 dollar).#}
+{#                  The assigned time is 35 seconds. You can try as many points as you want.</h5>#}
+{##}
