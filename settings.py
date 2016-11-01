@@ -137,7 +137,7 @@ mturk_hit_settings = {
 
 SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 0.01,
-    'participation_fee': 1.00,
+    'participation_fee': 0.01,
     'num_bots': 6,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
@@ -492,7 +492,7 @@ SESSION_CONFIGS = [
     {
         'name': 'AMT_ultimatum',
         'display_name': "AMT ultimatum",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
         'app_sequence': ['batson_questionnaire', 'ultimatum', 'batson_questionnaire2', 'payment_info'],
         'debug': True
