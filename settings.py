@@ -499,7 +499,7 @@ SESSION_CONFIGS = [
     },
     {
         'name': 'ptt_express_instructions',
-        'display_name': "Only ptt_express_instructions",
+        'display_name': "Only PTT Expression Instructions",
         'real_world_currency_per_point': 1,
         'num_demo_participants': 1,
         'app_sequence': ['PTT_express_instructions'],
