@@ -16,16 +16,16 @@
     {% formfield  group.time_RolesIncome with label=None  %}
 
     {% if group.treatment != 'TP-R' %}
-        <p> You have received {{player.endowment}} of endowment and earned {{player.task_income}} in the search tasks. </p>
+        <p> You received {{player.endowment}} of <em> endowment </em> and earned {{player.task_income}} as <em> task income </em>. </p>
 
-        <p> Your available income is {{player.available_income0}} </p>
+        <p> Your available income at this point is {{player.available_income0}}. </p>
 
-        <p> Your role is {{player.role}} </p>
+        <p> Your have been assigned <b>role {{player.role}}</b>. </p>
 
     {% elif group.treatment == 'TP-R' %}
-        <p> You have received {{player.endowment}} of endowment and earned {{player.task_income}} in the search tasks. </p>
+        <p> You received {{player.endowment}} of <em> endowment </em> and earned {{player.task_income}} as <em> task income </em>. </p>
 
-        <p> Your role is {{player.role}} (Reader). </p>
+        <p> Your have been assigned <b> role {{player.role}} </b> (Reader). </p>
 
     {% endif %}
 

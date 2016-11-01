@@ -7,6 +7,8 @@
 
 {% block content %}
 
+{####################################################################}
+
 {# Greetings - ALL #}
 
 <p> Welcome to the LEEPS Laboratory. During the course of this session, you will be asked to make a series of decisions. By participating in this study, you will earn real money that will be paid to you in cash at the end of the experiment. On top of what you will earn during the session, you will receive a participation fee of {{ participation_fee }}.</p>
@@ -163,17 +165,17 @@
     {% if value_type == 'WTP' %}
         <p><em> For player A = Endowment + task income + money taken from B's account.</em></p>
         <p> </p>
-        <p><em> For player B when  buys the right to send the message = Endowment + task income - money taken by player A - price of sending message.</em></p>
+        <p><em> For player B when message is sent = Endowment + task income - money taken by player A - price of sending message.</em></p>
         <p> </p>
-        <p><em> For player B when  does not buy the right to send the message = Endowment + task income - money taken by player A.</em></p>
+        <p><em> For player B when message is NOT sent  = Endowment + task income - money taken by player A.</em></p>
     {% endif %}
 
     {% if value_type == 'WTA' %}
         <p><em> For player A = Endowment + task income + money taken from B's account.</em></p>
         <p> </p>
-        <p><em> For player B when forgoes the right to send message = Endowment + task income - money taken by player A + compensation for NOT sending the message.</em></p>
+        <p><em> For player B when message is NOT sent = Endowment + task income - money taken by player A + compensation for NOT sending the message.</em></p>
         <p> </p>
-        <p><em> For player B when does not forgo the right to send the message = Endowment + task income - money taken by player A.</em></p>
+        <p><em> For player B when message is sent = Endowment + task income - money taken by player A.</em></p>
     {% endif %}
 
     {% if treatment == 'TP' %}
