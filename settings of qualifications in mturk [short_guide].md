@@ -9,7 +9,7 @@ This way, players will not get stuck waiting for someone who dropped out.
 You can use money language in your app without impact the payment (if the player wins $40 doesn't imply you have to pay $40 )
 Only set in real_world_currency_per_point: 
 
-	```SESSION_CONFIG_DEFAULTS = {
+```SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 0.01,
     'participation_fee': 1.00,
     'num_bots': 6,
@@ -24,30 +24,31 @@ Go to Manage option in your mturk account. Then go to qualifications and click o
 You have to do this for sandbox and for realmturk (you will have 2 ID)
 (sandbox)
 
-    ``` grant_qualification_id : 3LQV637WQB4JX22NPA62LG08IF76BE ```
+``` grant_qualification_id : 3LQV637WQB4JX22NPA62LG08IF76BE ```
 
 (real mturk)
-    ``` grant_qualification_id : 3X03PXFE93BZZPK7U8HT29SECH8OFF ```
+
+``` grant_qualification_id : 3X03PXFE93BZZPK7U8HT29SECH8OFF ```
 
 - [x] Second, you have to modify some settings for qualifications
 
-     ``` qualification.LocaleRequirement("EqualTo", "US"), ```
+``` qualification.LocaleRequirement("EqualTo", "US"), ```
 	 
 Description:	The Location Qualification represents the location you specified with your mailing address. 
 Some HITs may only be available to residents of particular countries, states, provinces or cities.
 
-	```qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 50),```
+```qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 50),```
 	
 Description:	This Qualification is generated automatically and reflects the percentage of HITs for which 
 you have submitted an answer that has been approved divided by the total number of HITs that have been approved or rejected. 
 Your score is a value between 0 and 100. A score of 100 indicates that every HIT you have submitted has been approved.
 	
-	```qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 5),```
+```qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 5),```
 	
 Description:	This Qualification is generated automatically and reflects the number of HITs which you have submitted an answer that has been approved.
 Your score is a value greater than or equal to 0.
 
-	```qualification.Requirement('3LQV637WQB4JX22NPA62LG08IF76BE', 'DoesNotExist')```
+```qualification.Requirement('3LQV637WQB4JX22NPA62LG08IF76BE', 'DoesNotExist')```
 
 You have to put the same ID from the first line
 
@@ -56,7 +57,7 @@ You have to put the same ID from the first line
 This is only necessary if you know the ID of specific workers , so in that case you have to create a vector of id_workers 
 Example:
 
-		``` w <- c('Worker1','Worker2','etc.') # a vector containing WorkerIds
+``` w <- c('Worker1','Worker2','etc.') # a vector containing WorkerIds
 			AssignQualification(
 			qual = thenewqual$QualificationTypeId,
 			workers = w,
