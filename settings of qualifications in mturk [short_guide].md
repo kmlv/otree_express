@@ -9,19 +9,15 @@ This way, players will not get stuck waiting for someone who dropped out.
 You can use money language in your app without impact the payment (if the player wins $40 doesn't imply you have to pay $40 )
 Only set in real_world_currency_per_point: 
 
-```SESSION_CONFIG_DEFAULTS = {
-
-    'real_world_currency_per_point': 0.01,
-	
-    'participation_fee': 1.00,
-	
-    'num_bots': 6,
-	
-    'doc': "",
-	
-    'mturk_hit_settings': mturk_hit_settings,
-	
-	} ```
+```
+SESSION_CONFIG_DEFAULTS = {
+'real_world_currency_per_point': 0.01,
+'participation_fee': 1.00,
+'num_bots': 6,
+'doc': "",
+'mturk_hit_settings': mturk_hit_settings,
+}
+```
 
 ##About qualifications in mturk
 - [x] First you have to create New QualificationType
