@@ -4,7 +4,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class MyPage(Page):
+class PracticeTask(Page):
     pass
 
 
@@ -16,16 +16,18 @@ class SearchTask(Page):
         return {
             'target_income': self.player.target_income
         }
+
     def before_next_page(self):
         self.participant.vars['task_income'] = self.player.task_reward
         # self.player.intermediate_reward = self.player.task_reward + self.group.treatment_endowment
 
 
-
-class PracticeTask(Page):
+class GameInstructions(Page):
     pass
 
+
 page_sequence = [
+    GameInstructions,
     PracticeTask,
     SearchTask
 ]
