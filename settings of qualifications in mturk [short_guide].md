@@ -1,4 +1,5 @@
 # Key points for mturk and qualifications
+:bowtie: :bowtie: :bowtie:
 ===================
 ## About wait pages in mturk
 One issue is the risk that some players will drop out.
@@ -20,7 +21,7 @@ SESSION_CONFIG_DEFAULTS = {
 ```
 
 ##About qualifications in mturk
-- [x] First you have to create New QualificationType
+- [x] **First you have to create New QualificationType**
 
 Go to Manage option in your mturk account. Then go to qualifications and click on "create New qualification type"
 You have to do this for sandbox and for realmturk (you will have 2 ID)
@@ -32,7 +33,7 @@ You have to do this for sandbox and for realmturk (you will have 2 ID)
 
 ``` grant_qualification_id : 3X03PXFE93BZZPK7U8HT29SECH8OFF ```
 
-- [x] Second, you have to modify some settings for qualifications
+- [x] **Second, you have to modify some settings for qualifications**
 
 ``` qualification.LocaleRequirement("EqualTo", "US"), ```
 	 
@@ -54,19 +55,17 @@ Your score is a value greater than or equal to 0.
 
 You have to put the same ID from the first line
 
-- [x] Third, you have assign Qualifications 
+- [x] **Third, you have assign Qualifications**
 
 This is only necessary if you know the ID of specific workers , so in that case you have to create a vector of id_workers 
 Example:
 
-``` w <- c('Worker1','Worker2','etc.') # a vector containing WorkerIds
-
-			AssignQualification(
+``` 
+w <- c('Worker1','Worker2','etc.') # a vector containing WorkerIds
+	AssignQualification(
+	qual = thenewqual$QualificationTypeId,
+	workers = w,
+	values = "50")
+```
 			
-			qual = thenewqual$QualificationTypeId,
-			
-			workers = w,
-			
-			values = "50") ```
-			
-- [x] Fourth, create a new mturk session of the app (sandbox or real mturk) and spread your HIT to the world
+- [x] **Fourth, create a new mturk session of the app (sandbox or real mturk) and spread your HIT to the world**
