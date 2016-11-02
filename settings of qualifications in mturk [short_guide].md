@@ -53,7 +53,9 @@ Your score is a value greater than or equal to 0.
 
 ```qualification.Requirement('3LQV637WQB4JX22NPA62LG08IF76BE', 'DoesNotExist')```
 
-You have to put the same ID from the first line
+You have to put the same ID from the first line. 
+Attach the Qualification as a QualificationRequirement to the new HIT using the "DoesNotExist" comparator.
+With this method, previous workers will not be able to complete the new HIT and new workers simply need to accept the HIT in order to complete it.
 
 - [x] **Third, you have assign Qualifications**
 
