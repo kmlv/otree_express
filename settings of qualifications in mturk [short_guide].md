@@ -10,11 +10,17 @@ You can use money language in your app without impact the payment (if the player
 Only set in real_world_currency_per_point: 
 
 ```SESSION_CONFIG_DEFAULTS = {
+
     'real_world_currency_per_point': 0.01,
+	
     'participation_fee': 1.00,
+	
     'num_bots': 6,
+	
     'doc': "",
+	
     'mturk_hit_settings': mturk_hit_settings,
+	
 	} ```
 
 ##About qualifications in mturk
@@ -58,9 +64,13 @@ This is only necessary if you know the ID of specific workers , so in that case 
 Example:
 
 ``` w <- c('Worker1','Worker2','etc.') # a vector containing WorkerIds
+
 			AssignQualification(
+			
 			qual = thenewqual$QualificationTypeId,
+			
 			workers = w,
+			
 			values = "50") ```
 			
 - [x] Fourth, create a new mturk session of the app (sandbox or real mturk) and spread your HIT to the world
