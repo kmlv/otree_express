@@ -1,5 +1,5 @@
 # Key points for mturk and qualifications
-:simple_smile: :relieved: :mortar_board: :memo: :simple_smile: :relieved: :mortar_board: :memo: :simple_smile: :relieved: :mortar_board: :memo:
+ :grin: :relieved: :mortar_board: :memo: :grin: :relieved: :mortar_board: :memo: :grin: :relieved: :mortar_board: :memo:
 ===================
 ## About wait pages in mturk
 One issue is the risk that some players will drop out.
