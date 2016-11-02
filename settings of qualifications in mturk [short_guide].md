@@ -1,16 +1,12 @@
 key points for mturk and qualifications
 ===================
-##<i class="icon-pencil"></i> 
-About wait pages in mturk
-
-	One issue is the risk that some players will drop out.
-	To partly remedy this, you should set timeout_seconds on each page, so that the page will be auto-submitted if the participant drops out or does not complete the page in time.
-	This way, players will not get stuck waiting for someone who dropped out.
-## <i class="icon-pencil"></i> 
-About points and real money in mturk
-
-	You can use money language in your app without impact the payment (if the player wins $40 doesn't imply you have to pay $40 )
-	Only set in real_world_currency_per_point: 
+# About wait pages in mturk
+One issue is the risk that some players will drop out.
+To partly remedy this, you should set timeout_seconds on each page, so that the page will be auto-submitted if the participant drops out or does not complete the page in time.
+This way, players will not get stuck waiting for someone who dropped out.
+# About points and real money in mturk
+You can use money language in your app without impact the payment (if the player wins $40 doesn't imply you have to pay $40 )
+Only set in real_world_currency_per_point: 
 ----------------------------
 	SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 0.01,
