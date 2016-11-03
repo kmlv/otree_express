@@ -11,26 +11,33 @@
 
 {# Greetings - ALL #}
 
-<p> Welcome to the LEEPS Laboratory. During the course of this session, you will be asked to make a series of decisions. By participating in this study, you will earn real money that will be paid to you in cash at the end of the experiment. On top of what you will earn during the session, you will receive a participation fee of {{ participation_fee }}.</p>
+{#    paper effect starts   #}
+<div class="instructions well well-lg">
 
-<p> It is important you do not speak out loud or talk to other participants during the duration of the session. If you have any question, please raise your hand and an experimenter will attend to your station.</p>
+    <h4> General Instructions </h4>
 
-<p> This session has two stages. In Stage 1, called <em>Task Income Stage</em>, you will work on a set tasks to earn some money. We will refer to this amount as the <em>task income</em>. Specific instructions will be provided once this stage starts.</p>
+    <p> Welcome to the LEEPS Laboratory. During the course of this session, you will be asked to make a series of decisions. By participating in this study, you will earn real money that will be paid to you in cash at the end of the experiment. On top of what you earn during the session, you will receive a participation fee of {{ participation_fee }}.</p>
+
+<p> It is important you do not speak out loud, laugh or talk to other participants during the duration of the session. We expect and appreciate your cooperation. If you have any question, please raise your hand and an experimenter will attend to your station. After you have read these instructions, you  will answer a few brief questions to ensure you understand the instructions.</p><br/>
+
+<h4>Stages</h4>
+
+<p> This session has two stages. In Stage 1, called <em>Task Stage</em>, you will work on a set tasks to earn money. We will refer to the earned amount as the <em>task income</em>. Specific directions on these tasks will be provided once Stage 1 starts.</p>
 
 {#  Stage 2: general | All but TP #}
 {% if treatment != 'TP' %}
 
-    <p> In Stage 2, called <em>Interaction Stage</em>, you will interact with another participant in the room. First, you will be anonymously paired with another participant. You will be randomly assigned to be either of <strong><em>Role A</em></strong> or of <strong><em>Role B</em></strong>. You will remain in the same role throughout the entire duration of the experiment. You will be informed about your role on your computer screen once Stage 2 starts. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment. </p> </br>
+    <p> In Stage 2, called <em>Income Stage</em>, you will interact with another participant in the room. First, you will be anonymously paired with one another. You will then be randomly assigned to be either of <strong><em>Role A</em></strong> or of <strong><em>Role B</em></strong>. You will remain in the same role throughout the entire duration of the experiment. You will be informed about your role on your computer screen once Stage 2 starts. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment. </p> </br>
 
     <h4> Role A:</h4>
     <p> If you are assigned <em>Role A</em>, you are to decide how much of B’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of B’s <em>task income</em>, but you will not be able to transfer B’s endowment. The image below shows the screen where you will make your decision: </p> </br>
 
-        <div style="align-content: center; border:1px solid gray">
-            <img src="{% static "PTT_express_instructions/A_decision_screen.png" %}" width="700" align="center"/>
+        <div style="align-content: center; border:0px solid gray">
+            <img alt="Screenshot A's Decision" src="{% static "PTT_express_instructions/A_decision_screen.png" %}" width="700" align="center"/>
         </div> </br>
 
     <h4> Role B:</h4>
-    <p> If you are assigned<em>Role B</em>, you will be asked to guess what percentage of your <em>task income</em> A will transfer to his/her own account.</p>
+    <p> If you are assigned <em>Role B</em>, you will be asked to guess what percentage of your <em>task income</em> A will transfer to his/her own account.</p>
 
 {% endif %}
 
@@ -47,8 +54,8 @@
     <h4> Role A:</h4>
     <p> If you are assigned <em>Role A</em>, you are to decide how much of B’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of B’s <em>task income</em>, but you will not be able to transfer B’s endowment. The image below shows the screen where you will make your decision: </p> </br>
 
-        <div style="align-content: center; border:1px solid gray">
-            <img src="{% static "PTT_express_instructions/A_decision_screen.png" %}" width="700" align="center"/>
+        <div style="align-content: center; border:0px solid gray">
+            <img alt="Screenshot A's Decision" src="{% static "PTT_express_instructions/A_decision_screen.png" %}" width="700" align="center"/>
         </div> </br>
 
     <h4> Role B:</h4>
@@ -182,6 +189,8 @@
     <p> Also, before Stage 1 and after Stage 2, you will be asked to answer a series of brief questions. Please answer those questions truthfully. </p> </br>
 
 {####################################################################}
+
+    </div>   {#  paper effect ends#}
 
     {% next_button %}
 
