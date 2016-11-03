@@ -142,7 +142,7 @@ class ElicitBdmList(Page):
 
         # setting self.group.price_list and self.group.price_list_size so we can set form_fields
         max_size = Constants.max_price_list_size
-        step = c(self.group.BDM_list_step)
+        step = self.group.BDM_list_step
         upper_limit = (self.group.BDM_uplimit == 'end')*self.player.endowment + \
                       (self.group.BDM_uplimit == 'av_inc')*self.player.available_income1
         prices = [i * step for i in range(0, max_size - 1)]  # range(0, max_size) has max_size entries, so we take one
