@@ -1,3 +1,7 @@
 /.idea
 
 .idea/workspace.xml
+*.pyc
+*\_pycache_\*.pyc
+*.sqlite3
+
