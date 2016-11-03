@@ -458,9 +458,9 @@ SESSION_CONFIGS = [
     },
 #########################################################################################################
     {
-        'name': 'Grouping test',
+        'name': 'Grouping_test',
         'display_name': "test of group interactions",
-        'num_demo_participants': 2,
+        'num_demo_participants': 4,
         'app_sequence': ['grouping_test'],
     },
 
