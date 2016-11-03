@@ -7,4 +7,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+# take care with this if you are migrating your db and dont want overlap it
 db.sqlite3
+
+
