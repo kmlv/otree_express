@@ -61,7 +61,7 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
-USE_POINTS = False
+USE_POINTS = True
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
@@ -154,7 +154,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_FM_n2',
         'display_name': "Free Message, 2 players",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
@@ -168,7 +168,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_NM_n2',
         'display_name': "No Message, 2 players",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
@@ -183,7 +183,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_DM_N2_WTP_BDM_CONT__0_end',
         'display_name': "Direct Message, N=2, WTP, BDM Continuous [0, endowment] ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
@@ -197,7 +197,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_DM_N2_WTP_BDM_LIST__0_av_inc',
         'display_name': "Direct Message, N=2, WTP, BDM List [0, available_income] ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
@@ -211,7 +211,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_DM_N2_WTP_SOP',
         'display_name': "Direct Message, N=2, WTP, SOP ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
@@ -226,7 +226,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_DM_N2_WTA_BDM_CONT__0_end',
         'display_name': "Direct Message, N=2, WTA, BDM Continuous [0, endowment] ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
@@ -240,7 +240,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_DM_N2_WTA_BDM_LIST__0_av_inc',
         'display_name': "Direct Message, N=2, WTA, BDM List [0, available_income] ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
@@ -254,7 +254,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_DM_N2_WTA_SOP',
         'display_name': "Direct Message, N=2, WTA, SOP ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
@@ -270,7 +270,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_TP_N2_WTP_BDM_CONT__0_end',
         'display_name': "Third Party, N=2, WTP, BDM Continuous [0, endowment] ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
@@ -284,7 +284,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_TP_N2_WTP_BDM_LIST__0_av_inc',
         'display_name': "Third Party, N=2, WTP, BDM List [0, available_income] ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
@@ -298,7 +298,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_TP_N2_WTP_SOP',
         'display_name': "Third Party, N=2, WTP, SOP ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
@@ -313,7 +313,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_TP_N2_WTA_BDM_CONT__0_end',
         'display_name': "Third Party, N=2, WTA, BDM Continuous [0, endowment] ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
@@ -327,7 +327,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_TP_N2_WTA_BDM_LIST__0_av_inc',
         'display_name': "Third Party, N=2, WTA, BDM List [0, available_income] ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
@@ -341,7 +341,7 @@ SESSION_CONFIGS = [
     {
         'name': 'PTT_express_TP_N2_WTA_SOP',
         'display_name': "Third Party, N=2, WTA, SOP ",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
@@ -356,7 +356,7 @@ SESSION_CONFIGS = [
     {
         'name': 'Multiple_treatments_2DM_1TP_1NM_1FM',
         'display_name': "Multiple treatments 11 Players, 2DM, 1TP, 1NM, 1FM",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 11,
         'targetIncome': [4],
         'num_readers': 1,
@@ -382,7 +382,7 @@ SESSION_CONFIGS = [
     {
         'name': 'Multiple_treatments_4DM_2TP',
         'display_name': "Multiple treatments 13 Players, 4DM (WTP/A), 2TP (WTP/A)",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 13,
         'targetIncome': [9],
         'num_readers': 1,
@@ -401,7 +401,7 @@ SESSION_CONFIGS = [
     {
         'name': 'Multiple_treatments_1DM_1TP',
         'display_name': "Multiple treatments 5 Players, 1DM (WTP), 1TP (WTP)",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 5,
         'targetIncome': [10.5],
         'num_readers': 1,
@@ -431,7 +431,7 @@ SESSION_CONFIGS = [
     {
         'name': 'Multiple_treatments_3TP',
         'display_name': "Multiple treatments 7 Players, 3TP (2wtp, 1wta)",
-        'real_world_currency_per_point': 1,
+        'real_world_currency_per_point': 0.01,
         'num_demo_participants': 7,
         'targetIncome': [10.5],
         'num_readers': 1,

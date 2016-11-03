@@ -174,7 +174,7 @@ class Group(BaseGroup):
     BDM_list_step = models.DecimalField(max_digits=5, decimal_places=2)
     SOP_price = models.CurrencyField()
     b_message = models.TextField()
-    b_value = models.CurrencyField(min=c(0))
+    b_value = models.CurrencyField(min=0)
     message_price = models.CurrencyField()
     msg_sent = models.BooleanField(initial=0)
     SOP_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal())

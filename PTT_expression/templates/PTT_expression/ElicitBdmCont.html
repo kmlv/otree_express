@@ -27,7 +27,7 @@
           {% endif %}
         </p>
 
-        {% formfield group.b_value with label="Willingness to pay (in dollars and cents)" %}
+        {% formfield group.b_value with label="Willingness to pay (in points)" %}
 
         <p>The actual price of sending your message will be displayed on the next screen.</p>
 
@@ -37,13 +37,13 @@
           {% if group.treatment == 'DM' %} your counterpart A.
           {% elif group.treatment == 'TP' %} someone else in the room (a reader).
           {% endif %} </p>
-        <p> What is the minimum amount you would be willing to accept in exchange for not sending that message to
+        <p> What is the minimum amount you would be willing to accept in exchange for NOT sending that message to
           {% if group.treatment == 'DM' %} your counterpart A?
           {% elif group.treatment == 'TP' %} someone else in the room (a reader)?
           {% endif %}
         </p>
 
-        {% formfield group.b_value with label="Willingness to accept (in dollars and cents)" %}
+        {% formfield group.b_value with label="Willingness to accept (in points)" %}
 
         <p>The actual amount you would receive for not sending your message will be displayed on the next screen.</p>
 
