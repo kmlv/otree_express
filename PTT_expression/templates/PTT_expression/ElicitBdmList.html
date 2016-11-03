@@ -38,7 +38,7 @@
 
     <table class="table table-striped">
         <tr>
-            <th> {% if group.value_type == 'WTP' %} Price
+            <th> {% if group.value_type == 'WTP' %} Price (Points)
                  {% elif group.value_type == 'WTA' %} Amount {% endif %}
             </th>
 
@@ -50,7 +50,7 @@
           {% for field in form|allButLast %}
 
         <tr>
-            <td> Price: {{ prices|index:forloop.counter0 }}  </td>
+            <td> Points: {{ prices|index:forloop.counter0 }}  </td>
             <td> {% formfield field with label=None %} </td>
         </tr>
          {% endfor %}
