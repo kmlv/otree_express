@@ -19,9 +19,10 @@ Your app description
         #  The groups don't have to always be the same.
         # Or you can put all players in 1 group, and then get all A players with:
         # [p for p in self.get_players() if p.role() == 'A']
+
 class Constants(BaseConstants):
     name_in_url = 'grouping_test'
-    players_per_group = None
+    players_per_group = 2
     num_rounds = 1
 
 
@@ -34,4 +35,11 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+
+    # roles
+    def role(self):
+        if self.id_in_group == 1:
+            return 'A'
+        if self.id_in_group == 2:
+            return 'B'
+

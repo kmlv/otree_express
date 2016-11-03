@@ -4,22 +4,27 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class MyPage(Page):
+class MyPage1(Page):
     pass
 
 
-class ResultsWaitPage(WaitPage):
+class MyPage2(Page):
+    pass
 
-    def after_all_players_arrive(self):
-        pass
 
+class WaitForGroup2(WaitPage):
+    wait_for_all_groups = True
+
+    def is_displayed(self):
+        return self.player.id_in_group == 1
 
 class Results(Page):
     pass
 
 
 page_sequence = [
-    MyPage,
-    ResultsWaitPage,
+    MyPage1,
+    WaitForGroup2,
+    MyPage2,
     Results
 ]
