@@ -43,7 +43,8 @@ class ADecides(Page):
 
     def vars_for_template(self):
         return {
-            'b_task_income': float(self.group.get_player_by_role('B').task_income)
+            'b_task_income': float(self.group.get_player_by_role('B').task_income),
+            'points': self.session.config['USE_POINTS']
         }
 
     def before_next_page(self):

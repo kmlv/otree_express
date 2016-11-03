@@ -162,8 +162,9 @@ SESSION_CONFIGS = [
         'Params': [
         {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
-        'debug': True
+        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'debug': True,
+        'USE_POINTS': False
     },
     {
         'name': 'PTT_express_NM_n2',
