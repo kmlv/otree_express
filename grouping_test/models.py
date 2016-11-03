@@ -35,11 +35,4 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-
-    # roles
-    def role(self):
-        if self.id_in_group == 1:
-            return 'A'
-        if self.id_in_group == 2:
-            return 'B'
-
+    pass

@@ -18,13 +18,9 @@ class WaitForGroup2(WaitPage):
     def is_displayed(self):
         return self.player.id_in_group == 1
 
-class Results(Page):
-    pass
-
 
 page_sequence = [
     MyPage1,
     WaitForGroup2,
-    MyPage2,
-    Results
+    MyPage2
 ]
