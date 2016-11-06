@@ -18,16 +18,16 @@
 
     <p> Welcome to the LEEPS Laboratory. During the course of this session, you will be asked to make a series of decisions. By participating in this study, you will earn real money that will be paid to you in cash at the end of the experiment. On top of what you earn during the session, you will receive a participation fee of {{ participation_fee }}.</p>
 
-<p> It is important you do not speak out loud, laugh or talk to other participants during the duration of the session. We expect and appreciate your cooperation. If you have any question, please raise your hand and an experimenter will attend to your station. After you have read these instructions, you  will answer a few brief questions to ensure you understand the instructions.</p><br/>
+<p> It is important you do not speak out loud, laugh or talk to other participants during the duration of the session. We expect and appreciate your cooperation. If you have any question, please raise your hand and an experimenter will attend to you. After you have read these instructions, you will answer a few brief questions to ensure you understand them.</p><br/>
 
 <h4>Stages</h4>
 
-<p> This session has two stages. In Stage 1, called <em>Task Stage</em>, you will work on a set tasks to earn money. We will refer to the earned amount as the <em>task income</em>. Specific directions on these tasks will be provided once Stage 1 starts.</p>
+<p>This session consists of two stages. In Stage 1, called <em>Task Stage</em>, you will work on a set of tasks to earn money. We will refer to the earned amount as the <em>task income</em>. Specific instructions for these tasks will be provided once Stage 1 starts.</p>
 
 {#  Stage 2: general | All but TP #}
 {% if treatment != 'TP' %}
 
-    <p> In Stage 2, called <em>Income Stage</em>, you will interact with another participant in the room. First, you will be anonymously paired with one another. You will then be randomly assigned to be either of <strong><em>Role A</em></strong> or of <strong><em>Role B</em></strong>. You will remain in the same role throughout the entire duration of the experiment. You will be informed about your role on your computer screen once Stage 2 starts. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment. </p> </br>
+    <p> In Stage 2, called <em>Interaction Stage</em>, you will interact with another participant in the room. First, you will be anonymously paired with one another. You will then be randomly assigned to be either of <strong><em>Role A</em></strong> or of <strong><em>Role B</em></strong>. You will remain in the same role throughout the entire duration of the experiment. You will be informed about your role on your computer screen once Stage 2 starts. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment. </p> </br>
 
     <h4> Role A:</h4>
     <p> If you are assigned <em>Role A</em>, you are to decide how much of B’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of B’s <em>task income</em>, but you will not be able to transfer B’s endowment. The image below shows the screen where you will make your decision: </p> </br>
@@ -46,10 +46,10 @@
 {#    Stage 2: general | only TP #}
 {% if treatment  == 'TP' or role == 'TP-R' %}
 
-    <p> In Stage 2, called Interaction Stage, there are three possible roles for each participant, <em>Role A</em>, <em>Role B</em> and <em>Role R</em>. First, one participant will be randomly assigned the <em>Role R</em>. The rest of participants will be anonymously paired in groups of two. Within each group, roles will be randomly assigned so that there will be one person with <em>Role A</em> and one with <em>Role B</em>. You will remain in the same role throughout the entire duration of the experiment, and will be informed about your role on your computer screen once Stage 2 starts. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment.</p>
+    <p> In Stage 2, called <em>Interaction Stage</em>, there are three possible roles for each participant, <em>Role A</em>, <em>Role B</em> and <em>Role R</em>. First, one participant will be randomly assigned <em>Role R</em>. The rest of participants will be anonymously paired in groups of two. Within each group, roles will be randomly assigned so that there will be one person in <em>Role A</em> and one in <em>Role B</em>. You will remain in the same role throughout the entire duration of the experiment, and will be informed about your role on your computer screen once Stage 2 starts. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment.</p>
 
     <h4> Role R: </h4>
-    <p> If you are assigned <em>Role R</em> (or Reader) your only task is to <em>read</em> the messages written by participants with <em>Role B</em> who are able to send a message to you. The Reader is the only participant that is going to read those messages. None of the other participants in today's session will ever read these messages. The Reader will not receive any information about participants of Roles A or B. The Reader will need to read and confirm receipt of each message from B participants. Not all participants with <em>Role B</em> will write a message or be able to send it, as it will be explained below.</p>
+    <p> If you are assigned <em>Role R</em> (Reader) your only task is to read the messages written by participants in <em>Role B</em> who are able to send a message to you. The Reader is the only participant that is going to read these messages. None of the other participants in today's session will ever read them. The Reader will not receive any information about participants of Roles A or B. After reading the messages, the Reader will confirm having read them.</p>
 
     <h4> Role A:</h4>
     <p> If you are assigned <em>Role A</em>, you are to decide how much of B’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of B’s <em>task income</em>, but you will not be able to transfer B’s endowment. The image below shows the screen where you will make your decision: </p> </br>
@@ -59,7 +59,7 @@
         </div> </br>
 
     <h4> Role B:</h4>
-    <p> If you are assigned <em>Role B</em>, you will be asked to guess what percentage of your <em>task income</em> A will transfer to his/her own account.</p>
+    <p> If you are assigned <em>Role B</em>, you will be asked to guess what percentage of your <em>task income</em> the participant in <em>Role A</em> will transfer to his/her own account.</p>
       {# Role B must continue in #}
 
 {% endif %}
@@ -67,13 +67,12 @@
 
 {#  No message end #}
 {% if treatment == 'NM' %}
-    {#  Nothing for now #}
-    </br>
+    <p> You will be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with.</p> </br>
 {% endif %}
 
 {#  Free message end #}
 {% if treatment == 'FM' %}
-    <p> After participant in <em>Role A</em> has taken a share of your <em>task income</em>, you will get the opportunity to write and send a message to him/her.</p> </br>
+    <p> You will be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with. Then, you will get the opportunity to write and send a message to him/her.</p> </br>
 {% endif %}
 
 
@@ -84,27 +83,28 @@
 
 {% if treatment == 'DM' or treatment == 'TP' %}
 
-    <p> After participant in <em>Role A</em> has taken a share of your <em>task income</em>, you will get the opportunity to write and send a message to {% if treatment == 'DM' %} him/her. {% elif treatment == 'TP' %} the Reader.{% endif %} </p>
-
+    <p> You will be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with. You will then get the opportunity to write and send a message to {% if treatment == 'DM' %} him/her. {% elif treatment == 'TP' %} the Reader. The participant in <em>Role A</em> will not see this message.{% endif %} </p>
 
 
 
     {# paid messages: DM/TP WTA/WTP BDMCONT #}
     {% if value_type == 'WTP' and elicitation_method == 'BDM' and BDM_type == 'CONT' %}
 
-        <p> Then, you will be asked to state the maximum amount that you are willing to pay to send your message. We will refer to this amount as your valuation. </p>
+        <p> You will be asked to state the maximum amount that you are willing to pay to send your message. We will refer to this amount as your <em>valuation</em>. </p>
 
-        <p> After you submit your valuation, you will learn the actual price of sending your message. This price is randomly generated by the computer and all numbers between $0 and {{ BDM_uplimit }} are equally likely. Your price will be drawn independently from prices drawn for other participants in <em>Role B</em>. </p>
+        <p> After you submit your <em>valuation</em>, you will be informed about the <em>actual price</em> of sending your message. The <em>actual price</em> is randomly generated by the computer, and all numbers between $0 and {{ BDM_uplimit }} are equally likely.</p>
 
-        <p> If your valuation is greater than or equal to the computer’s generated price, then your message will be sent, and you will pay the actual price generated by the computer. If your valuation is lower than the actual price, then you do not get to send your message. </p> </br>
+        <p> If your <em>valuation</em> is greater than or equal to the <em>actual price</em>, your message will be sent, and you will pay the <em>actual price</em>. If your valuation is lower than the actual price, then you do not get to send your message, and you will not be charged.</p> </br>
+
+{#        reviewed with brit up to this point. Nov 03#}
 
     {% elif value_type == 'WTA' and elicitation_method == 'BDM' and BDM_type == 'CONT' %}
 
-        <p> Then, you will be asked to state the minimum amount you would be willing to accept to forgo sending the message you wrote. We will refer to this amount as your valuation. </p>
+        <p> You will be asked to state the minimum amount that you are willing to accept for not sending your message. That is, your will report the least amount you would be willing to receive to forgo sending your message. We will refer to this amount as your <em>valuation</em>.</p>
 
-        <p> After you submit your valuation, you will learn the actual compensation for not sending your message. The actual compensation is randomly generated by the computer and all numbers between $0 and {{ BDM_up_limit }} are equally likely. Your compensation will be drawn independently from compensations drawn for other participants in <em>Role B</em>. </p>
+        <p> After you submit your <em>valuation</em>, you will be informed about the <em>actual compensation</em> you will receive for not sending your message. The <em>actual compensation</em> is randomly generated by the computer, and all numbers between $0 and {{ BDM_uplimit }} are equally likely.</p>
 
-        <p> If your valuation is smaller than the actual compensation, then your message will not be sent and you will receive the actual compensation. If your valuation is greater than or equal to the actual compensation, then your message will be delivered and you will not receive anything. </p> </br>
+        <p> If the <em>actual compensation</em> is lower than your <em>valuation</em>, your message will be delivered and you will not receive any compensation. When the <em>actual compensation</em> is greater than or equal to your <em>valuation</em>, your message will not be delivered, and you will receive the <em>actual compensation</em>.</p> </br>
 
     {% endif %}
 
@@ -114,15 +114,16 @@
     {# paid messages: WTA/WTP BDMLIST #}
     {% if value_type == 'WTP' and elicitation_method == 'BDM' and BDM_type == 'LIST' %}
 
-    <p> Then, you will be asked whether you are willing to pay a certain price to send your message or not. This question will be repeated for a number of different prices. </p>
+    <p> You will be asked whether you are willing to pay a certain price to send your message. This question will be repeated for different prices.</p>
 
-    <p> After you submit your responses, the computer will randomly select one of these prices. The price will be drawn independently from prices drawn for other participants in <em>Role B</em>. If you responded that you were willing to pay such price to send your message, then your message will be sent, and you will pay that price.  If you responded that you were not willing to pay such price to send your message, then your message will not be sent, and you will not pay anything. </p> </br>
+    <p> After you submit your responses, the computer will randomly select one of the prices listed. If you were willing to pay the selected price, your message will be sent, and you will pay the selected price. If you were not willing to pay the selected price, your message will not be sent, and you will not be charged. </p> </br>
 
     {% elif value_type == 'WTA' and elicitation_method == 'BDM' and BDM_type == 'LIST' %}
 
-    <p> Then, you will be asked whether you are willing to accept a certain amount to forgo sending the message you wrote; that is, in exchange for not sending the message. This question will be repeated for a number of different amounts of compensation. </p>
+    <p> You will be asked whether you are willing to accept a certain amount in exchange for not sending the message. This question will be repeated for different amounts of compensation.</p>
 
-    <p> After you submit your responses, the computer will randomly select one of these listed amounts. The randomly selected amount will be drawn independently from amounts drawn for other participants in <em>Role B</em>. If you responded that you were willing to accept such amount in exchange for not sending your message, then your message will not be sent, and you will receive that amount. If you responded that you were not willing to accept  such amount for not sending your message, then your message will be sent, and you will not receive anything. </p> </br>
+    <p> After you submit your responses, the computer will randomly select one of the amounts of compensation listed. If you were willing to accept the selected amount, your message will not be sent, and you will receive the selected compensation. If you were not willing to accept the selected amount, your message will be sent, and you will not receive any compensation.</p> </br>
+
 
     {% endif %}
 
@@ -132,11 +133,11 @@
     {# paid messages: WTA/WTP SOP #}
     {% if value_type == 'WTP' and elicitation_method == 'SOP' %}
 
-    <p> Then, you will be asked whether you are willing to pay certain price to send your message or not. If you respond positively, your message will be sent, and you will pay that price.  If you respond negatively, your message will not be sent, and you will not pay anything. </p> </br>
+    <p> You will be asked whether you are willing to pay a certain price to send your message. If you respond positively, your message will be sent, and you will pay that price. If you respond negatively, your message will not be sent, and you will not pay anything. </p> </br>
 
     {% elif value_type == 'WTA' and elicitation_method == 'SOP' %}
 
-    <p> Then, you will be asked whether you are willing to accept a certain amount to forgo sending the message you wrote; that is, in exchange for not sending the message. If you respond positively, your message will not be sent, and you will receive that amount. If you respond negatively, your message will be sent, and you will not receive any compensation. </p> </br>
+    <p> You will be asked whether you are willing to accept a certain amount in exchange for not sending your message. If you respond positively, your message will not be sent, and you will receive the certain amount as compensation. If you respond negatively, your message will be sent, and you will not receive any compensation. </p> </br>
 
     {% endif %}
 
@@ -149,44 +150,51 @@
 
 <h4> Final Earnings: </h4>
 
-<p> After this interaction, members of each pair will be informed about both participants' final earnings. Final earnings will be calculated as follows. </p> </br>
+<p> After this interaction, members of each pair will be informed about both participants' <em>final earnings</em>, which will be calculated as follows. </p> </br>
+
+    <p style="color: chocolate"><em> Role A's earnings = </em></p>
+    <p><em> Endowment + Task income + Money taken from B's account.</em></p> </br>
 
 {% if treatment == 'NM' or treatment == 'FM'%}
-
-    <p><em> Role A's earnings = Endowment + Task income + Money taken from B's account. </em></p>
-    <p><em> Role B's earnings = Endowment + Task income - Money taken by Role A. </em> </p>
+    <p style="color: chocolate"><em> Role B's earnings = </em></p>
+    <p><em>Endowment + Task income - Money taken by Role A. </em> </p>
     </br>
-
 {% endif %}
 
 {% if treatment == 'DM' or treatment == 'TP' %}
 
     {% if value_type == 'WTP' %}
-        <p><em> Role A's earnings = Endowment + Task income + Money taken from B's account.</em></p>
-        <p> </p>
-        <p><em> Role B's earnings when message is sent = Endowment + Task income - Money taken by Role  A - price of sending message.</em></p>
-        <p> </p>
-        <p><em> Role B's earnings when message is NOT sent  = Endowment + Task income - Money taken by Role A.</em></p>
+
+        <p style="color: chocolate"><em> Role B's earnings when message <b>is</b> sent = </em></p>
+        <p><em> Endowment + Task income - Money taken by Role A - actual price of sending message.</em></p>
+        </br>
+        <p style="color: chocolate"><em> Role B's earnings when message <b>is not</b> sent = </em></p>
+        <p><em> Endowment + Task income - Money taken by Role A.</em></p>
+        <p></p>
+        </br>
     {% endif %}
 
     {% if value_type == 'WTA' %}
-        <p><em> Role A's earnings = Endowment + Task income + Money taken from B's account.</em></p>
+        <p style="color: chocolate"><em> Role B's earnings when message <b>is not</b> sent = </em></p>
+        <p><em>= Endowment + Task income - Money taken by Role A + compensation for NOT sending the message.</em></p>
         <p> </p>
-        <p><em> Role B's earnings when message is NOT sent = Endowment + Task income - Money taken by Role A + compensation for NOT sending the message.</em></p>
-        <p> </p>
-        <p><em> Role B's earnings when message is sent = Endowment + Task income - Money taken by Role A.</em></p>
+        <p style="color: chocolate"><em> Role B's earnings when message <b>is</b> sent = </em></p>
+        <p><em>Endowment + Task income - Money taken by Role A.</em></p>
+        </br>
     {% endif %}
 
     {% if treatment == 'TP' %}
         <p> </p>
-        <p><em> Role R's earnings  = Endowment + Task income.</em></p>
+        <p style="color: chocolate"><em> Role R's earnings = </em></p>
+        <p><em> Endowment + Task income.</em></p>
     {% endif %}
 
-    </br>
 
 {% endif %}
+    </br>
 
-    <p> Also, before Stage 1 and after Stage 2, you will be asked to answer a series of brief questions. Please answer those questions truthfully. </p> </br>
+    <p> Note that <em>final earnings</em> do not include your participation fee.</p> </br>
+    </br>
 
 {####################################################################}
 
@@ -195,3 +203,21 @@
     {% next_button %}
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#        <p> Then, you will be asked to state the minimum amount you would be willing to accept to forgo sending the message you wrote. We will refer to this amount as your valuation. </p>#}
+{##}
+{#        <p> After you submit your valuation, you will learn the actual compensation for not sending your message. The actual compensation is randomly generated by the computer and all numbers between $0 and {{ BDM_up_limit }} are equally likely. Your compensation will be drawn independently from compensations drawn for other participants in <em>Role B</em>. </p>#}
+{##}
+{#        <p> If your valuation is smaller than the actual compensation, then your message will not be sent and you will receive the actual compensation. If your valuation is greater than or equal to the actual compensation, then your message will be delivered and you will not receive anything. </p> </br>#}

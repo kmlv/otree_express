@@ -95,6 +95,42 @@ class Player(BasePlayer):
 
     # warning: falta timestamp
 
+    # this if for control questions
+
+    ctrlQ_anonymity = models.CharField(
+        verbose_name='Once you are paired with another participant, '
+                     'will you ever know the identity of this other participant?',
+        choices=['Yes', 'No'],
+        widget=widgets.RadioSelectHorizontal())
+
+    ctrlQ_who_transfers = models.CharField(
+        verbose_name='Who decides how much to take from Role B’s account and deposit it into Role A’s account?',
+        choices=['Role A', 'Role B', 'Role C', 'Role R', 'None of the above'],
+        widget=widgets.RadioSelect())
+
+    ctrlQ_B_always_sends = models.CharField(
+        verbose_name='Will the participant in Role B always send a message to the participant in Role A '
+                     'that he/she is matched with?',
+        choices=['Yes', 'No', 'It depends on his/her valuation for sending a message'],
+        widget=widgets.RadioSelect())
+
+    ctrlQ_B_sends_message = models.CharField(
+        verbose_name='Will the message written by Role B be sent in this case?',
+        choices=['Yes', 'No'],
+        widget=widgets.RadioSelectHorizontal())
+
+    ctrlQ_A_earnings = models.CharField(
+        verbose_name='What are the final earnings for the participant in Role A? '
+                     '(Hints: endowment plus task income equals $13.00. Do not include participation fee)',
+        choices=['13.00 + X', '13.00 - X', '13.00 - X - Z', '13.00 - X + Z'],
+        widget=widgets.RadioSelect())
+
+    ctrlQ_B_earnings = models.CharField(
+        verbose_name='What are the final earnings for the participant in Role B? '
+                     '(Hints: endowment plus task income equals $13.00. Do not include participation fee)',
+        choices=['13.00 + X', '13.00 - X', '13.00 - X - Z', '13.00 - X + Z'],
+        widget=widgets.RadioSelect())
+
 
     # roles
     def role(self):
@@ -104,3 +140,64 @@ class Player(BasePlayer):
             return 'B'
         if self.group.treatment == 'TP-R':
             return 'R'
+
+
+
+
+########################################################################################################################
+
+
+# ctrlQ_B_sends_case2 = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(),
+#                                        verbose_name='Will the message written by Role B be sent in this case?')
+#
+# ctrlQ_B_earnings_case2 = models.DecimalField(max_digits=5, decimal_places=2, min=0, max=100,
+#                                              verbose_name='What are the final earnings for the participant in Role B? (do not include participation fee)')
+
+
+
+
+
+
+
+
+
+# {#    In order to assure that everyone understands the rules of today’s experiment, we ask you to answer the
+# following questions. Please raise your hand once you are done and an experimenter will attend to you.#}
+# {#    1. Once you are paired with another participant, will you ever know the identity of this other participant?  #}
+# {#    Answer: Yes   No#}
+# {#    2. If you are assigned the role B, will you decide how much to transfer into A’s account?#}
+# {#    Answer: Yes . No .#}
+# {#    3.  If you are assigned the role of B, will you be able to send a written message to your counterpart A, for sure?  #}
+# {#    Answer: Yes . No .#}
+#
+#     5.  Suppose John and his counterpart each earned $10.00 of task income. Later, John is assigned Role B.
+# Then, his counterpart A transfers an $X amount from John’s account into A’s account.  John (B) submits $2.00 as his
+# willingness to pay to send a message to A. Please, answer the following questions using this information.#}
+# {#    (a)        If the actual price randomly drawn by the computer is $1.00, what are the total earnings for
+# the participant with role A and B? #}
+# {##}
+# {#    Answer for A’s earnings (in $)#}
+# {#    10 - X #}
+# {#    10 + X#}
+# {#    10#}
+# {##}
+# {#    Answers for B’s earnings (in $)#}
+# {#    10 - X - 1#}
+# {#    10 - X - 2#}
+# {#    10 - X#}
+# {##}
+# {##}
+# {#    (b)   	If the actual price randomly drawn by the computer is $3.00, what are the total earnings for the
+# participant with role A and B? #}
+# {##}
+# {##}
+# {#    Answer for A’s earnings (in $)#}
+# {#    10 - X #}
+# {#    10 + X#}
+# {#    10#}
+# {##}
+# {##}
+# {#    Answers for B’s earnings (in $)#}
+# {#    10 - X - 2#}
+# {#    10 - X - 3#}
+# {#    10 - X#}
