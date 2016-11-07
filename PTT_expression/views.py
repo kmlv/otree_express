@@ -28,7 +28,7 @@ class InitialWait(WaitPage):
 
 
 class RolesIncome(Page):
-    """Page 1: RolesIncome All"""
+    """ Page 1: RolesIncome All """
     form_model = models.Group
     form_fields = ['time_RolesIncome']
 
