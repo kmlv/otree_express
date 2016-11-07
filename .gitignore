@@ -10,10 +10,3 @@ __pycache__/
 *\__pycache__\
 
 *.py[cod]
-# take care with this if you are migrating your db and dont want overlap it
-db.sqlite3
-
-
-*.sqlite3
-*.pyc
-*.sqlite3
