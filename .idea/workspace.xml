@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53f830c2-271c-4dc9-a02f-0fe1261e4d4e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PTT_expression/templates/PTT_expression/BPredicts.html" afterPath="$PROJECT_DIR$/PTT_expression/templates/PTT_expression/BPredicts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="oTree.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,11 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="156" column="38" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="38" />
+            <state relative-caret-position="455">
+              <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -50,12 +51,9 @@
       <file leaf-file-name="Instructions.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PTT_express_instructions/templates/PTT_express_instructions/Instructions.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
+            <state relative-caret-position="22">
               <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,79 +71,9 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PTT_expression/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="946">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-              <folding>
-                <marker date="1478557513221" expanded="false" signature="0:188" ph="import ..." />
-                <marker date="1478557513221" expanded="true" signature="219:1007" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="471:1007" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="480:730" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="774:987" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="1034:1137" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="1161:2446" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="1300:1341" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="1375:1542" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="1392:1541" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="1575:2446" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="1727:2064" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="2215:2446" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="2471:2804" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="2619:2660" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="2694:2804" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="2711:2803" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="2838:2920" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="2852:2920" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="2947:3146" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="3076:3146" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="3174:3631" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="3305:3464" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="3497:3631" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="3660:4565" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="3824:3959" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="3987:4032" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="4077:4231" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="4310:4565" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="4594:7711" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="4704:5539" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="5573:5644" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="5590:5643" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="5673:5808" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="5900:7711" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="6039:6196" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="6335:6614" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="6375:6557" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="6767:7043" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="6806:6986" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="7098:7298" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="7737:7936" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="7852:7936" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="7961:8700" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="8086:8170" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="8203:8700" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="8304:8480" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="8524:8700" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="8734:8816" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="8748:8816" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="8849:9149" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="9000:9149" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="9185:9397" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="9357:9397" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="9431:10051" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="9592:9633" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="9667:10051" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="9740:9848" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="10008:10050" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="10086:10234" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="10201:10234" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="10257:11238" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="10409:11238" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="10448:10725" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="10576:10724" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="10770:11238" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="10952:11237" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="11283:11653" ph="..." />
-                <marker date="1478557513221" expanded="true" signature="11656:24226" ph="..." />
-              </folding>
+            <state relative-caret-position="386">
+              <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,14 +81,14 @@
       <file leaf-file-name="ADecides.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PTT_expression/templates/PTT_expression/ADecides.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="59" column="27" selection-start-line="59" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="458">
+              <caret line="70" column="14" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BPredicts.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BPredicts.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PTT_expression/templates/PTT_expression/BPredicts.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="726">
@@ -173,8 +101,8 @@
       <file leaf-file-name="ElicitBdmCont.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PTT_expression/templates/PTT_expression/ElicitBdmCont.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="528">
+              <caret line="45" column="50" selection-start-line="45" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -267,8 +195,8 @@
         <option value="$PROJECT_DIR$/search_task/templates/search_task/GameInstructions.html" />
         <option value="$PROJECT_DIR$/PTT_expression/templates/PTT_expression/ADecides.html" />
         <option value="$PROJECT_DIR$/PTT_expression/views.py" />
-        <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/PTT_expression/templates/PTT_expression/BPredicts.html" />
+        <option value="$PROJECT_DIR$/settings.py" />
       </list>
     </option>
   </component>
@@ -279,10 +207,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="377" />
-    <option name="y" value="23" />
+    <option name="x" value="170" />
+    <option name="y" value="7" />
     <option name="width" value="1751" />
-    <option name="height" value="1092" />
+    <option name="height" value="1014" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -718,8 +646,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="377" y="23" width="1751" height="1092" extended-state="0" />
-    <editor active="true" />
+    <frame x="170" y="7" width="1751" height="1014" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17910448" sideWeight="0.7439759" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35049963" sideWeight="0.4782178" order="12" side_tool="false" content_ui="tabs" />
@@ -728,7 +656,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17140661" sideWeight="0.40546075" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.29897612" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24950495" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289777" sideWeight="0.50204796" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286052" sideWeight="0.50204796" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.107920796" sideWeight="0.2560241" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -742,28 +670,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29979676" sideWeight="0.40238366" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35049963" sideWeight="0.4782178" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289777" sideWeight="0.50204796" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17140661" sideWeight="0.40546075" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.29897612" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.8823981" sideWeight="0.79169106" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289777" sideWeight="0.50204796" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294956" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13633704" sideWeight="0.7439759" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="manage.py@oTree" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17087667" sideWeight="0.47100875" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.001170275" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.8823981" sideWeight="0.20830895" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24950495" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.107920796" sideWeight="0.2560241" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29979676" sideWeight="0.40238366" order="5" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -793,13 +699,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/PTT_expression/templates/PTT_expression/TakeResults.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PTT_expression/static/lib/bootstrap/bootstrap-3.1.1.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1014,17 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PTT_express_instructions/templates/PTT_express_instructions/Instructions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/search_task/templates/search_task/GameInstructions.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1039,6 +927,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
           <caret line="206" column="13" selection-start-line="206" selection-start-column="12" selection-end-line="206" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/site-packages/otree/session.py" />
+    <entry file="file:///usr/local/lib/python3.5/site-packages/daphne/server.py" />
+    <entry file="file://$PROJECT_DIR$/PTT_expression/templates/PTT_expression/DisplayMessagesToR.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PTT_expression/templates/PTT_expression/BPredicts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PTT_expression/templates/PTT_expression/ElicitBdmCont.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="45" column="50" selection-start-line="45" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PTT_express_instructions/templates/PTT_express_instructions/Instructions.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1050,114 +973,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.5/site-packages/otree/session.py" />
-    <entry file="file:///usr/local/lib/python3.5/site-packages/daphne/server.py" />
-    <entry file="file://$PROJECT_DIR$/PTT_expression/views.py">
+    <entry file="file://$PROJECT_DIR$/PTT_expression/templates/PTT_expression/ADecides.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="946">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <marker date="1478557513221" expanded="false" signature="0:188" ph="import ..." />
-            <marker date="1478557513221" expanded="true" signature="219:1007" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="471:1007" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="480:730" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="774:987" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="1034:1137" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="1161:2446" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="1300:1341" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="1375:1542" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="1392:1541" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="1575:2446" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="1727:2064" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="2215:2446" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="2471:2804" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="2619:2660" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="2694:2804" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="2711:2803" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="2838:2920" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="2852:2920" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="2947:3146" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="3076:3146" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="3174:3631" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="3305:3464" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="3497:3631" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="3660:4565" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="3824:3959" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="3987:4032" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="4077:4231" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="4310:4565" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="4594:7711" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="4704:5539" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="5573:5644" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="5590:5643" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="5673:5808" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="5900:7711" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="6039:6196" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="6335:6614" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="6375:6557" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="6767:7043" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="6806:6986" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="7098:7298" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="7737:7936" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="7852:7936" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="7961:8700" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="8086:8170" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="8203:8700" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="8304:8480" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="8524:8700" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="8734:8816" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="8748:8816" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="8849:9149" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="9000:9149" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="9185:9397" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="9357:9397" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="9431:10051" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="9592:9633" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="9667:10051" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="9740:9848" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="10008:10050" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="10086:10234" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="10201:10234" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="10257:11238" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="10409:11238" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="10448:10725" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="10576:10724" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="10770:11238" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="10952:11237" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="11283:11653" ph="..." />
-            <marker date="1478557513221" expanded="true" signature="11656:24226" ph="..." />
-          </folding>
+        <state relative-caret-position="458">
+          <caret line="70" column="14" selection-start-line="70" selection-start-column="14" selection-end-line="70" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PTT_expression/templates/PTT_expression/ElicitBdmCont.html">
+    <entry file="file://$PROJECT_DIR$/PTT_expression/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="386">
+          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="156" column="38" selection-start-line="156" selection-start-column="9" selection-end-line="156" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PTT_expression/templates/PTT_expression/ADecides.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="59" column="27" selection-start-line="59" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PTT_expression/templates/PTT_expression/BPredicts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+        <state relative-caret-position="455">
+          <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
           <folding />
         </state>
       </provider>
