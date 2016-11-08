@@ -44,7 +44,7 @@ class ADecides(Page):
     def vars_for_template(self):
         return {
             'b_task_income': float(self.group.get_player_by_role('B').task_income),
-            'points': self.session.config['USE_POINTS']
+            'points': self.session.config['USE_POINTS'],
         }
 
     def before_next_page(self):
@@ -76,7 +76,8 @@ class BPredicts(Page):
 
     def vars_for_template(self):
         return {
-            'b_task_income': float(self.group.get_player_by_role('B').task_income)
+            'b_task_income': float(self.group.get_player_by_role('B').task_income),
+            'points': self.session.config['USE_POINTS'],
         }
 
 
@@ -472,6 +473,7 @@ class Results(Page):
                 'B_task_income': p_b.task_income,
                 'A_payoff': p_a.payoff,
                 'B_payoff': p_b.payoff,
+                'points': self.session.config['USE_POINTS'],
             }
 
 
