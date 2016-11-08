@@ -90,13 +90,14 @@ class BWaitsForGroup(WaitPage):
 ########################################################################################################################
 # Way 1: different pages for receiving info, writing and valuing
 
-# class TakeResults(Page):  # check: uncomment when running way 1
-#     """Page 3: Take Results"""
-#     form_model = models.Group
-#     form_fields = ['time_TakeResults']
-#
-#     def is_displayed(self):
-#         return self.player.role() == 'A' or self.player.role() == 'B'
+
+class TakeResults(Page):  # check: uncomment when running way 1
+    """Page 3: Take Results"""
+    form_model = models.Group
+    form_fields = ['time_TakeResults']
+
+    def is_displayed(self):
+        return self.player.role() == 'A' or self.player.role() == 'B'
 
 
 class WriteMessage(Page):
@@ -212,40 +213,44 @@ class ElicitBdmList(Page):
             self.group.msg_sent = False
 
 
-# class ElicitSOP(Page):
-#     """Page _:"""
-#     form_model = models.Group
-#     form_fields = ['SOP_yes', 'time_ElicitSOP']
-#
-#     def is_displayed(self):
-#        return self.player.role() == 'B' and self.group.elicitation_method == 'SOP'
-#
-#     def before_next_page(self):
-#         # setting boolean whether message is sent or not
-#         if self.group.value_type == 'WTP':
-#                    if self.group.SOP_yes == 'Yes':
-#                        self.group.msg_sent = True
-#                    elif self.group.SOP_yes == 'No':
-#                        self.group.msg_sent = False
-#
-#                if self.group.value_type == 'WTA':
-#                    if self.group.SOP_yes == 'Yes':
-#                        self.group.msg_sent = False
-#                    elif self.group.SOP_yes == 'No':
-#                        self.group.msg_sent = True
+class ElicitSOP(Page):
+    """Page _:"""
+    form_model = models.Group
+    form_fields = ['SOP_yes', 'time_ElicitSOP']
+
+    def is_displayed(self):
+       return self.player.role() == 'B' and self.group.elicitation_method == 'SOP'
+
+    def before_next_page(self):
+
+        # if self.group.treatment == 'FM':
+        #     self.group.msg_sent = True  # setting boolean whether message is sent or not
+        # else:
+
+        if self.group.value_type == 'WTP':
+            if self.group.SOP_yes == 'Yes':
+                self.group.msg_sent = True
+            elif self.group.SOP_yes == 'No':
+                self.group.msg_sent = False
+
+        if self.group.value_type == 'WTA':
+            if self.group.SOP_yes == 'Yes':
+                self.group.msg_sent = False
+            elif self.group.SOP_yes == 'No':
+                self.group.msg_sent = True
 
 
 ########################################################################################################################
 # Way 2: ONE page for receiving info, writing and valuing
 
-
-class TakeResults(Page):
-    """Take Results"""
-    form_model = models.Group
-    form_fields = ['time_TakeResults']
-
-    def is_displayed(self):
-        return self.player.role() == 'A'  # because these results are given in new pages AllBdmList, AllBdmCont, or AllSOP.
+#
+# class TakeResults(Page):
+#     """Take Results"""
+#     form_model = models.Group
+#     form_fields = ['time_TakeResults']
+#
+#     def is_displayed(self):
+#         return self.player.role() == 'A'  # because these results are given in new pages AllBdmList, AllBdmCont, or AllSOP.
 
 
 class AllBdmCont(Page):
@@ -479,12 +484,12 @@ page_sequence = [
     BWaitsForGroup,  # B waits for A's decision
     TakeResults,
     WriteMessage,
-    #    ElicitBdmCont,
-    #    ElicitBdmList,
-    #    ElicitSOP,
-    AllBdmCont,
-    AllBdmList,
-    AllSOP,
+    ElicitBdmCont,
+    ElicitBdmList,
+    ElicitSOP,
+    # AllBdmCont,
+    # AllBdmList,
+    # AllSOP,
     AWaitsForGroup,  # A waits for possible message
     BdmResults,
     DisplayMessageToA,

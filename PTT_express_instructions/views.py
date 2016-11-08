@@ -49,6 +49,12 @@ class ControlQuestions(Page):
                 'ctrlQ_B_earnings',
             ]
 
+    def ctrlQ_anonymity_error_message(self, value):
+        if not (value == 'Not'):
+            return 'The correct answer is  `Not` -- Once you are paired with another participant, ' \
+                   'will you NEVER know the identity of the other participant'
+
+
     def ctrlQ_B_earnings_error_message(self, value):
         if self.group.treatment in ['NM', 'FM']:
             if not (value == '13.00 - X'):

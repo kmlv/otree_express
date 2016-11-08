@@ -102,7 +102,8 @@
                 <th> {% if group.value_type == 'WTP' %} Willing to pay
                      {% elif group.value_type == 'WTA' %} Willing to receive {% endif %} </th>
             </tr>
-              {% for field in form|allButTwoLast %}
+            {#        THIS PART HAS AN ISSUE WHEN USING allButTwoLast #}
+              {% for field in form|allButLast %}
             <tr>
                 <td> Price: {{ prices|index:forloop.counter0 }}  </td>
                 <td> {% formfield field with label=None %} </td>
