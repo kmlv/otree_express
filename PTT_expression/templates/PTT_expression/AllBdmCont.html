@@ -4,39 +4,42 @@
  Information, B Decides
 {% endblock %}
 
-{% block content %}
-        {% block scripts %}
+{% block scripts %}
 
-        {# this records the timestamp #}
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+
+        <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
         <script type="text/javascript">
-                window.onload = function () {
-                    document.getElementById("arrive_time").value = (new Date()).toISOString();
-                }
-        </script>
-
-            <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
-            <script type="text/javascript">
-                jQuery(document).ready(function ($) {
-                    var input = $('#id_b_message');
-                    input.text("");
-                    var hello = function(){
-                        if(input.val() != ""){
-                            $("#hideNext").show();
-                        } else {
-                            $("#hideNext").hide();
-                        }
+            jQuery(document).ready(function ($) {
+                var input = $('#id_b_message');
+                input.text("");
+                var hello = function(){
+                    if(input.val() != ""){
+                        $("#hideNext").show();
+                    } else {
+                        $("#hideNext").hide();
                     }
-                    $("textarea").on({
-                        mouseenter: hello,
-                        mouseleave: hello,
-                        click: hello,
-                        blur: hello,
-                        keyup: hello
-                    });
-                    $("#hideNext").hide();
+                }
+                $("textarea").on({
+                    mouseenter: hello,
+                    mouseleave: hello,
+                    click: hello,
+                    blur: hello,
+                    keyup: hello
                 });
-            </script>
-    {% endblock %}
+                $("#hideNext").hide();
+            });
+        </script>
+{% endblock %}
+
+
+{% block content %}
 
     {% formfield  group.time_AllBdmCont with label=None  %}
 

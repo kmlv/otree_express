@@ -5,109 +5,117 @@
     Information, B Decides
 {% endblock %}
 
-{% block content %}
-        {% block scripts %}
-
-            {# this records the timestamp #}
-            <script type="text/javascript">
-                    window.onload = function () {
-                        document.getElementById("arrive_time").value = (new Date()).toISOString();
-                    }
-            </script>
 
 
-            <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
-            <script type="text/javascript">
-                jQuery(document).ready(function ($) {
-                    var input = $('#id_b_message');
-                    input.text("");
-                    var hello = function(){
-                        if(input.val() != ""){
-                            $("#hideNext").show();
-                        } else {
-                            $("#hideNext").hide();
-                        }
-                    }
-                    $("textarea").on({
-                        mouseenter: hello,
-                        mouseleave: hello,
-                        click: hello,
-                        blur: hello,
-                        keyup: hello
-                    });
+
+{% block scripts %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+
+    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            var input = $('#id_b_message');
+            input.text("");
+            var hello = function(){
+                if(input.val() != ""){
+                    $("#hideNext").show();
+                } else {
                     $("#hideNext").hide();
-                });
-            </script>
+                }
+            }
+            $("textarea").on({
+                mouseenter: hello,
+                mouseleave: hello,
+                click: hello,
+                blur: hello,
+                keyup: hello
+            });
+            $("#hideNext").hide();
+        });
+    </script>
 
-        {% endblock %}
-
-        {% formfield  group.time_AllBdmList with label=None  %}
-
-            {# INFO #}
-            <h3>Information</h3>
-            <p> Your counterpart, player A, has transferred {{group.take_rate}}% of your task income
-                ({{player.task_income}}) to his/her own account. </p>
-            <p> Your available earnings are now {{player.available_income1}} </p>
-
-            {# MESSAGE#}
-            <h3>Message</h3>
-                    {# <script type="text/javascript">  #}
-                           {#  window.onload = function () {    #}
-                           {#      document.getElementById("arrive_time").value = (new Date()).toISOString();  #}
-                          {#  }  #}
-                    {# </script>  #}
-            {#  { % formfield  group.time_WriteMessage with label=None  %}  #}  {# Ask for this because there's a script repetition: from message timer and messageprice tiemr #}
-            {% if group.treatment == 'DM' %}
-                <p> Message to counterpart A.</p>
-            {% elif group.treatment == 'TP' %}
-                <p> Message to reader.</p>
-            {% endif %}
-
-            {% formfield group.b_message with label="Write a message here" %}
-
-            {# EVALUATION#}
-            <h3>Valuation</h3>
-            {# <script type="text/javascript">  #}
-            {#  window.onload = function () {    #}
-            {#      document.getElementById("arrive_time").value = (new Date()).toISOString();  #}
-            {#  }  #}
-            {# </script>  #}
-            {# { % formfield  group.time_ElicitBdmList with label=None  %} #}   {# Ask for this because there's a script repetition #}
-            {% if group.value_type == 'WTP' %}
-                <p> For each of the prices you see in the table below, respond the following question: </p>
-                <p> Would you like to pay that price for sending your message to
-                    {% if group.treatment == 'DM' %} your counterpart, player A?
-                    {% elif group.treatment == 'TP' %} the third party reader?
-                    {% endif %} </p>
-            {% elif group.value_type == 'WTA' %}
-                <p> For each of the amounts you see in the table below, respond the following question: </p>
-                <p> Would you like to receive that amount for NOT sending your message to
-                    {% if group.treatment == 'DM' %} your counterpart, player A?
-                    {% elif group.treatment == 'TP' %} the third party reader?
-                    {% endif %} </p>
-            {% endif %}
-
-            <table class="table table-striped">
-                <tr>
-                    <th> {% if group.value_type == 'WTP' %} Price
-                         {% elif group.value_type == 'WTA' %} Amount {% endif %} </th>
-                    <th> {% if group.value_type == 'WTP' %} Willing to pay
-                         {% elif group.value_type == 'WTA' %} Willing to receive {% endif %} </th>
-                </tr>
-                  {% for field in form|allButTwoLast %}
-                <tr>
-                    <td> Price: {{ prices|index:forloop.counter0 }}  </td>
-                    <td> {% formfield field with label=None %} </td>
-                </tr>
-                 {% endfor %}
-            </table>
-
-        {# SCRIPTS#}
+{% endblock %}
 
 
-        {% next_button %}
-        <div id="hideNext" style="display: none;">
-        </div>
+
+
+{% block content %}
+
+
+    {% formfield  group.time_AllBdmList with label=None  %}
+
+        {# INFO #}
+        <h3>Information</h3>
+        <p> Your counterpart, player A, has transferred {{group.take_rate}}% of your task income
+            ({{player.task_income}}) to his/her own account. </p>
+        <p> Your available earnings are now {{player.available_income1}} </p>
+
+        {# MESSAGE#}
+        <h3>Message</h3>
+                {# <script type="text/javascript">  #}
+                       {#  window.onload = function () {    #}
+                       {#      document.getElementById("arrive_time").value = (new Date()).toISOString();  #}
+                      {#  }  #}
+                {# </script>  #}
+        {#  { % formfield  group.time_WriteMessage with label=None  %}  #}  {# Ask for this because there's a script repetition: from message timer and messageprice tiemr #}
+        {% if group.treatment == 'DM' %}
+            <p> Message to counterpart A.</p>
+        {% elif group.treatment == 'TP' %}
+            <p> Message to reader.</p>
+        {% endif %}
+
+        {% formfield group.b_message with label="Write a message here" %}
+
+        {# EVALUATION#}
+        <h3>Valuation</h3>
+        {# <script type="text/javascript">  #}
+        {#  window.onload = function () {    #}
+        {#      document.getElementById("arrive_time").value = (new Date()).toISOString();  #}
+        {#  }  #}
+        {# </script>  #}
+        {# { % formfield  group.time_ElicitBdmList with label=None  %} #}   {# Ask for this because there's a script repetition #}
+        {% if group.value_type == 'WTP' %}
+            <p> For each of the prices you see in the table below, respond the following question: </p>
+            <p> Would you like to pay that price for sending your message to
+                {% if group.treatment == 'DM' %} your counterpart, player A?
+                {% elif group.treatment == 'TP' %} the third party reader?
+                {% endif %} </p>
+        {% elif group.value_type == 'WTA' %}
+            <p> For each of the amounts you see in the table below, respond the following question: </p>
+            <p> Would you like to receive that amount for NOT sending your message to
+                {% if group.treatment == 'DM' %} your counterpart, player A?
+                {% elif group.treatment == 'TP' %} the third party reader?
+                {% endif %} </p>
+        {% endif %}
+
+        <table class="table table-striped">
+            <tr>
+                <th> {% if group.value_type == 'WTP' %} Price
+                     {% elif group.value_type == 'WTA' %} Amount {% endif %} </th>
+                <th> {% if group.value_type == 'WTP' %} Willing to pay
+                     {% elif group.value_type == 'WTA' %} Willing to receive {% endif %} </th>
+            </tr>
+              {% for field in form|allButTwoLast %}
+            <tr>
+                <td> Price: {{ prices|index:forloop.counter0 }}  </td>
+                <td> {% formfield field with label=None %} </td>
+            </tr>
+             {% endfor %}
+        </table>
+
+    {# SCRIPTS#}
+
+
+    {% next_button %}
+    <div id="hideNext" style="display: none;">
+    </div>
 {% endblock %}
 
 
