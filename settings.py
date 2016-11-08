@@ -61,7 +61,7 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
-USE_POINTS = True
+USE_POINTS = False
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
@@ -142,6 +142,7 @@ SESSION_CONFIG_DEFAULTS = {
     'num_bots': 6,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
+    'USE_POINTS': False,
 }
 
 ################
