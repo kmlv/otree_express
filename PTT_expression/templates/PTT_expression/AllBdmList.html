@@ -1,5 +1,6 @@
 {% extends "global/Base.html" %}
 {% load staticfiles otree_tags index %}
+{% load templ %}
 
 {% block title %}
     Information, B Decides
@@ -103,7 +104,7 @@
                      {% elif group.value_type == 'WTA' %} Willing to receive {% endif %} </th>
             </tr>
             {#        THIS PART HAS AN ISSUE WHEN USING allButTwoLast #}
-              {% for field in form|allButLast %}
+              {% for field in form|allButTwoLast %}
             <tr>
                 <td> Price: {{ prices|index:forloop.counter0 }}  </td>
                 <td> {% formfield field with label=None %} </td>
