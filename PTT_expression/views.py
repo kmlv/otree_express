@@ -138,77 +138,78 @@ class ElicitBdmCont(Page):
         elif self.group.b_value < self.group.message_price:
             self.group.msg_sent = False
 
-        class ElicitBdmList(Page):
-            """Page 5: Elicit BDM - List Value Type"""
 
-            def is_displayed(self):
-                return self.player.role() == 'B' and self.group.elicitation_method == 'BDM' \
-                       and self.group.BDM_type == 'LIST'
+class ElicitBdmList(Page):
+    """Page 5: Elicit BDM - List Value Type"""
 
-            form_model = models.Group
+    def is_displayed(self):
+        return self.player.role() == 'B' and self.group.elicitation_method == 'BDM' \
+               and self.group.BDM_type == 'LIST'
 
-            def get_form_fields(self):
-                # setting self.group.price_list and self.group.price_list_size so we can set form_fields
-                max_size = Constants.max_price_list_size
-                step = c(self.group.BDM_list_step)
-                upper_limit = (self.group.BDM_uplimit == 'end') * self.player.endowment + \
-                              (self.group.BDM_uplimit == 'av_inc') * self.player.available_income1
-                prices = [i * step for i in
-                          range(0, max_size - 1)]  # range(0, max_size) has max_size entries, so we take one
-                prices = [p for p in prices if p < upper_limit]
-                prices.append(upper_limit)
-                self.group.price_list = prices
-                self.group.price_list_size = len(prices)
+    form_model = models.Group
 
-                form_fields = ['list_price_{}_yes'.format(i) for i in range(0, self.group.price_list_size)]
-                form_fields.append('time_ElicitBdmList')
-                return form_fields
+    def get_form_fields(self):
+        # setting self.group.price_list and self.group.price_list_size so we can set form_fields
+        max_size = Constants.max_price_list_size
+        step = c(self.group.BDM_list_step)
+        upper_limit = (self.group.BDM_uplimit == 'end') * self.player.endowment + \
+                      (self.group.BDM_uplimit == 'av_inc') * self.player.available_income1
+        prices = [i * step for i in
+                  range(0, max_size - 1)]  # range(0, max_size) has max_size entries, so we take one
+        prices = [p for p in prices if p < upper_limit]
+        prices.append(upper_limit)
+        self.group.price_list = prices
+        self.group.price_list_size = len(prices)
 
-            def vars_for_template(self):
-                return {
-                    'prices': self.group.price_list
-                }
+        form_fields = ['list_price_{}_yes'.format(i) for i in range(0, self.group.price_list_size)]
+        form_fields.append('time_ElicitBdmList')
+        return form_fields
 
-            # defining b values and whether message is sent or not
-            def before_next_page(self):
+    def vars_for_template(self):
+        return {
+            'prices': self.group.price_list
+        }
 
-                # reading responses and putting them in a list
-                responses_list = []
-                for i in range(0, self.group.price_list_size):
-                    # res = getattr(self.group, 'list_price_{}_yes'.format(i))
-                    responses_list.append(getattr(self.group, 'list_price_{}_yes'.format(i)))
-                    print(responses_list)
+    # defining b values and whether message is sent or not
+    def before_next_page(self):
 
-                # WTP: value is highest price to which player b says Yes
-                if self.group.value_type == 'WTP':
-                    if 'Yes' in responses_list:
-                        posit = len(responses_list) - 1 - responses_list[::-1].index(
-                            'Yes')  # finds last occurrence of Yes
-                        self.group.b_value = self.group.price_list[posit]
-                    else:
-                        self.group.b_value = 0
-                        print("b_value", self.group.b_value)
+        # reading responses and putting them in a list
+        responses_list = []
+        for i in range(0, self.group.price_list_size):
+            # res = getattr(self.group, 'list_price_{}_yes'.format(i))
+            responses_list.append(getattr(self.group, 'list_price_{}_yes'.format(i)))
+            print(responses_list)
 
-                # WTA: value is highest price to which player b says No
-                if self.group.value_type == 'WTA':
-                    if 'No' in responses_list:
-                        posit = len(responses_list) - 1 - responses_list[::-1].index(
-                            'No')  # finds last occurrence of No
-                        self.group.b_value = self.group.price_list[posit]
-                    else:
-                        self.group.b_value = 0
+        # WTP: value is highest price to which player b says Yes
+        if self.group.value_type == 'WTP':
+            if 'Yes' in responses_list:
+                posit = len(responses_list) - 1 - responses_list[::-1].index(
+                    'Yes')  # finds last occurrence of Yes
+                self.group.b_value = self.group.price_list[posit]
+            else:
+                self.group.b_value = 0
                 print("b_value", self.group.b_value)
 
-                # random price in BDM list needs to be an element of price list (try with two groups with different price lists)
-                if self.group.BDM_type == 'LIST':
-                    self.group.message_price = min(self.group.price_list,
-                                                   key=lambda x: abs(x - self.group.message_price))
+        # WTA: value is highest price to which player b says No
+        if self.group.value_type == 'WTA':
+            if 'No' in responses_list:
+                posit = len(responses_list) - 1 - responses_list[::-1].index(
+                    'No')  # finds last occurrence of No
+                self.group.b_value = self.group.price_list[posit]
+            else:
+                self.group.b_value = 0
+        print("b_value", self.group.b_value)
 
-                # setting boolean whether message is sent or not
-                if self.group.b_value >= self.group.message_price:
-                    self.group.msg_sent = True
-                elif self.group.b_value < self.group.message_price:
-                    self.group.msg_sent = False
+        # random price in BDM list needs to be an element of price list (try with two groups with different price lists)
+        if self.group.BDM_type == 'LIST':
+            self.group.message_price = min(self.group.price_list,
+                                           key=lambda x: abs(x - self.group.message_price))
+
+        # setting boolean whether message is sent or not
+        if self.group.b_value >= self.group.message_price:
+            self.group.msg_sent = True
+        elif self.group.b_value < self.group.message_price:
+            self.group.msg_sent = False
 
 
 # class ElicitSOP(Page):
@@ -375,8 +376,10 @@ class AllSOP(Page):
             elif self.group.SOP_yes == 'No':
                 self.group.msg_sent = True
 
+
 ########################################################################################################################
 # Continues with rest of pages
+
 
 class BdmResults(Page):
     """Page _:"""

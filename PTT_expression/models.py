@@ -208,7 +208,6 @@ class Group(BaseGroup):
                                                                     widget=widgets.RadioSelectHorizontal()
                                                                     )
 
-
     # this assigns payoff
     def set_payoffs(self):
         for p in self.get_players():
