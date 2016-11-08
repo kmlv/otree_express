@@ -480,12 +480,12 @@ page_sequence = [
     BWaitsForGroup,  # B waits for A's decision
     TakeResults,
     WriteMessage,
-    #    ElicitBdmCont,
-    #    ElicitBdmList,
-    #    ElicitSOP,
-    AllBdmCont,
-    AllBdmList,
-    AllSOP,
+    ElicitBdmCont,
+    ElicitBdmList,
+    #   ElicitSOP,
+    #   AllBdmCont,
+    #   AllBdmList,
+    #   AllSOP,
     AWaitsForGroup,  # A waits for possible message
     BdmResults,
     DisplayMessageToA,
