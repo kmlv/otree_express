@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
- Initial Results and Message
+    Information, B Decides
 {% endblock %}
 
 {# SCRIPTS#}
@@ -46,32 +46,28 @@
     {% formfield  group.time_AllSOP with label=None  %}
 
     {# INFO #}
-    <h3> Initial Results</h3>
+    <h3> Information </h3>
     <p> Your counterpart, player A, has transferred {{group.take_rate}}% of your task income
         ({{player.task_income}}) to his/her own account. </p>
 
     {# MESSAGE#}
     <h3>Message</h3>
-    {#  { % formfield  group.time_WriteMessage with label=None  %}  #}              {# Ask for this because there's a script repetition: from message timer and messageprice tiemr #}
-    {% if group.treatment == 'DM' %}
-        <p> Message to counterpart A.</p>
-    {% elif group.treatment == 'TP' %}
-        <p> Message to reader.</p>
-    {% endif %}
-        {# <script type="text/javascript">  #}
-        {#  window.onload = function () {    #}
-        {#      document.getElementById("arrive_time").value = (new Date()).toISOString();  #}
-        {#  }  #}
-        {# </script>  #}
-    {% formfield group.b_message with label="Write a message here" %}
+        {#  { % formfield  group.time_WriteMessage with label=None  %}  #}              {# Ask for this because there's a script repetition: from message timer and messageprice tiemr #}
+        {% if group.treatment == 'DM' %}
+            <p> Message to counterpart A.</p>
+        {% elif group.treatment == 'TP' %}
+            <p> Message to reader.</p>
+        {% endif %}
+            {# <script type="text/javascript">  #}
+            {#  window.onload = function () {    #}
+            {#      document.getElementById("arrive_time").value = (new Date()).toISOString();  #}
+            {#  }  #}
+            {# </script>  #}
+        {% formfield group.b_message with label="Write a message here" %}
 
     {# EVALUATION#}
-    <h3>Value of Message</h3>
-        {# <script type="text/javascript">  #}
-        {#  window.onload = function () {    #}
-        {#      document.getElementById("arrive_time").value = (new Date()).toISOString();  #}
-        {#  }  #}
-        {# </script>  #}
+    <h3>Valuation</h3>
+
     {#  { % formfield  group.time_ElicitSOP with label=None  %}   #}   {# Ask for this because there's a script repetition: from message timer and messageprice tiemr #}
         {% if group.value_type == 'WTP' %}
             <p> Would you like to pay {{ group.SOP_price }} for sending your message to

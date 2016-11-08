@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags index %}
 
 {% block title %}
-  Results and Message
+    Information, B Decides
 {% endblock %}
 
 
@@ -52,7 +52,7 @@
     {% formfield  group.time_AllBdmList with label=None  %}
 
         {# INFO #}
-        <h3> Initial Results</h3>
+        <h3>Information</h3>
         <p> Your counterpart, player A, has transferred {{group.take_rate}}% of your task income
             ({{player.task_income}}) to his/her own account. </p>
         <p> Your available earnings are now {{player.available_income1}} </p>
@@ -70,14 +70,11 @@
         {% elif group.treatment == 'TP' %}
             <p> Message to reader.</p>
         {% endif %}
-        {# <script type="text/javascript">  #}
-        {#  window.onload = function () {    #}
-        {#      document.getElementById("arrive_time").value = (new Date()).toISOString();  #}
-        {#  }  #}
-        {# </script>  #}
+
         {% formfield group.b_message with label="Write a message here" %}
+
         {# EVALUATION#}
-        <h3>Value of Message</h3>
+        <h3>Valuation</h3>
         {# <script type="text/javascript">  #}
         {#  window.onload = function () {    #}
         {#      document.getElementById("arrive_time").value = (new Date()).toISOString();  #}
