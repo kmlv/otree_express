@@ -482,7 +482,7 @@ page_sequence = [
     WriteMessage,
     ElicitBdmCont,
     ElicitBdmList,
-    #   ElicitSOP,
+    #ElicitSOP,
     #   AllBdmCont,
     #   AllBdmList,
     #   AllSOP,
