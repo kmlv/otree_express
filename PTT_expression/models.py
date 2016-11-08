@@ -188,9 +188,15 @@ class Group(BaseGroup):
     time_BPredicts = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_TakeResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_WriteMessage = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+
+    time_AllBdmCont = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    time_AllBdmList = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    time_AllSOP = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+
     time_ElicitBdmCont = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_ElicitBdmList = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_ElicitSOP = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+
     time_BdmResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_DisplayMessageToA = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_DisplayMessagesToR = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))

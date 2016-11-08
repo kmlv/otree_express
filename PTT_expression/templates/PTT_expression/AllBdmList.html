@@ -4,32 +4,50 @@
 {% block title %}
  Initial Results and Message
 {% endblock %}
-{% block content %}
-        {% block scripts %}
-                <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
-                <script type="text/javascript">
-                    jQuery(document).ready(function ($) {
-                        var input = $('#id_b_message');
-                        input.text("");
-                        var hello = function(){
-                            if(input.val() != ""){
-                                $("#hideNext").show();
-                            } else {
-                                $("#hideNext").hide();
-                            }
-                        }
-                        $("textarea").on({
-                            mouseenter: hello,
-                            mouseleave: hello,
-                            click: hello,
-                            blur: hello,
-                            keyup: hello
-                        });
-                        $("#hideNext").hide();
-                    });
-                </script>
 
-        {% endblock %}
+
+
+
+{% block scripts %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+
+    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            var input = $('#id_b_message');
+            input.text("");
+            var hello = function(){
+                if(input.val() != ""){
+                    $("#hideNext").show();
+                } else {
+                    $("#hideNext").hide();
+                }
+            }
+            $("textarea").on({
+                mouseenter: hello,
+                mouseleave: hello,
+                click: hello,
+                blur: hello,
+                keyup: hello
+            });
+            $("#hideNext").hide();
+        });
+    </script>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
         {# INFO #}
         <h3> Initial Results</h3>
         <p> Your counterpart, player A, has transferred {{group.take_rate}}% of your task income
