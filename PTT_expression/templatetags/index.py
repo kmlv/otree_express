@@ -12,3 +12,9 @@ def index(sequence, position):
 def allButLast(sequence):
     temp = list(sequence)
     return temp[:-1]
+
+
+@register.filter
+def allButTwoLast(sequence):
+    temp = list(sequence)
+    return temp[:-2]

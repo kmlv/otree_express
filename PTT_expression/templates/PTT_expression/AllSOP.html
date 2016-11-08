@@ -4,9 +4,17 @@
 {% block title %}
  Initial Results and Message
 {% endblock %}
-{% block content %}
-    {# SCRIPTS#}
-    {% block scripts %}
+
+{# SCRIPTS#}
+{% block scripts %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
         <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
         <script type="text/javascript">
             jQuery(document).ready(function ($) {
@@ -29,7 +37,14 @@
                 $("#hideNext").hide();
             });
          </script>
-    {% endblock %}
+
+{% endblock %}
+
+
+{% block content %}
+
+    {% formfield  group.time_AllSOP with label=None  %}
+
     {# INFO #}
     <h3> Initial Results</h3>
     <p> Your counterpart, player A, has transferred {{group.take_rate}}% of your task income

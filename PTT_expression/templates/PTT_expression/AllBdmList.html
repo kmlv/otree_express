@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags index %}
 
 {% block title %}
- Initial Results and Message
+  Results and Message
 {% endblock %}
 
 
@@ -47,6 +47,9 @@
 
 
 {% block content %}
+
+
+    {% formfield  group.time_AllBdmList with label=None  %}
 
         {# INFO #}
         <h3> Initial Results</h3>
@@ -102,7 +105,7 @@
                 <th> {% if group.value_type == 'WTP' %} Willing to pay
                      {% elif group.value_type == 'WTA' %} Willing to receive {% endif %} </th>
             </tr>
-              {% for field in form|allButLast %}
+              {% for field in form|allButTwoLast %}
             <tr>
                 <td> Price: {{ prices|index:forloop.counter0 }}  </td>
                 <td> {% formfield field with label=None %} </td>

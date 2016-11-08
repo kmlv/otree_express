@@ -293,7 +293,7 @@ class AllBdmList(Page):
 
         form_fields = ['list_price_{}_yes'.format(i) for i in range(0, self.group.price_list_size)]
         form_fields.append('b_message')
-        form_fields.append('time_AllBdmCont')
+        form_fields.append('time_AllBdmList')
         return form_fields
 
     def vars_for_template(self):
@@ -348,11 +348,11 @@ class AllBdmList(Page):
         elif self.group.b_value < self.group.message_price:
             self.group.msg_sent = False
 
+
 class AllSOP(Page):
     """Page _:"""
     form_model = models.Group
-    form_fields = ['SOP_yes', 'b_message']
-#    form_fields = ['SOP_yes', 'time_ElicitSOP', 'b_message', 'time_WriteMessage']
+    form_fields = ['SOP_yes', 'b_message', 'time_AllSOP']
 
     def is_displayed(self):
         return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
