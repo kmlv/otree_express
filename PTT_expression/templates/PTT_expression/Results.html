@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Final Earnings ($)
+    Final Earnings ({% if not points %}${%endif%}{% if points %}points{% endif %})
 {% endblock %}
 
 {% block content %}

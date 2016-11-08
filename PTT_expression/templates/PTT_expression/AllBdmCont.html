@@ -70,8 +70,9 @@
           {% endif %}
         </p>
 
-        {% formfield group.b_value with label="Willingness to pay (in dollars and cents)" %}
-
+        {% formfield group.b_value with label="Willingness to pay" %}
+          <p>{% if not points %}You could use dollars and cents {%endif%}{% if points %} You should use only integer points {% endif %})</p>
+{#       { % formfield group.b_value with label="Willingness to pay (in dollars and cents)" %}  #}
         <p>The actual price of sending your message will be displayed on the next screen.</p>
 
     {% elif group.value_type == 'WTA' %}
@@ -86,8 +87,9 @@
           {% endif %}
         </p>
 
-        {% formfield group.b_value with label="Willingness to accept (in dollars and cents)" %}
-
+        {% formfield group.b_value with label="Willingness to accept" %}
+        <p>{% if not points %}You could use dollars and cents {%endif%}{% if points %} You should use only integer points {% endif %})</p>
+{#      { % formfield group.b_value with label="Willingness to accept (in dollars and cents)" %} #}
         <p>The actual amount you would receive for not sending your message will be displayed on the next screen.</p>
 
     {% endif %}

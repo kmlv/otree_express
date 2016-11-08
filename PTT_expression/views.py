@@ -44,7 +44,7 @@ class ADecides(Page):
     def vars_for_template(self):
         return {
             'b_task_income': float(self.group.get_player_by_role('B').task_income),
-            'points': self.session.config['USE_POINTS']
+            'points': self.session.config['USE_POINTS'],
         }
 
     def before_next_page(self):
@@ -76,7 +76,8 @@ class BPredicts(Page):
 
     def vars_for_template(self):
         return {
-            'b_task_income': float(self.group.get_player_by_role('B').task_income)
+            'b_task_income': float(self.group.get_player_by_role('B').task_income),
+            'points': self.session.config['USE_POINTS'],
         }
 
 
@@ -93,7 +94,7 @@ class TakeResults(Page):
 
     def is_displayed(self):
     #   return self.player.role() == 'A' or self.player.role() == 'B'
-        return self.player.role() == 'A'                      #because these results are given in new pages AllBdmList, AllBdmCont, or AllSOP.
+        return self.player.role() == 'A' or self.player.role() == 'B' and (self.group.treatment == 'FM' or self.group.treatment == 'NM')                  #because these results are given in new pages AllBdmList, AllBdmCont, or AllSOP.
 
 
 class AllBdmCont(Page):
@@ -443,7 +444,8 @@ class Results(Page):
             return {
                 'R_endowment': p_r.endowment,
                 'R_task_income': p_r.task_income,
-                'R_payoff': p_r.payoff
+                'R_payoff': p_r.payoff,
+                'points': self.session.config['USE_POINTS'],
             }
         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
             p_a = self.group.get_player_by_role('A')
@@ -455,6 +457,7 @@ class Results(Page):
                 'B_task_income': p_b.task_income,
                 'A_payoff': p_a.payoff,
                 'B_payoff': p_b.payoff,
+                'points': self.session.config['USE_POINTS'],
             }
 
 
