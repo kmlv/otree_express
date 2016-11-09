@@ -488,17 +488,10 @@ page_sequence = [
     WriteMessage,
     ElicitBdmCont,
     ElicitBdmList,
-<<<<<<< HEAD
     ElicitSOP,
     # AllBdmCont,
     # AllBdmList,
     # AllSOP,
-=======
-    #ElicitSOP,
-    #   AllBdmCont,
-    #   AllBdmList,
-    #   AllSOP,
->>>>>>> 0c452a88d2acb4af1a991429be258235bd1df685
     AWaitsForGroup,  # A waits for possible message
     BdmResults,
     DisplayMessageToA,
