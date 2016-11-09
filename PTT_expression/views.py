@@ -254,133 +254,133 @@ class ElicitSOP(Page):
 #         return self.player.role() == 'A'  # because these results are given in new pages AllBdmList, AllBdmCont, or AllSOP.
 
 
-class AllBdmCont(Page):
-    form_model = models.Group
-    form_fields = ['b_value',  'b_message', 'time_AllBdmCont']
+#class AllBdmCont(Page):
+#    form_model = models.Group
+#    form_fields = ['b_value',  'b_message', 'time_AllBdmCont']
 
-    def is_displayed(self):
-        return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
-               self.player.role() == 'B' and self.group.elicitation_method == 'BDM' \
-               and self.group.BDM_type == 'CONT'
+#    def is_displayed(self):
+#        return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
+#               self.player.role() == 'B' and self.group.elicitation_method == 'BDM' \
+#               and self.group.BDM_type == 'CONT'
 
-    def b_value_max(self):
-        return self.player.available_income1
+#    def b_value_max(self):
+#        return self.player.available_income1
 
-    def b_value_error_message(self, value):
-        if not (0 <= value <= self.player.available_income1):
-            return 'Must be equal or greater than zero and equal or below available income'
+#    def b_value_error_message(self, value):
+#        if not (0 <= value <= self.player.available_income1):
+#            return 'Must be equal or greater than zero and equal or below available income'
 
-    # defining whether message is sent or not
-    def before_next_page(self):
-        if self.group.treatment == 'FM':
-            self.group.msg_sent = True  # this is because FM needs to set msg_sent somewhere
-        else:
-            self.group.msg_sent = False
+           # defining whether message is sent or not
+#    def before_next_page(self):
+#        if self.group.treatment == 'FM':
+#            self.group.msg_sent = True  # this is because FM needs to set msg_sent somewhere
+#        else:
+#            self.group.msg_sent = False
         # setting boolean whether message is sent or not
-        if self.group.b_value >= self.group.message_price:
-            self.group.msg_sent = True
-        elif self.group.b_value < self.group.message_price:
-            self.group.msg_sent = False
+#        if self.group.b_value >= self.group.message_price:
+#            self.group.msg_sent = True
+#        elif self.group.b_value < self.group.message_price:
+#            self.group.msg_sent = False
 
 
-class AllBdmList(Page):
-    form_model = models.Group
+#    class AllBdmList(Page):
+#        form_model = models.Group
 
-    def get_form_fields(self):
-        #    setting self.group.price_list and self.group.price_list_size so we can set form_fields
-        max_size = Constants.max_price_list_size
-        step = c(self.group.BDM_list_step)
-        upper_limit = (self.group.BDM_uplimit == 'end') * self.player.endowment + \
-                      (self.group.BDM_uplimit == 'av_inc') * self.player.available_income1
-        prices = [i * step for i in range(0, max_size - 1)]  # range(0, max_size) has max_size entries, so we take one
-        prices = [p for p in prices if p < upper_limit]
-        prices.append(upper_limit)
-        self.group.price_list = prices
-        self.group.price_list_size = len(prices)
+#        def get_form_fields(self):
+            #    setting self.group.price_list and self.group.price_list_size so we can set form_fields
+#            max_size = Constants.max_price_list_size
+#            step = c(self.group.BDM_list_step)
+#            upper_limit = (self.group.BDM_uplimit == 'end') * self.player.endowment + \
+#                          (self.group.BDM_uplimit == 'av_inc') * self.player.available_income1
+#            prices = [i * step for i in range(0, max_size - 1)]  # range(0, max_size) has max_size entries, so we take one
+#            prices = [p for p in prices if p < upper_limit]
+#            prices.append(upper_limit)
+#            self.group.price_list = prices
+#            self.group.price_list_size = len(prices)
 
-        form_fields = ['list_price_{}_yes'.format(i) for i in range(0, self.group.price_list_size)]
-        form_fields.append('b_message')
-        form_fields.append('time_AllBdmList')
-        return form_fields
+#            form_fields = ['list_price_{}_yes'.format(i) for i in range(0, self.group.price_list_size)]
+#            form_fields.append('b_message')
+#            form_fields.append('time_AllBdmList')
+#            return form_fields
 
-    def vars_for_template(self):
-        return {
-            'prices': self.group.price_list
-        }
+#        def vars_for_template(self):
+#            return {
+#                'prices': self.group.price_list
+#            }
 
-    def is_displayed(self):
-        return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
-               self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'LIST'
+#        def is_displayed(self):
+#            return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
+#                   self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'LIST'
 
-    # defining b values and whether message is sent or not
-    def before_next_page(self):
-        if self.group.treatment == 'FM':
-            self.group.msg_sent = True  # this is because FM needs to set msg_sent somewhere
-        else:
-            self.group.msg_sent = False
-        # reading responses and putting them in a list
-        responses_list = []
-        for i in range(0, self.group.price_list_size):
-            # res = getattr(self.group, 'list_price_{}_yes'.format(i))
-            responses_list.append(getattr(self.group, 'list_price_{}_yes'.format(i)))
-        print(responses_list)
+        # defining b values and whether message is sent or not
+#        def before_next_page(self):
+#            if self.group.treatment == 'FM':
+#                self.group.msg_sent = True  # this is because FM needs to set msg_sent somewhere
+#            else:
+#                self.group.msg_sent = False
+            # reading responses and putting them in a list
+#            responses_list = []
+#            for i in range(0, self.group.price_list_size):
+                # res = getattr(self.group, 'list_price_{}_yes'.format(i))
+#                responses_list.append(getattr(self.group, 'list_price_{}_yes'.format(i)))
+#            print(responses_list)
 
-        # WTP: value is highest price to which player b says Yes
-        if self.group.value_type == 'WTP':
-            if 'Yes' in responses_list:
-                posit = len(responses_list) - 1 - responses_list[::-1].index('Yes')  # finds last occurrence of Yes
-                self.group.b_value = self.group.price_list[posit]
-            else:
-                self.group.b_value = 0
-        print("b_value", self.group.b_value)
+            # WTP: value is highest price to which player b says Yes
+#            if self.group.value_type == 'WTP':
+#                if 'Yes' in responses_list:
+#                    posit = len(responses_list) - 1 - responses_list[::-1].index('Yes')  # finds last occurrence of Yes
+#                    self.group.b_value = self.group.price_list[posit]
+#                else:
+#                    self.group.b_value = 0
+#            print("b_value", self.group.b_value)
 
-        # WTA: value is highest price to which player b says No
-        if self.group.value_type == 'WTA':
-            if 'No' in responses_list:
-                posit = len(responses_list) - 1 - responses_list[::-1].index('No')  # finds last occurrence of No
-                self.group.b_value = self.group.price_list[posit]
-            else:
-                self.group.b_value = 0
-        print("b_value", self.group.b_value)
+            # WTA: value is highest price to which player b says No
+#            if self.group.value_type == 'WTA':
+#                if 'No' in responses_list:
+#                    posit = len(responses_list) - 1 - responses_list[::-1].index('No')  # finds last occurrence of No
+#                    self.group.b_value = self.group.price_list[posit]
+#                else:
+#                    self.group.b_value = 0
+#            print("b_value", self.group.b_value)
 
-        # Paola agreaga una var que indica consistencia: 1 consistente 0 inconsistente
+            # Paola agreaga una var que indica consistencia: 1 consistente 0 inconsistente
 
-        # random price in BDM list needs to be an element of price list (try with two groups with different price lists)
-        if self.group.BDM_type == 'LIST':
-            self.group.message_price = min(self.group.price_list, key=lambda x: abs(x - self.group.message_price))
+            # random price in BDM list needs to be an element of price list (try with two groups with different price lists)
+#            if self.group.BDM_type == 'LIST':
+#                self.group.message_price = min(self.group.price_list, key=lambda x: abs(x - self.group.message_price))
 
-        # setting boolean whether message is sent or not
-        if self.group.b_value >= self.group.message_price:
-            self.group.msg_sent = True
-        elif self.group.b_value < self.group.message_price:
-            self.group.msg_sent = False
+            # setting boolean whether message is sent or not
+#            if self.group.b_value >= self.group.message_price:
+#               self.group.msg_sent = True
+#            elif self.group.b_value < self.group.message_price:
+#                self.group.msg_sent = False
 
 
-class AllSOP(Page):
-    """Page _:"""
-    form_model = models.Group
-    form_fields = ['SOP_yes', 'b_message', 'time_AllSOP']
+#class AllSOP(Page):
+#    """Page _:"""
+#    form_model = models.Group
+#    form_fields = ['SOP_yes', 'b_message', 'time_AllSOP']
 
-    def is_displayed(self):
-        return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
-               self.player.role() == 'B' and self.group.elicitation_method == 'SOP'
+#    def is_displayed(self):
+#        return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
+#               self.player.role() == 'B' and self.group.elicitation_method == 'SOP'
 
-    def before_next_page(self):
-        if self.group.treatment == 'FM':
-            self.group.msg_sent = True  # setting boolean whether message is sent or not
-        else:
-            self.group.msg_sent = False
-        if self.group.value_type == 'WTP':
-            if self.group.SOP_yes == 'Yes':
-                self.group.msg_sent = True
-            elif self.group.SOP_yes == 'No':
-                self.group.msg_sent = False
+#    def before_next_page(self):
+#        if self.group.treatment == 'FM':
+#            self.group.msg_sent = True  # setting boolean whether message is sent or not
+#        else:
+#            self.group.msg_sent = False
+#        if self.group.value_type == 'WTP':
+#            if self.group.SOP_yes == 'Yes':
+#                self.group.msg_sent = True
+#            elif self.group.SOP_yes == 'No':
+#                self.group.msg_sent = False
 
-        if self.group.value_type == 'WTA':
-            if self.group.SOP_yes == 'Yes':
-                self.group.msg_sent = False
-            elif self.group.SOP_yes == 'No':
-                self.group.msg_sent = True
+#        if self.group.value_type == 'WTA':
+#            if self.group.SOP_yes == 'Yes':
+#                self.group.msg_sent = False
+#            elif self.group.SOP_yes == 'No':
+#                self.group.msg_sent = True
 
 
 ########################################################################################################################
@@ -488,10 +488,17 @@ page_sequence = [
     WriteMessage,
     ElicitBdmCont,
     ElicitBdmList,
+<<<<<<< HEAD
     ElicitSOP,
     # AllBdmCont,
     # AllBdmList,
     # AllSOP,
+=======
+    #ElicitSOP,
+    #   AllBdmCont,
+    #   AllBdmList,
+    #   AllSOP,
+>>>>>>> 0c452a88d2acb4af1a991429be258235bd1df685
     AWaitsForGroup,  # A waits for possible message
     BdmResults,
     DisplayMessageToA,
