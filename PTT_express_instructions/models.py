@@ -118,16 +118,16 @@ class Player(BasePlayer):
         verbose_name='Will the message written by Role B be sent in this case?',
         choices=['Yes', 'No'],
         widget=widgets.RadioSelectHorizontal())
-
+    #labels are going to be defying directly in ControlQuestions.html file instead of verbose
     ctrlQ_A_earnings = models.CharField(
-        verbose_name='What are the final earnings for the participant in Role A? '
-                     '(Hints: endowment plus task income equals $13.00. Do not include participation fee)',
+#        verbose_name='What are the final earnings for the participant in Role A? '
+#                     '(Hints: endowment plus task income equals $13.00. Do not include participation fee)',
         choices=['13.00 + X', '13.00 - X', '13.00 - X - Z', '13.00 - X + Z'],
         widget=widgets.RadioSelect())
 
     ctrlQ_B_earnings = models.CharField(
-        verbose_name='What are the final earnings for the participant in Role B? '
-                     '(Hints: endowment plus task income equals $13.00. Do not include participation fee)',
+#        verbose_name='What are the final earnings for the participant in Role B? '
+#                    '(Hints: endowment plus task income equals $13.00. Do not include participation fee)',
         choices=['13.00 + X', '13.00 - X', '13.00 - X - Z', '13.00 - X + Z'],
         widget=widgets.RadioSelect())
 
