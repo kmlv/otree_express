@@ -13,7 +13,7 @@
                 document.getElementById("arrive_time").value = (new Date()).toISOString();
             }
     </script>
-    {% formfield  group.time_Results with label=None  %}
+    {% formfield  player.time_Results with label=None  %}
     {# this recorded the timestamp #}
 
     {% if player.role == 'A' or player.role == 'B' %}

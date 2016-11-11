@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Role and Income
+    Income and Role
 {% endblock %}
 
 {% block content %}
@@ -13,22 +13,22 @@
                 document.getElementById("arrive_time").value = (new Date()).toISOString();
             }
     </script>
-    {% formfield  group.time_RolesIncome with label=None  %}
+    {% formfield  player.time_RolesIncome with label=None  %}
 
     {% if group.treatment != 'TP-R' %}
-        <p> You received {{player.endowment}} of <em> endowment </em> and earned {{player.task_income}} as <em> task income </em>. </p>
+        <p> You received {{player.endowment}} of <em> endowment </em> and earned {{player.others_task_income}} as <em>task income</em>. </p>
 
-        <p> Your available income at this point is {{player.available_income0}}. </p>
+{#        <p> Your <em>available income</em> at this point is {{player.available_income0}}. </p>#}
 
-        <p> Your have been assigned <b>role {{player.role}}</b>. </p>
+        <p> Your have been assigned <em><b> Role {{player.role}} </b></em>. </p>
 
     {% elif group.treatment == 'TP-R' %}
-        <p> You received {{player.endowment}} of <em> endowment </em> and earned {{player.task_income}} as <em> task income </em>. </p>
+        <p> You received {{player.endowment}} of <em> endowment </em> and earned {{player.task_income}} as <em>task income</em>. </p>
 
-        <p> Your have been assigned <b> role {{player.role}} </b> (Reader). </p>
+        <p> Your have been assigned <em><b> Role {{player.role}} </b></em> (Reader). </p>
 
     {% endif %}
-
+    <br/>
     {% next_button %}
 
 {% endblock %}
