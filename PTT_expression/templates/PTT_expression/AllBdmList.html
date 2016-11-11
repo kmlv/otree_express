@@ -3,7 +3,7 @@
 {% load templ %}
 
 {% block title %}
-    Information, B Decides
+    Role B's Decision
 {% endblock %}
 
 
@@ -60,12 +60,6 @@
 
         {# MESSAGE#}
         <h3>Message</h3>
-                {# <script type="text/javascript">  #}
-                       {#  window.onload = function () {    #}
-                       {#      document.getElementById("arrive_time").value = (new Date()).toISOString();  #}
-                      {#  }  #}
-                {# </script>  #}
-        {#  { % formfield  group.time_WriteMessage with label=None  %}  #}  {# Ask for this because there's a script repetition: from message timer and messageprice tiemr #}
         {% if group.treatment == 'DM' %}
             <p> Message to counterpart A.</p>
         {% elif group.treatment == 'TP' %}
@@ -73,28 +67,24 @@
         {% endif %}
 
         {% formfield group.b_message with label="Write a message here" %}
+        <br/>
 
         {# EVALUATION#}
         <h3>Valuation</h3>
-        {# <script type="text/javascript">  #}
-        {#  window.onload = function () {    #}
-        {#      document.getElementById("arrive_time").value = (new Date()).toISOString();  #}
-        {#  }  #}
-        {# </script>  #}
-        {# { % formfield  group.time_ElicitBdmList with label=None  %} #}   {# Ask for this because there's a script repetition #}
         {% if group.value_type == 'WTP' %}
-            <p> For each of the prices you see in the table below, respond the following question: </p>
-            <p> Would you like to pay that price for sending your message to
-                {% if group.treatment == 'DM' %} your counterpart, player A?
-                {% elif group.treatment == 'TP' %} the third party reader?
+            <p> For each of the prices you see in the table below, respond to the following question: </p>
+            <p> Would you like to pay this price for sending your message to
+                {% if group.treatment == 'DM' %} <em>Role A</em>?
+                {% elif group.treatment == 'TP' %} the <em>Reader</em>?
                 {% endif %} </p>
         {% elif group.value_type == 'WTA' %}
-            <p> For each of the amounts you see in the table below, respond the following question: </p>
-            <p> Would you like to receive that amount for NOT sending your message to
-                {% if group.treatment == 'DM' %} your counterpart, player A?
-                {% elif group.treatment == 'TP' %} the third party reader?
+            <p> For each of the amounts you see in the table below, respond to the following question: </p>
+            <p> Would you like to receive this amount in exchange for <b>not</b> sending your message to
+                {% if group.treatment == 'DM' %} <em>Role A</em>?
+                {% elif group.treatment == 'TP' %} the <em>Reader</em>?
                 {% endif %} </p>
         {% endif %}
+        <br/>
 
         <table class="table table-striped">
             <tr>

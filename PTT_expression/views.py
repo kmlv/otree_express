@@ -263,9 +263,9 @@ class AllBdmCont(Page):
     form_model = models.Group
     form_fields = ['b_value',  'b_message', 'time_AllBdmCont']
 
-    # timeout_seconds =
 
     def is_displayed(self):
+
         return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
               self.player.role() == 'B' and self.group.elicitation_method == 'BDM' \
               and self.group.BDM_type == 'CONT'

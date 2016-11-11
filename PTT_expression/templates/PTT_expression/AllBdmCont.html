@@ -1,7 +1,7 @@
 {% extends "global/Base.html" %} {% load staticfiles otree_tags %}
 
 {% block title %}
- Information, Message and Valuation
+ Role B's Decisions
 {% endblock %}
 
 {% block scripts %}
@@ -44,13 +44,15 @@
     {% formfield  group.time_AllBdmCont with label=None  %}
 
     {# INFO#}
-    <p> <em>Role A</em> has taken {{group.take_rate}}% of your <em>task income</em>, that is {{group.money_taken}}. </p>
+    <p> <em>Role A</em> has taken <b>{{group.take_rate}}%</b> of your <em>task income</em>, that is <b>{{group.money_taken}}</b>. </p>
     <p> Now, your <em>available income</em> is {{player.available_income1}}. </p>
     <br/>
 
     {# MESSAGE#}
     {% if group.treatment == 'DM' %}
-        <p> You can write a message to <em>Role A</em> in the box below. If you <b>do not</b> wish to write a message, click <button name="wish_no_message" value="False" class="">here</button></p>
+        <p> You can write a message to <em>Role A</em> in the box below. </p>
+{#        <p>If you <b>do not</b> wish to write a message, click <button name="timeout" value="1"  class="">here</button></p>#}
+{#        name="wish_no_message" value="False"#}
     {% elif group.treatment == 'TP' %}
         <p> You can write a message to the <em>Reader</em> here:</p>
     {% endif %}
@@ -98,6 +100,7 @@
     {% endif %}
 
     {% next_button %}
+
     <div id="hideNext" style="display: none;">
     </div>
 
