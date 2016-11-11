@@ -16,7 +16,7 @@ class QuestionnairePage1(Page):
         return {
             'emotions': Constants.panas_list[:10]
         }
-
+    timeout_seconds = 200
 
 class QuestionnairePage2(Page):
 
@@ -30,6 +30,7 @@ class QuestionnairePage2(Page):
             'emotions': Constants.panas_list[10:]
         }
 
+    timeout_seconds = 200
 
 class ResultsWaitPage(WaitPage):
 

@@ -20,6 +20,7 @@ class InitialWait(WaitPage):
 class InitialStage2(Page):
     form_model = models.Player
     form_fields = ['time_InitialStage2']
+    timeout_seconds = 20
 
     def before_next_page(self):
         self.player.task_income = self.participant.vars['task_income']
@@ -27,6 +28,7 @@ class InitialStage2(Page):
         self.player.available_income0 = self.participant.vars['task_income'] + \
                                         self.player.endowment
 
+    timeout_seconds = 10
 
 ################################################
 
@@ -34,6 +36,7 @@ class RolesIncome(Page):
     """ Page 1: RolesIncome All """
     form_model = models.Player
     form_fields = ['time_RolesIncome']
+    timeout_seconds = 25
 
     def vars_for_template(self):
         return {
@@ -47,6 +50,7 @@ class ADecides(Page):
     """ Page 2A: A Decides """
     form_model = models.Group
     form_fields = ['take_rate', 'time_ADecides']
+    timeout_seconds = 60
 
     def is_displayed(self):
         return self.player.role() == 'A'
@@ -81,6 +85,7 @@ class BPredicts(Page):
     """Page 2B: B Predicts"""
     form_model = models.Group
     form_fields = ['expected_take_rate', 'time_BPredicts']
+    timeout_seconds = 60
 
     def is_displayed(self):
         return self.player.role() == 'B'
@@ -255,10 +260,12 @@ class TakeResults(Page):
     def is_displayed(self):
         return self.player.role() == 'A'  # because these results are given in new pages AllBdmList, AllBdmCont, or AllSOP.
 
+    timeout_seconds = 15
 
 class AllBdmCont(Page):
     form_model = models.Group
     form_fields = ['b_value', 'b_message', 'time_AllBdmCont']
+    timeout_seconds = 360
 
     def is_displayed(self):
         return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
@@ -284,9 +291,12 @@ class AllBdmCont(Page):
         elif self.group.b_value < self.group.message_price:
             self.group.msg_sent = False
 
+    timeout_seconds = 10
 
 class AllBdmList(Page):
     form_model = models.Group
+
+    timeout_seconds = 360
 
     def get_form_fields(self):
         #    setting self.group.price_list and self.group.price_list_size so we can set form_fields
@@ -393,6 +403,7 @@ class BdmResults(Page):
     """Page _:"""
     form_model = models.Group
     form_fields = ['time_BdmResults']
+    timeout_seconds = 15
 
     def is_displayed(self):
         return self.player.role() == 'B' and self.group.elicitation_method == 'BDM'
@@ -408,6 +419,7 @@ class DisplayMessageToA(Page):
     """Page _: message is shown to player A"""
     form_model = models.Group
     form_fields = ['time_DisplayMessageToA']
+    timeout_seconds = 15
 
     def is_displayed(self):
         return self.player.role() == 'A' and self.group.msg_sent and \
@@ -425,7 +437,7 @@ class WaitMessagesInTP(WaitPage):
 
 class DisplayMessagesToR(Page):
     """Page _: Reader reads messages from B players"""
-
+    timeout_seconds = 15
     form_model = models.Group
     form_fields = ['time_DisplayMessagesToR']
 
@@ -455,6 +467,7 @@ class Results(Page):
     """Page _: Page hosws table of final earnings"""
     form_model = models.Player
     form_fields = ['time_Results']
+    timeout_seconds = 20
 
     def vars_for_template(self):
 

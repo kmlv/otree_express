@@ -111,14 +111,17 @@ ROOMS = [
 # https://boto.readthedocs.org/en/latest/ref/mturk.html?highlight=mturk#module-boto.mturk.qualification
 
 mturk_hit_settings = {
-    'keywords': ['short game', 'interaction', 'questionnaire', 'short study'],
-    'title': 'Simple, short interaction.',
-    'description': 'This is a very short study (approx. 10 mins). First, you will be paired \
-    randomly with another AMT participant. Second, you will answer few simple questions. Third, you and your \
-    counterpart will briefly interact via a simple interface.',
+    'keywords': ['decision game', 'interaction', 'questionnaire', 'short study'],
+    'title': 'On the Demand for Expressing Emotions: a short experiment of interaction ',
+    'description': 'This study will take 15-20 mins, and this HIT will be available only 1 hour since its release. \
+     First, you will be paired randomly with another AMT participant and answer an initial and final questionnaire. \
+    Second, you and your counterpart will take a search task to win extra-money.  \
+    Then, you will participate on a brief interaction via a simple interface. \
+    Please stand remain during all the study, even if you notice that your partner is taking more time. \
+    There is an automatic timeout for each question, but if you take less time, you can push the next button. ',
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',
-    'minutes_allotted_per_assignment': 25,
+    'minutes_allotted_per_assignment': 40,
     'expiration_hours': 1, # 1 day
     'grant_qualification_id': '3LQV637WQB4JX22NPA62LG08IF76BE',    #sandbox
     #'grant_qualification_id': '3X03PXFE93BZZPK7U8HT29SECH8OFF',# real mturk

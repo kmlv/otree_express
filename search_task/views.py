@@ -6,9 +6,12 @@ from .models import Constants
 
 class PracticeTask(Page):
     pass
+    #timeout_seconds = 200
 
 
 class SearchTask(Page):
+    #timeout_seconds = 400
+
     form_model = models.Player
     form_fields = ['task_reward']
 
@@ -32,6 +35,7 @@ class SearchTask(Page):
 class GameInstructions(Page):
     pass
 
+timeout_seconds = 400
 
 page_sequence = [
     GameInstructions,
