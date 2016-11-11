@@ -31,13 +31,13 @@
         </tr>
         <tr>
           <td>Task Income</td>
-          <td class="text-center">+ {{ A_task_income}}</td>
-          <td class="text-center">+ {{ B_task_income}}</td>
+          <td class="text-center">+ {{ A_task_income }}</td>
+          <td class="text-center">+ {{ B_task_income }}</td>
         </tr>
         <tr>
           <td>Money Transferred</td>
-          <td class="text-center">+ {{group.money_taken}}</td>
-          <td class="text-center">- {{group.money_taken}}</td>
+          <td class="text-center">+ {{ group.money_taken}}</td>
+          <td class="text-center">- {{ group.money_taken}}</td>
         </tr>
           {% if group.msg_sent == True and group.value_type == 'WTP' %}
         <tr >

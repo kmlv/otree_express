@@ -16,9 +16,9 @@
     {% formfield  player.time_RolesIncome with label=None  %}
 
     {% if group.treatment != 'TP-R' %}
-        <p> You received {{player.endowment}} of <em> endowment </em> and earned {{player.others_task_income}} as <em>task income</em>. </p>
+        <p> You received {{player.endowment}} of <em> endowment </em> and earned {{player.task_income}} as <em>task income</em>. </p>
 
-{#        <p> Your <em>available income</em> at this point is {{player.available_income0}}. </p>#}
+        <p> Your <em>available income</em> at this point is {{player.available_income0}}. </p>
 
         <p> Your have been assigned <em><b> Role {{player.role}} </b></em>. </p>
 
