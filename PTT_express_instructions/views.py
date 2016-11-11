@@ -27,8 +27,13 @@ class Instructions(Page):
         }
 
 
+timeout_seconds = 400
+
+
 class ControlQuestions(Page):
     form_model = models.Player
+
+    timeout_seconds = 400
 
     def get_form_fields(self):
         if self.group.treatment in ['NM', 'FM']:
