@@ -27,7 +27,7 @@ class Instructions(Page):
         }
 
 
-timeout_seconds = 400
+    timeout_seconds = 400
 
 
 class ControlQuestions(Page):
