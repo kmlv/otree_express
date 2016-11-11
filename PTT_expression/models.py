@@ -183,7 +183,7 @@ class Group(BaseGroup):
     responses_list = []
 
     # create vars for timestamps
-    time_RolesIncome = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+
     time_ADecides = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_BPredicts = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_TakeResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
@@ -200,7 +200,6 @@ class Group(BaseGroup):
     time_BdmResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_DisplayMessageToA = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_DisplayMessagesToR = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-    time_Results = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
 
     # create BDM List prices - It generates as many variables list_price_{0} as Constants.max_price_list_size
     for i in range(0, Constants.max_price_list_size):
@@ -232,6 +231,11 @@ class Player(BasePlayer):
     available_income0 = models.CurrencyField()  # before money is taken : endowment plus task income
     others_task_income = models.CurrencyField()
     available_income1 = models.CurrencyField()  # after money is taken : endowment plus task income
+    wish_no_message = models.BooleanField(initial='True')
+
+    time_InitialStage2 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    time_RolesIncome = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    time_Results = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
 
 
     # roles

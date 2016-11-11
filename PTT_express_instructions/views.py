@@ -49,13 +49,13 @@ class ControlQuestions(Page):
             ]
 
     def ctrlQ_anonymity_error_message(self, value):
-        if not (value == 'Not'):
+        if not (value == 'No'):
             return 'The correct answer is  `Not` -- Once you are paired with another participant, ' \
                    'will you NEVER know the identity of the other participant'
 
     def ctrlQ_who_transfers_error_message(self, value):
         if not (value == 'Role A'):
-            return 'The correct answer is  `Role A` -- Only A player can take money from B player '
+            return 'The correct answer is  `Role A` -- Only Role A can take money from Role B'
 
     def ctrlQ_B_always_sends_error_message(self, value):
         if self.group.treatment in ['DM', 'TP']:

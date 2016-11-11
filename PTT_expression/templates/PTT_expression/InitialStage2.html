@@ -1,0 +1,29 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Stage 2
+{% endblock %}
+
+{% block scripts %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+    {% formfield  player.time_InitialStage2 with label=None  %}
+
+     <p> Please click on the next button to proceed to Stage 2.</p>
+
+    {% next_button %}
+
+{% endblock %}

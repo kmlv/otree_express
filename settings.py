@@ -61,7 +61,7 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
-USE_POINTS = True
+USE_POINTS = False
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
@@ -142,7 +142,7 @@ SESSION_CONFIG_DEFAULTS = {
     'num_bots': 6,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
-    'USE_POINTS': True,
+    'USE_POINTS': False,
 }
 
 ################
@@ -157,13 +157,12 @@ SESSION_CONFIGS = [
         'display_name': "Free Message, 2 players",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
-        'targetIncome': [10.3],
+        'targetIncome': [12, 9],
         'num_readers': 0,
-        'reader_endowment': [12],  # to be extended to a list for when there is more than one readers
         'Params': [
-        {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
+        {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [2, 4]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
         'debug': True,
     },
     {
@@ -192,7 +191,8 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
+        # 'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
