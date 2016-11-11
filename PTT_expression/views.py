@@ -20,10 +20,15 @@ class InitialWait(WaitPage):
         #     if p.role() == 'B':
         #         self.group.b_task_income = p.participant.vars['task_income']
 
-        for p in self.group.get_players():
-            p.task_income = self.participant.vars['task_income']
-            p.available_income0 = self.participant.vars['task_income'] + p.endowment
-            p.others_task_income = p.get_partner().task_income
+        self.player.task_income = self.participant.vars['task_income']
+        self.player.available_income0 = self.participant.vars['task_income'] + self.player.endowment
+#        for p in self.group.get_players():
+#            p.task_income = self.participant.vars['task_income']
+#            p.available_income0 = self.participant.vars['task_income'] + p.endowment
+#            p.others_task_income = p.get_partner().task_income
+#           p.others_task_income = self.participant.vars['task_income_other']
+#            print('testt', p.others_task_income)
+#        self.player.others_task_income = self.group.get_player_by_id('A').task_income
         return True
 
 
@@ -32,6 +37,12 @@ class RolesIncome(Page):
     form_model = models.Group
     form_fields = ['time_RolesIncome']
 
+    def vars_for_template(self):
+        return {
+            'task_IncomeA': c(self.group.get_player_by_role('A').task_income),
+            'task_IncomeB': c(self.group.get_player_by_role('B').task_income),
+            'points': self.session.config['USE_POINTS'],
+        }
 
 class ADecides(Page):
     """ Page 2A: A Decides """
@@ -44,6 +55,8 @@ class ADecides(Page):
     def vars_for_template(self):
         return {
             'b_task_income': float(self.group.get_player_by_role('B').task_income),
+            'task_IncomeA': float(self.group.get_player_by_role('A').task_income),
+            'task_IncomeB': float(self.group.get_player_by_role('B').task_income),
             'points': self.session.config['USE_POINTS'],
         }
 
@@ -77,6 +90,8 @@ class BPredicts(Page):
     def vars_for_template(self):
         return {
             'b_task_income': float(self.group.get_player_by_role('B').task_income),
+            'task_IncomeA': float(self.group.get_player_by_role('A').task_income),
+            'task_IncomeB': float(self.group.get_player_by_role('B').task_income),
             'points': self.session.config['USE_POINTS'],
         }
 
@@ -107,9 +122,9 @@ class WriteMessage(Page):
     form_fields = ['b_message', 'time_WriteMessage']
 
     def is_displayed(self):
-        return self.group.treatment == 'FM' and self.player.role() == 'B'
-#        return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
-#               self.player.role() == 'B'
+       # return self.group.treatment == 'FM' and self.player.role() == 'B'
+        return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
+               self.player.role() == 'B'
 
     def before_next_page(self):
         if self.group.treatment == 'FM':

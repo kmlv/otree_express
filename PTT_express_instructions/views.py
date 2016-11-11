@@ -49,7 +49,7 @@ class ControlQuestions(Page):
             ]
 
     def ctrlQ_anonymity_error_message(self, value):
-        if not (value == 'Not'):
+        if not (value == 'No'):
             return 'The correct answer is  `Not` -- Once you are paired with another participant, ' \
                    'will you NEVER know the identity of the other participant'
 
@@ -62,11 +62,11 @@ class ControlQuestions(Page):
             if self.group.value_type == 'WTP' and not (value == 'It depends on his/her valuation for sending a message'):
                 return 'The correct answer is  `It depends on his/her valuation for sending a message` : ' \
                        '-- It will be send if the maximum amount willing to pay for sending ' \
-                       'the message falls above the sending price'
+                       'the message falls above the message price'
             if self.group.value_type == 'WTA' and not (value == 'It depends on his/her valuation for sending a message'):
                 return 'The correct answer is  `It depends on his/her valuation for sending a message` : ' \
-                       '-- It will be send if the minimum amount willing to accept for not sending ' \
-                       'the message falls below the sending price'
+                       '-- It will be send if the minimum amount willing to accept for NOT sending ' \
+                       'the message falls below the message price'
 
     def ctrlQ_B_sends_message_error_message(self, value):
         if self.group.treatment in ['DM', 'TP']:
@@ -77,8 +77,8 @@ class ControlQuestions(Page):
                 return 'The correct answer is  `Yes` -- Because she/he accepts the amount Z in exchange  ' \
                         'for sending the message'
             if self.group.value_type == 'WTA' and self.group.elicitation_method == 'BDM' and not (value == 'No'):
-                return 'The correct answer is  `No` -- Because his/her willingness to accept (Y) for NOT sending ' \
-                       'is lower than the price of the message (Z)'
+                return 'The correct answer is  `No` -- Because she/he accepts the amount Z in exchange ' \
+                       'for NOT sending the message'
             elif self.group.value_type == 'WTP' and self.group.elicitation_method != 'BDM' and not (value == 'No'):
                 return 'The correct answer is  `Yes` -- Because she/he accepts the amount Z in exchange  ' \
                         'for NOT sending the message'
