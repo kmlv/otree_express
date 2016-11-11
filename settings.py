@@ -129,7 +129,7 @@ mturk_hit_settings = {
          qualification.LocaleRequirement("EqualTo", "US"),
          qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 50),
          qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 5),
-         qualification.Requirement('3LQV637WQB4JX22NPA62LG08IF76BE', 'DoesNotExist')
+         qualification.Requirement('3X03PXFE93BZZPK7U8HT29SECH8OFF', 'DoesNotExist')  # change for sandbox or real mturk
     ]
 }
 
