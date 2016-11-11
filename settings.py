@@ -249,7 +249,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [2, 2]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'search_task', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PANAS', 'PTT_express_instructions', 'search_task', 'PTT_expression', 'payment_info', 'PANAS_final'],
         'debug': True
     },
     {
@@ -479,9 +479,9 @@ SESSION_CONFIGS = [
     },
     {
         'name': 'Panas',
-        'display_name': "PANAS Questionnaire",
+        'display_name': "PANAS_final Questionnaire",
         'num_demo_participants': 1,
-        'app_sequence': ['PANAS'],
+        'app_sequence': ['PANAS_final'],
     },
     {
         'name': 'search_task',
