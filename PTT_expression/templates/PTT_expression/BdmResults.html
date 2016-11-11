@@ -2,7 +2,11 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Price Reveal
+     {% if group.value_type == 'WTP' %}
+     Actual Price
+     {% elif group.value_type == 'WTA' %}
+     Actual Compensation
+     {% endif %}
 {% endblock %}
 
 {% block content %}
@@ -19,28 +23,28 @@
             {% if group.value_type == 'WTP' %}
 
                 {% if group.msg_sent == True %}
-                    <p> The value you stated ({{group.b_value}}) is at or above the randomly generated price ({{group.message_price}}).</p>
-                    <p> Therefore, your message will be sent to {% if group.treatment == 'DM' %} your counterpart A.
-                        {% elif group.treatment == 'TP' %} the third party reader. {% endif %} </p>
+                     <p> The randomly generated <em>actual price</em> is {{group.message_price}}. Your <em>valuation</em> ({{group.b_value}}) is bigger or equal than this <em>actual price</em>.</p>
+                     <p> Therefore, your message will be sent to {% if group.treatment == 'DM' %} <em>Role A</em>.
+                         {% elif group.treatment == 'TP' %} the <em>Reader</em>.{% endif %} You will be charged {{group.message_price}}.</p>
 
                 {% elif group.msg_sent == False %}
-                    <p> The value you stated ({{group.b_value}}) is below the randomly generated price ({{group.message_price}}).</p>
-                    <p> Therefore, your message will NOT be sent to {% if group.treatment == 'DM' %} your counterpart A.
-                        {% elif group.treatment == 'TP' %} the third party reader. {% endif %} </p>
+                     <p> The randomly generated <em>actual price</em> is {{group.message_price}}. Your <em>valuation</em> ({{group.b_value}}) is smaller than this <em>actual price</em>.</p>
+                     <p> Therefore, your message will NOT be sent to {% if group.treatment == 'DM' %} <em>Role A</em>.
+                         {% elif group.treatment == 'TP' %} the <em>Reader</em>.{% endif %} You will not be charged.</p>
 
                 {% endif %}
 
             {% elif group.value_type == 'WTA' %}
 
                 {% if group.msg_sent == True %}
-                    <p> The value you stated ({{group.b_value}}) is at or above the randomly generated amount ({{group.message_price}}).</p>
-                    <p> Therefore, your message will be sent to {% if group.treatment == 'DM' %} your counterpart A.
-                        {% elif group.treatment == 'TP' %} the third party reader. {% endif %} </p>
+                     <p> The randomly generated <em>actual compensation</em> is {{group.message_price}}. Your <em>valuation</em> ({{group.b_value}}) is bigger or equal than this <em>actual compensation</em>.</p>
+                     <p> Therefore, your message will be sent to {% if group.treatment == 'DM' %} <em>Role A</em>.
+                         {% elif group.treatment == 'TP' %} the <em>Reader</em>.{% endif %}. You will not be compensated.</p>
 
                 {% elif group.msg_sent == False %}
-                    <p> The value you stated ({{group.b_value}}) is below the randomly generated amount ({{group.message_price}}).</p>
-                    <p> Therefore, your message will NOT be sent to {% if group.treatment == 'DM' %} your counterpart A.
-                        {% elif group.treatment == 'TP' %} the third party reader. {% endif %} </p>
+                     <p> The randomly generated <em>actual compensation</em> is {{group.message_price}}. Your <em>valuation</em> ({{group.b_value}}) is smaller than this <em>actual compensation</em>.</p>
+                     <p> Therefore, your message will NOT be sent to {% if group.treatment == 'DM' %} <em>Role A</em>.
+                         {% elif group.treatment == 'TP' %} the <em>Reader</em>.{% endif %} You will receive a compensation of {{group.message_price}}. </p>
 
                 {% endif %}
 
@@ -53,14 +57,14 @@
                 {% if group.msg_sent == True %}
                     <p> The randomly chosen price is {{group.message_price}}. You stated that you were willing to pay
                         that price for sending the message.</p>
-                    <p> Therefore, your message will be sent to {% if group.treatment == 'DM' %} your counterpart A.
-                        {% elif group.treatment == 'TP' %} the third party reader. {% endif %} </p>
+                    <p> Therefore, your message will be sent to {% if group.treatment == 'DM' %}<em>Role A</em>.
+                         {% elif group.treatment == 'TP' %}the <em>Reader</em>.{% endif %} You will be charged {{ group.message_price }}.</p>
 
                 {% elif group.msg_sent == False %}
-                    <p> The randomly chosen price is {{group.message_price}}. You stated that you were not willing to pay
-                        that price for NOT sending the message.</p>
-                    <p> Therefore, your message will NOT be sent to {% if group.treatment == 'DM' %} your counterpart A.
-                        {% elif group.treatment == 'TP' %} the  third party reader. {% endif %} </p>
+                     <p> The randomly chosen price is {{group.message_price}}. You stated that you were not willing to pay
+                         that price for sending the message.</p>
+                     <p> Therefore, your message will not be sent to {% if group.treatment == 'DM' %} <em>Role A</em>.
+                         {% elif group.treatment == 'TP' %} the <em>Reader</em>. {% endif %} You will not be charged.</p>
 
                 {% endif %}
 
@@ -69,14 +73,14 @@
                 {% if group.msg_sent == False %}
                     <p> The randomly selected amount is {{group.message_price}}. You stated that you were willing to accept
                         that price in exchange for not sending the message.</p>
-                    <p> Therefore, your message will NOT be sent to {% if group.treatment == 'DM' %} your counterpart A.
-                        {% elif group.treatment == 'TP' %} the third party reader. {% endif %} </p>
+                    <p> Therefore, your message will not be sent to {% if group.treatment == 'DM' %} <em>Role A</em>.
+                         {% elif group.treatment == 'TP' %}the <em>Reader</em>. {% endif %} You will receive a compensation of {{ group.message_price }}.</p>
 
                 {% elif group.msg_sent == True %}
-                    <p> The randomly selected amount is {{group.message_price}}. You stated that you were not willing to accept
+                     <p> The randomly selected amount is {{group.message_price}}. You stated that you were not willing to accept
                         that price in exchange for not sending the message.</p>
-                    <p> Therefore, your message will be sent to {% if group.treatment == 'DM' %} your counterpart A.
-                        {% elif group.treatment == 'TP' %} the third party reader. {% endif %} </p>
+                     <p> Therefore, your message will be sent to {% if group.treatment == 'DM' %} <em>Role A</em>.
+                         {% elif group.treatment == 'TP' %}the <em>Reader</em>. {% endif %} You will not be compensated. </p>
 
                 {% endif %}
 

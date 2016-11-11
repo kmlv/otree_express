@@ -61,7 +61,7 @@ AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 # e.g. EUR, CAD, GBP, CHF, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
-USE_POINTS = True
+USE_POINTS = False
 
 # e.g. en, de, fr, it, ja, zh-hans
 # see: https://docs.djangoproject.com/en/1.9/topics/i18n/#term-language-code
@@ -118,11 +118,11 @@ mturk_hit_settings = {
     counterpart will briefly interact via a simple interface.',
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',
-    'minutes_allotted_per_assignment': 15,
-    'expiration_hours': 24, # 1 day
-    'grant_qualification_id':  '3LQV637WQB4JX22NPA62LG08IF76BE',    #sandbox
+    'minutes_allotted_per_assignment': 25,
+    'expiration_hours': 1, # 1 day
+    'grant_qualification_id': '3LQV637WQB4JX22NPA62LG08IF76BE',    #sandbox
     #'grant_qualification_id': '3X03PXFE93BZZPK7U8HT29SECH8OFF',# real mturk
-    'qualification_requirements':[
+    'qualification_requirements': [
          qualification.LocaleRequirement("EqualTo", "US"),
          qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 50),
          qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 5),
@@ -142,7 +142,7 @@ SESSION_CONFIG_DEFAULTS = {
     'num_bots': 6,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
-    'USE_POINTS': True,
+    'USE_POINTS': False,
 }
 
 ################
@@ -161,7 +161,7 @@ SESSION_CONFIGS = [
         'num_readers': 0,
         'reader_endowment': [12],  # to be extended to a list for when there is more than one readers
         'Params': [
-        {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
+        {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [1, 4]},
         ],
         'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
         'debug': True,
@@ -243,13 +243,13 @@ SESSION_CONFIGS = [
         'display_name': "Direct Message, N=2, WTA, BDM List [0, available_income] ",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
-        'targetIncome': [10.3],
+        'targetIncome': [3],
         'num_readers': 0,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
+{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [2, 2]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'search_task', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -489,7 +489,7 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2,
         'app_sequence': ['search_task'],
         'debug': False,
-        'targetIncome': [10, 12]
+        'targetIncome': [3, 3]
     },
     {
         'name': 'mauss_questionnaire',

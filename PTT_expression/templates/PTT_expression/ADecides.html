@@ -47,9 +47,9 @@
 
     {% formfield  group.time_ADecides with label=None  %}
 
-    <p> Since your role is <em>{{ player.role }}</em>, you are given the authority to transfer money from <em>B</em>'s account to your own account </p>
+    <p> Since your Role is <em>A</em>, you are given the authority to transfer money from <em>B</em>'s account to your own account.</p>
 
-    <p> The maximum amount you can collect is what <em>B</em> has earned as <em>task income</em> in the search tasks ({{player.others_task_income}}). </p>
+    <p> The maximum amount you can take is what <em>B</em> has earned as <em>task income</em> in the search tasks ({{b_task_income_}}). </p>
 
     <p> Use the slider below to set the percentage of <em>B</em>'s income you want to transfer to your account. </p>
 
@@ -57,7 +57,7 @@
 
     <div style="width: 80%; margin: auto;">
         <div style="text-align: center">You are taking: <span id="slider_val">__</span>% of B's task income
-            ({% if not points %}${%endif%}<span id="dollars_taken">_.__</span> {% if points %}points{% endif %})</div>
+            ({% if not points %}${%endif%}<span id="dollars_taken">_.__</span>{% if points %} points{% endif %}).</div>
         <div><span class="pull-left">0%</span><span class="pull-right">100%</span></div>
         <div id="slider" style="clear: both; width: 96%; margin: auto;"></div>
     </div>

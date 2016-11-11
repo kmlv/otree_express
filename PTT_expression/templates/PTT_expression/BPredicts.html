@@ -27,7 +27,7 @@
                     },
                     slide: function (event, ui) {
                         $("#slider_val").text(ui.value);
-                        $("#dollars_taken").text((ui.value/100 * {{b_task_income}}).toFixed(2));
+                        $("#dollars_taken").text((ui.value/100 * {{b_task_income}}).toFixed(2) );
 
                     },
                     stop: function (event, ui) {
@@ -49,17 +49,15 @@
 
     {% formfield  group.time_BPredicts with label=None  %}
 
-    <p> Your role is {{player.role}}. </p>
-    <p> At this moment, your counterpart A is deciding what percentage of your task income ({{player.task_income}})
+    <p> At this moment, the participant in <em>Role A</em> with whom you are matched is deciding what percentage of your <em>task income</em> ({{player.task_income}})
         to transfer to his/her own account.</p>
-    <p> What percentage of your task income do you think A will transfer into his/her own account? </p>
-    <p> Use the slider to provide your guess. </p>
+    <p> What percentage do you think Role A will take from your account? Use the slider below to provide your guess. </p>
     <p> </p>
     <br/>
 
     <div style="width: 80%; margin: auto;">
         <div style="text-align: center">You guess A will take <span id="slider_val">__</span>% of your task income
-        ({% if not points %}${%endif%} <span id="dollars_taken">_.__</span> {% if points %}points{% endif %})</div>        <div><span class="pull-left">0%</span><span class="pull-right">100%</span></div>
+        ({% if not points %}${%endif%}<span id="dollars_taken">_.__</span>{% if points %} points{% endif %})</div>        <div><span class="pull-left">0%</span><span class="pull-right">100%</span></div>
         <div id="slider" style="clear: both; width: 96%; margin: auto;"></div>
 
     </div>

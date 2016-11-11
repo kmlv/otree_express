@@ -1,22 +1,22 @@
-{% extends "global/Base.html" %} {% load staticfiles otree_tags %}
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
 
-{% block title %} Message from player B {% endblock %}
+{% block title %} Message from Role B {% endblock %}
 
-{% block content %}
-
+{% block scripts %}
     {# this records the timestamp #}
     <script type="text/javascript">
             window.onload = function () {
                 document.getElementById("arrive_time").value = (new Date()).toISOString();
             }
     </script>
-    {% formfield  group.time_DisplayMessageToA with label=None  %}
+{% endblock %}
 
-    {% if group.b_message == null or group.b_message == Null %}
-        <p> Player B was unable to send his/her message.</p>
+{% block content %}
 
-    {% else %}
-        <p>Player B sent this message to you</p>
+     {% formfield  group.time_DisplayMessageToA with label=None  %}
+
+     <br/>
 
         <div class="panel panel-default" style="margin-bottom:10px">
             <div class="panel-body">
@@ -24,8 +24,9 @@
             </div>
         </div>
 
-    {% endif %}
+     <br/>
 
-    {% next_button %}
+ {#    {% next_button %}#}
+     <button class="btn btn-primary btn-large">I have read the message</button>
 
-{% endblock %}
+ {% endblock %}
