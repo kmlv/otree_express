@@ -111,14 +111,15 @@ ROOMS = [
 # https://boto.readthedocs.org/en/latest/ref/mturk.html?highlight=mturk#module-boto.mturk.qualification
 
 mturk_hit_settings = {
-    'keywords': ['decision game', 'interaction', 'questionnaire', 'short study'],
-    'title': 'On the Demand for Expressing Emotions: a short experiment of interaction ',
-    'description': 'This study will take 15-20 mins, and this HIT will be available only 1 hour since its release. \
-     First, you will be paired randomly with another AMT participant and answer an initial and final questionnaire. \
-    Second, you and your counterpart will take a search task to win extra-money.  \
-    Then, you will participate on a brief interaction via a simple interface. \
-    Please stand remain during all the study, even if you notice that your partner is taking more time. \
-    There is an automatic timeout for each question, but if you take less time, you can push the next button. ',
+    'keywords': ['decision game', 'questionnaire', 'short study', '15 to 20 minutes'],
+    'title': 'A short study',
+    'description': 'This HIT will take a 15 to 20 minutes and will be available for just one hour. \
+     If you are interested, first, you will be paired randomly with another AMT participant \
+     Then, you and your counterpart will perform a short task to earn money and briefly interact with one another. \
+     Please pay attention during the whole the study, even if you notice that your partner is taking more time.\
+     There is an automatic timeout for each question, \
+     but you can push the next button once you are done with the screen. Thank you',
+
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',
     'minutes_allotted_per_assignment': 40,
@@ -127,8 +128,8 @@ mturk_hit_settings = {
     'grant_qualification_id': '3X03PXFE93BZZPK7U8HT29SECH8OFF',   # real mturk
     'qualification_requirements': [
          qualification.LocaleRequirement("EqualTo", "US"),
-         qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 50),
-         qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 5),
+        #qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 50),
+         qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 1),
          qualification.Requirement('3X03PXFE93BZZPK7U8HT29SECH8OFF', 'DoesNotExist')  # change for sandbox or real mturk
     ]
 }
