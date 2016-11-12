@@ -50,11 +50,11 @@ Role B's Decisions
 
     {# MESSAGE#}
     {% if group.treatment == 'DM' %}
-        <p> You can write a message to <em>Role A</em> in the box below. </p>
+        <p> If you would like to write a message to <em>Role A</em> regarding his/her decision, type it in the box below. </p>
 {#        <p>If you <b>do not</b> wish to write a message, click <button name="timeout" value="1"  class="">here</button></p>#}
 {#        name="wish_no_message" value="False"#}
     {% elif group.treatment == 'TP' %}
-         <p> You can write a message to the <em>Reader</em> here:</p>
+        <p> If you would like to write a message to the <em>Reader</em> regarding <em>Role A</em>'s decision, type it in the box below. </p>
     {% endif %}
 
     {% formfield group.b_message with label="" %}
