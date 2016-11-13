@@ -126,13 +126,13 @@ mturk_hit_settings = {
     'expiration_hours': 1, # 1 day
     # 'grant_qualification_id': '3LQV637WQB4JX22NPA62LG08IF76BE',    #sandbox
     #'grant_qualification_id': '3X03PXFE93BZZPK7U8HT29SECH8OFF',   # real mturk (kristianlopezvargas)
-    'grant_qualification_id': '33JPJJ9N30OKK8C3Z0GRC9K22ZTLXV',      # real mturk (kecolab)
-    'qualification_requirements': [
-         qualification.LocaleRequirement("EqualTo", "US"),
-        #qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 50),
-         qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 1),
-         qualification.Requirement('33JPJJ9N30OKK8C3Z0GRC9K22ZTLXV', 'DoesNotExist')  # change for sandbox or real mturk
-    ]
+    #'grant_qualification_id': '33JPJJ9N30OKK8C3Z0GRC9K22ZTLXV',      # real mturk (kecolab)
+    #'qualification_requirements': [
+    #     qualification.LocaleRequirement("EqualTo", "US"),
+    #     qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 50),
+    #     qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 1),
+    #     qualification.Requirement('33JPJJ9N30OKK8C3Z0GRC9K22ZTLXV', 'DoesNotExist')  # change for sandbox or real mturk
+    #]
 }
 
 
