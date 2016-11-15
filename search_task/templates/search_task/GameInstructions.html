@@ -8,12 +8,15 @@
 
 {% block content %}
 
-    <p> In this stage, you will perform a sequence of tasks to earn your <em>task income.</em></p>
+    {#    paper effect starts   #}
+<div class="instructions well well-lg">
 
-    <p> The image below shows the screen where you will conduct such tasks:</p></br>
+    <p> In this stage, you will perform a sequence of tasks to earn your <em>task income</em>. The image below shows the screen where you will conduct such tasks:</p>
 
-        <div style="align-content: center; border:1px solid lightgrey">
-            <img src="{% static "PTT_express_instructions/SearchTask.png" %}" width="500" align="center"/>
+    </br>
+
+        <div style="align-content: center; border:0px solid lightgrey">
+            <img src="{% static "search_task/SearchTask.png" %}" width="500" align="center"/>
         </div> </br>
 
     <p>In the square on the left side of the screen, you will choose different locations using the mouse's left click. Search for the location that gives you the highest number of points. The "points earned" in your current location is shown on right side of the square, where you can also see the time left for the current task.</p>
@@ -25,6 +28,10 @@
     <p> You will be given two un-timed trial tasks before the series of actual tasks starts. </p> </br>
 
     {#    The total amount you earn in these search tasks will be your task income.#}
+
+    {#    paper effect starts   #}
+</div>
+
 
     {% next_button %}
 

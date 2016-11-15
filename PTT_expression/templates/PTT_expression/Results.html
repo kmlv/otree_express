@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Final Earnings ($)
+    Final Earnings ({% if not points %}${%endif%}{% if points %}points{% endif %})
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@
                 document.getElementById("arrive_time").value = (new Date()).toISOString();
             }
     </script>
-    {% formfield  group.time_Results with label=None  %}
+    {% formfield  player.time_Results with label=None  %}
     {# this recorded the timestamp #}
 
     {% if player.role == 'A' or player.role == 'B' %}
@@ -31,13 +31,13 @@
         </tr>
         <tr>
           <td>Task Income</td>
-          <td class="text-center">+ {{ A_task_income}}</td>
-          <td class="text-center">+ {{ B_task_income}}</td>
+          <td class="text-center">+ {{ A_task_income }}</td>
+          <td class="text-center">+ {{ B_task_income }}</td>
         </tr>
         <tr>
           <td>Money Transferred</td>
-          <td class="text-center">+ {{group.money_taken}}</td>
-          <td class="text-center">- {{group.money_taken}}</td>
+          <td class="text-center">+ {{ group.money_taken}}</td>
+          <td class="text-center">- {{ group.money_taken}}</td>
         </tr>
           {% if group.msg_sent == True and group.value_type == 'WTP' %}
         <tr >

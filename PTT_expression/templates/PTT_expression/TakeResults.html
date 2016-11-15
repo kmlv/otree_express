@@ -17,13 +17,13 @@
 
     {% if player.role == 'A' %}
 
-        <p> You transferred {{ group.money_taken }} to your own account </p>
-        <p> Your available income is {{ player.available_income1 }} </p>
+        <p> You transferred {{ group.money_taken }} to your own account.</p>
+        <p> Now, your available income is {{ player.available_income1 }}. </p>
 
     {% elif player.role == 'B' %}
 
-        <p> Player A transferred {{ group.money_taken }} to his/her own account </p>
-        <p> Your available income is {{ player.available_income1 }} </p>
+        <p> Role <em>A</em> transferred {{ group.money_taken }} to his/her own account</p>
+        <p> Now, your available income is {{ player.available_income1 }}.</p>
 
     {% endif %}
 
