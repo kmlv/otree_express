@@ -232,17 +232,11 @@ class Player(BasePlayer):
     others_task_income = models.CurrencyField()
     available_income1 = models.CurrencyField()  # after money is taken : endowment plus task income
     wish_no_message = models.BooleanField(initial='True')
-<<<<<<< HEAD
 
     time_InitialStage2 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_RolesIncome = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_Results = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
 
-=======
-    time_InitialStage2 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-    time_RolesIncome = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-    time_Results = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
->>>>>>> master
 
     # roles
     def role(self):

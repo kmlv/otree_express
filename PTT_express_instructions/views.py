@@ -74,10 +74,14 @@ class ControlQuestions(Page):
                        'the message falls below the message price'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     def ctrlQ_B_sends_message_error_message(self, value):  # CORRECT WITH PAOLA
 =======
     def ctrlQ_B_sends_message_error_message(self, value):     # CORRECT WITH PAOLA
 >>>>>>> master
+=======
+    def ctrlQ_B_sends_message_error_message(self, value):     # CORRECT WITH PAOLA
+>>>>>>> ec3d94f4909f82ac54da4bf8afb79da5c3c149f9
         if self.group.treatment in ['DM', 'TP']:
             if self.group.value_type == 'WTP' and self.group.elicitation_method == 'BDM' and not (value == 'Yes'):
                 return 'The correct answer is  `Yes` -- Because his/her willingness to pay (Y) for sending ' \

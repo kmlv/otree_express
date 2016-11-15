@@ -1,6 +1,5 @@
 {% extends "global/Base.html" %}
 {% load staticfiles otree_tags %}
-<<<<<<< HEAD
 
 
 
@@ -10,11 +9,6 @@
 
 
 
-{% block scripts %}
-=======
-
-{% block title %} Message from Role B {% endblock %}
->>>>>>> master
 
 {% block scripts %}
     {# this records the timestamp #}
@@ -23,26 +17,16 @@
                 document.getElementById("arrive_time").value = (new Date()).toISOString();
             }
     </script>
-<<<<<<< HEAD
 
 {% endblock %}
 
 
-
-=======
-{% endblock %}
 
 {% block content %}
 
      {% formfield  group.time_DisplayMessageToA with label=None  %}
 
      <br/>
->>>>>>> master
-
-
-
-
-{% block content %}
 
     {% formfield  group.time_DisplayMessageToA with label=None  %}
 
@@ -53,19 +37,10 @@
             </div>
         </div>
 
-<<<<<<< HEAD
     <br/>
 
-{#    {% next_button %}#}
-    <button class="btn btn-primary btn-large">I have read the message</button>
+    {#       <button class="btn btn-primary btn-large">I have read the message</button>   #}
+    {% next_button %}
 
 {% endblock %}
 
-
-=======
-     <br/>
-
-{#       <button class="btn btn-primary btn-large">I have read the message</button>   #}
-    {% next_button %}
- {% endblock %}
->>>>>>> master

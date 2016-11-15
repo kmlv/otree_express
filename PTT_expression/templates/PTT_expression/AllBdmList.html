@@ -3,11 +3,7 @@
 {% load templ %}
 
 {% block title %}
-<<<<<<< HEAD
     Role B's Decision
-=======
-     Role B's Decision
->>>>>>> master
 {% endblock %}
 
 
@@ -72,17 +68,14 @@
 
         {% formfield group.b_message with label="Write a message here" %}
         <br/>
-<<<<<<< HEAD
 
-=======
->>>>>>> master
         {# EVALUATION#}
         <h3>Valuation</h3>
         {% if group.value_type == 'WTP' %}
             <p> For each of the prices you see in the table below, respond to the following question: </p>
             <p> Would you like to pay this price for sending your message to
                 {% if group.treatment == 'DM' %} <em>Role A</em>?
-                {% elif group.tr    eatment == 'TP' %} the <em>Reader</em>?
+                {% elif group.treatment == 'TP' %} the <em>Reader</em>?
                 {% endif %} </p>
         {% elif group.value_type == 'WTA' %}
             <p> For each of the amounts you see in the table below, respond to the following question: </p>
@@ -92,10 +85,7 @@
                 {% endif %} </p>
         {% endif %}
         <br/>
-<<<<<<< HEAD
 
-=======
->>>>>>> master
         <table class="table table-striped">
             <tr>
                 <th> {% if group.value_type == 'WTP' %} Price
