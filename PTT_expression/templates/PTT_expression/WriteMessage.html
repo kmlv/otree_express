@@ -12,8 +12,10 @@
             var validate = function(){
                 if(input.val() != ""){
                     $(".disp").prop('disabled', false);
+                    $(".no-input").prop('disabled', true);
                 } else {
                     $(".disp").prop('disabled', true);
+                    $(".no-input").prop('disabled', false);
                 }
             }
             $("#id_b_message").keyup(function(){
@@ -42,7 +44,7 @@
 {% formfield group.b_message with label="Write a message here" %}
 
 <input class="btn btn-primary btn-large btn-primary next-button disp" type="submit" value="Next" disabled="disabled">
-<input class="btn btn-primary btn-large btn-primary next-button" type="submit" value="Don't send a message'">
+<input class="btn btn-primary btn-large btn-primary next-button no-input" type="submit" value="Don't send a message">
 
 
 {% endblock %}
