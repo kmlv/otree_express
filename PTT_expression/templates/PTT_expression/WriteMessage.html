@@ -9,21 +9,16 @@
         jQuery(document).ready(function ($) {
             var input = $('#id_b_message');
             input.text("");
-            var hello = function(){
+            var validate = function(){
                 if(input.val() != ""){
-                    $("#hideNext").show();
+                    $(".disp").prop('disabled', false);
                 } else {
-                    $("#hideNext").hide();
+                    $(".disp").prop('disabled', true);
                 }
             }
-            $("textarea").on({
-                mouseenter: hello,
-                mouseleave: hello,
-                click: hello,
-                blur: hello,
-                keyup: hello
+            $("#id_b_message").keyup(function(){
+                validate();
             });
-            $("#hideNext").hide();
         });
     </script>
 {% endblock %}
@@ -46,8 +41,7 @@
 
 {% formfield group.b_message with label="Write a message here" %}
 
-{% next_button %}
-<div id="hideNext" style="display: none;">
+<input class="btn btn-primary btn-large btn-primary next-button disp" type="submit" value="Next" disabled="disabled">
+<input class="btn btn-primary btn-large btn-primary next-button" type="submit" value="Don't send a message'">
 
-</div>
 {% endblock %}
