@@ -1,29 +1,29 @@
 {% extends "global/Base.html" %}
- {% load staticfiles otree_tags %}
+{% load staticfiles otree_tags %}
 
- {% block title %}
-     Stage 2
- {% endblock %}
+{% block title %}
+    Stage 2
+{% endblock %}
 
- {% block scripts %}
+{% block scripts %}
 
-     {# this records the timestamp #}
-     <script type="text/javascript">
-             window.onload = function () {
-                 document.getElementById("arrive_time").value = (new Date()).toISOString();
-             }
-     </script>
-
-
- {% endblock %}
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
 
 
- {% block content %}
+{% endblock %}
 
-     {% formfield  player.time_InitialStage2 with label=None  %}
 
-      <p> Please click on the next button to proceed to Stage 2.</p>
+{% block content %}
 
-     {% next_button %}
+    {% formfield  player.time_InitialStage2 with label=None  %}
 
- {% endblock %}
+     <p> Please click on the next button to proceed to Stage 2.</p>
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,7 +1,14 @@
 {% extends "global/Base.html" %}
 {% load staticfiles otree_tags %}
 
+
+
+
 {% block title %} Message from Role B {% endblock %}
+
+
+
+
 
 {% block scripts %}
     {# this records the timestamp #}
@@ -10,7 +17,10 @@
                 document.getElementById("arrive_time").value = (new Date()).toISOString();
             }
     </script>
+
 {% endblock %}
+
+
 
 {% block content %}
 
@@ -18,14 +28,19 @@
 
      <br/>
 
+    {% formfield  group.time_DisplayMessageToA with label=None  %}
+
+    <br/>
         <div class="panel panel-default" style="margin-bottom:10px">
             <div class="panel-body">
                 <p><em>"{{group.b_message}}"</em></p>
             </div>
         </div>
 
-     <br/>
+    <br/>
 
-{#       <button class="btn btn-primary btn-large">I have read the message</button>   #}
+    {#       <button class="btn btn-primary btn-large">I have read the message</button>   #}
     {% next_button %}
- {% endblock %}
+
+{% endblock %}
+

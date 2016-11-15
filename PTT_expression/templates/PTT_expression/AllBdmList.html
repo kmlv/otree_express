@@ -3,7 +3,7 @@
 {% load templ %}
 
 {% block title %}
-     Role B's Decision
+    Role B's Decision
 {% endblock %}
 
 
@@ -68,6 +68,7 @@
 
         {% formfield group.b_message with label="Write a message here" %}
         <br/>
+
         {# EVALUATION#}
         <h3>Valuation</h3>
         {% if group.value_type == 'WTP' %}
@@ -84,6 +85,7 @@
                 {% endif %} </p>
         {% endif %}
         <br/>
+
         <table class="table table-striped">
             <tr>
                 <th> {% if group.value_type == 'WTP' %} Price

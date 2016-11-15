@@ -27,8 +27,7 @@
                     },
                     slide: function (event, ui) {
                         $("#slider_val").text(ui.value);
-                        $("#dollars_taken").text((ui.value/100 * {{b_task_income}}).toFixed(2) );
-
+                        $("#dollars_taken").text((ui.value/100 * {{b_task_income}} ).toFixed(2));
                     },
                     stop: function (event, ui) {
                         $("#id_expected_take_rate").val(ui.value);
@@ -53,6 +52,7 @@
         to transfer to his/her own account.</p>
     <p> What percentage do you think Role A will take from your account? Use the slider below to provide your guess. </p>
     <p> </p>
+    <br/>
     <br/>
 
     <div style="width: 80%; margin: auto;">

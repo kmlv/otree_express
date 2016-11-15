@@ -111,6 +111,7 @@ ROOMS = [
 # https://boto.readthedocs.org/en/latest/ref/mturk.html?highlight=mturk#module-boto.mturk.qualification
 
 mturk_hit_settings = {
+
     'keywords': ['decision game', 'questionnaire', 'short study', '15 to 20 minutes'],
     'title': 'A short study',
     'description': 'This HIT will take a 15 to 20 minutes and will be available for just one hour. \
@@ -119,7 +120,6 @@ mturk_hit_settings = {
      Please pay attention during the whole the study, even if you notice that your partner is taking more time.\
      There is an automatic timeout for each question, \
      but you can push the next button once you are done with the screen. Thank you',
-
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',
     'minutes_allotted_per_assignment': 40,
@@ -162,13 +162,12 @@ SESSION_CONFIGS = [
         'display_name': "Free Message, 2 players",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
-        'targetIncome': [10.3],
+        'targetIncome': [12, 9],
         'num_readers': 0,
-        'reader_endowment': [12],  # to be extended to a list for when there is more than one readers
         'Params': [
         {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [1, 4]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
         'debug': True,
     },
     {
@@ -197,7 +196,8 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
+        # 'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
