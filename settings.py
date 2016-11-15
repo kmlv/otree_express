@@ -111,16 +111,7 @@ ROOMS = [
 # https://boto.readthedocs.org/en/latest/ref/mturk.html?highlight=mturk#module-boto.mturk.qualification
 
 mturk_hit_settings = {
-<<<<<<< HEAD
-    'keywords': ['decision game', 'interaction', 'questionnaire', 'short study'],
-    'title': 'On the Demand for Expressing Emotions: a short experiment of interaction ',
-    'description': 'This HIT will take 15 to 20 minutes and will be available for one hour. \
-     First, you will be paired randomly with another AMT participant and answer an initial and final questionnaire. \
-    Second, you and your counterpart will take a search task to win extra-money.  \
-    Then, you will participate on a brief interaction via a simple interface. \
-    Please stand remain during all the study, even if you notice that your partner is taking more time. \
-    There is an automatic timeout for each question, but if you take less time, you can push the next button. ',
-=======
+
     'keywords': ['decision game', 'questionnaire', 'short study', '15 to 20 minutes'],
     'title': 'A short study',
     'description': 'This HIT will take a 15 to 20 minutes and will be available for just one hour. \
@@ -129,21 +120,10 @@ mturk_hit_settings = {
      Please pay attention during the whole the study, even if you notice that your partner is taking more time.\
      There is an automatic timeout for each question, \
      but you can push the next button once you are done with the screen. Thank you',
-
->>>>>>> ec3d94f4909f82ac54da4bf8afb79da5c3c149f9
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',
     'minutes_allotted_per_assignment': 40,
     'expiration_hours': 1, # 1 day
-<<<<<<< HEAD
-    # 'grant_qualification_id': '3LQV637WQB4JX22NPA62LG08IF76BE',    #sandbox
-    'grant_qualification_id': '3X03PXFE93BZZPK7U8HT29SECH8OFF',   # real mturk
-    'qualification_requirements': [
-         qualification.LocaleRequirement("EqualTo", "US"),
-         qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 50),
-         qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 5),
-         qualification.Requirement('3X03PXFE93BZZPK7U8HT29SECH8OFF', 'DoesNotExist')  # change for sandbox or real mturk
-=======
     #'grant_qualification_id': '3LQV637WQB4JX22NPA62LG08IF76BE',    #sandbox
     'grant_qualification_id': '3X03PXFE93BZZPK7U8HT29SECH8OFF',   # real mturk (kristianlopezvargas)
     #'grant_qualification_id': '3SL0IB85URSUSM2RNGYM7CLMXT3JRV',      # real mturk (kecolab)
@@ -152,7 +132,6 @@ mturk_hit_settings = {
          qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 30),
          qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 1),
          qualification.Requirement('3X03PXFE93BZZPK7U8HT29SECH8OFF', 'DoesNotExist'),  # change for sandbox or real mturk
->>>>>>> ec3d94f4909f82ac54da4bf8afb79da5c3c149f9
     ]
 }
 
