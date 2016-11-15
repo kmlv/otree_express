@@ -27,8 +27,13 @@ class Instructions(Page):
         }
 
 
+    timeout_seconds = 400
+
+
 class ControlQuestions(Page):
     form_model = models.Player
+
+    timeout_seconds = 400
 
     def get_form_fields(self):
         if self.group.treatment in ['NM', 'FM']:
@@ -62,13 +67,17 @@ class ControlQuestions(Page):
             if self.group.value_type == 'WTP' and not (value == 'It depends on his/her valuation for sending a message'):
                 return 'The correct answer is  `It depends on his/her valuation for sending a message` : ' \
                        '-- It will be send if the maximum amount willing to pay for sending ' \
-                       'the message falls above the sending price'
+                       'the message falls above the message price'
             if self.group.value_type == 'WTA' and not (value == 'It depends on his/her valuation for sending a message'):
                 return 'The correct answer is  `It depends on his/her valuation for sending a message` : ' \
-                       '-- It will be send if the minimum amount willing to accept for not sending ' \
-                       'the message falls below the sending price'
+                       '-- It will be send if the minimum amount willing to accept for NOT sending ' \
+                       'the message falls below the message price'
 
+<<<<<<< HEAD
     def ctrlQ_B_sends_message_error_message(self, value):  # CORRECT WITH PAOLA
+=======
+    def ctrlQ_B_sends_message_error_message(self, value):     # CORRECT WITH PAOLA
+>>>>>>> master
         if self.group.treatment in ['DM', 'TP']:
             if self.group.value_type == 'WTP' and self.group.elicitation_method == 'BDM' and not (value == 'Yes'):
                 return 'The correct answer is  `Yes` -- Because his/her willingness to pay (Y) for sending ' \
@@ -77,8 +86,8 @@ class ControlQuestions(Page):
                 return 'The correct answer is  `Yes` -- Because she/he accepts the amount Z in exchange  ' \
                         'for sending the message'
             if self.group.value_type == 'WTA' and self.group.elicitation_method == 'BDM' and not (value == 'No'):
-                return 'The correct answer is  `No` -- Because his/her willingness to accept (Y) for NOT sending ' \
-                       'is lower than the price of the message (Z)'
+                return 'The correct answer is  `No` -- Because she/he accepts the amount Z in exchange ' \
+                       'for NOT sending the message'
             elif self.group.value_type == 'WTP' and self.group.elicitation_method != 'BDM' and not (value == 'No'):
                 return 'The correct answer is  `Yes` -- Because she/he accepts the amount Z in exchange  ' \
                         'for NOT sending the message'

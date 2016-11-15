@@ -111,22 +111,25 @@ ROOMS = [
 # https://boto.readthedocs.org/en/latest/ref/mturk.html?highlight=mturk#module-boto.mturk.qualification
 
 mturk_hit_settings = {
-    'keywords': ['short game', 'interaction', 'questionnaire', 'short study'],
-    'title': 'Simple, short interaction.',
-    'description': 'This is a very short study (approx. 10 mins). First, you will be paired \
-    randomly with another AMT participant. Second, you will answer few simple questions. Third, you and your \
-    counterpart will briefly interact via a simple interface.',
+    'keywords': ['decision game', 'interaction', 'questionnaire', 'short study'],
+    'title': 'On the Demand for Expressing Emotions: a short experiment of interaction ',
+    'description': 'This HIT will take 15 to 20 minutes and will be available for one hour. \
+     First, you will be paired randomly with another AMT participant and answer an initial and final questionnaire. \
+    Second, you and your counterpart will take a search task to win extra-money.  \
+    Then, you will participate on a brief interaction via a simple interface. \
+    Please stand remain during all the study, even if you notice that your partner is taking more time. \
+    There is an automatic timeout for each question, but if you take less time, you can push the next button. ',
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',
-    'minutes_allotted_per_assignment': 15,
-    'expiration_hours': 24, # 1 day
-    'grant_qualification_id':  '3LQV637WQB4JX22NPA62LG08IF76BE',    #sandbox
-    #'grant_qualification_id': '3X03PXFE93BZZPK7U8HT29SECH8OFF',# real mturk
-    'qualification_requirements':[
+    'minutes_allotted_per_assignment': 40,
+    'expiration_hours': 1, # 1 day
+    # 'grant_qualification_id': '3LQV637WQB4JX22NPA62LG08IF76BE',    #sandbox
+    'grant_qualification_id': '3X03PXFE93BZZPK7U8HT29SECH8OFF',   # real mturk
+    'qualification_requirements': [
          qualification.LocaleRequirement("EqualTo", "US"),
          qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 50),
          qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 5),
-         qualification.Requirement('3LQV637WQB4JX22NPA62LG08IF76BE', 'DoesNotExist')
+         qualification.Requirement('3X03PXFE93BZZPK7U8HT29SECH8OFF', 'DoesNotExist')  # change for sandbox or real mturk
     ]
 }
 
@@ -160,7 +163,7 @@ SESSION_CONFIGS = [
         'targetIncome': [12, 9],
         'num_readers': 0,
         'Params': [
-        {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [2, 4]},
+        {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [1, 4]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
         'debug': True,
@@ -243,13 +246,13 @@ SESSION_CONFIGS = [
         'display_name': "Direct Message, N=2, WTA, BDM List [0, available_income] ",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
-        'targetIncome': [10.3],
+        'targetIncome': [3],
         'num_readers': 0,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
+{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [2, 2]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PANAS', 'PTT_express_instructions', 'search_task', 'PTT_expression', 'payment_info', 'PANAS_final'],
         'debug': True
     },
     {
@@ -479,9 +482,9 @@ SESSION_CONFIGS = [
     },
     {
         'name': 'Panas',
-        'display_name': "PANAS Questionnaire",
+        'display_name': "PANAS_final Questionnaire",
         'num_demo_participants': 1,
-        'app_sequence': ['PANAS'],
+        'app_sequence': ['PANAS_final'],
     },
     {
         'name': 'search_task',
@@ -489,7 +492,7 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2,
         'app_sequence': ['search_task'],
         'debug': False,
-        'targetIncome': [10, 12]
+        'targetIncome': [3, 3]
     },
     {
         'name': 'mauss_questionnaire',

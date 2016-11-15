@@ -21,3 +21,5 @@ db.sqlite3
 *.xml
 
 *.pyc
+
+.idea/misc.xml
