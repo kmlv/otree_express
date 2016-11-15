@@ -173,7 +173,7 @@ class Group(BaseGroup):
     BDM_uplimit = models.TextField()
     BDM_list_step = models.DecimalField(max_digits=5, decimal_places=2)
     SOP_price = models.CurrencyField()
-    b_message = models.TextField()
+    b_message = models.TextField(blank=True)
     b_value = models.CurrencyField(min=c(0))
     message_price = models.CurrencyField()
     msg_sent = models.BooleanField(initial=0)

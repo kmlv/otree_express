@@ -1,0 +1,39 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+    <!--Default-->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/XsLkJWngv_g" frameborder="0" allowfullscreen></iframe>
+
+    <!--No Fullscreen-->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/XsLkJWngv_g" frameborder="0"></iframe>
+
+    <!--No Controls-->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/XsLkJWngv_g?showinfo=0&controls=0" frameborder="0"></iframe>
+
+    <!--No redirect-->
+          
+    <iframe id="a" width="560" height="315" src="https://www.youtube.com/embed/XsLkJWngv_g?modestbranding=1&showinfo=0&autoplay=1&controls=0" frameborder="0"></iframe>
+    <style>
+        #a{
+            pointer-events: none;
+        }
+    </style>
+
+
+<!--
+Documentation on how to write a django template here:
+https://docs.djangoproject.com/en/1.8/ref/templates/language/
+
+Bootstrap comes pre-loaded, so you can use any Bootstrap elements:
+http://getbootstrap.com/components/
+
+-->
+
+    {% next_button %}
+
+{% endblock %}
