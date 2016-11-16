@@ -525,6 +525,16 @@ SESSION_CONFIGS = [
         'app_sequence': ['PTT_express_instructions'],
         'debug': True
     },
+    {
+        'name': 'demograp',
+        'display_name': "Demographic questions",
+        'real_world_currency_per_point': 1,
+        'num_demo_participants': 1,
+        'app_sequence': ['demograp'],
+        'debug': True
+    },
+
+
     #############################################
     {
         'name': 'Multiple_treatments_actual_sessions',
