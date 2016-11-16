@@ -158,6 +158,12 @@ import ptt_express_treatment_config
 
 SESSION_CONFIGS = [
     {
+       'name': 'youtubeembed',
+       'display_name': 'youtube embed',
+       'num_demo_participants': 1,
+       'app_sequence': ['youtubeembed']
+    },
+    {
         'name': 'PTT_express_FM_n2',
         'display_name': "Free Message, 2 players",
         'real_world_currency_per_point': 0.01,
