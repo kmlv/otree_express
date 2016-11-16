@@ -5,15 +5,21 @@
     Income and Role
 {% endblock %}
 
-{% block content %}
+{%  block scripts %}
 
-    {# this records the timestamp #}
+{# this records the timestamp #}
     <script type="text/javascript">
             window.onload = function () {
                 document.getElementById("arrive_time").value = (new Date()).toISOString();
             }
     </script>
-    {% formfield  player.time_RolesIncome with label=None  %}
+
+{% endblock %}
+
+
+{% block content %}
+
+     {% formfield  player.time_RolesIncome with label=None  %}
 
     {% if group.treatment != 'TP-R' %}
         <p> You received {{player.endowment}} of <em> endowment </em> and earned {{player.task_income}} as <em>task income</em>. </p>
@@ -29,6 +35,7 @@
 
     {% endif %}
     <br/>
+
     {% next_button %}
 
 {% endblock %}

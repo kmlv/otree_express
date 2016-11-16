@@ -73,7 +73,7 @@ class ControlQuestions(Page):
                        '-- It will be send if the minimum amount willing to accept for NOT sending ' \
                        'the message falls below the message price'
 
-    def ctrlQ_B_sends_message_error_message(self, value):     # CORRECT WITH PAOLA
+    def ctrlQ_B_sends_message_error_message(self, value):  # CORRECT WITH PAOLA
         if self.group.treatment in ['DM', 'TP']:
             if self.group.value_type == 'WTP' and self.group.elicitation_method == 'BDM' and not (value == 'Yes'):
                 return 'The correct answer is  `Yes` -- Because his/her willingness to pay (Y) for sending ' \
