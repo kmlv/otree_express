@@ -5,7 +5,8 @@
 * Do the logic behind the button. 
 
 * demographic questionnaire (from Benjamin and Tristan 2016) 
-    What is your gender?   Male   Female What is your annual income?
+    - What is your gender?   Male   Female 
+    - What is your annual income?
       less than $15,000
       $15,000 - $29,999
       $30,000 - $59,999
