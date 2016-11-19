@@ -162,6 +162,10 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     # define vars
+
+    a_task_income = models.DecimalField(max_digits=5, decimal_places=2)
+    b_task_income = models.CurrencyField()
+
     take_rate = models.DecimalField(widget=widgets.HiddenInput(), max_digits=5, decimal_places=0, min=0, max=100)
     expected_take_rate = models.DecimalField(widget=widgets.HiddenInput(), max_digits=5, decimal_places=0, min=0, max=100)
     treatment = models.TextField()
