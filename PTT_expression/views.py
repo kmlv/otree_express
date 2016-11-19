@@ -11,9 +11,7 @@ from math import floor
 
 
 class InitialWait(WaitPage):
-
     """ Page 0: wait for partner in group - so income from effort task is read """
-
     title_text = "Waiting"
     body_text = "Please wait for others to arrive to this stage before you proceed to the next one. Thank you."
 
@@ -21,13 +19,20 @@ class InitialWait(WaitPage):
 class InitialStage2(Page):
     form_model = models.Player
     form_fields = ['time_InitialStage2']
-    # timeout_seconds = 20
+    # timeout_seconds = 60
 
     def before_next_page(self):
         self.player.task_income = self.participant.vars['task_income']
 
         self.player.available_income0 = self.participant.vars['task_income'] + \
                                         self.player.endowment
+
+        if self.player.role() == 'B':
+            self.group.b_task_income = self.participant.vars['task_income']
+        elif self.player.role() == 'A':
+            self.group.a_task_income = self.participant.vars['task_income']
+
+        print(self.group.a_task_income, self.group.b_task_income)
 
 
 ################################################
@@ -36,14 +41,7 @@ class RolesIncome(Page):
     """ Page 1: RolesIncome All """
     form_model = models.Player
     form_fields = ['time_RolesIncome']
-    # timeout_seconds = 25
-
-    def vars_for_template(self):
-        return {
-            'b_task_income': float(self.group.get_player_by_role('B').task_income),
-            'b_task_income_': self.group.get_player_by_role('B').task_income,
-            'points': self.session.config['USE_POINTS'],
-        }
+    # timeout_seconds = 60
 
 
 class ADecides(Page):
@@ -57,8 +55,8 @@ class ADecides(Page):
 
     def vars_for_template(self):
         return {
-            'b_task_income': float(self.group.get_player_by_role('B').task_income),
-            'b_task_income_': self.group.get_player_by_role('B').task_income,
+            'b_task_income': float(self.group.b_task_income),
+            'b_task_income_': self.group.b_task_income,
             'points': self.session.config['USE_POINTS'],
         }
 
@@ -92,17 +90,13 @@ class BPredicts(Page):
 
     def vars_for_template(self):
         return {
-            'b_task_income': float(self.group.get_player_by_role('B').task_income),
-            'task_IncomeA': float(self.group.get_player_by_role('A').task_income),
-            'task_IncomeB': float(self.group.get_player_by_role('B').task_income),
+            'b_task_income': float(self.group.b_task_income),
             'points': self.session.config['USE_POINTS'],
         }
 
 
-class BWaitsForGroup(WaitPage):
+class WaitsForGroup(WaitPage):
     pass
-    # def is_displayed(self):
-    #     return self.player.role() == 'B'
 
 
 ########################################################################################################################
@@ -717,11 +711,6 @@ class BdmResults(Page):
         return self.player.role() == 'B' and self.group.elicitation_method == 'BDM'
 
 
-class AWaitsForGroup(WaitPage):
-    pass
-    # def is_displayed(self):
-    #     return self.player.role() == 'A'
-
 
 class DisplayMessageToA(Page):
     """Page _: message is shown to player A"""
@@ -804,10 +793,11 @@ class Results(Page):
 page_sequence = [
     InitialWait,
     InitialStage2,
+    WaitsForGroup,
     RolesIncome,
     BPredicts,
     ADecides,
-    BWaitsForGroup,
+    WaitsForGroup,
     TakeResults,
     # B waits for A's decision
     # WriteMessage,
@@ -817,7 +807,7 @@ page_sequence = [
     AllBdmCont,
     AllBdmList,
     # AllSOP,
-    AWaitsForGroup,  # A waits for possible message
+    WaitsForGroup,  # A waits for possible message
     BdmResults,
     DisplayMessageToA,
     WaitMessagesInTP,

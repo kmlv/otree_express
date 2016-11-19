@@ -196,7 +196,7 @@ SESSION_CONFIGS = [
         'display_name': "Direct Message, N=2, WTP, BDM Continuous [0, endowment] ",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
-        'targetIncome': [10.3],
+        'targetIncome': [10.3, 8],
         'num_readers': 0,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
