@@ -158,6 +158,8 @@ class Group(BaseGroup):
     BDM_uplimit = models.TextField()
     BDM_list_step = models.DecimalField(max_digits=5, decimal_places=2)
     SOP_price = models.CurrencyField()
+
+    want_send_message = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal())
     b_message = models.TextField(blank=True)
     b_value = models.CurrencyField(min=c(0), blank=True)
     message_price = models.CurrencyField()
@@ -171,7 +173,8 @@ class Group(BaseGroup):
 
     time_ADecides = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_BPredicts = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-    time_TakeResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    time_ATakeResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    time_BTakeResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_WriteMessage = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
 
     time_AllBdmCont = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
@@ -215,7 +218,6 @@ class Player(BasePlayer):
     task_income = models.CurrencyField()
     available_income0 = models.CurrencyField()  # before money is taken : endowment plus task income
     available_income1 = models.CurrencyField()  # after money is taken : endowment plus task income
-    wish_no_message = models.BooleanField(initial='True')
 
     time_InitialStage2 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_RolesIncome = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))

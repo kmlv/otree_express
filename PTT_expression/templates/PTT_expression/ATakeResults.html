@@ -1,0 +1,64 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+Role A
+{% endblock %}
+
+{% block scripts %}
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+{% endblock %}
+
+
+{% block content %}
+
+    {% formfield  group.time_ATakeResults with label=None  %}
+
+    {# INFO#}
+    <p> You (Role A) have taken <b>{{group.take_rate}}%</b> ({{group.money_taken}}) of Role B's <em>task income</em>. </p>
+    <p> Now, your <em>available income</em> is {{player.available_income1}}. </p>
+    <br/>
+
+         <table class="table table-striped table-bordered table-nonfluid" align="center">
+        <tr>
+          <td class="col-md-1"></td>
+          <td class="col-md-1 text-center">Role A {% if player.role == 'A' %} (<strong style="color: #cd0a0a">You</strong>) {% endif %}</td>
+          <td class="col-md-1 text-center">Role B {% if player.role == 'B' %} (<strong style="color: #cd0a0a">You</strong>) {% endif %}</td>
+        </tr>
+        <tr >
+          <td>Endowment</td>
+          <td class="text-center">{{ A_endowment }}</td>
+          <td class="text-center">{{ B_endowment }}</td>
+        </tr>
+        <tr>
+          <td>Task Income</td>
+          <td class="text-center">+ {{ A_task_income }}</td>
+          <td class="text-center">+ {{ B_task_income }}</td>
+        </tr>
+        <tr>
+          <td>Money Taken</td>
+          <td class="text-center" style="color: #cd0a0a">+ {{ group.money_taken}}</td>
+          <td class="text-center" style="color: #cd0a0a">- {{ group.money_taken}}</td>
+        </tr>
+        <tr>
+          <td> <strong> New Available Income </strong> </td>
+          <td class="text-center"> {{A_available_income1}} </td>
+          <td class="text-center"> {{B_available_income1}} </td>
+        </tr>
+      </table>
+    <br/>
+
+
+    {% next_button %}
+
+{% endblock  %}
+
+
+
+
+

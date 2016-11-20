@@ -26,6 +26,7 @@
 
      {% formfield  group.time_DisplayMessageToA with label=None  %}
 
+    {% if group.b_message != "" %}
     <br/>
         <div class="panel panel-default" style="margin-bottom:10px">
             <div class="panel-body">
@@ -34,6 +35,10 @@
         </div>
 
     <br/>
+
+    {% elif group.b_message == "" %}
+        <p>Participant in <em>Role B</em> decided not to write any message to you.</p>
+    {% endif %}
 
     {#       <button class="btn btn-primary btn-large">I have read the message</button>   #}
     {% next_button %}
