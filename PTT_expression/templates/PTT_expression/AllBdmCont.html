@@ -16,32 +16,32 @@ Role B's Decisions
     <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
 
 
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            var input = $('#id_b_message');
-            input.text("");
-            var input2 = $('#id_b_value');
-            input2.text("");
-            var validate = function(){
-                if(input.val() != "" && input2.val() != ""){
-                    $(".disp").prop('disabled', false);
-                    $(".no-input").prop('disabled', true);
-                } else if (input.val() != "" || input2.val() != ""){
-                    $(".disp").prop('disabled', true);
-                    $(".no-input").prop('disabled', true);
-                } else {
-                    $(".disp").prop('disabled', true);
-                    $(".no-input").prop('disabled', false);
-                }
-            }
-            $("#id_b_message").keyup(function(){
-                validate();
-            });
-            $("#id_b_value").keyup(function(){
-                validate();
-            });
-        });
-    </script>
+{#    <script type="text/javascript">#}
+{#        jQuery(document).ready(function ($) {#}
+{#            var input = $('#id_b_message');#}
+{#            input.text("");#}
+{#            var input2 = $('#id_b_value');#}
+{#            input2.text("");#}
+{#            var validate = function(){#}
+{#                if(input.val() != "" && input2.val() != ""){#}
+{#                    $(".disp").prop('disabled', false);#}
+{#                    $(".no-input").prop('disabled', true);#}
+{#                } else if (input.val() != "" || input2.val() != ""){#}
+{#                    $(".disp").prop('disabled', true);#}
+{#                    $(".no-input").prop('disabled', true);#}
+{#                } else {#}
+{#                    $(".disp").prop('disabled', true);#}
+{#                    $(".no-input").prop('disabled', false);#}
+{#                }#}
+{#            }#}
+{#            $("#id_b_message").keyup(function(){#}
+{#                validate();#}
+{#            });#}
+{#            $("#id_b_value").keyup(function(){#}
+{#                validate();#}
+{#            });#}
+{#        });#}
+{#    </script>#}
 
 {% endblock %}
 
@@ -87,27 +87,16 @@ Role B's Decisions
 
 
     {# MESSAGE#}
-    {% if group.treatment == 'DM' %}
-        <p> Would you like to write a <b>message to <em>Role A</em> regarding his/her decision</b>?</p>
-    {% elif group.treatment == 'TP' %}
-        <p> Would you like to write a <b>message to the <em>Reader</em> regarding <em>Role A</em>'s decision</b>?</p>
-    {% endif %}
-    <div>
-        <button name="want_send_message" value="True" class="btn" type="submit" >Yes, I want to write a message     </button>
-        <button name="want_send_message" value="False" class="btn " type="submit"> No, I don't want to write a message </button>
-    </div>
-    <br/>
-
     <div>
     {% if group.treatment == 'DM' %}
-        <p> Write your message to <em>Role A</em> in the box below:</p>
+        <p> Write your <b>message to <em>Role A</em> regarding his/her decision</b> in the box below:</p>
     {% elif group.treatment == 'TP' %}
-        <p> Write your message to the <em>Reader</em> in the box below:</p>
+        <p> Write your <b>message to the <em>Reader</em> regarding his/her decision</b> in the box below:</p>
     {% endif %}
         {% formfield group.b_message with label="" %}
     </div>
+    <br/>
 
-{{ form.want_send_message.errors }}
     {# EVALUATION#}
     {% if group.value_type == 'WTP' %}
 
@@ -146,7 +135,7 @@ Role B's Decisions
 
     {% endif %}
 
-    <input class="btn btn-large btn-primary next-button disp" type="submit" value="Submit Decision" disabled="disabled">
+    {% next_button %}
 
 
 {% endblock  %}
@@ -156,7 +145,7 @@ Role B's Decisions
 
 
 
-
+{#    <input class="btn btn-large btn-primary next-button disp" type="submit" value="Submit Decision" disabled="disabled">#}
 {#    <input class="btn btn-large btn-primary next-button disp" type="submit" value="Submit Decision" disabled="disabled">#}
 {##}
 {#    <p><br/></p>#}

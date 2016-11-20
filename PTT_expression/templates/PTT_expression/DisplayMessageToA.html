@@ -26,7 +26,7 @@
 
      {% formfield  group.time_DisplayMessageToA with label=None  %}
 
-    {% if group.b_message != "" %}
+    {% if group.want_send_message == 'Yes' and group.msg_sent == 1 %}
     <br/>
         <div class="panel panel-default" style="margin-bottom:10px">
             <div class="panel-body">
@@ -34,13 +34,19 @@
             </div>
         </div>
 
-    <br/>
 
-    {% elif group.b_message == "" %}
+    {% elif group.want_send_message == 'Yes' and group.msg_sent == 0 %}
+        <p>Participant in <em>Role B</em> was not able to send his/her message to you.</p>
+
+    {% elif group.want_send_message == 'No' %}
         <p>Participant in <em>Role B</em> decided not to write any message to you.</p>
+
     {% endif %}
 
     {#       <button class="btn btn-primary btn-large">I have read the message</button>   #}
+
+    <br/>
+
     {% next_button %}
 
 {% endblock %}

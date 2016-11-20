@@ -157,10 +157,17 @@ class BTakeResults(Page):
             self.group.msg_sent = False
             self.group.b_value = 0
 
+
 class AllBdmCont(Page):
     form_model = models.Group
-    form_fields = ['b_value', 'b_message', 'want_send_message', 'time_AllBdmCont']
+    form_fields = ['b_value', 'b_message', 'time_AllBdmCont']
     # timeout_seconds = 360
+
+    def is_displayed(self):
+        return self.group.want_send_message == 'Yes' and \
+            self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and \
+            (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
+            self.group.BDM_type == 'CONT'
 
     def vars_for_template(self):
         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
@@ -176,10 +183,6 @@ class AllBdmCont(Page):
                 'points': self.session.config['USE_POINTS'],
             }
 
-    def is_displayed(self):
-        return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
-               self.player.role() == 'B' and self.group.elicitation_method == 'BDM' \
-               and self.group.BDM_type == 'CONT'
 
     def b_value_max(self):
         return self.player.available_income1
@@ -191,10 +194,10 @@ class AllBdmCont(Page):
 
     # defining whether message is sent or not
     def before_next_page(self):
-        if self.group.want_send_message:
+        if self.group.want_send_message == 'No':
             self.group.msg_sent = False
             self.group.b_value = 0
-        elif self.group.want_send_message:
+        elif self.group.want_send_message == 'Yes':
             if self.group.treatment == 'FM':
                 self.group.msg_sent = True  # this is because FM needs to set msg_sent somewhere
             else:
@@ -314,8 +317,6 @@ class AllBdmList(Page):
 #                self.group.msg_sent = True
 
 
-########################################################################################################################
-# Continues with rest of pages
 
 
 class BdmResults(Page):
@@ -325,8 +326,8 @@ class BdmResults(Page):
     # timeout_seconds = 15
 
     def is_displayed(self):
-        return self.group.want_send_message and self.player.role() == 'B' and self.group.elicitation_method == 'BDM'
-
+        return self.group.want_send_message == 'Yes' and \
+            self.player.role() == 'B' and self.group.elicitation_method == 'BDM'
 
 
 class DisplayMessageToA(Page):
@@ -336,7 +337,7 @@ class DisplayMessageToA(Page):
     # timeout_seconds = 15
 
     def is_displayed(self):
-        return self.player.role() == 'A' and self.group.msg_sent and \
+        return self.player.role() == 'A' and \
         (self.group.treatment == 'DM' or self.group.treatment == 'FM')
 
 

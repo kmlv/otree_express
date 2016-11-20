@@ -13,19 +13,22 @@
  
 * main app
     
-    * Incorporate button of no message. Do the logic behind the button.
-    
-    * Reframe instruction and pages in WTA to drop "in exchange" so the framing is not WTA anymore. 
-     
     * LIST and SOP integrated pages -- make similiar to the BDM Cont
-    
-    * add short instructions in every page. 
-    
+
     * alter choices of list elicitation for WTP and WTP 
-    
+
+    * Reframe instruction and pages in WTA to drop "in exchange" so the framing is not WTA anymore. 
+         
+    * add short instructions in every page. 
+        
     * ascending and descending price
      
-    * add consistency
+    * add consistency var in list choices
+
+## Pao to do: 
+
+* check all apps in session have timeStamps
+
 
 * Demographic questionnaire (from Benjamin and Tristan 2016) 
     - What is your gender?   Male   Female 
@@ -42,9 +45,9 @@
 
     * Add question about clarity of instructions 
 
-## Ankur: new screen  
+## Ankur To Do
 
-* 
+*  button of message no message (want_send_message): needs to be submit button as opposed to radiobutton
     
 <!--* additional task.?-->
 

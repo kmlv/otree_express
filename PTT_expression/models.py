@@ -160,8 +160,8 @@ class Group(BaseGroup):
     SOP_price = models.CurrencyField()
 
     want_send_message = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal())
-    b_message = models.TextField(blank=True)
-    b_value = models.CurrencyField(min=c(0), blank=True)
+    b_message = models.TextField()
+    b_value = models.CurrencyField(min=c(0))
     message_price = models.CurrencyField()
     msg_sent = models.BooleanField(initial=0)
     SOP_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal())
