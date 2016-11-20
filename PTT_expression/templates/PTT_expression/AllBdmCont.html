@@ -26,12 +26,18 @@ Role B's Decisions
                 if(input.val() != "" && input2.val() != ""){
                     $(".disp").prop('disabled', false);
                     $(".no-input").prop('disabled', true);
+                } else if (input.val() != "" || input2.val() != ""){
+                    $(".disp").prop('disabled', true);
+                    $(".no-input").prop('disabled', true);
                 } else {
                     $(".disp").prop('disabled', true);
                     $(".no-input").prop('disabled', false);
                 }
             }
             $("#id_b_message").keyup(function(){
+                validate();
+            });
+            $("#id_b_value").keyup(function(){
                 validate();
             });
         });
