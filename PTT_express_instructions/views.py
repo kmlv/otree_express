@@ -43,7 +43,7 @@ class ControlQuestions(Page):
                 'ctrlQ_A_earnings',
                 'ctrlQ_B_earnings'
             ]
-        elif self.group.treatment in ['DM', 'TP']:
+        elif self.group.treatment in ['DM', 'TP', 'TP-R']:
             return [
                 'ctrlQ_anonymity',
                 'ctrlQ_who_transfers',

@@ -13,25 +13,6 @@ Your app description
 """
 
 questions = """
-
-- Deal with people not wanting to write any message
-    -- two buttons?
-    -- ask brit
-
-- css template to increase font-size (morgan)
-
-- [kl] check price calculation in TP
-
-- [kl] text review
-
-- [kl] instructions
-
-- price in tp is zero
-
-- price in dm is too low
-
-- Ask james about new waiting functions
-
 """
 
 
@@ -233,7 +214,6 @@ class Player(BasePlayer):
     endowment = models.CurrencyField()
     task_income = models.CurrencyField()
     available_income0 = models.CurrencyField()  # before money is taken : endowment plus task income
-    others_task_income = models.CurrencyField()
     available_income1 = models.CurrencyField()  # after money is taken : endowment plus task income
     wish_no_message = models.BooleanField(initial='True')
 

@@ -43,6 +43,12 @@ class RolesIncome(Page):
     form_fields = ['time_RolesIncome']
     # timeout_seconds = 60
 
+    def vars_for_template(self):
+        return {
+            'others_task_income': self.player.get_partner().task_income,
+            'others_endowment': self.player.get_partner().endowment,
+            'others_role': self.player.get_partner().role()
+        }
 
 class ADecides(Page):
     """ Page 2A: A Decides """
@@ -534,21 +540,10 @@ class WaitsForGroup(WaitPage):
 #                self.group.msg_sent = True
 #
 
-
-class TakeResults(Page):
-    """Take Results"""
-    form_model = models.Group
-    form_fields = ['time_TakeResults']
-
-    def is_displayed(self):
-        return self.player.role() == 'A'  # because these results are given in new pages AllBdmList, AllBdmCont, or AllSOP.
-
-
-
 ########################################################################################################################
 # Way 2: ONE page for receiving info, writing and valuing
 
-#
+
 class TakeResults(Page):
     """Take Results"""
     form_model = models.Group
@@ -564,6 +559,20 @@ class AllBdmCont(Page):
     form_model = models.Group
     form_fields = ['b_value', 'b_message', 'time_AllBdmCont']
     # timeout_seconds = 360
+
+    def vars_for_template(self):
+        if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
+            p_a = self.group.get_player_by_role('A')
+            p_b = self.group.get_player_by_role('B')
+            return {
+                'A_endowment': p_a.endowment,
+                'B_endowment': p_b.endowment,
+                'A_task_income': p_a.task_income,
+                'B_task_income': p_b.task_income,
+                'A_available_income1': p_a.available_income1,
+                'B_available_income1': p_b.available_income1,
+                'points': self.session.config['USE_POINTS'],
+            }
 
     def is_displayed(self):
         return (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \

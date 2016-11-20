@@ -21,21 +21,22 @@
 
      {% formfield  player.time_RolesIncome with label=None  %}
 
-    {% if group.treatment != 'TP-R' %}
         <p> You received <b>{{player.endowment}} of <em> endowment </em></b> and earned <b>{{player.task_income}} of <em>task income</em></b>. </p>
 
         <p> Therefore, your <b><em>available income</em></b> at this point is <b>{{player.available_income0}}</b>. </p>
 
         <br/>
 
-        <p> Your have been assigned <em><b> Role {{player.role}}</b></em>. </p>
+        {% if group.treatment != 'TP-R' %}
+            <p> Your have been assigned <em><b> Role {{player.role}}</b></em>. </p>
+            <br/>
+            <p> The participant with whom you are matched received {{others_endowment}} of <em> endowment </em> and earned {{others_task_income}} of <em>task income</em>. </p>
 
-    {% elif group.treatment == 'TP-R' %}
-        <p> You received {{player.endowment}} of <em> endowment </em> and earned {{player.task_income}} as <em>task income</em>. </p>
+        {% elif group.treatment == 'TP-R' %}
+            <p> Your have been assigned <em><b> Role {{player.role}}</b></em> (Reader). </p>
+        {% endif %}
 
-        <p> Your have been assigned <em><b> Role {{player.role}}</b></em> (Reader). </p>
 
-    {% endif %}
     <br/>
 
     {% next_button %}
