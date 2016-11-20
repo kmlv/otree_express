@@ -580,11 +580,11 @@ class AllBdmCont(Page):
                and self.group.BDM_type == 'CONT'
 
     def b_value_max(self):
-       return self.player.available_income1
+        return self.player.available_income1
 
     def b_value_error_message(self, value):
         if not (0 <= value <= self.player.available_income1):
-           return 'Must be equal or greater than zero and equal or below available income'
+            return 'Must be equal or greater than zero and equal or below available income'
 
     # defining whether message is sent or not
     def before_next_page(self):

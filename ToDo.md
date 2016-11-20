@@ -17,7 +17,6 @@
     
     * Reframe instruction and pages in WTA to drop "in exchange" so the framing is not WTA anymore. 
      
-
     * LIST and SOP integrated pages -- make similiar to the BDM Cont
     
     * add short instructions in every page. 

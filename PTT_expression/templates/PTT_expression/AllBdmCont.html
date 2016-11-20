@@ -13,29 +13,30 @@ Role B's Decisions
             }
     </script>
 
+    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
 
-        <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function ($) {
-                var input = $('#id_b_message');
-                input.text("");
-                var hello = function(){
-                    if(input.val() != ""){
-                        $("#hideNext").show();
-                    } else {
-                        $("#hideNext").hide();
-                    }
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            var input = $('#id_b_message');
+            input.text("");
+            var input2 = $('#id_b_value');
+            input2.text("");
+            var validate = function(){
+                if(input.val() != "" && input2.val() != ""){
+                    $(".disp").prop('disabled', false);
+                    $(".no-input").prop('disabled', true);
+                } else {
+                    $(".disp").prop('disabled', true);
+                    $(".no-input").prop('disabled', false);
                 }
-                $("textarea").on({
-                    mouseenter: hello,
-                    mouseleave: hello,
-                    click: hello,
-                    blur: hello,
-                    keyup: hello
-                });
-                $("#hideNext").hide();
+            }
+            $("#id_b_message").keyup(function(){
+                validate();
             });
-        </script>
+        });
+    </script>
+
 {% endblock %}
 
 
@@ -81,17 +82,17 @@ Role B's Decisions
 
     {# MESSAGE#}
     {% if group.treatment == 'DM' %}
-        <p> If you would like to write a message to <em>Role A</em> regarding his/her decision, type it in the box below. </p>
-{#        <p>If you <b>do not</b> wish to write a message, click <button name="timeout" value="1"  class="">here</button></p>#}
-{#        name="wish_no_message" value="False"#}
+        <p> If you would like to write a <b>message to <em>Role A</em> regarding his/her decision</b>, type it in the box below: </p>
     {% elif group.treatment == 'TP' %}
-        <p> If you would like to write a message to the <em>Reader</em> regarding <em>Role A</em>'s decision, type it in the box below. </p>
+        <p> If you would like to write a <b>message to the <em>Reader</em> regarding <em>Role A</em>'s decision</b>, type it in the box below: </p>
 
     {% endif %}
 
     {% formfield group.b_message with label="" %}
+    <p style="color: grey">If you do not wish to write and send any message, leave the box empty and click on the 'proceed without message'
+        button at the botom of the screen.</p>
 
-    <br/>
+        <br/>
 
     {# EVALUATION#}
     {% if group.value_type == 'WTP' %}
@@ -132,10 +133,12 @@ Role B's Decisions
 
     {% endif %}
 
-    {% next_button %}
+{#    {% next_button %}#}
 
-    <div id="hideNext" style="display: none;">
-    </div>
+    <input class="btn btn-large btn-primary next-button disp" type="submit" value="Submit Decision" disabled="disabled">
+            <p></p>
+    <input class="btn  btn-sm next-button no-input" type="submit" value="Proceed without message">
+
 
 {% endblock  %}
 
