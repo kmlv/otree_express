@@ -91,16 +91,23 @@ DEMO_PAGE_INTRO_TEXT = """
 </p>
 """
 
+# ROOMS = [
+#     {
+#         'name': 'econ101',
+#         'display_name': 'Econ 101 class',
+#         'participant_label_file': '_rooms/econ101.txt',
+#     },
+#     {
+#         'name': 'live_demo',
+#         'display_name': 'Room for live demo (no participant labels)',
+#     },
+# ]
 ROOMS = [
-    {
-        'name': 'econ101',
-        'display_name': 'Econ 101 class',
-        'participant_label_file': '_rooms/econ101.txt',
-    },
-    {
-        'name': 'live_demo',
-        'display_name': 'Room for live demo (no participant labels)',
-    },
+	{
+		'name': 'leeps',
+		'display_name': 'Leeps Lab',
+		'participant_label_file': 'leeps_room_labels.txt'
+	}
 ]
 
 
