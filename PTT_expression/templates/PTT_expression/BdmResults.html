@@ -75,12 +75,9 @@
                         {% elif group.treatment == 'TP' %}the <em>Reader</em>. {% endif %} You will receive a compensation of {{ group.message_price }}.</p>
 
                 {% elif group.msg_sent == True %}
-                     <p> The randomly selected amount is {{group.message_price}}. You stated that you were not willing to accept
-                        that price in exchange for not sending the message.</p>
-                    <p> Therefore, your message will be sent to {% if group.treatment == 'DM' %} <em>Role A</em>.
-                        {% elif group.treatment == 'TP' %}the <em>Reader</em>. {% endif %} You will not be compensated. </p>
-                     <p> Therefore, your message will be sent to {% if group.treatment == 'DM' %} <em>Role A</em>.
-                         {% elif group.treatment == 'TP' %}the <em>Reader</em>. {% endif %} You will not be compensated. </p>
+                    <p> The randomly selected amount is {{group.message_price}}. You stated that you prefereed sending your message over receiving such an amount.</p>
+                    <p> Therefore, your message will be delivered to {% if group.treatment == 'DM' %} <em>Role A</em>.
+                        {% elif group.treatment == 'TP' %}the <em>Reader</em>. {% endif %} You will not receive the <em>actual compensation</em>.</p>
 
                 {% endif %}
 
