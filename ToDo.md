@@ -63,3 +63,9 @@
 <!--* "it’s in your best interest to just answer truthfully"-->
 
 <!--* add example in instructions.-->
+
+## deploying otree in LEEPS Lab
+
+1. open in terminal otree-kristian/otree-express (/home/leeps/otree-kristian/otree-express)
+
+2. 
