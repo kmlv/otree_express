@@ -195,6 +195,12 @@ class Group(BaseGroup):
                                                                     widget=widgets.RadioSelectHorizontal()
                                                                     )
 
+    # create BDM compensation amount - It generates as many variables list_price_{0} as Constants.max_price_list_size
+    for i in range(0, Constants.max_price_list_size):
+        locals()['list_compensation_{0}'.format(i)] = models.CharField(choices=['Send message', 'Receive'],
+                                                                    widget=widgets.RadioSelectHorizontal()
+                                                                    )
+
     # this assigns payoff
     def set_payoffs(self):
         for p in self.get_players():

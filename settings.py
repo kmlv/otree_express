@@ -143,11 +143,11 @@ mturk_hit_settings = {
 
 SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 0.01,
-    'participation_fee': 1.00,
+    'participation_fee': 5.00,
     'num_bots': 6,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
-    'USE_POINTS': False,
+    'USE_POINTS': False
 }
 
 ################
@@ -158,13 +158,8 @@ import ptt_express_treatment_config
 
 SESSION_CONFIGS = [
     {
-       'name': 'youtubeembed',
-       'display_name': 'youtube embed',
-       'num_demo_participants': 1,
-       'app_sequence': ['youtubeembed']
-    },
-    {
         'name': 'PTT_express_FM_n2',
+        'participation_fee': 5.00,
         'display_name': "Free Message, 2 players",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
@@ -174,10 +169,11 @@ SESSION_CONFIGS = [
         {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [1, 4]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
-        'debug': True,
+        'debug': True
     },
     {
         'name': 'PTT_express_NM_n2',
+        'participation_fee': 5.00,
         'display_name': "No Message, 2 players",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
@@ -193,6 +189,7 @@ SESSION_CONFIGS = [
 # DM WTP BLOCK
     {
         'name': 'PTT_express_DM_N2_WTP_BDM_CONT__0_end',
+        'participation_fee': 5.00,
         'display_name': "Direct Message, N=2, WTP, BDM Continuous [0, endowment] ",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
@@ -208,6 +205,7 @@ SESSION_CONFIGS = [
     },
     {
         'name': 'PTT_express_DM_N2_WTP_BDM_LIST__0_av_inc',
+        'participation_fee': 5.00,
         'display_name': "Direct Message, N=2, WTP, BDM List [0, available_income] ",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
@@ -260,7 +258,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [2, 2]},
         ],
-        'app_sequence': ['PANAS', 'PTT_express_instructions', 'search_task', 'PTT_expression', 'payment_info', 'PANAS_final'],
+        'app_sequence': ['PANAS', 'PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info', 'PANAS_final'],
         'debug': True
     },
     {
@@ -510,6 +508,13 @@ SESSION_CONFIGS = [
         'debug': True,
     },
     {
+        'name': 'emo_quest_panas_mauss',
+        'display_name': 'Emot Questionnaire Panas + Mauss, n=1',
+        'num_demo_participants': 1,
+        'app_sequence': ['emo_quest_panas_mauss'],
+        'debug': True,
+    },
+    {
         'name': 'AMT_ultimatum',
         'display_name': "AMT ultimatum",
         'real_world_currency_per_point': 0.01,
@@ -547,6 +552,12 @@ SESSION_CONFIGS = [
         'Params': ptt_express_treatment_config.params,
         'app_sequence': ['batson_questionnaire', 'PTT_express_instructions' ,'search_task', 'PTT_expression', 'payment_info','batson_questionnaire2'],
         'debug': False
+    },
+    {
+        'name': 'youtubeembed',
+        'display_name': 'youtube embed',
+        'num_demo_participants': 1,
+        'app_sequence': ['youtubeembed']
     }
     # {
     #     'name': 'my_public_goods_',

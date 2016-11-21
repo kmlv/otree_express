@@ -48,6 +48,10 @@
 ## Ankur To Do
 
 *  button of message no message (want_send_message): needs to be submit button as opposed to radiobutton
+
+* counter of attempts in control questions
+
+* 
     
 <!--* additional task.?-->
 

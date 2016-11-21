@@ -1,7 +1,8 @@
-{% extends "global/Base.html" %} {% load staticfiles otree_tags %}
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
 
 {% block title %}
-Role B's Decisions
+    Role B's Decisions
 {% endblock %}
 
 {% block scripts %}
@@ -13,9 +14,7 @@ Role B's Decisions
             }
     </script>
 
-    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
-
-
+{#    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>#}
 {#    <script type="text/javascript">#}
 {#        jQuery(document).ready(function ($) {#}
 {#            var input = $('#id_b_message');#}
@@ -46,6 +45,7 @@ Role B's Decisions
 {% endblock %}
 
 
+
 {% block content %}
 
     {% formfield  group.time_AllBdmCont with label=None  %}
@@ -73,13 +73,13 @@ Role B's Decisions
         </tr>
         <tr>
           <td>Money Taken</td>
-          <td class="text-center" style="color: #cd0a0a">+ {{ group.money_taken}}</td>
-          <td class="text-center" style="color: #cd0a0a">- {{ group.money_taken}}</td>
+          <td class="text-center" style="color: #cd0a0a">+ {{ group.money_taken }}</td>
+          <td class="text-center" style="color: #cd0a0a">- {{ group.money_taken }}</td>
         </tr>
         <tr>
           <td> <strong> New Available Income </strong> </td>
-          <td class="text-center"> {{A_available_income1}} </td>
-          <td class="text-center"> {{B_available_income1}} </td>
+          <td class="text-center"> {{ A_available_income1 }} </td>
+          <td class="text-center"> {{ B_available_income1 }} </td>
         </tr>
       </table>
     <br/>
@@ -97,7 +97,7 @@ Role B's Decisions
     </div>
     <br/>
 
-    {# EVALUATION#}
+    {# VALUATION#}
     {% if group.value_type == 'WTP' %}
 
         <p> What is the maximum amount you are willing to pay to send this message to

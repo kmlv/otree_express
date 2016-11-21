@@ -157,17 +157,21 @@ class BTakeResults(Page):
             self.group.msg_sent = False
             self.group.b_value = 0
 
+########################################################################################################################
+
 
 class AllBdmCont(Page):
+    """ """
     form_model = models.Group
     form_fields = ['b_value', 'b_message', 'time_AllBdmCont']
+
     # timeout_seconds = 360
 
     def is_displayed(self):
         return self.group.want_send_message == 'Yes' and \
-            self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and \
-            (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'FM') and \
-            self.group.BDM_type == 'CONT'
+            self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'CONT' and \
+            (self.group.treatment == 'DM' or self.group.treatment == 'TP' )
+
 
     def vars_for_template(self):
         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
@@ -194,27 +198,14 @@ class AllBdmCont(Page):
 
     # defining whether message is sent or not
     def before_next_page(self):
-        if self.group.want_send_message == 'No':
-            self.group.msg_sent = False
-            self.group.b_value = 0
-        elif self.group.want_send_message == 'Yes':
-            if self.group.treatment == 'FM':
-                self.group.msg_sent = True  # this is because FM needs to set msg_sent somewhere
-            else:
-                self.group.msg_sent = False
-                # setting boolean whether message is sent or not
-            if self.group.b_value >= self.group.message_price:
-                self.group.msg_sent = True
-            elif self.group.b_value < self.group.message_price:
-                self.group.msg_sent = False
+        self.group.msg_sent = (self.group.b_value >= self.group.message_price)
 
-
+########################################################################################################################
 
 
 class AllBdmList(Page):
+    """ """
     form_model = models.Group
-
-    # timeout_seconds = 360
 
     def get_form_fields(self):
         #    setting self.group.price_list and self.group.price_list_size so we can set form_fields
@@ -229,36 +220,51 @@ class AllBdmList(Page):
         self.group.price_list = prices
         self.group.price_list_size = len(prices)
 
-        form_fields = ['list_price_{}_yes'.format(i) for i in range(0, self.group.price_list_size)]
+        if self.group.value_type == 'WTP':
+            form_fields = ['list_price_{0}_yes'.format(i) for i in range(0, self.group.price_list_size)]
+        elif self.group.value_type == 'WTA':
+            form_fields = ['list_compensation_{0}'.format(i) for i in range(0, self.group.price_list_size)]
+
         form_fields.append('b_message')
         form_fields.append('time_AllBdmList')
         return form_fields
 
-    def vars_for_template(self):
-        return {
-           'prices': self.group.price_list
-        }
+    # timeout_seconds = 360
 
     def is_displayed(self):
-        return (self.group.treatment == 'DM' or self.group.treatment == 'TP' ) and \
-               self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'LIST'
+        return self.group.want_send_message == 'Yes' and \
+            self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'LIST' and \
+            (self.group.treatment == 'DM' or self.group.treatment == 'TP' )
 
-    # defining b values and whether message is sent or not
+    def vars_for_template(self):
+        if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
+            p_a = self.group.get_player_by_role('A')
+            p_b = self.group.get_player_by_role('B')
+            return {
+                'A_endowment': p_a.endowment,
+                'B_endowment': p_b.endowment,
+                'A_task_income': p_a.task_income,
+                'B_task_income': p_b.task_income,
+                'A_available_income1': p_a.available_income1,
+                'B_available_income1': p_b.available_income1,
+                'prices': self.group.price_list,
+                'points': self.session.config['USE_POINTS']
+            }
+
+
+    # defining whether message is sent or not
     def before_next_page(self):
-        if self.group.treatment == 'FM':
-            self.group.msg_sent = True  # this is because FM needs to set msg_sent somewhere
-        else:
-            self.group.msg_sent = False
 
-        # reading responses and putting them in a list
-        responses_list = []
-        for i in range(0, self.group.price_list_size):
-            #res = getattr(self.group, 'list_price_{}_yes'.format(i))
-            responses_list.append(getattr(self.group, 'list_price_{}_yes'.format(i)))
-        print(responses_list)
 
-        # WTP: value is the highest price to which player b says Yes
+        # In WTP: value is the highest price to which player b says 'Yes'
         if self.group.value_type == 'WTP':
+
+            # reading responses and putting them in a list
+            responses_list = []
+            for i in range(0, self.group.price_list_size):
+                # res = getattr(self.group, 'list_price_{}_yes'.format(i))
+                responses_list.append(getattr(self.group, 'list_price_{}_yes'.format(i)))
+
             if 'Yes' in responses_list:
                 posit = len(responses_list) - 1 - responses_list[::-1].index('Yes')  # finds last occurrence of Yes
                 self.group.b_value = self.group.price_list[posit]
@@ -266,27 +272,30 @@ class AllBdmList(Page):
                 self.group.b_value = 0
         print("b_value", self.group.b_value)
 
-        # WTA: value is highest price to which player b says No
+        # In WTA: value is the highest amount to which player responds stating he preferes to 'Send message'
         if self.group.value_type == 'WTA':
-            if 'No' in responses_list:
-                posit = len(responses_list) - 1 - responses_list[::-1].index('No')  # finds last occurrence of No
+
+            # reading responses and putting them in a list
+            responses_list = []
+            for i in range(0, self.group.price_list_size):
+                # res = getattr(self.group, 'list_price_{}_yes'.format(i))
+                responses_list.append(getattr(self.group, 'list_compensation_{}'.format(i)))
+
+            if 'Send message' in responses_list:
+                posit = len(responses_list) - 1 - responses_list[::-1].index('Send message')  # finds last occurrence of No
                 self.group.b_value = self.group.price_list[posit]
             else:
                 self.group.b_value = 0
         print("b_value", self.group.b_value)
 
-        # Paola agreaga una var que indica consistencia: 1 consistente 0 inconsistente
 
-        # random price in BDM list needs to be an element of price list (try with two groups with different price lists)
-
-        if self.group.BDM_type == 'LIST':
-            self.group.message_price = min(self.group.price_list, key=lambda x: abs(x - self.group.message_price))
+        # random price in BDM list needs to be an element of price list
+        # this finds the the closest price in the price_list to the randomly generated message_price
+        self.group.message_price = min(self.group.price_list, key=lambda x: abs(x - self.group.message_price))
+        print("b_value", self.group.b_value)
 
         # setting boolean whether message is sent or not
-        if self.group.b_value >= self.group.message_price:
-            self.group.msg_sent = True
-        elif self.group.b_value < self.group.message_price:
-            self.group.msg_sent = False
+        self.group.msg_sent = (self.group.b_value >= self.group.message_price)
 
 
 
