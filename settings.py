@@ -204,6 +204,22 @@ SESSION_CONFIGS = [
         'debug': True
     },
     {
+        'name': 'PTT_express_DM_N2_WTP_BDM_LIST__0_endowment',
+        'participation_fee': 5.00,
+        'display_name': "Direct Message, N=2, WTP, BDM List [0, endowment] ",
+        'real_world_currency_per_point': 0.01,
+        'num_demo_participants': 2,
+        'targetIncome': [10],
+        'num_readers': 0,
+        'reader_endowment': [3],  # to be extended to a list for when there is more than one readers
+        'Params': [
+            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.2],
+             'end': [3, 3]},
+        ],
+        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
         'name': 'PTT_express_DM_N2_WTP_BDM_LIST__0_av_inc',
         'participation_fee': 5.00,
         'display_name': "Direct Message, N=2, WTP, BDM List [0, available_income] ",
@@ -248,17 +264,17 @@ SESSION_CONFIGS = [
         'debug': True
     },
     {
-        'name': 'PTT_express_DM_N2_WTA_BDM_LIST__0_av_inc',
-        'display_name': "Direct Message, N=2, WTA, BDM List [0, available_income] ",
+        'name': 'PTT_express_DM_N2_WTA_BDM_LIST__0_end',
+        'display_name': "Direct Message, N=2, WTA, BDM List [0, endowment] ",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
-        'targetIncome': [3],
+        'targetIncome': [10],
         'num_readers': 0,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'reader_endowment': [3],  # to be extended to a list for when there is more than one readers
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [2, 2]},
+{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.2], 'end': [3, 3]},
         ],
-        'app_sequence': ['PANAS', 'PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info', 'PANAS_final'],
+        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info', 'PANAS_final'],
         'debug': True
     },
     {

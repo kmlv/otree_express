@@ -4,6 +4,7 @@
 {% block title %}
     Instructions
 {% endblock %}
+
 {% block scripts %}
     {# this records the timestamp #}
     <script type="text/javascript">
@@ -12,6 +13,9 @@
             }
     </script>
 {% endblock %}
+
+
+
 {% block content %}
     {% formfield  player.time_Instructions with label=None  %}
 
@@ -27,7 +31,7 @@
 
     <p> Welcome to the LEEPS Laboratory. During the course of this session, you will be asked to make a series of decisions. By participating in this study, you will earn real money that will be paid to you in cash at the end of the experiment. On top of what you earn during the session, you will receive a participation fee of {{ player.participation_fee }}.</p>
 
-<p> It is important you do not speak out loud, laugh or talk to other participants during the duration of the session. We expect and appreciate your cooperation. If you have any question, please raise your hand and an experimenter will attend to you. After you have read these instructions, you will answer a few brief questions to ensure you understand them.</p><br/>
+<p> It is important you do not speak out loud, laugh or talk to other participants during the duration of the session. The use of cellphones or tablets is not allowed in this session. We expect and appreciate your cooperation. If you have any question, please raise your hand and an experimenter will attend to you. After you have read these instructions, you will answer a few brief questions to ensure you understand them.</p><br/>
 
 <h4>Stages</h4>
 
@@ -47,7 +51,7 @@
         </div> </br>
 
     <h4> Role B:</h4>
-    <p> If you are assigned <em>Role B</em>, you will be asked to guess what percentage of your <em>task income</em> A will transfer to his/her own account.</p>
+    <p> If you are assigned <em>Role B</em>, you will first be asked to guess what percentage of your <em>task income</em> A will transfer to his/her own account.</p>
 
 {% endif %}
 
@@ -69,7 +73,7 @@
         </div> </br>
 
     <h4> Role B:</h4>
-    <p> If you are assigned <em>Role B</em>, you will be asked to guess what percentage of your <em>task income</em> the participant in <em>Role A</em> will transfer to his/her own account.</p>
+    <p> If you are assigned <em>Role B</em>, you will first be asked to guess what percentage of your <em>task income</em> the participant in <em>Role A</em> will transfer to his/her own account.</p>
       {# Role B must continue in #}
 
 {% endif %}
@@ -77,12 +81,12 @@
 
 {#  No message end #}
 {% if group.treatment == 'NM' %}
-    <p> You will be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with.</p> </br>
+    <p> You will then be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with.</p> </br>
 {% endif %}
 
 {#  Free message end #}
 {% if group.treatment == 'FM' %}
-    <p> You will be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with. Then, you will get the opportunity to write and send a message to him/her. This is a one-way, one-time message, and <em>Role A</em> will not have the chance to respond or change his/her decision.</p> </br>
+    <p> You will then be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with. You will get the opportunity to write and send a message to him/her. This is a one-way, one-time message, and <em>Role A</em> will not have the chance to reply or change his/her decision.</p> </br>
 {% endif %}
 
 
@@ -93,7 +97,7 @@
 
 {% if group.treatment == 'DM' or group.treatment == 'TP' %}
 
-    <p> You will be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with. You will then get the opportunity to write and send a message to {% if treatment == 'DM' %} him/her. This is a one-way, one-time message, and <em>Role A</em> will not have the chance to respond or change his/her decision. {% elif treatment == 'TP' %} the Reader. This is a one-way, one-time message, and the <em>Reader</em> will not have the chance to respond. The participant in <em>Role A</em> will not see this message. {% endif %} </p>
+    <p> You will then be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with. You will get the opportunity to write and send a message to {% if treatment == 'DM' %} him/her. This is a one-way, one-time message, and <em>Role A</em> will not have the chance to reply or change his/her decision. {% elif treatment == 'TP' %} the Reader. This is a one-way, one-time message, and the <em>Reader</em> will not have the chance to reply. The participant in <em>Role A</em> will not see this message. {% endif %} </p>
 
 
 
@@ -130,14 +134,14 @@
 
     {% elif group.value_type == 'WTA' and group.elicitation_method == 'BDM' and group.BDM_type == 'LIST' %}
 
-    <p> You will be asked whether you are willing to accept a certain amount in exchange for NOT sending the message. This question will be repeated for different amounts of compensation.</p>
+    <p> You will be asked to choose between sending your message or receiving a certain amount. This question will be repeated for a list of different amounts.</p>
 
-    <p> After you submit your responses, the computer will randomly select one of the amounts of compensation listed. If you were willing to accept the selected amount, your message will not be sent, and you will receive the selected compensation. If you were not willing to accept the selected amount, your message will be sent, and you will not receive any compensation.</p> </br>
+    <p> After you submit your responses, the computer will randomly select one of the listed amounts. Your decision for the randomly selected amount will be then implemented. That is, your message will be delivered only if you had chosen 'send message' over receiving the corresponding amount. When calculating your final earnings, the randomly selected amount will be called <em>actual compensation</em>.
+    </p>
+        </br>
 
 
     {% endif %}
-
-
 
 
     {# paid messages: WTA/WTP SOP #}
@@ -186,8 +190,8 @@
 
     {% if group.value_type == 'WTA' %}
         <p style="color: chocolate"><em> Role B's earnings when message <b>is not</b> sent = </em></p>
-        <p><em>= Endowment + Task income - Money taken by Role A + compensation for NOT sending the message.</em></p>
-        <p> </p>
+        <p><em>Endowment + Task income - Money taken by Role A + actual compensation.</em></p>
+        <p></br> </p>
         <p style="color: chocolate"><em> Role B's earnings when message <b>is</b> sent = </em></p>
         <p><em>Endowment + Task income - Money taken by Role A.</em></p>
         </br>
@@ -201,9 +205,11 @@
 
 
 {% endif %}
+    <p> Note that <em>final earnings</em> do not include your participation fee. </p>
+
     </br>
 
-    <p> Note that <em>final earnings</em> do not include your participation fee.</p> </br>
+    <p> Please make sure you understand these instructions before you move onto the control questions. To help you, there will be a summary of the instructions in all the relevant screens. Yet, if you have any question, raise your hand and an experimenter will attend to your computer. Please remember it is not allowed to use your cellphone or talk to any other participant during the whole duration of the experiment.</p> </br>
     </br>
 
 {####################################################################}

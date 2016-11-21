@@ -95,20 +95,20 @@ class ControlQuestions(Page):
     def ctrlQ_A_earnings_error_message(self, value):
             if not (value == '13.00 + X'):
                 return 'The correct answer is `13.00 + X` since A receives an endowment of 3.00, a task income of ' \
-                           '10.00 and  took X from B account. '
+                           '10.00 and  took $X from B\'s account. '
 
     def ctrlQ_B_earnings_error_message(self, value):
         if self.group.treatment in ['NM', 'FM']:
             if not (value == '13.00 - X'):
                 return 'The correct answer is `13.00 - X` since B receives an endowment of 3.00, a task income of ' \
-                       '10.00 and Role A took X from his/her account.'
+                       '10.00 and Role A took $X from his/her account.'
         if self.group.treatment in ['DM', 'TP']:
             if self.group.value_type == 'WTP' and not (value == '13.00 - X - Z'):
-                return 'The correct answer is `13.00 - X - Z` since B receives an endowment of 3.00, a task income of ' \
-                       '10.00, A took X from his/her account, and a has to pay Z for sending his/her message.'
+                return 'The correct answer is `13.00 - X - Z` since Role B receives an endowment of 3.00, a task income of ' \
+                       '10.00, A took $X from his/her account, and a has to pay Z for sending his/her message.'
             if self.group.value_type == 'WTA' and not (value == '13.00 - X + Z'):
-                return 'The correct answer is `13.00 - X + Z` since B receives an endowment of 3.00, a task income of ' \
-                       '10.00, A took X from his/her account, and a compensation Z for NOT sending his/her message.'
+                return 'The correct answer is `13.00 - X + Z` since Role B receives an endowment of 3.00, a task income ' \
+                       'of 10.00, Role A took $X from his/her account, and a compensation Z for NOT sending his/her message.'
 
     def vars_for_template(self):
         return {

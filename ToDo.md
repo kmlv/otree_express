@@ -54,9 +54,9 @@
 
 * Button of message no message (want_send_message): needs to be submit button as opposed to radiobutton
 
-* Counter of attempts in control questions
+* Counter of attempts in control questions / or saves parallell 
 
-* 
+* Make instructions button collapsible 
     
 <!--* additional task.?-->
 

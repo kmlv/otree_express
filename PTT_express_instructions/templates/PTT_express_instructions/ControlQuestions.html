@@ -8,8 +8,11 @@
     Control Questions
 {% endblock %}
 
+
+
 {% block scripts %}
 
+    # ankur cleans this
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -42,10 +45,25 @@
         }
     </style>
 
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+
 {% endblock %}
 
 
+
+
+
+
+
 {% block content %}
+
+    {% formfield  player.time_ControlQuestions with label=None  %}
 
     <h4 style="color: darkblue"> Please answer the following questions.</h4> <br/>
 
@@ -100,7 +118,7 @@
         <li> <b> Consider a matched pair of Role A and Role B participants where each earns {% if not points %}$10.00{%endif%}{% if points %}10 points{% endif %} as <em>task income</em>, and receives {% if not points %}$3.00{%endif%}{% if points %}3 points{% endif %} of <em>endowment</em> in Stage 1. In Stage 2, Role A takes {% if not points %}${%endif%}X {% if points %}points{% endif %} from Role B's account. The <em>actual price</em> randomly selected by the computer is {% if not points %}${%endif%}Z {% if points %}points{% endif %}, and Role B responded that he/she was willing to pay that amount for sending the message to {{ recipient }}.</b> </li> <br/>
 
         {% elif group.value_type == 'WTA' and group.elicitation_method == 'BDM' and group.BDM_type == 'LIST' %}
-        <li> <b> Consider a matched pair of Role A and Role B participants where each earns {% if not points %}$10.00{%endif%}{% if points %}10 points{% endif %} as <em>task income</em>, and receives {% if not points %}$3.00{%endif%}{% if points %}3 points{% endif %} of <em>endowment</em> in Stage 1. In Stage 2, Role A takes {% if not points %}${%endif%}X {% if points %}points{% endif %} from Role B's account. The <em>actual compensation</em> randomly selected by the computer is {% if not points %}${%endif%}Z {% if points %}points{% endif %}, and Role B responded that he/she was willing to accept that amount in exchange for NOT sending the message to {{ recipient }}.</b> </li> <br/>
+        <li> <b> Consider a matched pair of Role A and Role B participants where each earns {% if not points %}$10.00{%endif%}{% if points %}10 points{% endif %} as <em>task income</em>, and receives {% if not points %}$3.00{%endif%}{% if points %}3 points{% endif %} of <em>endowment</em> in Stage 1. In Stage 2, Role A takes {% if not points %}${%endif%}X {% if points %}points{% endif %} from Role B's account. The <em>actual compensation</em> randomly selected by the computer is {% if not points %}${%endif%}Z {% if points %}points{% endif %}, and Role B responded that he/she is prefers to receive such an amount over sending his message to {{ recipient }}.</b> </li> <br/>
         {% endif %}
 
 {#          WTA/WTP SOP#}
