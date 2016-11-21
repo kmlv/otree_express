@@ -6,6 +6,10 @@
     * Reframe instruction and pages in WTA to drop "in exchange" so the framing is not WTA anymore. 
 
     * Review control questions
+    
+    * "We will not deceive you whatsoever in this experiment. All of the instructions provide examples
+    and guidance for the actual tasks you will do. There will be no surprises or tricks."
+
  
 * main app
     
@@ -23,29 +27,34 @@
 
 ## Pao to do: 
 
-* check all apps in session have timeStamps
+* Check all apps in session have timeStamps
 
+* Check all timeouts are gone
 
-* Demographic questionnaire (from Benjamin and Tristan 2016) 
+* Add to Demographic questionnaire  
+
     - What is your gender?   Male   Female 
-    - What is your annual income?
+
+    - What is the approximate annual income of your family?
       less than $15,000
       $15,000 - $29,999
       $30,000 - $59,999
       $60,000 - $99,999
-      $100,000 or more
-    What is your age (in years)?
-    What is your zip code? [Format: 00000]
-    We will not deceive you whatsoever in this experiment. All of the instructions provide examples
-    and guidance for the actual tasks you will do. There will be no surprises or tricks.
+      $100,000 - $199,999
+      $200,000 or more
 
-    * Add question about clarity of instructions 
+    * What is your age (in years)?
+
+    * What is your zip code? [Format: 00000]
+
+    * Were the instructions provided in this experiment clear and useful?
+    
 
 ## Ankur To Do
 
-*  button of message no message (want_send_message): needs to be submit button as opposed to radiobutton
+* Button of message no message (want_send_message): needs to be submit button as opposed to radiobutton
 
-* counter of attempts in control questions
+* Counter of attempts in control questions
 
 * 
     

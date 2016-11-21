@@ -15,18 +15,19 @@
 {% endblock %}
 
 {% block content %}
+
     {% formfield  player.time_Demographics with label=None  %}
 
     <p>
         Please answer the following questions.
     </p>
 
-    {% formfield player.q_country %}
     {% formfield player.q_age %}
     {% formfield player.q_gender %}
     {% formfield player.q_income %}
     {% formfield player.q_zipcode %}
     {% formfield player.q_opinion %}
+    {% formfield player.q_country %}
 
     {% next_button %}
 

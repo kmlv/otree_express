@@ -41,7 +41,7 @@ class Player(BasePlayer):
                                         choices=range(13, 125),
                                         initial=None)
     q_gender = models.CharField(initial=None,
-                                choices=['Male', 'Female'],
+                                choices=['Male', 'Female', 'Other'],
                                 verbose_name='What is your gender?',
                                 widget=widgets.RadioSelect())
     q_income = models.PositiveIntegerField(verbose_name='What is the approximate annual income of your family?',
@@ -52,13 +52,19 @@ class Player(BasePlayer):
                                                [4, '$60,000 - $99,999'],
                                                [5, '$100,000 - $199,999'],
                                                [6, '$200,000 or more'],
+                                               [7, 'I rather not answer this question'],
                                            ]
                                            )
-    q_zipcode = models.PositiveIntegerField(verbose_name='What is your zip code? [Format: 00000]')
+
+    q_zipcode = models.PositiveIntegerField(verbose_name='What is the zip code where you grew up?')
+
     q_opinion = models.CharField(initial=None,
                                  verbose_name='Were the instructions provided in this experiment clear and useful?',
                                  choices=['Yes', 'No'],
                                  widget=widgets.RadioSelect())
+
     crt_bat = models.PositiveIntegerField()
+
     crt_widget = models.PositiveIntegerField()
+
     crt_lake = models.PositiveIntegerField()

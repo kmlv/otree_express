@@ -32,5 +32,5 @@ class CognitiveReflectionTest(Page):
 
 page_sequence = [
     Demographics,
-    CognitiveReflectionTest
+    # CognitiveReflectionTest
 ]
