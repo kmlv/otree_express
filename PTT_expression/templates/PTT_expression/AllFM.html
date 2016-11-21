@@ -1,7 +1,8 @@
-{% extends "global/Base.html" %} {% load staticfiles otree_tags %}
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
 
 {% block title %}
-Role B
+    Role B's Decisions
 {% endblock %}
 
 {% block scripts %}
@@ -17,9 +18,10 @@ Role B
 {% endblock %}
 
 
+
 {% block content %}
 
-    {% formfield  group.time_BTakeResults with label=None  %}
+    {% formfield  group.time_AllFM with label=None  %}
 
     {# INFO#}
     <p> <em>Role A</em> has taken <b>{{group.take_rate}}%</b> ({{group.money_taken}}) of your <em>task income</em>. </p>
@@ -44,13 +46,13 @@ Role B
         </tr>
         <tr>
           <td>Money Taken</td>
-          <td class="text-center" style="color: #cd0a0a">+ {{ group.money_taken}}</td>
-          <td class="text-center" style="color: #cd0a0a">- {{ group.money_taken}}</td>
+          <td class="text-center" style="color: #cd0a0a">+ {{ group.money_taken }}</td>
+          <td class="text-center" style="color: #cd0a0a">- {{ group.money_taken }}</td>
         </tr>
         <tr>
           <td> <strong> New Available Income </strong> </td>
-          <td class="text-center"> {{A_available_income1}} </td>
-          <td class="text-center"> {{B_available_income1}} </td>
+          <td class="text-center"> {{ A_available_income1 }} </td>
+          <td class="text-center"> {{ B_available_income1 }} </td>
         </tr>
       </table>
     <br/>
@@ -58,24 +60,19 @@ Role B
 
 
     {# MESSAGE#}
-    {% if group.treatment != 'NM' %}
-
-        {% if group.treatment == 'DM' or group.treatment == 'FM' %}
-            <p> Would you like to write a <b>message to <em>Role A</em> regarding his/her decision</b>?</p>
-        {% elif group.treatment == 'TP' %}
-            <p> Would you like to write a <b>message to the <em>Reader</em> regarding <em>Role A</em>'s decision</b>?</p>
-        {% endif %}
-
-        <div>
-            <button name="want_send_message" value="Yes" class="btn btn-primary btn-large">Yes</button>
-            <button name="want_send_message" value="No" class="btn btn-primary btn-large">No</button>
-        </div>
-{#    {% formfield group.want_send_message with label="" %}#}
-
-    {% elif group.treatment == 'NM' %}
-        {% next_button %}
+    <div>
+    {% if group.treatment == 'DM' or group.treatment == 'FM' %}
+        <p> Write your <b>message to <em>Role A</em> regarding his/her decision</b> in the box below:</p>
+    {% elif group.treatment == 'TP' %}
+        <p> Write your <b>message to the <em>Reader</em> regarding his/her decision</b> in the box below:</p>
     {% endif %}
+        {% formfield group.b_message with label="" %}
+    </div>
+    <br/>
 
+
+    {% next_button %}
 
 
 {% endblock  %}
+

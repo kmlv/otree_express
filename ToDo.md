@@ -3,10 +3,6 @@
 
 * Instructions 
     
-    * clarify communication is one way - one time. there is no response 
-
-    * Once made, A's decision cannot be changed.  
-
     * Reframe instruction and pages in WTA to drop "in exchange" so the framing is not WTA anymore. 
 
     * Review control questions

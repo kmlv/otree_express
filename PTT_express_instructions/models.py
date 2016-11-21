@@ -66,11 +66,13 @@ class Subsession(BaseSubsession):
         for grupo in self.get_groups()[0:num_groups]:
             for player in grupo.get_players():
                 player.endowment = grupo.endowment[player.id_in_group-1]
+                player.participation_fee = player.session.config['participation_fee']
 
         # reading endowment from config and write in readers field
         for grupo in self.get_groups()[num_groups:num_groups+1]:
             for player in grupo.get_players():
                 player.endowment = self.session.config['reader_endowment'][0]
+                player.participation_fee = player.session.config['participation_fee']
 
     # this was a copy of Subsession in the PTT_expression models.py
     ####################################################################################################################
@@ -92,6 +94,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     # define vars
     endowment = models.CurrencyField()
+    participation_fee = models.CurrencyField()
 
     # warning: falta timestamp
 

@@ -160,6 +160,35 @@ class BTakeResults(Page):
 ########################################################################################################################
 
 
+class AllFM(Page):
+    """ """
+    form_model = models.Group
+    form_fields = ['b_message', 'time_AllFM']
+
+    # timeout_seconds = 360
+
+    def is_displayed(self):
+        return self.group.want_send_message == 'Yes' and self.player.role() == 'B' and self.group.treatment == 'FM'
+
+    def vars_for_template(self):
+        if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
+            p_a = self.group.get_player_by_role('A')
+            p_b = self.group.get_player_by_role('B')
+            return {
+                'A_endowment': p_a.endowment,
+                'B_endowment': p_b.endowment,
+                'A_task_income': p_a.task_income,
+                'B_task_income': p_b.task_income,
+                'A_available_income1': p_a.available_income1,
+                'B_available_income1': p_b.available_income1,
+                'points': self.session.config['USE_POINTS'],
+            }
+
+    # defining whether message is sent or not
+    def before_next_page(self):
+        self.group.msg_sent = True
+
+
 class AllBdmCont(Page):
     """ """
     form_model = models.Group
@@ -427,6 +456,7 @@ page_sequence = [
     WaitsForGroup,
     ATakeResults,
     BTakeResults,
+    AllFM,
     AllBdmCont,
     AllBdmList,
     WaitsForGroup,  # A waits for possible message

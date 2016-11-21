@@ -94,13 +94,13 @@ class Subsession(BaseSubsession):
         for grupo in self.get_groups()[0:num_groups]:
             for player in grupo.get_players():
                 player.endowment = grupo.endowment[player.id_in_group-1]
+                player.participation_fee = player.session.config['participation_fee']
 
         # reading endowment from config and write in readers field
         for grupo in self.get_groups()[num_groups:num_groups+1]:
             for player in grupo.get_players():
                 player.endowment = self.session.config['reader_endowment'][0]
-
-
+                player.participation_fee = player.session.config['participation_fee']
 
         ### CHECKS ###
         # Check if number of participants in session config is congruent
@@ -159,7 +159,8 @@ class Group(BaseGroup):
     BDM_list_step = models.DecimalField(max_digits=5, decimal_places=2)
     SOP_price = models.CurrencyField()
 
-    want_send_message = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal())
+    want_send_message = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(),
+                                         blank=True)
     b_message = models.TextField()
     b_value = models.CurrencyField(min=c(0))
     message_price = models.CurrencyField()
@@ -177,6 +178,7 @@ class Group(BaseGroup):
     time_BTakeResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_WriteMessage = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
 
+    time_AllFM = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_AllBdmCont = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_AllBdmList = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_AllSOP = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
@@ -221,6 +223,8 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     # define vars
     endowment = models.CurrencyField()
+    participation_fee = models.CurrencyField()
+
     task_income = models.CurrencyField()
     available_income0 = models.CurrencyField()  # before money is taken : endowment plus task income
     available_income1 = models.CurrencyField()  # after money is taken : endowment plus task income
