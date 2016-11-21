@@ -13,6 +13,8 @@ from .models import Constants
 
 
 class Instructions(Page):
+    form_model = models.Player
+    form_fields = ['time_Instructions']
     def vars_for_template(self):
         return {
             'treatment': self.group.treatment,
@@ -41,7 +43,8 @@ class ControlQuestions(Page):
                 'ctrlQ_anonymity',
                 'ctrlQ_who_transfers',
                 'ctrlQ_A_earnings',
-                'ctrlQ_B_earnings'
+                'ctrlQ_B_earnings',
+                'time_ControlQuestions',
             ]
         elif self.group.treatment in ['DM', 'TP', 'TP-R']:
             return [
@@ -51,6 +54,7 @@ class ControlQuestions(Page):
                 'ctrlQ_A_earnings',
                 'ctrlQ_B_sends_message',
                 'ctrlQ_B_earnings',
+                'time_ControlQuestions',
             ]
 
     def ctrlQ_anonymity_error_message(self, value):
@@ -117,7 +121,7 @@ class ControlQuestions(Page):
 
 page_sequence = [
     Instructions,
-    ControlQuestions
+    ControlQuestions,
 ]
 
 

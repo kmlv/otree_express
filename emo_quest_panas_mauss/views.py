@@ -38,8 +38,10 @@ class QuestionnairePage2(Page):
 
 
 class DoneQuestionnaire(Page):
-
-    timeout_seconds = 10
+    form_model = models.Player
+    form_fields = ['time_DoneQuestionnaire']
+# pass
+#    timeout_seconds = 10
 
 
 page_sequence = [

@@ -93,6 +93,9 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     # define vars
+    time_Instructions = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    time_ControlQuestions = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+
     endowment = models.CurrencyField()
     participation_fee = models.CurrencyField()
 

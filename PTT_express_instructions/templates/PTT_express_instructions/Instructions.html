@@ -4,8 +4,16 @@
 {% block title %}
     Instructions
 {% endblock %}
-
+{% block scripts %}
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+{% endblock %}
 {% block content %}
+    {% formfield  player.time_Instructions with label=None  %}
 
 {# Greetings - ALL #}
 

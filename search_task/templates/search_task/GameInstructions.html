@@ -6,7 +6,20 @@
     Stage 1, Task Income: Instructions
 {% endblock %}
 
+{% block scripts %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+
+{% endblock %}
+
 {% block content %}
+    {% formfield  player.time_GameInstructions with label=None  %}
 
     {#    paper effect starts   #}
 <div class="instructions well well-lg">
