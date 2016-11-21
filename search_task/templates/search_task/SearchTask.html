@@ -19,7 +19,12 @@
 {% endblock %}
 
 {% block scripts %}
-
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -44,6 +49,7 @@
 
 
 {% block content %}
+    {% formfield  player.time_SearchTask with label=None  %}
 
 
 <input id = 'target'  type = "number" value = {{player.target_income}} style = 'display: none;'>

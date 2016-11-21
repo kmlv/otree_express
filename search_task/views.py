@@ -5,7 +5,9 @@ from .models import Constants
 
 
 class PracticeTask(Page):
-    pass
+    form_model = models.Player
+    form_fields = ['time_PracticeTask']
+    #pass
     # timeout_seconds = 200
 
 
@@ -13,7 +15,7 @@ class SearchTask(Page):
     # timeout_seconds = 400
 
     form_model = models.Player
-    form_fields = ['task_reward']
+    form_fields = ['task_reward', 'time_SearchTask']
 
     def vars_for_template(self):
         return {
@@ -33,7 +35,9 @@ class SearchTask(Page):
 
 
 class GameInstructions(Page):
-    pass
+    form_model = models.Player
+    form_fields = ['time_GameInstructions']
+    #pass
 
     # timeout_seconds = 400
 

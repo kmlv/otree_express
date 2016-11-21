@@ -4,8 +4,16 @@
 {% block title %}
     Survey
 {% endblock %}
-
+{% block scripts %}
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+{% endblock %}
 {% block content %}
+    {% formfield  player.time_CognitiveReflectionTest with label=None  %}
 
     <p>
         Please answer the following questions.

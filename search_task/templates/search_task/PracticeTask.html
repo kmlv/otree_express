@@ -15,6 +15,12 @@
 {% endblock %}
 
 {% block scripts %}
+        {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="{% static "lib/flot/jquery.flot.js" %}"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -36,7 +42,7 @@
 
 
 {% block content %}
-
+    {% formfield  player.time_PracticeTask with label=None  %}
 {#    {% if subsession.debug_mode == True %}#}
 {#        <p>the goal is {{player.target_income}}</p>#}
 {#        <p>player id is {{player.id_in_group}}</p>#}

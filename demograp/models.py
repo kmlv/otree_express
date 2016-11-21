@@ -28,6 +28,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    time_Demographics = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    time_CognitiveReflectionTest = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+
     def set_payoff(self):
         """Calculate payoff, which is zero for the survey"""
         self.payoff = 0
@@ -41,7 +44,21 @@ class Player(BasePlayer):
                                 choices=['Male', 'Female'],
                                 verbose_name='What is your gender?',
                                 widget=widgets.RadioSelect())
-
+    q_income = models.PositiveIntegerField(verbose_name='What is the approximate annual income of your family?',
+                                           choices=[
+                                               [1, 'less than $15,000'],
+                                               [2, '$15,000 - $29,999'],
+                                               [3, '$30,000 - $59,999'],
+                                               [4, '$60,000 - $99,999'],
+                                               [5, '$100,000 - $199,999'],
+                                               [6, '$200,000 or more'],
+                                           ]
+                                           )
+    q_zipcode = models.PositiveIntegerField(verbose_name='What is your zip code? [Format: 00000]')
+    q_opinion = models.CharField(initial=None,
+                                 verbose_name='Were the instructions provided in this experiment clear and useful?',
+                                 choices=['Yes', 'No'],
+                                 widget=widgets.RadioSelect())
     crt_bat = models.PositiveIntegerField()
     crt_widget = models.PositiveIntegerField()
     crt_lake = models.PositiveIntegerField()

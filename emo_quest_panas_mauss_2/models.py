@@ -81,6 +81,7 @@ class Player(BasePlayer):
 
     time_emo_quest_pg1 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_emo_quest_pg2 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    time_DoneQuestionnaire = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
 
     # for i in range(len(Constants.emo_list)):
     #     temp = Constants.emo_list[i]

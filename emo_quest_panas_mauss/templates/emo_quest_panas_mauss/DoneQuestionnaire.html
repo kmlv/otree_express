@@ -4,8 +4,17 @@
 {% block title %}
     Thank you
 {% endblock %}
-
+{% block scripts %}
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+{% endblock %}
 {% block content %}
+    {% formfield  player.time_DoneQuestionnaire with label=None  %}
+
     <p> You are done with this questionnaire. You are about to proceed to the next stage.</p>
     {% next_button %}
 {% endblock %}
