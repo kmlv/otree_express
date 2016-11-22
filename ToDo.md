@@ -36,18 +36,12 @@
 
 * implement the test of the eyes
  
-* 
+* timestamps in stata and R. 
     
 
 ## Ankur To Do
 
-* Button of message no message (want_send_message): needs to be submit button as opposed to radiobutton
-
 * Counter of attempts in control questions / or saves parallell 
-
-* Make instructions button collapsible .. correct paths etc, margins  
-
-* add short instructions in HTML include
     
 
 

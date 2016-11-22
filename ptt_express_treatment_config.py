@@ -10,9 +10,9 @@
 # Notes: DM BDM WTA LIST
 
 real_world_currency_per_point = 1
-participation_fee = 5.00,
+participation_fee = 4.00,
 num_demo_participants = 10
-targetIncome = [10]
+targetIncome = [7]
 num_readers = 0
 reader_endowment = [3]
 params = [

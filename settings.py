@@ -561,8 +561,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['demograp'],
         'debug': True
     },
-
-
+    {
+        'name': 'youtubeembed',
+        'display_name': 'youtube embed',
+        'num_demo_participants': 1,
+        'app_sequence': ['youtubeembed']
+    },
     #############################################
     {
         'name': 'Multiple_treatments_actual_sessions',
@@ -573,15 +577,10 @@ SESSION_CONFIGS = [
         'num_readers': ptt_express_treatment_config.num_readers,
         'reader_endowment': ptt_express_treatment_config.reader_endowment,
         'Params': ptt_express_treatment_config.params,
-        'app_sequence': ['batson_questionnaire', 'PTT_express_instructions' ,'search_task', 'PTT_expression', 'payment_info','batson_questionnaire2'],
+        'app_sequence': ['emo_quest_panas_mauss', 'PTT_express_instructions', 'search_task', 'PTT_expression', 'emo_quest_panas_mauss_2', 'demograp', 'payment_info'],
         'debug': False
-    },
-    {
-        'name': 'youtubeembed',
-        'display_name': 'youtube embed',
-        'num_demo_participants': 1,
-        'app_sequence': ['youtubeembed']
     }
+    #############################################
     # {
     #     'name': 'my_public_goods_',
     #     'display_name': "KLV Public Goods",

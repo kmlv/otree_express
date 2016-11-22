@@ -22,9 +22,11 @@
     }
 </style>
 
-<button id="expand-instructions" class="btn btn-primary btn-large btn-primary" type="button"> Expand Instructions</button>
+<button id="expand-instructions" class="btn " type="button"> Show Instructions</button>
 
-<div id="expand">
+<div id="expand" class="instructions well well-lg">
+
+
     {####################################################################}
     {#  Stage 2: general | All but TP #}
     {% if group.treatment != 'TP' %}
@@ -32,11 +34,8 @@
         <p> In Stage 2, called <em>Interaction Stage</em>, you will interact with another participant in the room. First, you will be anonymously paired with one another. This matching is random and, most likely, you will <b>not</b> be matched with the person sitting next to you. You will then be randomly assigned to be either of <strong><em>Role A</em></strong> or of <strong><em>Role B</em></strong>. Each pair will consists of one person in <em>Role A</em> and one person in <em>Role B</em>, and roles remain in the same role throughout the entire duration of the experiment. You will be informed about your role on your computer screen as soon as Stage 2 starts. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment. </p> </br>
 
         <h4> Role A:</h4>
-        <p> If you are assigned <em>Role A</em>, you are to decide how much of <em>Role B</em>’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of <em>Role B</em>’s <em>task income</em>, but you will not be able to transfer B’s endowment. Once you make your decision, it cannot be changed. The image below shows the screen where you will make your decision: </p> </br>
+        <p> If you are assigned <em>Role A</em>, you are to decide how much of <em>Role B</em>’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of <em>Role B</em>’s <em>task income</em>, but you will not be able to transfer B’s endowment. Once you make your decision, it cannot be changed.</p> </br>
 
-            <div style="align-content: center; border:0px solid gray">
-                <img alt="Screenshot A's Decision" src="{% static "PTT_express_instructions/A_decision_screen.png" %}" width="700" align="center"/>
-            </div> </br>
 
         <h4> Role B:</h4>
         <p> If you are assigned <em>Role B</em>, you will first be asked to guess what percentage of your <em>task income</em> A will transfer to his/her own account.</p>
@@ -198,6 +197,7 @@
 
 
 </div>
+
 {% endblock %}
 
 

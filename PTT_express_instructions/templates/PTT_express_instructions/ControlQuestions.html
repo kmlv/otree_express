@@ -12,18 +12,6 @@
 
 {% block scripts %}
 
-    # ankur cleans this
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
-    <script type="text/javascript" src="{% static "lib/flot/jquery.flot.js" %}"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="{% static "lib/jquery/jquery-ui.js" %}"></script>
-
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-
 
 {#    This is to nest numerals in lists#}
     <style>
@@ -146,25 +134,7 @@
     {% next_button %}
     <br/>
 
-
-    {# ADD INSTRUCTIONS HERE!#}
-        {# Instructions #}
-        <div class="row">
-            <div class="col-md-12">
-                <button type="button" class="btn " ng-click="instructionsShow = !instructionsShow">Show Instructions</button>
-                <br>
-                <div id="demo" ng-show="instructionsShow">
-                    <div class="instructions well well-lg">
-
-   {% include '../templates/PTT_express_instructions/SummaryInstructions.html' %}
-
-                                </br>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    {% include "../../PTT_express_instructions/templates/PTT_express_instructions/SummaryInstructions.html" %}
 
 {% endblock %}
 
