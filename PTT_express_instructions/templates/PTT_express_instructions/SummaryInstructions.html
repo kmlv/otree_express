@@ -4,15 +4,25 @@
 {% block content %}
 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
 <script type="text/javascript">
-    $('#expand-instructions').click(function() {
-        if($('#expand').is(':visible')){
-            $('#expand').hide('fast');
-            return;
-        }
-        $('#expand').show('fast');
-    });
+    $(document).ready(function(){
+        $("#expand").hide();
+        $("#expand-instructions").click(function() {
+            if($("#expand").is(":visible")){
+                $("#expand").hide("fast");
+                return;
+            }
+            $("#expand").show("fast");
+        });
+    })
 </script>
-<button id="expand-instructions" type="button"> Expand Instructions</button>
+
+<style>
+    #expand{
+        padding-top: 10px;
+    }
+</style>
+
+<button id="expand-instructions" class="btn btn-primary btn-large btn-primary" type="button"> Expand Instructions</button>
 
 <div id="expand">
     {####################################################################}
@@ -187,9 +197,8 @@
         </br>
 
 
-
-    {% endblock %}
 </div>
+{% endblock %}
 
 
 
