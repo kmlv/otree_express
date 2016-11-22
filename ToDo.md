@@ -1,5 +1,8 @@
 # To Do List
 
+## Kristian 
+
+* add unit test: when 'LIST 
 
 * Instructions 
     
@@ -9,6 +12,15 @@
     
     * "We will not deceive you whatsoever in this experiment. All of the instructions provide examples
     and guidance for the actual tasks you will do. There will be no surprises or tricks."
+    
+    * "the person next to you is not your match"
+    
+    * resting position 
+    
+    * reducir emotion 
+    
+    * 
+
 
  
 * main app
@@ -49,6 +61,8 @@
 
     * Were the instructions provided in this experiment clear and useful?
     
+    * reduce list of emotions. 
+    
 
 ## Ankur To Do
 
@@ -66,6 +80,5 @@
 
 ## deploying otree in LEEPS Lab
 
-1. open in terminal otree-kristian/otree-express (/home/leeps/otree-kristian/otree-express)
 
 2. 

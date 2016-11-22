@@ -140,6 +140,7 @@ class Subsession(BaseSubsession):
             p.participant.vars['elicitation_method'] = grupo.elicitation_method
             p.participant.vars['BDM_type'] = grupo.BDM_type
 
+        # check if BDM LIST =>
 
 class Group(BaseGroup):
     # define vars
