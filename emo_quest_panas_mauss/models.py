@@ -83,22 +83,22 @@ class Player(BasePlayer):
     time_emo_quest_pg2 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_DoneQuestionnaire = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
 
-    # for i in range(len(Constants.emo_list)):
-    #     temp = Constants.emo_list[i]
-    #     locals()['{}'.format(temp)] = models.DecimalField(widget=widgets.HiddenInput(),
-    #                                                       max_digits=3,
-    #                                                       decimal_places=1,
-    #                                                       min=1,
-    #                                                       max=7
-    #                                                       )
+    for i in range(len(Constants.emo_list)):
+        temp = Constants.emo_list[i]
+        locals()['{}'.format(temp)] = models.DecimalField(widget=widgets.HiddenInput(),
+                                                          max_digits=3,
+                                                          decimal_places=1,
+                                                          min=1,
+                                                          max=7
+                                                          )
 
-for var in Constants.emo_list:
-    Player.add_to_class(
-        '{}'.format(var),
-        models.DecimalField(widget=widgets.HiddenInput(),
-                            max_digits=3,
-                            decimal_places=1,
-                            min=1,
-                            max=7
-                            )
-        )
+# for var in Constants.emo_list:
+#     Player.add_to_class(
+#         '{}'.format(var),
+#         models.DecimalField(widget=widgets.HiddenInput(),
+#                             max_digits=3,
+#                             decimal_places=1,
+#                             min=1,
+#                             max=7
+#                             )
+#         )

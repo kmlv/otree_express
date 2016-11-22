@@ -1,41 +1,7 @@
 {% extends "global/Base.html" %}
 {% load staticfiles otree_tags %}
 
-{% block title %}
-    Instructions
-{% endblock %}
-
-{% block scripts %}
-    {# this records the timestamp #}
-    <script type="text/javascript">
-            window.onload = function () {
-                document.getElementById("arrive_time").value = (new Date()).toISOString();
-            }
-    </script>
-{% endblock %}
-
-
-
 {% block content %}
-    {% formfield  player.time_Instructions with label=None  %}
-
-{# Greetings - ALL #}
-
-{#    paper effect starts   #}
-
-{####################################################################}
-<div class="instructions well well-lg">
-{####################################################################}
-
-    <h4> General Instructions </h4>
-
-    <p> Welcome to the LEEPS Laboratory. During the course of this session, you will be asked to make a series of decisions. By participating in this study, you will earn real money that will be paid to you in cash at the end of the experiment. On top of what you earn during the session, you will receive a participation fee of {{ player.participation_fee }}.</p>
-
-<p> It is important you do not speak out loud, laugh or talk to other participants during the duration of the session. The use of cellphones or tablets is not allowed in this session. We expect and appreciate your cooperation. If you have any question, please raise your hand and an experimenter will attend to you. After you have read these instructions, you will answer a few brief questions to ensure you understand them.</p><br/>
-
-<h4>Stages</h4>
-
-<p>This session consists of two stages. In Stage 1, called <em>Task Stage</em>, you will work on a set of tasks to earn money. We will refer to the earned amount as the <em>task income</em>. Specific instructions for these tasks will be provided once Stage 1 starts.</p>
 
 {####################################################################}
 {#  Stage 2: general | All but TP #}
@@ -67,10 +33,6 @@
 
     <h4> Role A:</h4>
     <p> If you are assigned <em>Role A</em>, you are to decide how much of <em>Role B</em>’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of <em>Role B</em>’s <em>task income</em>, but you will not be able to transfer B’s endowment. Once you make your decision, it cannot be changed. The image below shows the screen where you will make your decision: </p> </br>
-
-        <div style="align-content: center; border:0px solid gray">
-            <img alt="Screenshot A's Decision" src="{% static "PTT_express_instructions/A_decision_screen.png" %}" width="700" align="center"/>
-        </div> </br>
 
     <h4> Role B:</h4>
     <p> If you are assigned <em>Role B</em>, you will first be asked to guess what percentage of your <em>task income</em> the participant in <em>Role A</em> will transfer to his/her own account.</p>
@@ -212,16 +174,9 @@
     <p> Please make sure you understand these instructions before you move onto the control questions. To help you, there will be a summary of the instructions in all the relevant screens. Yet, if you have any question, raise your hand and an experimenter will attend to your computer. Please remember it is not allowed to use your cellphone or talk to any other participant during the whole duration of the experiment.</p> </br>
     </br>
 
-{####################################################################}
-    </div>   {#  paper effect ends#}
-{####################################################################}
 
-    {% next_button %}
 
 {% endblock %}
-
-
-
 
 
 

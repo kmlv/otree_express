@@ -112,7 +112,7 @@ class ControlQuestions(Page):
 
     def vars_for_template(self):
         return {
-            'recipient': (self.group.treatment == 'DM') * 'the participant with Role A' +
+            'recipient': (self.group.treatment == 'DM') * 'the participant in Role A' +
                          (self.group.treatment == 'TP') * 'the Reader',
             'points': self.session.config['USE_POINTS'],
         }
