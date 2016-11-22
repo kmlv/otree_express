@@ -28,6 +28,13 @@ class Subsession(BaseSubsession):
     # before session
     def before_session_starts(self):
 
+        # typical config dictionary
+        # 'Params': [
+        #     {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],      'end': [3, 3]},
+        #     {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.5], 'end': [3, 3]},
+        #     {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'av_inc'],   'end': [3, 3]},
+        # ]
+
         # number of groups
         num_groups = len(self.session.config['Params'])
         print(num_groups)  # OK
@@ -140,7 +147,15 @@ class Subsession(BaseSubsession):
             p.participant.vars['elicitation_method'] = grupo.elicitation_method
             p.participant.vars['BDM_type'] = grupo.BDM_type
 
-        # check if BDM LIST =>
+        # check if BDM LIST => len met_par == 3, if BDM CONT len met_par < 3
+        for grupo in self.get_groups():
+            if grupo.treatment == 'DM' or grupo.treatment == 'TP' and grupo.elicitation_method == 'BDM':
+                if grupo.BDM_type == 'LIST':
+                    assert len(grupo.Method_params) == 3, 'BDM LIST requires len(Met_par)==3 in config'
+                elif grupo.BDM_type == 'CONT':
+                    assert len(grupo.Method_params) < 3, 'BDM CONT requires len(Met_par)==3 in config'
+
+
 
 class Group(BaseGroup):
     # define vars
