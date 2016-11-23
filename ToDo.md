@@ -1,46 +1,34 @@
 # To Do List
 
 ## Kristian 
+    
++ + Init Instructions: Add "leave left hand in resting position" to initial instructions, correct typos, mention earlobe. 
 
-* Instructions 
++ + Check the best fingers for GSR.
 
-    + THIS IS A ONE TIME INTERACTION, ONE-SHOT
-    
-    + The number of screens is undetermined so we recommend move to the next screen as soon 
-    
-    + Review control questions.
-    
-    * Add "we will not deceive you whatsoever in this experiment. All of the instructions provide examples
-    and guidance for the actual tasks you will do. There will be no surprises or tricks."
-    
-    * Add "leave left hand in resting position" to initial instructions, correct typos, mention earlobe
-    
-    
-* Other apps
++ + Instructions: "The number of screens is undetermined so we recommend move to the next screen as soon" 
+
++ + Reducir emotion list in panas + maus. 
+
++ Instructions: Review control questions.
+
++ Instructions: Add "we will not deceive you whatsoever in this experiment. All of the instructions provide examples
+and guidance for the actual tasks you will do. There will be no surprises or tricks."        
+  
+* Add question "Do you want to provide feedback regarding this experiments to the researchers?" in the final questionnaire.
+
+- PTT_expression: SOP integrated pages, similiar to the BDM Cont. 
  
-    + Reducir emotion list in panas + maus.
-     
-    + Reduce this time to 20 seconds? 
-    
-    + + Check the best fingers for GSR.
-    
-    + Add question "Do you want to provide feedback regarding this experiments to the researchers?" in the final questionnaire.
-    
-    
-* In the main app PTT_expression
-    
-    * LIST and SOP integrated pages -- make similiar to the BDM Cont.
-         
-    * add short instructions in every page. 
-        
-    * ascending and descending price
-     
-    * add consistency var in list choices
-    
-    - Alter choices of list elicitation for WTP and WTP
+- PTT_expression: Add consistency variable in list choices.
+
+- PTT_expression: Alter choices of list elicitation for WTP and WTP
+
+- PTT_expression: Ascending and descending prices
 
 
 ## Pao To Do
+
+* ptt_expression: check that short instructions are in every _relevant_ page .
 
 * Timestamps in Stata and R. Ver py file de Ankur.
     
@@ -55,6 +43,8 @@
    
 * Mturk
 
+- Always: work via pull requests, push master to heroku demo app
+
 
 ## Ankur To Do
 
@@ -63,12 +53,15 @@
  
 * Counter of attempts in control questions / or saves parallel / save at validation
 
+* SearchTask Reduce this time to 20 seconds? add parameter of seconds and scale/stake of points per task? (ask Kristian)
+
 * Global Styling 
 
 * MTurk
 
 * Build a "receipt app" so we can simply distribute envelopes with money.
 
+* Random selector (ask Kristian)
 
 
 

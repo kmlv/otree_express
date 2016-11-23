@@ -21,11 +21,10 @@
 
 {# Greetings - ALL #}
 
-{#    paper effect starts   #}
 
 {####################################################################}
-<div class="instructions well well-lg">
-{####################################################################}
+ <div class="instructions well well-lg"> {#    paper effect starts #}
+
 
     <h4> General Instructions </h4>
 
@@ -35,13 +34,13 @@
 
 <h4>Stages</h4>
 
-<p>This session consists of two stages. In Stage 1, called <em>Task Stage</em>, you will work on a set of tasks to earn money. We will refer to the earned amount as the <em>task income</em>. Specific instructions for these tasks will be provided once Stage 1 starts.</p>
+<p>This session consists of a single round of interaction with two stages. In Stage 1, called <em>Task Stage</em>, you will work on a set of tasks to earn money. We will refer to the earned amount as the <em>task income</em>. Specific instructions for these tasks will be provided once Stage 1 starts.</p>
 
 {####################################################################}
 {#  Stage 2: general | All but TP #}
 {% if group.treatment != 'TP' %}
 
-    <p> In Stage 2, called <em>Interaction Stage</em>, you will interact with another participant in the room. First, you will be anonymously paired with one another. This matching is random and, most likely, you will <b>not</b> be matched with the person sitting next to you. You will then be randomly assigned to be either of <strong><em>Role A</em></strong> or of <strong><em>Role B</em></strong>. Each pair will consists of one person in <em>Role A</em> and one person in <em>Role B</em>, and roles remain in the same role throughout the entire duration of the experiment. You will be informed about your role on your computer screen as soon as Stage 2 starts. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment. </p> </br>
+    <p> In Stage 2, called <em>Interaction Stage</em>, you will interact with another participant in the room. First, you will be anonymously paired with one another. This matching is random and, most likely, you will <b>not</b> be matched with the person sitting next to you. You will then be randomly assigned to be either of <strong><em>Role A</em></strong> or of <strong><em>Role B</em></strong>. Each pair will consists of one person in <em>Role A</em> and one person in <em>Role B</em>. You will be informed about your role on your computer screen as soon as Stage 2 starts. Since this is a one-time interaction, that will be the only role you will participate under. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment. </p> </br>
 
     <h4> Role A:</h4>
     <p> If you are assigned <em>Role A</em>, you are to decide how much of <em>Role B</em>’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of <em>Role B</em>’s <em>task income</em>, but you will not be able to transfer B’s endowment. Once you make your decision, it cannot be changed. The image below shows the screen where you will make your decision: </p> </br>
@@ -60,7 +59,7 @@
 {#    Stage 2: general | only TP #}
 {% if group.treatment  == 'TP' or group.treatment == 'TP-R' %}
 
-    <p> In Stage 2, called <em>Interaction Stage</em>, there are three possible roles for each participant, <em>Role A</em>, <em>Role B</em> and <em>Role R</em>. First, one participant will be randomly assigned <em>Role R</em>. The rest of participants will be anonymously paired in groups of two. Within each group, roles will be randomly assigned so that there will be one person in <em>Role A</em> and one in <em>Role B</em>. This matching is random and, most likely, you will <b>not</b> be matched with the person sitting next to you. You will remain in the same role throughout the entire duration of the experiment, and will be informed about your role on your computer screen once Stage 2 starts. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment.</p>
+    <p> In Stage 2, called <em>Interaction Stage</em>, there are three possible roles for each participant, <em>Role A</em>, <em>Role B</em> and <em>Role R</em>. First, one participant will be randomly assigned <em>Role R</em>. The rest of participants will be anonymously paired in groups of two. Within each group, roles will be randomly assigned so that there will be one person in <em>Role A</em> and one in <em>Role B</em>. This matching is random and, most likely, you will <b>not</b> be matched with the person sitting next to you. You will be informed about your role on your computer screen once Stage 2 starts. Since this is a one-time interaction, that will be the only role you will participate under. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment.</p>
 
     <h4> Role R: </h4>
     <p> If you are assigned <em>Role R</em> (Reader) your only task is to read the messages written by participants in <em>Role B</em> who are able to send a message to you. The Reader is the only participant that is going to read these messages. None of the other participants in today's session will ever read them. The Reader will not receive any information about participants of Roles A or B. After reading the messages, the Reader will confirm having read them.</p>
@@ -205,14 +204,13 @@
 
 
 {% endif %}
-    <p> Note that <em>final earnings</em> do not include your participation fee. </p>
+    <p> Note that <em>final earnings</em> do not include your participation fee. Also, remember that this interaction will occur only once. </p>
 
     </br>
 
     <p> Please make sure you understand these instructions before you move onto the control questions. To help you, there will be a summary of the instructions in all the relevant screens. Yet, if you have any question, raise your hand and an experimenter will attend to your computer. Please remember it is not allowed to use your cellphone or talk to any other participant during the whole duration of the experiment.</p> </br>
     </br>
 
-{####################################################################}
     </div>   {#  paper effect ends#}
 {####################################################################}
 
