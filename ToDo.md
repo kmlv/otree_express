@@ -63,6 +63,11 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 
 * Random selector (ask Kristian)
 
+## LINKS
+
+* Experiment Script:
+ https://docs.google.com/document/d/1MoMnBeN0YcIqOR9ZJOzBEPR2CjKH7gbz-uVhB02f5VE/edit#
+
 
 
 <!-- ________________________________________________________________-->
