@@ -3,19 +3,25 @@
 ## Kristian 
 
 * Instructions 
-    
-    * Reframe instruction and pages in WTA to drop "in exchange" so the framing is not WTA anymore. 
 
+    * THIS IS A ONE TIME INTERACTION, ONE-SHOT
+    
+    * The number of screens is undetermined so we recommend move to the next screen as soon 
+    
     * Review control questions
     
-    * "We will not deceive you whatsoever in this experiment. All of the instructions provide examples
+    * Add "we will not deceive you whatsoever in this experiment. All of the instructions provide examples
     and guidance for the actual tasks you will do. There will be no surprises or tricks."
     
-    * resting position 
+    * Add "leave left hand in resting position" to initial instructions, correct typos, mention earlobe
     
-    * reducir emotion list
     
-
+* Other apps
+ 
+    * Reducir emotion list in panas + maus. 
+    
+    * Check the best fingers for GSR.
+    
 
 * In the main app PTT_expression
     
@@ -32,18 +38,29 @@
     * add consistency var in list choices
 
 
-## Pao
+## Pao To Do
 
-* implement the test of the eyes
+* transcribing task 
+
+* Add question "Do you want to provide feedback regarding this experiments to the researchers?" in the final questionnaire. 
+
+* Implement the test of the eyes
  
-* timestamps in stata and R. 
+* Timestamps in stata and R. 
     
 
 ## Ankur To Do
 
-* Counter of attempts in control questions / or saves parallell 
-    
 
+* Bring back the double button screen.
+ 
+* Counter of attempts in control questions / or saves parallel / save at validation
+
+* Global Styling 
+
+* MTurk
+
+* Build a "receipt app" so we can simply distribute envelopes with money.
 
 
 
