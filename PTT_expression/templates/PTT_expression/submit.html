@@ -1,0 +1,36 @@
+{% comment %}
+    submit.html
+    Ankur Goswami (agoswam3@ucsc.edu)
+    Factored out submit.
+    Make sure all text fields are filled out.
+    Mirrors advance.html
+{% endcomment %}
+
+{% block sub %}
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            var inputs = $('.form-control');
+                var validate = function(){
+                var filled = inputs.filter(function(index){
+                    return $(this).val() != "" && $(this).attr("id") != "arrive_time"
+                });
+                if(filled.length != 0){
+                    $(".disp").prop('disabled', false);
+                    $("#invalid-fields").hide();
+                } else {
+                    $(".disp").prop('disabled', true);
+                    $("#invalid-fields").show();
+                }
+            }
+            validate();
+            inputs.keyup(validate);
+        });
+    
+    </script>
+
+    <input class="btn btn-large btn-primary next-button disp" type="submit" value="Proceed without message">
+    <span id="invalid-fields" style="color: red;"> Some fields have not been filled out. </span>
+
+
+{% endblock sub %}
