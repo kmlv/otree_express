@@ -567,6 +567,12 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['youtubeembed']
     },
+    {
+        'name': 'quiz_eyes',
+        'display_name': "Eyes Quiz",
+        'num_demo_participants': 1,
+        'app_sequence': ['quiz_eyes'],
+    },
     #############################################
     {
         'name': 'Multiple_treatments_actual_sessions',
