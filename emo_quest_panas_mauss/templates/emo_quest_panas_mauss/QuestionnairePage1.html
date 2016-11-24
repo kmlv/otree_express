@@ -73,7 +73,7 @@
 
 {% block content %}
 
-    {% formfield  player.time_emo_quest_pg1 with label=None  %}
+
 
     <p> This questionnaire consists of a number of words that describe different feelings and emotions. </p>
 
@@ -88,12 +88,12 @@
 
     <br/>
 
-    {% for slider in emo_list %}
+    {% for slider in emo_list_pg1 %}
             <div class="slider-wrapper" >
-                <span class="emo_name"> <b>{{slider}}</b>: <span class="left_val">__</span>   </span>
+                <span> {{slider|index:0}}: <span class="left_val">__</span>   </span>
                 <div>
                     <div class="slider">
-                        <input style="display: none;" name="{{slider}}">
+                        <input type="hidden" name="{{slider|index:0}}">
                     </div>
                 </div>
             </div>
@@ -102,6 +102,8 @@
     {% endfor %}
 
     <br/>
+
+    {% formfield  player.time_emo_quest_pg1 with label=None  %}
 
 
     {% next_button %}
