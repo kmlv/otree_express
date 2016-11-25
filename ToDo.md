@@ -30,16 +30,14 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 
 ## Pao To Do
 
-* ptt_expression: check that short instructions are in every _relevant_ page .
-
 * Timestamps in Stata and R. Ver py file de Ankur.
     
 * Implement the "test of the eyes". Responder: 
-    * En el test revisado y la lit nueva, qué dicen que mide? 
-    * Les pagan por acertar?
-    * Les dan feedback por acertar?
-    * Pao lee papers. Todas las imágenes? Recomendaciones para implementarlo rápido.
-    * Cuál es la metrica? Conteo sobre los 36? Sí.
+    * Que dicen que mide? (mas alla de autismo, mental health) 
+        * http://www.sciencedirect.com/science/article/pii/S0896627313005680
+        * http://ac.els-cdn.com/S0896627313005680/1-s2.0-S0896627313005680-main.pdf?_tid=c02c1106-b2a7-11e6-bd0e-00000aab0f27&acdnat=1480034603_8cba199b848a762b4b592ce83551a954
+    * Cuál es el feedback / pago cuando correctos?
+    * Cuál es la metrica? Implemtar la métrica. 
  
 * Transcribing task. Completar. Poner en condición de producción.
    

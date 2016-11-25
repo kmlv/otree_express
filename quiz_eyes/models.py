@@ -4,7 +4,7 @@ from otree.api import (
 )
 import csv
 
-author = 'Your name here'
+author = 'Paola Villa Paro'
 
 doc = """
 A quiz app that reads its questions from a spreadsheet

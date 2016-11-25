@@ -122,7 +122,7 @@
                         <td> {% formfield field with label=None %} </td>
                     </tr>
                 {% endfor %}
-            </table>
+         </table>
 
         {# WTA #}
         {% elif group.value_type == 'WTA' %}
@@ -131,35 +131,37 @@
                 {% if group.treatment == 'DM' %} <em>Role A</em>
                 {% elif group.treatment == 'TP' %} the <em>Reader</em> {% endif %}
                 or receiving the indicated amount. </p>
+
+
+                <style>
+                #list_div {
+                    width: 30%;
+                }
+                </style>
+
+                <div id="list_div">
+
+                 <table class="table table-striped  " align="center">
+                    {#        THIS PART HAS AN ISSUE WHEN USING allButTwoLast #}
+                    {% for field in form|allButTwoLast %}
+                        <tr>
+                            <td align="right"> {% formfield field with label=None %} </td>
+                            <td align="left"> {{ prices|index:forloop.counter0 }}  </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+                </div>
+
         {% endif %}
         <br/>
 
-        <style>
-        #list_div {
-            width: 30%;
-        }
-        </style>
 
-        <div id="list_div">
 
-         <table class="table table-striped  " align="center">
-            {#        THIS PART HAS AN ISSUE WHEN USING allButTwoLast #}
-            {% for field in form|allButTwoLast %}
-                <tr>
-                    <td align="right"> {% formfield field with label=None %} </td>
-                    <td align="left"> {{ prices|index:forloop.counter0 }}  </td>
-                </tr>
-            {% endfor %}
-        </table>
-
-        </div>
     {# SCRIPTS#}
 
     {% next_button %}
 
-    <div id="hideNext" style="display: none;">
-
-    </div>
 
     <br/> {# line break #}
 
