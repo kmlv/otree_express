@@ -48,6 +48,8 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 
 - Always: work via pull requests, push master to heroku demo app
 
+- Reading: http://people.ischool.berkeley.edu/~hal/Papers/2015/cause03.pdf
+
 
 ## Ankur To Do
 
@@ -65,6 +67,8 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 * Build a "receipt app" so we can simply distribute envelopes with money.
 
 * Random selector (ask Kristian if he remembers)
+
+* Reading for free time: http://people.ischool.berkeley.edu/~hal/Papers/2015/cause03.pdf
 
 ## LINKS
 
