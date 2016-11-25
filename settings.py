@@ -567,12 +567,17 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['youtubeembed']
     },
+    {
+        'name': 'quiz_eyes',
+        'display_name': "Eyes Quiz",
+        'num_demo_participants': 1,
+        'app_sequence': ['quiz_eyes'],
+    },
     #############################################
     {
         'name': 'Multiple_treatments_actual_sessions',
         'display_name': "Multiple treatments - actual sessions - reads Params config from txt file",
         'real_world_currency_per_point': ptt_express_treatment_config.real_world_currency_per_point,
-        'participation_fee': ptt_express_treatment_config.participation_fee,
         'num_demo_participants': ptt_express_treatment_config.num_demo_participants,
         'targetIncome': ptt_express_treatment_config.targetIncome,
         'num_readers': ptt_express_treatment_config.num_readers,
