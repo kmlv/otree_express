@@ -25,6 +25,8 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 
 - PTT_expression: Ascending and descending prices
 
+- clarify that they do not need to get all answers right in control questions.
+
 
 ## Pao To Do
 
