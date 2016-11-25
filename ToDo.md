@@ -1,18 +1,18 @@
 # To Do List
 
-## Kristian 
+## Kristian To do
     
-+ + Init Instructions: Add "leave left hand in resting position" to initial instructions, correct typos, mention earlobe. 
++ Revisar mauss + panas de Pao. quitar join method. Reducir emotion list in panas + maus. 
 
-+ + Check the best fingers for GSR.
++ Check the best fingers for GSR.
 
-+ + Instructions: "The number of screens is undetermined so we recommend move to the next screen as soon" 
-
-+ + Reducir emotion list in panas + maus. 
++ Init Instructions: Corregir typos.
 
 + Instructions: Review control questions.
 
-+ Instructions: Add "we will not deceive you whatsoever in this experiment. All of the instructions provide examples
+* Search Task Instructions: "The number of screens is undetermined so we recommend move to the next screen as soon." 
+
+* Instructions: Add "we will not deceive you whatsoever in this experiment. All of the instructions provide examples
 and guidance for the actual tasks you will do. There will be no surprises or tricks."        
   
 * Add question "Do you want to provide feedback regarding this experiments to the researchers?" in the final questionnaire.
@@ -30,7 +30,7 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 
 ## Pao To Do
 
-* Test of Eyes: Cuál es la metrica? Implementar la métrica.
+* Test of Eyes: Cuál es la métrica? Implementar la métrica.
 
 * Transcribing task. Completar. Poner en condición de producción.
  
