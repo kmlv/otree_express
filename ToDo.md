@@ -30,6 +30,12 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 
 ## Pao To Do
 
+* Test of Eyes: Cuál es la metrica? Implementar la métrica.
+
+* Transcribing task. Completar. Poner en condición de producción.
+ 
+* Quant Econ online course: all the way to scipy and pandas. 
+
 * Timestamps in Stata and R. Ver py file de Ankur.
     
 * Implement the "test of the eyes". Responder: 
@@ -37,11 +43,8 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
         * http://www.sciencedirect.com/science/article/pii/S0896627313005680
         * http://ac.els-cdn.com/S0896627313005680/1-s2.0-S0896627313005680-main.pdf?_tid=c02c1106-b2a7-11e6-bd0e-00000aab0f27&acdnat=1480034603_8cba199b848a762b4b592ce83551a954
     * Cuál es el feedback / pago cuando correctos?
-    * Cuál es la metrica? Implemtar la métrica. 
- 
-* Transcribing task. Completar. Poner en condición de producción.
-   
-* Mturk
+     
+* Mturk. 
 
 - Always: work via pull requests, push master to heroku demo app
 
@@ -49,7 +52,7 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 ## Ankur To Do
 
 
-* Bring back the double button screen.
+* Bring back the double button screen. Done, KL Reviews. 
  
 * Counter of attempts in control questions / or saves parallel / save at validation
 
@@ -61,7 +64,7 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 
 * Build a "receipt app" so we can simply distribute envelopes with money.
 
-* Random selector (ask Kristian)
+* Random selector (ask Kristian if he remembers)
 
 ## LINKS
 
