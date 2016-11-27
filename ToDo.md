@@ -6,9 +6,13 @@
 
 + Check the best fingers for GSR.
 
-+ Init Instructions: Corregir typos.
++ Init Instructions: Corregir typos. pointed by William.
 
 + Instructions: Review control questions.
+
++ Add country to demograp
+
++ Add "you will not be charged less than your valuation" 
 
 * Search Task Instructions: "The number of screens is undetermined so we recommend move to the next screen as soon." 
 
@@ -16,6 +20,8 @@
 and guidance for the actual tasks you will do. There will be no surprises or tricks."        
   
 * Add question "Do you want to provide feedback regarding this experiments to the researchers?" in the final questionnaire.
+
+* 15 seconds task
 
 - PTT_expression: SOP integrated pages, similiar to the BDM Cont. 
  
