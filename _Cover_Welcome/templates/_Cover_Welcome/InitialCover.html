@@ -1,0 +1,31 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+{% endblock %}
+
+
+{% block scripts %}
+
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+{% endblock %}
+
+{% block content %}
+
+    {# this recordsTime#}
+    {% formfield  player.time_InitialCover with label=None  %}
+
+    <br/>
+
+    <h3>Please wait until instructions to proceed are provided. Thank you.</h3>
+
+    <br/>
+
+    {% next_button %}
+
+{% endblock %}
