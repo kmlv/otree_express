@@ -573,6 +573,12 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['quiz_eyes'],
     },
+    {
+        'name': 'Cover_Welcome',
+        'display_name': "Cover Page",
+        'num_demo_participants': 1,
+        'app_sequence': ['_Cover_Welcome'],
+    },
     #############################################
     {
         'name': 'Multiple_treatments_actual_sessions',
