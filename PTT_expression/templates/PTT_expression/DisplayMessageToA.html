@@ -4,7 +4,9 @@
 
 
 
-{% block title %} Message from Role B {% endblock %}
+{% block title %}
+    Message from Participant in Role B:
+{% endblock %}
 
 
 
@@ -30,7 +32,8 @@
     <br/>
         <div class="panel panel-default" style="margin-bottom:10px">
             <div class="panel-body">
-                <p><em>"{{group.b_message}}"</em></p>
+{#                <p>Participant in Role B:</p>#}
+                <h4><em>"{{group.b_message}}"</em></h4>
             </div>
         </div>
 

@@ -163,10 +163,7 @@ class Group(BaseGroup):
     a_task_income = models.DecimalField(max_digits=5, decimal_places=2)
     b_task_income = models.CurrencyField()
 
-    take_rate = models.DecimalField(widget=widgets.HiddenInput(), max_digits=5, decimal_places=0, min=0, max=100)
-    expected_take_rate = models.DecimalField(widget=widgets.HiddenInput(), max_digits=5, decimal_places=0, min=0, max=100)
     treatment = models.TextField()
-    money_taken = models.CurrencyField()
     value_type = models.TextField()
     elicitation_method = models.TextField()
     BDM_type = models.TextField()
@@ -175,49 +172,49 @@ class Group(BaseGroup):
     BDM_list_step = models.DecimalField(max_digits=5, decimal_places=2)
     SOP_price = models.CurrencyField()
 
-    want_send_message = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(),
-                                         blank=True)
-    b_message = models.TextField()
-    b_value = models.CurrencyField(min=c(0))
+    take_rate = models.DecimalField(widget=widgets.HiddenInput(), max_digits=5, decimal_places=0, min=0, max=100)
+    expected_take_rate = models.DecimalField(widget=widgets.HiddenInput(), max_digits=5, decimal_places=0, min=0, max=100)
+    money_taken = models.CurrencyField()
+    want_send_message = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank=True)
+
+    b_message = models.TextField(blank=True, initial="")
+    b_value = models.CurrencyField(min=c(0), blank=True)
+
     message_price = models.CurrencyField()
     msg_sent = models.BooleanField(initial=0)
     SOP_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal())
-    price_list = []
+
     price_list_size = models.IntegerField()
+    price_list = []
     responses_list = []
 
-    # create vars for timestamps
+    # create BDM List prices - It generates as many variables list_price_{0} as Constants.max_price_list_size
+    for i in range(0, Constants.max_price_list_size):
+        locals()['list_price_{0}_yes'.format(i)] = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
 
+    # create BDM compensation amount - It generates as many variables list_price_{0} as Constants.max_price_list_size
+    for i in range(0, Constants.max_price_list_size):
+        locals()['list_compensation_{0}'.format(i)] = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+
+    # create vars for timestamps
     time_ADecides = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_BPredicts = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_ATakeResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-    time_BTakeResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-    time_WriteMessage = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    # time_BTakeResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    # time_WriteMessage = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
 
-    time_AllFM = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    time_AllFmNm = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_AllBdmCont = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_AllBdmList = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_AllSOP = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
 
-    time_ElicitBdmCont = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-    time_ElicitBdmList = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-    time_ElicitSOP = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    # time_ElicitBdmCont = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    # time_ElicitBdmList = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    # time_ElicitSOP = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
 
     time_BdmResults = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_DisplayMessageToA = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_DisplayMessagesToR = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-
-    # create BDM List prices - It generates as many variables list_price_{0} as Constants.max_price_list_size
-    for i in range(0, Constants.max_price_list_size):
-        locals()['list_price_{0}_yes'.format(i)] = models.CharField(choices=['Yes', 'No'],
-                                                                    widget=widgets.RadioSelectHorizontal()
-                                                                    )
-
-    # create BDM compensation amount - It generates as many variables list_price_{0} as Constants.max_price_list_size
-    for i in range(0, Constants.max_price_list_size):
-        locals()['list_compensation_{0}'.format(i)] = models.CharField(choices=['Send message', 'Receive'],
-                                                                    widget=widgets.RadioSelectHorizontal()
-                                                                    )
 
     # this assigns payoff
     def set_payoffs(self):

@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Demographic Survey
+    Survey
 {% endblock %}
 
 {% block scripts %}
@@ -22,12 +22,19 @@
         Please answer the following questions.
     </p>
 
+    <br/>
     {% formfield player.q_age %}
+    <br/>
     {% formfield player.q_gender %}
+    <br/>
     {% formfield player.q_income %}
+    <br/>
     {% formfield player.q_zipcode %}
-    {% formfield player.q_opinion %}
+    <br/>
     {% formfield player.q_country %}
+    <br/>
+    {% formfield player.q_opinion %}
+    <br/>
 
     {% next_button %}
 

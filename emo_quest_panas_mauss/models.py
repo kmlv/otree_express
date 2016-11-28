@@ -18,7 +18,6 @@ class Constants(BaseConstants):
     num_rounds = 1
 
     emo_list = [
-        'Accepted',
         'Active',
         'Afraid',
         'Alert',
@@ -29,11 +28,8 @@ class Constants(BaseConstants):
         'Ashamed',
         'Attentive',
         'Calm',
-        'Contented (Peacefully Happy)',
         'Determined',
         'Distressed',
-        'Down',
-        'Embarrassed',
         'Energetic',
         'Enthusiastic',
         'Excited',
@@ -45,13 +41,11 @@ class Constants(BaseConstants):
         'Interested',
         'Irritable',
         'Jittery',
-        'Lonely',
         'Loving',
         'Negative (feel bad)',
         'Nervous',
         'Positive (feel good)',
         'Proud',
-        'Rejected',
         'Sad',
         'Scared',
         'Strong',

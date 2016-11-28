@@ -3,7 +3,7 @@
 {% load templ %}
 
 {% block title %}
-    Role B's Decision
+    Role B
 {% endblock %}
 
 {% block scripts %}
@@ -86,14 +86,17 @@
     {# MESSAGE#}
     <div>
     {% if group.treatment == 'DM' %}
-        <p> Write your <b>message to <em>Role A</em> regarding his/her decision</b> in the box below:</p>
+        <p> If you would like to write a <b>message to <em>Role A</em> regarding his/her decision</b>, use the message box below:</p>
     {% elif group.treatment == 'TP' %}
-        <p> Write your <b>message to the <em>Reader</em> regarding his/her decision</b> in the box below:</p>
+        <p> If you would like to write a <b>message to the <em>Reader</em> regarding Role A's decision</b>, use the message box below:</p>
     {% endif %}
-        {% formfield group.b_message with label="" %}
+        {% formfield group.b_message with label="Message box" %}
     </div>
+    <p>
+        If you do not wish to write any message, make sure the message box is empty and click {% include "../../PTT_expression/templates/PTT_expression/advance.html" %}
+    </p>
     <br/>
-
+    <br/>
 
         {# VALUATION#}
 
@@ -160,7 +163,8 @@
 
     {# SCRIPTS#}
 
-    {% next_button %}
+{#    {% next_button %}#}
+    {% include "../../PTT_expression/templates/PTT_expression/submit.html" %}
 
 
     <br/> {# line break #}
