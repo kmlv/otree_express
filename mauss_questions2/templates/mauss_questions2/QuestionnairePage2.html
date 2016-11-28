@@ -1,0 +1,109 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags index %}
+
+{% block title %}
+    Questionnaire - Pg 2 (of 2)
+{% endblock %}
+
+
+{% block scripts %}
+
+    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
+
+    <script>
+	jQuery(document).ready(function ($) {
+		$(".slider")
+			.slider({
+				stop: function (event, ui) {
+					$(this).children("input").val(ui.value);
+				},
+				start: function () {
+					$(this).children(".ui-slider-handle").show()
+				},
+				slide: function (event, ui) {
+					$(this).closest(".slider-wrapper").find('.left_val').text((ui.value).toFixed(1));
+				},
+				min: 1,
+                max: 7,
+	            step: .1
+			})
+			.children(".ui-slider-handle").hide();
+	});
+	</script>
+
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+{% endblock %}
+
+
+{% block styles %}
+	<style>
+		.slider-wrapper {
+			display: table;
+			margin: auto;
+			margin-top: 20px;
+		}
+		.slider-wrapper > * {
+			display: table-cell;
+		}
+		.slider-wrapper > div {
+			width: 500px;
+		}
+		.slider-wrapper > span {
+			width: 120px;
+			text-align: center;
+		}
+
+		.slider-wrapper .emo_name {
+			text-align: left;
+		}
+
+{#    .slider-wrapper .emo_name {  }#}
+
+	</style>
+
+    <link href="{% static "jquery-ui/jquery-ui.min.css" %}" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block content %}
+
+    {% formfield  player.time_emo_quest_pg2 with label=None  %}
+
+     <p> This questionnaire consists of a number of words that describe different feelings and emotions. </p>
+
+    <p> Read carefully each item and use the corresponding slider to indicate how strongly you feel that way, at the <b>present moment</b>.</p>
+
+    <p> Each slider uses a 1-7 scale, where
+        <b style="color: green">1 = not at all</b>,
+        <b style="color: green">4 = moderately</b>, and
+        <b style="color: green">7 = extremely</b>.
+
+    <p> Make sure you respond to all the items / sliders before you press the next button. </p>
+
+    <br/>
+
+    {% for slider in emo_list %}
+            <div class="slider-wrapper" >
+                <span class="emo_name"> <b>{{slider}}</b>: <span class="left_val">__</span>   </span>
+                <div>
+                    <div class="slider">
+                        <input style="display: none;" name="{{slider}}">
+                    </div>
+                </div>
+            </div>
+
+        <br/>
+    {% endfor %}
+
+    <br/>
+
+
+    {% next_button %}
+
+{% endblock %}
