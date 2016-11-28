@@ -8,6 +8,22 @@ from math import floor
 
 
 ################################################
+# Waiting Screens
+
+class WaitsForGroup(WaitPage):
+    pass
+
+
+class AWaitsForGroup(WaitPage):
+    def is_displayed(self):
+        return self.player.role() == 'A'
+
+
+class BWaitsForGroup(WaitPage):
+    def is_displayed(self):
+        return self.player.role() == 'B'
+
+################################################
 
 
 class InitialWait(WaitPage):
@@ -101,10 +117,6 @@ class BPredicts(Page):
         }
 
 
-class WaitsForGroup(WaitPage):
-    pass
-
-
 class ATakeResults(Page):
     """Take Results"""
     form_model = models.Group
@@ -129,65 +141,35 @@ class ATakeResults(Page):
             }
 
 
-class BTakeResults(Page):
-    form_model = models.Group
-    form_fields = ['want_send_message', 'time_BTakeResults']
-    # timeout_seconds = 15
-
-    def vars_for_template(self):
-        if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
-            p_a = self.group.get_player_by_role('A')
-            p_b = self.group.get_player_by_role('B')
-            return {
-                'A_endowment': p_a.endowment,
-                'B_endowment': p_b.endowment,
-                'A_task_income': p_a.task_income,
-                'B_task_income': p_b.task_income,
-                'A_available_income1': p_a.available_income1,
-                'B_available_income1': p_b.available_income1,
-                'points': self.session.config['USE_POINTS'],
-            }
-
-    def is_displayed(self):
-        return self.player.role() == 'B' and (self.group.treatment == 'FM', 'TP', 'DM')
-
-    # defining whether message is sent or not
-    def before_next_page(self):
-        if self.group.want_send_message == 'No':
-            self.group.msg_sent = False
-            self.group.b_value = 0
+# class BTakeResults(Page):
+#     form_model = models.Group
+#     form_fields = ['want_send_message', 'time_BTakeResults']
+#     # timeout_seconds = 15
+#
+#     def vars_for_template(self):
+#         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
+#             p_a = self.group.get_player_by_role('A')
+#             p_b = self.group.get_player_by_role('B')
+#             return {
+#                 'A_endowment': p_a.endowment,
+#                 'B_endowment': p_b.endowment,
+#                 'A_task_income': p_a.task_income,
+#                 'B_task_income': p_b.task_income,
+#                 'A_available_income1': p_a.available_income1,
+#                 'B_available_income1': p_b.available_income1,
+#                 'points': self.session.config['USE_POINTS'],
+#             }
+#
+#     def is_displayed(self):
+#         return self.player.role() == 'B' and (self.group.treatment == 'FM', 'TP', 'DM')
+#
+#     # defining whether message is sent or not
+#     def before_next_page(self):
+#         if self.group.want_send_message == 'No':
+#             self.group.msg_sent = False
+#             self.group.b_value = 0
 
 ########################################################################################################################
-
-
-class AllFM(Page):
-    """ """
-    form_model = models.Group
-    form_fields = ['b_message', 'time_AllFM']
-
-    # timeout_seconds = 360
-
-    def is_displayed(self):
-        return self.group.want_send_message == 'Yes' and self.player.role() == 'B' and self.group.treatment == 'FM'
-
-    def vars_for_template(self):
-        if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
-            p_a = self.group.get_player_by_role('A')
-            p_b = self.group.get_player_by_role('B')
-            return {
-                'A_endowment': p_a.endowment,
-                'B_endowment': p_b.endowment,
-                'A_task_income': p_a.task_income,
-                'B_task_income': p_b.task_income,
-                'A_available_income1': p_a.available_income1,
-                'B_available_income1': p_b.available_income1,
-                'points': self.session.config['USE_POINTS'],
-            }
-
-    # defining whether message is sent or not
-    def before_next_page(self):
-        self.group.msg_sent = True
-
 
 class AllBdmCont(Page):
     """ """
@@ -197,10 +179,8 @@ class AllBdmCont(Page):
     # timeout_seconds = 360
 
     def is_displayed(self):
-        return self.group.want_send_message == 'Yes' and \
-            self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'CONT' and \
+        return self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'CONT' and \
             (self.group.treatment == 'DM' or self.group.treatment == 'TP' )
-
 
     def vars_for_template(self):
         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
@@ -216,21 +196,26 @@ class AllBdmCont(Page):
                 'points': self.session.config['USE_POINTS'],
             }
 
-
     def b_value_max(self):
         return self.player.available_income1
 
-    def b_value_error_message(self, value):
-        if self.group.want_send_message:
-            if not (0 <= value <= self.player.available_income1):
-                return 'Must be equal or greater than zero and equal or below available income'
+    def error_message(self, values):
+        if values["b_message"] != "":
+            if values["b_value"] is None:
+                return 'You must provide a valuation'
 
     # defining whether message is sent or not
     def before_next_page(self):
-        self.group.msg_sent = (self.group.b_value >= self.group.message_price)
+        if self.group.b_message == "":
+            self.group.want_send_message = 'No'
+            self.group.msg_sent = 0
+            if self.group.b_value is None:
+                self.group.b_value = 0
+        else:
+            self.group.want_send_message = 'Yes'
+            self.group.msg_sent = (self.group.b_value >= self.group.message_price)
 
-########################################################################################################################
-
+#########################################################################
 
 class AllBdmList(Page):
     """ """
@@ -261,9 +246,8 @@ class AllBdmList(Page):
     # timeout_seconds = 360
 
     def is_displayed(self):
-        return self.group.want_send_message == 'Yes' and \
-            self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'LIST' and \
-            (self.group.treatment == 'DM' or self.group.treatment == 'TP' )
+        return self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'LIST' and \
+            (self.group.treatment == 'DM' or self.group.treatment == 'TP')
 
     def vars_for_template(self):
         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
@@ -280,52 +264,112 @@ class AllBdmList(Page):
                 'points': self.session.config['USE_POINTS']
             }
 
+    # this yields error if the participant attempts to write something but does not respond value questions
+    def error_message(self, values):
+        if values["b_message"] != "":
+            if self.group.value_type == 'WTP':
+                for i in range(0, self.group.price_list_size):
+                    if values['list_price_{0}_yes'.format(i)] is None:
+                        return 'If you write a message, you must respond to each row of the table.'
+            if self.group.value_type == 'WTA':
+                for i in range(0, self.group.price_list_size):
+                    if values['list_compensation_{0}'.format(i)] is None:
+                        return 'If you write a message, you must respond to each row of the table.'
+
+
+    def before_next_page(self):
+
+        if self.group.b_message == "":
+            self.group.want_send_message = 'No'
+            self.group.msg_sent = 0
+            if self.group.b_value is None:
+                self.group.b_value = 0
+        else:
+            self.group.want_send_message = 'Yes'
+
+            # In WTP: value is the highest price to which player b says 'Yes'
+            if self.group.value_type == 'WTP':
+
+                # reading responses and putting them in a list
+                responses_list = []
+                for i in range(0, self.group.price_list_size):
+                    # res = getattr(self.group, 'list_price_{}_yes'.format(i))
+                    responses_list.append(getattr(self.group, 'list_price_{}_yes'.format(i)))
+
+                if 'Yes' in responses_list:
+                    posit = len(responses_list) - 1 - responses_list[::-1].index('Yes')  # finds last occurrence of Yes
+                    self.group.b_value = self.group.price_list[posit]
+                else:
+                    self.group.b_value = 0
+            print("b_value", self.group.b_value)
+
+            # In WTA: value is the highest amount to which player responds stating he preferes to 'Send message'
+            if self.group.value_type == 'WTA':
+
+                # reading responses and putting them in a list
+                responses_list = []
+                for i in range(0, self.group.price_list_size):
+                    # res = getattr(self.group, 'list_price_{}_yes'.format(i))
+                    responses_list.append(getattr(self.group, 'list_compensation_{}'.format(i)))
+
+                if 'Send message' in responses_list:
+                    posit = len(responses_list) - 1 - responses_list[::-1].index('Send message')  # finds last occurrence of No
+                    self.group.b_value = self.group.price_list[posit]
+                else:
+                    self.group.b_value = 0
+            print("b_value", self.group.b_value)
+
+            # random price in BDM list needs to be an element of price list
+            # this finds the the closest price in the price_list to the randomly generated message_price
+            self.group.message_price = min(self.group.price_list, key=lambda x: abs(x - self.group.message_price))
+            print("b_value", self.group.b_value)
+
+            # setting boolean whether message is sent or not
+            self.group.msg_sent = (self.group.b_value >= self.group.message_price)
+
+
+########################################################################################################################
+
+
+class AllFmNm(Page):
+    """ """
+    form_model = models.Group
+    form_fields = ['b_message', 'time_AllFmNm']
+
+    # timeout_seconds = 360
+
+    def is_displayed(self):
+        return self.player.role() == 'B' and \
+               (self.group.treatment == 'FM' or self.group.treatment == 'NM')
+
+    def vars_for_template(self):
+        if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
+            p_a = self.group.get_player_by_role('A')
+            p_b = self.group.get_player_by_role('B')
+            return {
+                'A_endowment': p_a.endowment,
+                'B_endowment': p_b.endowment,
+                'A_task_income': p_a.task_income,
+                'B_task_income': p_b.task_income,
+                'A_available_income1': p_a.available_income1,
+                'B_available_income1': p_b.available_income1,
+                'points': self.session.config['USE_POINTS'],
+            }
 
     # defining whether message is sent or not
     def before_next_page(self):
-
-
-        # In WTP: value is the highest price to which player b says 'Yes'
-        if self.group.value_type == 'WTP':
-
-            # reading responses and putting them in a list
-            responses_list = []
-            for i in range(0, self.group.price_list_size):
-                # res = getattr(self.group, 'list_price_{}_yes'.format(i))
-                responses_list.append(getattr(self.group, 'list_price_{}_yes'.format(i)))
-
-            if 'Yes' in responses_list:
-                posit = len(responses_list) - 1 - responses_list[::-1].index('Yes')  # finds last occurrence of Yes
-                self.group.b_value = self.group.price_list[posit]
+        if self.group.treatment == 'FM':
+            if self.group.b_message == "":
+                self.group.want_send_message = 'No'
+                self.group.msg_sent = False
             else:
-                self.group.b_value = 0
-        print("b_value", self.group.b_value)
-
-        # In WTA: value is the highest amount to which player responds stating he preferes to 'Send message'
-        if self.group.value_type == 'WTA':
-
-            # reading responses and putting them in a list
-            responses_list = []
-            for i in range(0, self.group.price_list_size):
-                # res = getattr(self.group, 'list_price_{}_yes'.format(i))
-                responses_list.append(getattr(self.group, 'list_compensation_{}'.format(i)))
-
-            if 'Send message' in responses_list:
-                posit = len(responses_list) - 1 - responses_list[::-1].index('Send message')  # finds last occurrence of No
-                self.group.b_value = self.group.price_list[posit]
-            else:
-                self.group.b_value = 0
-        print("b_value", self.group.b_value)
+                self.group.want_send_message = 'Yes'
+                self.group.msg_sent = True
+        elif self.group.treatment == 'NM':
+            self.group.msg_sent = False
 
 
-        # random price in BDM list needs to be an element of price list
-        # this finds the the closest price in the price_list to the randomly generated message_price
-        self.group.message_price = min(self.group.price_list, key=lambda x: abs(x - self.group.message_price))
-        print("b_value", self.group.b_value)
-
-        # setting boolean whether message is sent or not
-        self.group.msg_sent = (self.group.b_value >= self.group.message_price)
-
+#######################################################################################################
 
 
 # class AllSOP(Page):
@@ -355,8 +399,6 @@ class AllBdmList(Page):
 #                self.group.msg_sent = True
 
 
-
-
 class BdmResults(Page):
     """Page _:"""
     form_model = models.Group
@@ -379,11 +421,9 @@ class DisplayMessageToA(Page):
         (self.group.treatment == 'DM' or self.group.treatment == 'FM')
 
 
-class WaitMessagesInTP(WaitPage):
-    """ Page _: Reader Waits for B\TP players messages """
-    wait_for_all_groups = True  # for whom x needs to wait
+class RWaitsMessagesInTP(WaitPage):
+    wait_for_all_groups = True  # TODO ask oTree core to have better waiting functions: (who_waits waits_for)
 
-    # x who he/she waits
     def is_displayed(self):
         return self.player.role() == 'R'
 
@@ -455,14 +495,13 @@ page_sequence = [
     ADecides,
     WaitsForGroup,
     ATakeResults,
-    BTakeResults,
-    AllFM,
+    AllFmNm,
     AllBdmCont,
     AllBdmList,
-    WaitsForGroup,  # A waits for possible message
+    AWaitsForGroup,
     BdmResults,
     DisplayMessageToA,
-    WaitMessagesInTP,
+    RWaitsMessagesInTP,
     DisplayMessagesToR,
     ResultsWaitPage,
     Results

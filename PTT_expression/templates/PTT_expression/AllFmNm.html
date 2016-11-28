@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Role B's Decisions
+    Role B
 {% endblock %}
 
 {% block scripts %}
@@ -21,7 +21,7 @@
 
 {% block content %}
 
-    {% formfield  group.time_AllFM with label=None  %}
+    {% formfield  group.time_AllFmNm with label=None  %}
 
     {# INFO#}
     <p> <em>Role A</em> has taken <b>{{group.take_rate}}%</b> ({{group.money_taken}}) of your <em>task income</em>. </p>
@@ -60,20 +60,27 @@
 
 
     {# MESSAGE#}
-    <div>
-    {% if group.treatment == 'DM' or group.treatment == 'FM' %}
-        <p> Write your <b>message to <em>Role A</em> regarding his/her decision</b> in the box below:</p>
-    {% elif group.treatment == 'TP' %}
-        <p> Write your <b>message to the <em>Reader</em> regarding his/her decision</b> in the box below:</p>
+    {% if group.treatment == 'FM' %}
+        <div>
+
+            <p> If you would like to write a <b>message to <em>Role A</em> regarding his/her decision</b>, use the message box below:</p>
+
+            {% formfield group.b_message with label="Message box" %}
+
+            <p> If you do not wish to write any message, make sure the message box is empty and click {% include "../../PTT_expression/templates/PTT_expression/advance.html" %} </p>
+        </div>
     {% endif %}
-        {% formfield group.b_message with label="" %}
-    </div>
+
+    <br/>
     <br/>
 
+    {% if group.treatment == 'FM' %}
+        {% include "../../PTT_expression/templates/PTT_expression/submit.html" %}
+    {% elif group.treatment == 'NM' %}
+        {% next_button %}
+    {% endif %}
 
-    {% next_button %}
-
-    <br/> {# line break #}
+    <br/>
 
     {% include "../../PTT_express_instructions/templates/PTT_express_instructions/SummaryInstructions.html" %}
 

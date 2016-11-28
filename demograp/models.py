@@ -37,6 +37,7 @@ class Player(BasePlayer):
 
     q_country = CountryField(
         verbose_name='What is your country of citizenship?')
+
     q_age = models.PositiveIntegerField(verbose_name='What is your age?',
                                         choices=range(13, 125),
                                         initial=None)

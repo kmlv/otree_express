@@ -2,17 +2,11 @@
 
 ## Kristian To do
     
-+ Revisar mauss + panas de Pao. quitar join method. Reducir emotion list in panas + maus. 
-
-+ Check the best fingers for GSR.
++ Revisar mauss + panas de Pao. quitar join method.  
 
 + Init Instructions: Corregir typos. pointed by William.
 
 + Instructions: Review control questions.
-
-+ Add country to demograp
-
-+ Add "you will not be charged less than your valuation" 
 
 * Search Task Instructions: "The number of screens is undetermined so we recommend move to the next screen as soon." 
 
@@ -20,8 +14,6 @@
 and guidance for the actual tasks you will do. There will be no surprises or tricks."        
   
 * Add question "Do you want to provide feedback regarding this experiments to the researchers?" in the final questionnaire.
-
-* 15 seconds task
 
 - PTT_expression: SOP integrated pages, similiar to the BDM Cont. 
  
@@ -32,6 +24,8 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 - PTT_expression: Ascending and descending prices
 
 - clarify that they do not need to get all answers right in control questions.
+
+- Reducir emotion list in panas + maus. DONE
 
 
 ## Pao To Do
@@ -59,12 +53,13 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 
 ## Ankur To Do
 
+* SearchTask: Reduce this time to 20 seconds? add parameter of seconds and scale/stake of points per task? (ask Kristian)
 
-* Bring back the double button screen. Done, KL Reviews. 
+* Bring back the double button screen. --> Done. KL Reviews. 
  
-* Counter of attempts in control questions / or saves parallel / save at validation
+* Create a tool for menu of emojis. 
 
-* SearchTask Reduce this time to 20 seconds? add parameter of seconds and scale/stake of points per task? (ask Kristian)
+* Counter of attempts in control questions / or saves parallel / save at validation
 
 * Global Styling 
 
@@ -72,9 +67,8 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 
 * Build a "receipt app" so we can simply distribute envelopes with money.
 
-* Random selector (ask Kristian if he remembers)
-
 * Reading for free time: http://people.ischool.berkeley.edu/~hal/Papers/2015/cause03.pdf
+
 
 ## LINKS
 

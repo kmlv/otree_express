@@ -589,7 +589,15 @@ SESSION_CONFIGS = [
         'num_readers': ptt_express_treatment_config.num_readers,
         'reader_endowment': ptt_express_treatment_config.reader_endowment,
         'Params': ptt_express_treatment_config.params,
-        'app_sequence': ['emo_quest_panas_mauss', 'PTT_express_instructions', 'search_task', 'PTT_expression', 'emo_quest_panas_mauss_2', 'demograp', 'payment_info'],
+        'app_sequence': [
+            '_Cover_Welcome',
+            'emo_quest_panas_mauss',
+            'PTT_express_instructions',
+            'search_task', 'PTT_expression',
+            'emo_quest_panas_mauss_2',
+            'demograp',
+            'payment_info'
+        ],
         'debug': False
     }
     #############################################

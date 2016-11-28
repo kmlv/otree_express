@@ -23,8 +23,8 @@ angular.module('Game', []).controller("gameController",
     $scope.task = 1;
 
     // time variables
-    $scope.timelimit = 35;
-    $scope.time = 35;
+    $scope.timelimit = 20;
+    $scope.time = 20;
     $scope.practiceRound = 1;
     $scope.validClick = false;
 
