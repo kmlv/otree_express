@@ -1,0 +1,830 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Word Definitions
+{% endblock %}
+
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#expand").hide();
+        $("#expand-instructions").click(function() {
+            if($("#expand").is(":visible")){
+                $("#expand").hide("fast");
+                return;
+            }
+            $("#expand").show("fast");
+        });
+    })
+</script>
+
+<style>
+    #expand{
+        padding-top: 10px;
+    }
+</style>
+
+<button id="expand-instructions" class="btn " type="button"> Show Dictionary</button>
+
+{####################################################################}
+ <div id="expand" class="instructions well well-lg"> {#    paper effect starts #}
+
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 6px;
+}
+
+
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th rowspan="2">ACCUSING</th>
+    <td>blaming</td>
+  </tr>
+  <tr>
+    <td>The policeman was accusing the man of stealing a wallet.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">AFFECTIONATE</th>
+    <td>showing fondness towards someone</td>
+  </tr>
+  <tr>
+    <td>Most mothers are affectionate to their babies by giving them
+lots of kisses and cuddles.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">AGHAST</th>
+    <td>horrified, astonished, alarmed</td>
+  </tr>
+  <tr>
+    <td>Jane was aghast when she discovered her house had been
+burgled.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">ALARMED</th>
+    <td>fearful, worried, filled with anxiety</td>
+  </tr>
+  <tr>
+    <td>Claire was alarmed when she thought she was being followed
+home.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">AMUSED</th>
+    <td>finding something funny</td>
+  </tr>
+  <tr>
+    <td>I was amused by a funny joke someone told me.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">ANNOYED</th>
+    <td>irritated, displeased</td>
+  </tr>
+  <tr>
+    <td>Jack was annoyed when he found out he had missed the last
+bus home.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">ANTICIPATING</th>
+    <td>expecting</td>
+  </tr>
+  <tr>
+    <td>At the start of the football match, the fans were anticipating a
+quick goal.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">ANXIOUS</th>
+    <td>worried, tense, uneasy</td>
+  </tr>
+  <tr>
+    <td>The student was feeling anxious before taking her final
+exams.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">APOLOGETIC</th>
+    <td>feeling sorry</td>
+  </tr>
+  <tr>
+    <td>The waiter was very apologetic when he spilt soup all over the
+customer.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">ARROGANT</th>
+    <td>conceited, self-important, having a big opinion of oneself</td>
+  </tr>
+  <tr>
+    <td>The arrogant man thought he knew more about politics than
+everyone else in the room.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">ASHAMED</th>
+    <td>overcome with shame or guilt</td>
+  </tr>
+  <tr>
+    <td>The boy felt ashamed when his mother discovered him
+stealing money from her purse.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">ASSERTIVE</th>
+    <td>confident, dominant, sure of oneself</td>
+  </tr>
+  <tr>
+    <td>The assertive woman demanded that the shop give her a
+refund.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">BAFFLED</th>
+    <td>confused, puzzled, dumbfounded</td>
+  </tr>
+  <tr>
+    <td>The detectives were completely baffled by the murder case.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">BEWILDERED</th>
+    <td>utterly confused, puzzled, dazed</td>
+  </tr>
+  <tr>
+    <td>The child was bewildered when visiting the big city for the
+first time.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">CAUTIOUS</th>
+    <td>careful, wary</td>
+  </tr>
+  <tr>
+    <td>Sarah was always a bit cautious when talking to someone she
+did not know.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">COMFORTING</th>
+    <td>consoling, compassionate</td>
+  </tr>
+  <tr>
+    <td>The nurse was comforting the wounded soldier</td>
+  </tr>
+  <tr>
+    <th rowspan="2">CONCERNED</th>
+    <td>worried, troubled</td>
+  </tr>
+  <tr>
+    <td>The doctor was concerned when his patient took a turn for the
+worse.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">CONFIDENT</th>
+    <td>self-assured, believing in oneself</td>
+  </tr>
+  <tr>
+    <td>The tennis player was feeling very confident about winning
+his match.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">CONFUSED</th>
+    <td>puzzled, perplexed</td>
+  </tr>
+  <tr>
+    <td>Lizzie was so confused by the directions given to her, she got
+lost.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">CONTEMPLATIVE</th>
+    <td>reflective, thoughtful, considering</td>
+  </tr>
+  <tr>
+    <td>John was in a contemplative mood on the eve of his 60th
+birthday.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">CONTENTED</th>
+    <td>satisfied</td>
+  </tr>
+  <tr>
+    <td>After a nice walk and a good meal, David felt very contented.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">CONVINCED</th>
+    <td>certain, absolutely positive</td>
+  </tr>
+  <tr>
+    <td>Richard was convinced he had come to the right decision.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">CURIOUS</th>
+    <td>inquisitive, inquiring, prying</td>
+  </tr>
+  <tr>
+    <td>Louise was curious about the strange shaped parcel.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DECIDING</th>
+    <td>making your mind up</td>
+  </tr>
+  <tr>
+    <td>The man was deciding whom to vote for in the election.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DECISIVE</th>
+    <td>already made your mind up</td>
+  </tr>
+  <tr>
+    <td>Jane looked very decisive as she walked into the polling
+station.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DEFIANT</th>
+    <td>insolent, bold, dont care what anyone else thinks</td>
+  </tr>
+  <tr>
+    <td>The animal protester remained defiant even after being sent to
+prison.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DEPRESSED</th>
+    <td>miserable</td>
+  </tr>
+  <tr>
+    <td>George was depressed when he didn't receive any birthday
+cards.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DESIRE</th>
+    <td>passion, lust, longing for</td>
+  </tr>
+  <tr>
+    <td>Kate had a strong desire for chocolate.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DESPONDENT</th>
+    <td>gloomy, despairing, without hope</td>
+  </tr>
+  <tr>
+    <td>Gary was despondent when he did not get the job he wanted.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DISAPPOINTED</th>
+    <td>displeased, disgruntled</td>
+  </tr>
+  <tr>
+    <td>Manchester United fans were disappointed not to win the
+Championship.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DISPIRITED</th>
+    <td>glum, miserable, low</td>
+  </tr>
+  <tr>
+    <td>Adam was dispirited when he failed his exams.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DISTRUSTFUL</th>
+    <td>suspicious, doubtful, wary</td>
+  </tr>
+  <tr>
+    <td>The old woman was distrustful of the stranger at her door.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DOMINANT</th>
+    <td>commanding, bossy</td>
+  </tr>
+  <tr>
+    <td>The sergeant major looked dominant as he inspected the new
+recruits.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DOUBTFUL</th>
+    <td>dubious, suspicious, not really believing</td>
+  </tr>
+  <tr>
+    <td>Mary was doubtful that her son was telling the truth.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">DUBIOUS</th>
+    <td>doubtful, suspicious</td>
+  </tr>
+  <tr>
+    <td>Peter was dubious when offered a surprisingly cheap
+television in a pub.</td>
+  </tr>
+  <tr>
+    <th rowspan="2">EAGER</th>
+    <td>keen</td>
+  </tr>
+  <tr>
+    <td>On Christmas morning, the children were eager to open their
+presents.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">EARNEST</th>
+    <td>having a serious intention</td>
+  </tr>
+  <tr>
+    <td>Harry was very earnest about his religious beliefs.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">EMBARRASSED</th>
+    <td>ashamed</td>
+  </tr>
+  <tr>
+    <td>After forgetting a colleague's name, Jenny felt very
+embarrassed.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">ENCOURAGING</th>
+    <td>hopeful, heartening, supporting</td>
+  </tr>
+  <tr>
+    <td>All the parents were encouraging their children in the school
+sports day.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">ENTERTAINED</th>
+    <td>absorbed and amused or pleased by something</td>
+  </tr>
+  <tr>
+    <td>I was very entertained by the magician.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">ENTHUSIASTIC</th>
+    <td>very eager, keen</td>
+  </tr>
+  <tr>
+    <td>Susan felt very enthusiastic about her new fitness plan.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">FANTASIZING</th>
+    <td>daydreaming</td>
+  </tr>
+  <tr>
+    <td>Emma was fantasizing about being a film star.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">FASCINATED</th>
+    <td>captivated, really interested</td>
+  </tr>
+  <tr>
+    <td>At the seaside, the children were fascinated by the creatures
+in the rock pools.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">FEARFUL</th>
+    <td>terrified, worried</td>
+  </tr>
+  <tr>
+    <td>In the dark streets, the women felt fearful.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">FLIRTATIOUS</th>
+    <td>brazen, saucy, teasing, playful</td>
+  </tr>
+  <tr>
+    <td>Connie was accused of being flirtatious when she winked at a
+stranger at a party.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">FLUSTERED</th>
+    <td>confused, nervous and upset</td>
+  </tr>
+  <tr>
+    <td>Sarah felt a bit flustered when she realised how late she was
+for the meeting and that she had forgotten an important
+document.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">FRIENDLY</th>
+    <td>sociable, amiable</td>
+  </tr>
+  <tr>
+    <td>The friendly girl showed the tourists the way to the town
+centre.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">GRATEFUL</th>
+    <td>thankful</td>
+  </tr>
+  <tr>
+    <td>Kelly was very grateful for the kindness shown by the
+stranger.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">GUILTY</th>
+    <td>feeling sorry for doing something wrong</td>
+  </tr>
+  <tr>
+    <td>Charlie felt guilty about having an affair.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">HATEFUL</th>
+    <td>showing intense dislike</td>
+  </tr>
+  <tr>
+    <td>The two sisters were hateful to each other and always
+fighting</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">HOPEFUL</th>
+    <td>optimistic</td>
+  </tr>
+  <tr>
+    <td>Larry was hopeful that the post would bring good news.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">HORRIFIED</th>
+    <td>terrified, appalled</td>
+  </tr>
+  <tr>
+    <td>The man was horrified to discover that his new wife was
+already married.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">HOSTILE</th>
+    <td>unfriendly</td>
+  </tr>
+  <tr>
+    <td>The two neighbours were hostile towards each other because
+of an argument about loud music.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">IMPATIENT</th>
+    <td>restless, wanting something to happen soon</td>
+  </tr>
+  <tr>
+    <td>Jane grew increasingly impatient as she waited for her friend
+who was already 20 minutes late.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">IMPLORING</th>
+    <td>begging, pleading</td>
+  </tr>
+  <tr>
+    <td>Nicola looked imploring as she tried to persuade her dad to
+lend her the car.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">INCREDULOUS</th>
+    <td>not believing</td>
+  </tr>
+  <tr>
+    <td>Simon was incredulous when he heard that he had won the
+lottery.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">INDECISIVE</th>
+    <td>unsure, hesitant, unable to make your mind up</td>
+  </tr>
+  <tr>
+    <td>Tammy was so indecisive that she couldn't even decide what
+to have for lunch.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">INDIFFERENT</th>
+    <td>disinterested, unresponsive, don't care</td>
+  </tr>
+  <tr>
+    <td>Terry was completely indifferent as to whether they went to
+the cinema or the pub.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">INSISTING</th>
+    <td>demanding, persisting, maintaining</td>
+  </tr>
+  <tr>
+    <td>After a work outing, Frank was insisting he paid the bill for
+everyone.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">INSULTING</th>
+    <td>rude, offensive</td>
+  </tr>
+  <tr>
+    <td>The football crowd was insulting the referee after he gave a
+penalty.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">INTERESTED</th>
+    <td>inquiring, curious</td>
+  </tr>
+  <tr>
+    <td>After seeing Jurassic Park, Hugh grew very interested in
+dinosaurs.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">INTRIGUED</th>
+    <td>very curious, very interested</td>
+  </tr>
+  <tr>
+    <td>A mystery phone call intrigued Zoe.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">IRRITATED</th>
+    <td>exasperated, annoyed</td>
+  </tr>
+  <tr>
+    <td>Frances was irritated by all the junk mail she received.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">JEALOUS</th>
+    <td>envious</td>
+  </tr>
+  <tr>
+    <td>Tony was jealous of all the taller, better-looking boys in his
+class.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">JOKING</th>
+    <td>being funny, playful</td>
+  </tr>
+  <tr>
+    <td>Gary was always joking with his friends.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">NERVOUS</th>
+    <td>apprehensive, tense, worried</td>
+  </tr>
+  <tr>
+    <td>Just before her job interview, Alice felt very nervous.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">OFFENDED</th>
+    <td>insulted, wounded, having hurt feelings</td>
+  </tr>
+  <tr>
+    <td>When someone made a joke about her weight, Martha felt very
+offended.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">PANICKED</th>
+    <td>distraught, feeling of terror or anxiety</td>
+  </tr>
+  <tr>
+    <td>On waking to find the house on fire, the whole family was
+panicked.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">PENSIVE</th>
+    <td>thinking about something slightly worrying</td>
+  </tr>
+  <tr>
+    <td>Susie looked pensive on the way to meeting her boyfriend's
+parents for the first time.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">PERPLEXED</th>
+    <td>bewildered, puzzled, confused</td>
+  </tr>
+  <tr>
+    <td>Frank was perplexed by the disappearance of his garden
+gnomes.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">PLAYFUL</th>
+    <td>full of high spirits and fun</td>
+  </tr>
+  <tr>
+    <td>Neil was feeling playful at his birthday party.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">PREOCCUPIED</th>
+    <td>absorbed, engrossed in one's own thoughts</td>
+  </tr>
+  <tr>
+    <td>Worrying about her mother's illness made Debbie
+preoccupied at work</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">PUZZLED</th>
+    <td>perplexed, bewildered, confused</td>
+  </tr>
+  <tr>
+    <td>After doing the crossword for an hour, June was still puzzled
+by one clue.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">REASSURING</th>
+    <td>supporting, encouraging, giving someone confidence</td>
+  </tr>
+  <tr>
+    <td>Andy tried to look reassuring as he told his wife that her new
+dress did suit her.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">REFLECTIVE</th>
+    <td>contemplative, thoughtful</td>
+  </tr>
+  <tr>
+    <td>George was in a reflective mood as he thought about what
+he'd done with his life.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">REGRETFUL</th>
+    <td>sorry</td>
+  </tr>
+  <tr>
+    <td>Lee was always regretful that he had never travelled when he
+was younger.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">RELAXED</th>
+    <td>taking it easy, calm, carefree</td>
+  </tr>
+  <tr>
+    <td>On holiday, Pam felt happy and relaxed.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">RELIEVED</th>
+    <td>freed from worry or anxiety</td>
+  </tr>
+  <tr>
+    <td>At the restaurant, Ray was relieved to find that he had not
+forgotten his wallet.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">RESENTFUL</th>
+    <td>bitter, hostile</td>
+  </tr>
+  <tr>
+    <td>The businessman felt very resentful towards his younger
+colleague who had been promoted above him.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">SARCASTIC</th>
+    <td>cynical, mocking, scornful</td>
+  </tr>
+  <tr>
+    <td>The comedian made a sarcastic comment when someone
+came into the theatre late.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">SATISFIED</th>
+    <td>content, fulfilled</td>
+  </tr>
+  <tr>
+    <td>Steve felt very satisfied after he had got his new flat just how
+he wanted it.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">SCEPTICAL</th>
+    <td>doubtful, suspicious, mistrusting</td>
+  </tr>
+  <tr>
+    <td>Patrick looked sceptical as someone read out his horoscope to
+him.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">SERIOUS</th>
+    <td>solemn, grave</td>
+  </tr>
+  <tr>
+    <td>The bank manager looked serious as he refused Nigel an
+overdraft.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">STERN</th>
+    <td>severe, strict, firm</td>
+  </tr>
+  <tr>
+    <td>The teacher looked very stern as he told the class off.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">SUSPICIOUS</th>
+    <td>disbelieving, suspecting, doubting</td>
+  </tr>
+  <tr>
+    <td>After Sam had lost his wallet for the second time at work, he
+grew suspicious of one of his colleagues.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">SYMPATHETIC</th>
+    <td>kind, compassionate</td>
+  </tr>
+  <tr>
+    <td>The nurse looked sympathetic as she told the patient the bad
+news.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">TENTATIVE</th>
+    <td>hesitant, uncertain, cautious</td>
+  </tr>
+  <tr>
+    <td>Andrew felt a bit tentative as he went into the room full of
+strangers.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">TERRIFIED</th>
+    <td>alarmed, fearful</td>
+  </tr>
+  <tr>
+    <td>The boy was terrified when he thought he saw a ghost.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">THOUGHTFUL</th>
+    <td>thinking about something</td>
+  </tr>
+  <tr>
+    <td>Phil looked thoughtful as he sat waiting for the girlfriend he
+was about to finish with.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">THREATENING</th>
+    <td>menacing, intimidating</td>
+  </tr>
+  <tr>
+    <td>The large, drunken man was acting in a very threatening way.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">UNEASY</th>
+    <td>unsettled, apprehensive, troubled</td>
+  </tr>
+  <tr>
+    <td>Karen felt slightly uneasy about accepting a lift from the man
+she had only met that day.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">UPSET</th>
+    <td>agitated, worried, uneasy</td>
+  </tr>
+  <tr>
+    <td>The man was very upset when his mother died.</td>
+  </tr>
+
+  <tr>
+    <th rowspan="2">WORRIED</th>
+    <td>anxious, fretful, troubled</td>
+  </tr>
+  <tr>
+    <td>When her cat went missing, the girl was very worried.</td>
+  </tr>
+
+
+</table>
+
+</body>
+
+{% endblock %}
