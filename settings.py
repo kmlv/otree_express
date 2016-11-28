@@ -592,7 +592,7 @@ SESSION_CONFIGS = [
         'app_sequence': [
             '_Cover_Welcome',
             'emo_quest_panas_mauss',
-            'PTT_express_instructions',
+            'mauss_questions',
             'search_task', 'PTT_expression',
             'emo_quest_panas_mauss_2',
             'demograp',
