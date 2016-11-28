@@ -98,6 +98,11 @@ class Player(BasePlayer):
 
     endowment = models.CurrencyField()
     participation_fee = models.CurrencyField()
+    # Check if this is the first time visiting the page by counting how many fields are validated
+    # < 6 means this is the first time
+    number_of_questions = 6
+    # Start at -1 because we iterate at the start of field validation
+    fields_checked = models.IntegerField(initial=-1)
 
     # warning: falta timestamp
 
@@ -109,10 +114,17 @@ class Player(BasePlayer):
         choices=['Yes', 'No'],
         widget=widgets.RadioSelectHorizontal())
 
+    ctrlQ_anonymity_err = models.CharField(
+        choices=['Yes', 'No'])
+
+
     ctrlQ_who_transfers = models.CharField(
         verbose_name='Who decides how much to take from Role B’s account and deposit it into Role A’s account?',
         choices=['Role A', 'Role B', 'Role C', 'Role R', 'None of the above'],
         widget=widgets.RadioSelect())
+    
+    ctrlQ_who_transfers_err = models.CharField(
+        choices=['Role A', 'Role B', 'Role C', 'Role R', 'None of the above'])
 
     ctrlQ_B_always_sends = models.CharField(
         verbose_name='Will the participant in Role B always send a message to the participant in Role A '
@@ -120,10 +132,18 @@ class Player(BasePlayer):
         choices=['Yes', 'No', 'It depends on his/her valuation for sending a message'],
         widget=widgets.RadioSelect())
 
+    ctrlQ_B_always_sends_err = models.CharField(
+        choices=['Yes', 'No', 'It depends on his/her valuation for sending a message'])
+
+
     ctrlQ_B_sends_message = models.CharField(
         verbose_name='Will the message written by Role B be sent in this case?',
         choices=['Yes', 'No'],
         widget=widgets.RadioSelectHorizontal())
+
+    ctrlQ_B_sends_message_err = models.CharField(
+        choices=['Yes', 'No'])
+
     #labels are going to be defying directly in ControlQuestions.html file instead of verbose
     ctrlQ_A_earnings = models.CharField(
 #        verbose_name='What are the final earnings for the participant in Role A? '
@@ -131,11 +151,17 @@ class Player(BasePlayer):
         choices=['13.00 + X', '13.00 - X', '13.00 - X - Z', '13.00 - X + Z'],
         widget=widgets.RadioSelect())
 
+    ctrlQ_A_earnings_err = models.CharField(
+        choices=['13.00 + X', '13.00 - X', '13.00 - X - Z', '13.00 - X + Z'])
+
     ctrlQ_B_earnings = models.CharField(
 #        verbose_name='What are the final earnings for the participant in Role B? '
 #                    '(Hints: endowment plus task income equals $13.00. Do not include participation fee)',
         choices=['13.00 + X', '13.00 - X', '13.00 - X - Z', '13.00 - X + Z'],
         widget=widgets.RadioSelect())
+
+    ctrlQ_B_earnings_err = models.CharField(
+        choices=['13.00 + X', '13.00 - X', '13.00 - X - Z', '13.00 - X + Z'])
 
 
     # roles
