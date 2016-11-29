@@ -591,9 +591,9 @@ SESSION_CONFIGS = [
         'Params': ptt_express_treatment_config.params,
         'app_sequence': [
             '_Cover_Welcome',
-            'mauss_questions',
+            'batson_questionnaire',
             'search_task', 'PTT_expression',
-            'mauss_questions2',
+            'batson_questionnaire2',
             'demograp',
             'payment_info'
         ],
