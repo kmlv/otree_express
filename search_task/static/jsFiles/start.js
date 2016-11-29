@@ -134,12 +134,11 @@ angular.module('Game', []).controller("gameController",
     $scope.nexttask = function() {
         if ($scope.income > ($scope.incomegoal * 100)  || $scope.task >= $scope.taskGoal) {
           $timeout.cancel($scope.mytimeout);
-          console.log("Task Num: ", $scope.task, " Task Goal: ", $scoe.taskGoal, " Income: ", $scope.income);
+          console.log("Task Num: ", $scope.task, " Task Goal: ", $scope.taskGoal, " Income: ", $scope.income);
           console.log("done with game.");
           $scope.showpage.game = false;
             $scope.showpage.afterGame = true;
             $("#hideNext").show();
-          console.log("income : " + $scope.income);
             return;
         }
 
