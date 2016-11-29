@@ -5,12 +5,14 @@ from .models import Constants
 
 
 class eyes_instructions(Page):
+    form_model = models.Player
+    form_fields = ['time_eyes_instructions']
     def is_displayed(self):
         return self.round_number == 1
 
 class Question(Page):
     form_model = models.Player
-    form_fields = ['submitted_answer']
+    form_fields = ['submitted_answer', 'time_Question']
 
     def submitted_answer_choices(self):
         qd = self.player.current_question()
@@ -39,7 +41,8 @@ class Results(Page):
         player_in_all_rounds = self.player.in_all_rounds()
         return {
             'player_in_all_rounds': player_in_all_rounds,
-            'questions_correct': sum([p.is_correct for p in player_in_all_rounds])
+            'questions_correct': sum([p.is_correct for p in player_in_all_rounds]),
+            'individual_score': str(round(sum([p.is_correct for p in player_in_all_rounds])/36, 2)*100)[:2]+'%'
         }
 
 
