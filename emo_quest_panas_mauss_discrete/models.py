@@ -3,6 +3,7 @@ from otree.api import (
     Currency as c, currency_range
 )
 
+import random
 
 author = 'Kristian'
 
@@ -49,6 +50,15 @@ class Constants(BaseConstants):
         'Strong',
         'Upset'
     ]
+
+    # shuffle
+    panasmauss_list = random.sample(panasmauss_list, len(panasmauss_list))
+
+
+    # list sizes
+    list_size = len(panasmauss_list)
+    num_emo_pg1 = int(round(list_size / 2, 0))
+    num_emo_pg2 = list_size - num_emo_pg1
 
 
 class Subsession(BaseSubsession):
