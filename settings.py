@@ -531,10 +531,10 @@ SESSION_CONFIGS = [
         'debug': True,
     },
     {
-        'name': 'emo_quest_panas_mauss',
+        'name': 'emo_quest_panas_mauss_discrete',
         'display_name': 'Emot Questionnaire Panas + Mauss, n=1',
         'num_demo_participants': 1,
-        'app_sequence': ['emo_quest_panas_mauss'],
+        'app_sequence': ['emo_quest_panas_mauss_discrete'],
         'debug': True,
     },
     {
