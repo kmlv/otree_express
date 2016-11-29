@@ -19,7 +19,6 @@ class QuestionnairePage1(Page):
             'emo_list': shuffled_emotion_list
         }
 
-    timeout_seconds = 600
 
 
 class QuestionnairePage2(Page):
@@ -37,7 +36,6 @@ class QuestionnairePage2(Page):
             'filler_list': shuffled_filler_list
         }
 
-    timeout_seconds = 600
 
 
 class ResultsWaitPage(WaitPage):
@@ -45,7 +43,6 @@ class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):
         pass
 
-    timeout_seconds = 600
 
 
 class DoneQuestionnaire(Page):
