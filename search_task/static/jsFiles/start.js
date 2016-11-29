@@ -145,7 +145,8 @@ angular.module('Game', []).controller("gameController",
         if(!$scope.validClick) return;
 
         $scope.task++;
-        console.log("task ", $scope.task);
+        alert($scope.task);
+        alert($scope.income);
         $scope.income += $scope.locatorState.getPointvalue();
         $scope.maxpoints = (Math.floor(Math.random() * 80) + 40);// * $scope.scale;
         $("#income").text("So far, your income is $" +
