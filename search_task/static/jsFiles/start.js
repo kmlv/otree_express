@@ -132,8 +132,9 @@ angular.module('Game', []).controller("gameController",
     };
 
     $scope.nexttask = function() {
-        if ($scope.income > $scope.incomegoal * 100  || $scope.task >= $scope.taskGoal) {
+        if ($scope.income > ($scope.incomegoal * 100)  || $scope.task >= $scope.taskGoal) {
           $timeout.cancel($scope.mytimeout);
+          console.log("Task Num: ", $scope.task, " Task Goal: ", $scoe.taskGoal, " Income: ", $scope.income);
           console.log("done with game.");
           $scope.showpage.game = false;
             $scope.showpage.afterGame = true;
@@ -145,8 +146,6 @@ angular.module('Game', []).controller("gameController",
         if(!$scope.validClick) return;
 
         $scope.task++;
-        alert($scope.task);
-        alert($scope.income);
         $scope.income += $scope.locatorState.getPointvalue();
         $scope.maxpoints = (Math.floor(Math.random() * 80) + 40);// * $scope.scale;
         $("#income").text("So far, your income is $" +
