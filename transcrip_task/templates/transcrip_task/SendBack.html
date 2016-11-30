@@ -1,0 +1,28 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    <h3>Second Stage</h3>
+    Trust Game: Your Choice
+{% endblock %}
+{% block scripts %}
+
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+{% endblock %}
+{% block content %}
+    {% formfield  group.time_SendBack with label=None  %}
+
+    <p>
+        You are Participant B. Participant A sent you {{group.sent_amount}}
+        and you received {{tripled_amount}}.
+    </p>
+
+    {% formfield group.sent_back_amount with label="How much do you want to send back?" %}
+
+    {% next_button %}
+
+{% endblock %}

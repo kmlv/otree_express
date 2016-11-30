@@ -579,6 +579,12 @@ SESSION_CONFIGS = [
         'num_demo_participants': 1,
         'app_sequence': ['_Cover_Welcome'],
     },
+    {
+        'name': 'transcrip_task',
+        'display_name': "Transcription Task",
+        'num_demo_participants': 2,
+        'app_sequence': ['transcrip_task'],
+    },
     #############################################
     {
         'name': 'Multiple_treatments_actual_sessions',

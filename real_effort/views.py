@@ -14,7 +14,7 @@ class Transcribe(Page):
     def vars_for_template(self):
 
         return {
-            'image_path': 'real_effort/paragraphs/{}.png'.format(
+            'image_path': 'real_effort/transcrip_task/{}.png'.format(
                 self.round_number),
             'reference_text': Constants.reference_texts[self.round_number - 1],
             'debug': settings.DEBUG,
