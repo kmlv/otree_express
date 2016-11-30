@@ -4,9 +4,17 @@
 {% block title %}
 Instructions
 {% endblock %}
+{% block scripts %}
+
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+{% endblock %}
 
 {% block content %}
-
+    {% formfield  player.time_eyes_instructions with label=None  %}
     <p> For each set of eyes, choose and circle which word best describes what the person in the
         picture is thinking or feeling. You may feel that more than one word is applicable but
         please choose just one word, the word which you consider to be most suitable. Before

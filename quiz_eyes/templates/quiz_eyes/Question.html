@@ -4,8 +4,16 @@
 {% block title %}
     Question {{ player.round_number }} of {{ Constants.num_rounds }}
 {% endblock %}
+{% block scripts %}
 
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+{% endblock %}
 {% block content %}
+    {% formfield  player.time_Question with label=None  %}
     <div>
         <img src="{% static image_path %}"/>
     </div>

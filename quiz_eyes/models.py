@@ -52,6 +52,10 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+
+    time_eyes_instructions = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    time_Question = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+
     question_id = models.PositiveIntegerField()
     question = models.CharField()
     solution = models.CharField()
