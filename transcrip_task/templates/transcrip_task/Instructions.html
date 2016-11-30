@@ -1,0 +1,34 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+{% block scripts %}
+
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+{% endblock %}
+{% block content %}
+    {% formfield  player.time_Instructions with label=None  %}
+
+<h3> First Stage</h3>
+<p> This is a transcription task.</p>
+<p>
+    You have to transcribe (copy) the text below into the input field.
+</p>
+<h3> Second Stage</h3>
+<p>This is a trust game with 2 players.</p>
+<p>
+    To start, participant A receives {{ Constants.endowment }};
+    participant B receives nothing.
+    Participant A can send some or all of his {{ Constants.endowment }}
+    to participant B. Before B receives these points they will be tripled.
+    Once B receives the tripled points he can decide to send some or all
+    of his points to A.
+</p>
+    {% next_button %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Trusta Game Results
+{% endblock %}
+
+{% block content %}
+
+{% if player.id_in_group == 1 %}
+    <p>
+        You sent Participant B {{ group.sent_amount }}.
+        Participant B returned {{group.sent_back_amount}}.
+    </p>
+{% else %}
+    <p>
+        Participant A sent you {{ group.sent_amount }}.
+        You returned {{group.sent_back_amount}}.
+    </p>
+
+{% endif %}
+
+    <p>
+    Therefore, your total payoff is {{player.payoff}}.
+    </p>
+    {% next_button %}
+
+{% endblock %}
