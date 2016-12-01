@@ -51,10 +51,6 @@ class Constants(BaseConstants):
         'Upset'
     ]
 
-    # shuffle
-    panasmauss_list = random.sample(panasmauss_list, len(panasmauss_list))
-
-
     # list sizes
     list_size = len(panasmauss_list)
     num_emo_pg1 = int(round(list_size / 2, 0))
@@ -65,7 +61,7 @@ class Subsession(BaseSubsession):
 
     def before_session_starts(self):
         pass
-        # print(Constants.emotion_list)
+
 
 
 class Group(BaseGroup):
@@ -76,10 +72,10 @@ class Player(BasePlayer):
 
     time_EmoQuestPage1 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_EmoQuestPage2 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    list = random.sample(Constants.panasmauss_list, len(Constants.panasmauss_list))
 
-#
 
-for var in Constants.panasmauss_list:
+for var in random.sample(Constants.panasmauss_list, len(Constants.panasmauss_list)):
     Player.add_to_class(
         'panasmauss_{}'.format(var),
         models.IntegerField(
