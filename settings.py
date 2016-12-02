@@ -150,7 +150,7 @@ mturk_hit_settings = {
 
 SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 0.01,
-    'participation_fee': 5.00,
+    'participation_fee': 4.00,
     'num_bots': 6,
     'doc': "",
     'mturk_hit_settings': mturk_hit_settings,
@@ -604,11 +604,12 @@ SESSION_CONFIGS = [
         'Params': ptt_express_treatment_config.params,
         'app_sequence': [
             '_Cover_Welcome',
-            'mauss_questions',
-            'search_task', 'PTT_expression',
-            'mauss_questions2',
-            'demograp',
-            'payment_info'
+            'batson_questionnaire',
+            'PTT_express_instructions',
+            'search_task',
+            'PTT_expression',
+            'batson_questionnaire2',    
+            'demograp'
         ],
         'debug': False
     }

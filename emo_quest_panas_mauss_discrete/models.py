@@ -92,7 +92,7 @@ for var in random.sample(Constants.panasmauss_list, len(Constants.panasmauss_lis
             verbose_name=var,
             widget=widgets.RadioSelectHorizontal()
         )
-        )
+    )
 
 # [1, '1 (Not at all)'],
 # [2, '2'],
