@@ -17,41 +17,41 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     panasmauss_list = [
-        'Active',
-        'Afraid',
-        'Alert',
-        'Amused',
-        'Angry',
-        'Annoyed',
-        'Anxious',
-        'Ashamed',
-        'Attentive',
-        'Calm',
-        'Determined',
-        'Distressed',
-        'Energetic',
-        'Enthusiastic',
-        'Excited',
-        'Gratitude',
-        'Guilty',
-        'Happy',
-        'Hostile',
-        'Inspired',
-        'Interested',
-        'Irritable',
-        'Jittery',
-        'Loving',
-        'Negative (feel bad)',
-        'Nervous',
-        'Positive (feel good)',
-        'Proud',
-        'Sad',
-        'Scared',
-        'Strong',
-        'Upset'
+         'Active',
+         'Excited',
+         'Angry',
+         'Interested',
+         'Sad',
+         'Gratitude',
+         'Upset',
+         'Proud',
+         'Happy',
+         'Hostile',
+         'Anxious',
+         'Strong',
+         'Loving',
+         'Distressed',
+         'Guilty',
+         'Calm',
+         'Nervous',
+         'Scared',
+         'Determined',
+         'Annoyed',
+         'Inspired',
+         'Positive (feel good)',
+         'Alert',
+         'Energetic',
+         'Negative (feel bad)',
+         'Jittery',
+         'Ashamed',
+         'Amused',
+         'Attentive',
+         'Irritable',
+         'Enthusiastic',
+         'Afraid'
     ]
 
-    # list sizes
+        # list sizes
     list_size = len(panasmauss_list)
     num_emo_pg1 = int(round(list_size / 2, 0))
     num_emo_pg2 = list_size - num_emo_pg1
@@ -61,7 +61,6 @@ class Subsession(BaseSubsession):
 
     def before_session_starts(self):
         pass
-
 
 
 class Group(BaseGroup):
@@ -75,7 +74,7 @@ class Player(BasePlayer):
     list = random.sample(Constants.panasmauss_list, len(Constants.panasmauss_list))
 
 
-for var in random.sample(Constants.panasmauss_list, len(Constants.panasmauss_list)):
+for var in Constants.panasmauss_list:
     Player.add_to_class(
         'panasmauss_{}'.format(var),
         models.IntegerField(

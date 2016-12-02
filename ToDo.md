@@ -53,14 +53,10 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 
 ## Ankur To Do
 
-* SearchTask: Reduce this time to 20 seconds? add parameter of seconds and scale/stake of points per task? (ask Kristian)
-
-* Bring back the double button screen. --> Done. KL Reviews. 
- 
 * Create a tool for menu of emojis. 
 
-* Counter of attempts in control questions / or saves parallel / save at validation
-
+* SearchTask: Reduce this time to 20 seconds? add parameter of seconds and scale/stake of points per task? (ask Kristian)
+ 
 * Global Styling 
 
 * MTurk
