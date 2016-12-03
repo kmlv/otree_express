@@ -13,6 +13,11 @@
                 document.getElementById("arrive_time").value = (new Date()).toISOString();
             }
     </script>
+    <!-- Add the following scripts to your file -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="/static/emoji_keyboard/emojionearea.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/emoji_keyboard/emojionearea.min.css">
+    <script type="text/javascript" src="/static/jsFiles/emojiArea.js"></script>
 
 
 {% endblock %}
@@ -66,7 +71,8 @@
     {% elif group.treatment == 'TP' %}
         <p> If you would like to write a <b>message to the <em>Reader</em> regarding Role A's decision</b>, use the message box below:</p>
     {% endif %}
-        {% formfield group.b_message with label="Message box" %}
+       <!-- Add the area class to the text area div -->
+       <textarea name="b_message" rows="10" cols="40" id="id_b_message" class="form-control area"></textarea>
     </div>
     <p>
         If you do not wish to write any message, make sure the message box is empty and click {% include "../../PTT_expression/templates/PTT_expression/advance.html" %}
