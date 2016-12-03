@@ -8,12 +8,12 @@ class EmoQuestPage1(Page):
 
     form_model = models.Player
 
-    form_fields = ['panasmauss_{}'.format(var) for var in form_model.list[:Constants.num_emo_pg1]]
+    form_fields = ['panasmauss_{}'.format(var) for var in Constants.panasmauss_list[:Constants.num_emo_pg1]]
     form_fields.append('time_EmoQuestPage1')
 
     def vars_for_template(self):
         return {
-            'emotions': models.Player.list[:Constants.num_emo_pg1]
+            'emotions': Constants.panasmauss_list[:Constants.num_emo_pg1]
         }
 
 
@@ -21,12 +21,12 @@ class EmoQuestPage2(Page):
 
     form_model = models.Player
 
-    form_fields = ['panasmauss_{}'.format(var) for var in form_model.list[Constants.num_emo_pg1:]]
+    form_fields = ['panasmauss_{}'.format(var) for var in Constants.panasmauss_list[Constants.num_emo_pg1:]]
     form_fields.append('time_EmoQuestPage2')
 
     def vars_for_template(self):
         return {
-            'emotions': models.Player.list[Constants.num_emo_pg1:]
+            'emotions': Constants.panasmauss_list[Constants.num_emo_pg1:]
         }
 
 

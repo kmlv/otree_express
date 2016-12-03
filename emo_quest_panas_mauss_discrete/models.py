@@ -71,7 +71,7 @@ class Player(BasePlayer):
 
     time_EmoQuestPage1 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_EmoQuestPage2 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-    list = random.sample(Constants.panasmauss_list, len(Constants.panasmauss_list))
+    # list = random.sample(Constants.panasmauss_list, len(Constants.panasmauss_list))
 
 
 for var in Constants.panasmauss_list:

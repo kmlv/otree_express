@@ -604,12 +604,11 @@ SESSION_CONFIGS = [
         'Params': ptt_express_treatment_config.params,
         'app_sequence': [
             '_Cover_Welcome',
-            'batson_questionnaire',
-            'PTT_express_instructions',
-            'search_task',
-            'PTT_expression',
-            'batson_questionnaire2',    
-            'demograp'
+            'emo_quest_panas_mauss_discrete',
+            'search_task', 'PTT_expression',
+            'emo_quest_panas_mauss_discrete_2',
+            'demograp',
+            'payment_info'
         ],
         'debug': False
     }
