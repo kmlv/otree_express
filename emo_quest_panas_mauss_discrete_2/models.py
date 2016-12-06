@@ -1,9 +1,14 @@
+from mock.mock import self
 from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
 )
 
 import random
+
+from otree.models import participant
+from otree.models import player
+from otree.models import subsession
 
 author = 'Kristian'
 
@@ -52,20 +57,24 @@ class Constants(BaseConstants):
     ]
 
     # shuffle
-    panasmauss_list = random.sample(panasmauss_list, len(panasmauss_list))
-
-
-    # list sizes
     list_size = len(panasmauss_list)
     num_emo_pg1 = int(round(list_size / 2, 0))
     num_emo_pg2 = list_size - num_emo_pg1
+
+    # list sizes
+
 
 
 class Subsession(BaseSubsession):
 
     def before_session_starts(self):
-        pass
-        # print(Constants.emotion_list)
+        for player in self.get_players():
+            panasmauss_list = random.sample(Constants.panasmauss_list, len(Constants.panasmauss_list))
+            player.participant.vars['panasmauss_list'] = panasmauss_list
+            player.participant.vars['panasmauss_list_1'] = panasmauss_list[:Constants.num_emo_pg1]
+            player.participant.vars['panasmauss_list_2'] = panasmauss_list[Constants.num_emo_pg1:]
+
+           # print(Constants.emotion_list)
 
 
 class Group(BaseGroup):
@@ -79,9 +88,9 @@ class Player(BasePlayer):
 
 #
 
-for var in Constants.panasmauss_list:
+for var in self.player.participant['panasmauss_list_1']:
     Player.add_to_class(
-        'panasmauss_{}'.format(var),
+        'panasmauss_1{}'.format(var),
         models.IntegerField(
             initial=None,
             choices=[
@@ -97,7 +106,24 @@ for var in Constants.panasmauss_list:
             widget=widgets.RadioSelectHorizontal()
         )
         )
-
+for var in self.player.participant['panasmauss_list_2']:
+    Player.add_to_class(
+        'panasmauss_2{}'.format(var),
+        models.IntegerField(
+            initial=None,
+            choices=[
+                [1, '1'],
+                [2, '2'],
+                [3, '3'],
+                [4, '4'],
+                [5, '5'],
+                [6, '6'],
+                [7, '7']
+                ],
+            verbose_name=var,
+            widget=widgets.RadioSelectHorizontal()
+        )
+        )
 # [1, '1 (Not at all)'],
 # [2, '2'],
 # [3, '3'],

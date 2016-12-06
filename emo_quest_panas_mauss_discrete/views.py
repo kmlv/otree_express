@@ -15,7 +15,7 @@ class EmoQuestPage1(Page):
         return {
             'emotions': models.Player.list[:Constants.num_emo_pg1]
         }
-
+    print(form_fields)
 
 class EmoQuestPage2(Page):
 
@@ -23,7 +23,7 @@ class EmoQuestPage2(Page):
 
     form_fields = ['panasmauss_{}'.format(var) for var in form_model.list[Constants.num_emo_pg1:]]
     form_fields.append('time_EmoQuestPage2')
-
+    print(form_fields)
     def vars_for_template(self):
         return {
             'emotions': models.Player.list[Constants.num_emo_pg1:]

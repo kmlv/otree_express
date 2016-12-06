@@ -62,8 +62,6 @@ class Subsession(BaseSubsession):
     def before_session_starts(self):
         pass
 
-
-
 class Group(BaseGroup):
     pass
 
@@ -75,7 +73,7 @@ class Player(BasePlayer):
     list = random.sample(Constants.panasmauss_list, len(Constants.panasmauss_list))
 
 
-for var in random.sample(Constants.panasmauss_list, len(Constants.panasmauss_list)):
+for var in Player.list:
     Player.add_to_class(
         'panasmauss_{}'.format(var),
         models.IntegerField(
