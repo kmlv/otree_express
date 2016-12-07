@@ -14,8 +14,11 @@ where it was detremined that the score found should be treated as an approximati
 
 ## First Appearance
 * The test first appeared in the book "The essential Difference": 
+
 > Simon Baron-Cohen¸ The Essential Difference: Male and Female Brains and the Truth about Autism. Basic Books: 2003.
+
 * previous reference
+
 > Baron-Cohen, S. Jolliffe, T. Mortimore, C. and Robertson, M. (1997). Another advanced test of theory of mind:
 > evidence from very high functioning adults with autism or Asperger Syndrome. 
 > Journal of Child Psychology and Psychiatry 38:813-822
@@ -35,13 +38,14 @@ According this paper:
 	social perception, such as autism spectrum disorders (e.g., Baron-Cohen et al., 1999) and amygdalotomy"
 They provide a revision of 10 studies which used RME test, principally to evaluate:
 lesions on the amigdala, frontal lobe. (more accurate with lesions)
-syndromes of autism, asperger,schizophrenia
-(fRMI=functional magnetic resonance imaging)
+syndromes of autism, asperger,schizophrenia (fRMI=functional magnetic resonance imaging)
 * The “Reading the Mind in the Eyes” Test  Complete Absence of Typical Sex Difference in ~400 Men and Women with Autism
 Baron-Cohen, S., Bowen, D. C., Holt, R. J., Allison, C., Auyeung, B., Lombardo, M. V., ... & Lai, M. C. (2015). The “reading the mind in the eyes” test: complete absence of typical sex difference in~ 400 men and women with autism. PloS one, 10(8), e0136521.
 They use a Two-way ANOVA to confirm a significant sex difference between control males and females  and a absence of a sexdifference between males and females with autism
 * The ‘‘Reading the Mind in the Eyes’’ Test Revised Version: A Study with Normal Adults, and Adults with Asperger Syndrome or High-functioning Autism
+
 > Baron‐Cohen, S., Wheelwright, S., Hill, J., Raste, Y., & Plumb, I. (2001). The “Reading the Mind in the Eyes” test revised version: A > study with normal adults, and adults with Asperger syndrome or high‐functioning autism. Journal of child psychology and psychiatry, > > 42(2), 241-251.ISO 690	
+
 There are two simple modifications we can make to the test to remedy these three limitations: increase the number of items in the test, and increase the number of
 response options on each trial. In the revised version of the test reported in this paper, we have made both of these
 modifications: the total number of items (photographs) is increased from 25 to 36, and the number of response 
