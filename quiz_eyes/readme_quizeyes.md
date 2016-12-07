@@ -1,4 +1,5 @@
 # Reading the mind in the eyes
+
 ## About the test
 Based on the Measurement Instrument Database for the Social Sciences
 http://www.midss.org/content/reading-mind-eyes-test
@@ -10,14 +11,17 @@ http://www.midss.org/content/reading-mind-eyes-test
 Validity was discussed in Baron-Cohen, S. Wheelwright, S. and Hill, J. (2001). 
 Test-retest reliability was examined in Adams, R.B., Rule, N.O., Franklin, R.G., Wang,E., Stevenson,M.T.,Yoshikawa, S.,et al. (2011),
 where it was detremined that the score found should be treated as an approximation.
+
 ## First Appearance
 * The test first appeared in the book "The essential Difference": 
-	>Simon Baron-Cohen¸ The Essential Difference: Male and Female Brains and the Truth about Autism. Basic Books: 2003.
+>Simon Baron-Cohen¸ The Essential Difference: Male and Female Brains and the Truth about Autism. Basic Books: 2003.
 * previous reference
-	>Baron-Cohen, S. Jolliffe, T. Mortimore, C. and Robertson, M. (1997). Another advanced test of theory of mind:
-	>evidence from very high functioning adults with autism or Asperger Syndrome. 
-	>Journal of Child Psychology and Psychiatry 38:813-822
+>Baron-Cohen, S. Jolliffe, T. Mortimore, C. and Robertson, M. (1997). Another advanced test of theory of mind:
+>evidence from very high functioning adults with autism or Asperger Syndrome. 
+>Journal of Child Psychology and Psychiatry 38:813-822
+
 ##Other studies and papers
+
 * prof. Krzysztof Gajos, Maxwell Dworkin 251, 33 Oxford St, Cambridge, MA 02138, kgajos@seas.harvard.edu
 He did the test in order to understand how the ability to recognize emotions of others vary across cultures
 Use 37 pictures showing just the eyes part of people's face
