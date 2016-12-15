@@ -589,7 +589,8 @@ SESSION_CONFIGS = [
     {
         'name': 'transcrip_task',
         'display_name': "Transcription Task",
-        'num_demo_participants': 2,
+        'num_demo_participants': 1,
+        'allowed_error_rates': [0.5, 0.3],     #add many rates as transcription text you have
         'app_sequence': ['transcrip_task'],
     },
     #############################################

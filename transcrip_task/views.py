@@ -23,13 +23,13 @@ class Transcription(Page):
                 self.round_number),
             'reference_text': Constants.reference_texts[self.round_number - 1],
             'debug': settings.DEBUG,
-            'required_accuracy':  100 * (1 - Constants.allowed_error_rates[self.round_number - 1])
+            'required_accuracy':  100 * (1 - self.session.config['allowed_error_rates'][self.round_number - 1])
 
         }
 
     def transcribed_text_error_message(self, transcribed_text):
         reference_text = Constants.reference_texts[self.round_number - 1]
-        allowed_error_rate = Constants.allowed_error_rates[
+        allowed_error_rate = self.session.config['allowed_error_rates'][
             self.round_number - 1]
         distance, ok = distance_and_ok(transcribed_text, reference_text,
                                        allowed_error_rate)
@@ -44,25 +44,9 @@ class Transcription(Page):
     def before_next_page(self):
         self.player.payoff = 0
 
-class Summary(Page):
-    def is_displayed(self):
-        return self.round_number == Constants.num_rounds
-
-    def vars_for_template(self):
-        data_series = []
-        for prev_player in self.player.in_all_rounds():
-            data = {
-                'round_number': prev_player.round_number,
-                'reference_text_length': len(Constants.reference_texts[prev_player.round_number - 1]),
-                'transcribed_text_length': len(prev_player.transcribed_text),
-                'distance': prev_player.levenshtein_distance,
-            }
-            data_series.append(data)
-
-        return {'data_series': data_series}
-
-
 class ResultsTranscrip(Page):
+    form_model = models.Player
+
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
 
@@ -80,56 +64,12 @@ class ResultsTranscrip(Page):
         return {'data_series': data_series}
 
 
-class Send(Page):
-    form_model = models.Group
-    form_fields = ['sent_amount', 'time_Send']
-
-    def is_displayed(self):
-        return self.player.id_in_group == 1
-
-
-class SendBack(Page):
-    form_model = models.Group
-    form_fields = ['sent_back_amount', 'time_SendBack']
-
-    def is_displayed(self):
-        return self.player.id_in_group == 2
-
-    def vars_for_template(self):
-        return {
-            'tripled_amount': self.group.sent_amount * Constants.multiplication_factor
-        }
-
-    def sent_back_amount_choices(self):
-        return currency_range(
-            c(0),
-            self.group.sent_amount * Constants.multiplication_factor,
-            c(1)
-        )
-
-
-class Results(Page):
-    def vars_for_template(self):
-        return {
-            'tripled_amount': self.group.sent_amount * Constants.multiplication_factor
-        }
-
-
-class WaitForP1(WaitPage):
-    pass
-
-
-class ResultsWaitPage(WaitPage):
-    def after_all_players_arrive(self):
-        self.group.set_payoffs()
-
+    def before_next_page(self):
+        self.participant.vars['distance'] = self.player.levenshtein_distance
+        # ask if this save info from all rounds or just the last one
+        # Ask how to save data_series as participant vars
 
 page_sequence = [Instructions,
                  Transcription,
                  ResultsTranscrip,
-                 Send,
-                 WaitForP1,
-                 SendBack,
-                 ResultsWaitPage,
-                 Results,
                  ]
