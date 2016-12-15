@@ -538,10 +538,10 @@ SESSION_CONFIGS = [
         'debug': True,
     },
     {
-        'name': 'emo_quest_panas_mauss_discrete_2',
+        'name': 'emo_quest_panas_mauss_discrete2',
         'display_name': 'Emot Questionnaire Panas + Mauss, n=1, t=2',
         'num_demo_participants': 1,
-        'app_sequence': ['emo_quest_panas_mauss_discrete_2'],
+        'app_sequence': ['emo_quest_panas_mauss_discrete2'],
         'debug': True,
     },
     {
@@ -607,7 +607,7 @@ SESSION_CONFIGS = [
             '_Cover_Welcome',
             'emo_quest_panas_mauss_discrete',
             'search_task', 'PTT_expression',
-            'emo_quest_panas_mauss_discrete_2',
+            'emo_quest_panas_mauss_discrete2',
             'demograp',
             'payment_info'
         ],
