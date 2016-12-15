@@ -60,15 +60,15 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
 
     def before_session_starts(self):
-        pass
-
+        panasmauss_list = random.sample(Constants.panasmauss_list, len(Constants.panasmauss_list))
+        self.session.vars['panasmauss_list_1'] = panasmauss_list[:Constants.num_emo_pg1]
+        self.session.vars['panasmauss_list_2'] = panasmauss_list[Constants.num_emo_pg1:]
 
 class Group(BaseGroup):
     pass
 
 
 class Player(BasePlayer):
-
     time_EmoQuestPage1 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_EmoQuestPage2 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     # list = random.sample(Constants.panasmauss_list, len(Constants.panasmauss_list))
