@@ -30,32 +30,22 @@ and guidance for the actual tasks you will do. There will be no surprises or tri
 
 ## Pao To Do
 
-* Test of Eyes: Cuál es la métrica? Implementar la métrica.
-
 * Transcribing task. Completar. Poner en condición de producción.
  
 * Quant Econ online course: all the way to scipy and pandas. 
-
-* Timestamps in Stata and R. Ver py file de Ankur.
-    
-* Implement the "test of the eyes". Responder: 
-    * Que dicen que mide? (mas alla de autismo, mental health) 
-        * http://www.sciencedirect.com/science/article/pii/S0896627313005680
-        * http://ac.els-cdn.com/S0896627313005680/1-s2.0-S0896627313005680-main.pdf?_tid=c02c1106-b2a7-11e6-bd0e-00000aab0f27&acdnat=1480034603_8cba199b848a762b4b592ce83551a954
-    * Cuál es el feedback / pago cuando correctos?
-     
+         
 * Mturk. 
-
-- Always: work via pull requests, push master to heroku demo app
 
 - Reading: http://people.ischool.berkeley.edu/~hal/Papers/2015/cause03.pdf
 
 
 ## Ankur To Do
 
-* Create a tool for menu of emojis. 
-
 * SearchTask: Reduce this time to 20 seconds? add parameter of seconds and scale/stake of points per task? (ask Kristian)
+
+    * Clear clean cache from clients when launch the otree / via django / launch incognito mode?
+    
+    * Max number screens, target income, number seconds each screen, boundaries of distribution
  
 * Global Styling 
 
