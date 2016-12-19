@@ -20,7 +20,9 @@ class SearchTask(Page):
     def vars_for_template(self):
         return {
             'target_income': self.player.target_income,
+            'maxScreens': self.player.maxScreens,
             'role': self.player.role(),
+            'screenTime': self.player.screenTime,
         }
 
     def before_next_page(self):

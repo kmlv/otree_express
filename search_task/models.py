@@ -31,6 +31,10 @@ class Subsession(BaseSubsession):
                     assert False, 'targetIncome is not set properly'
             else:
                 person.target_income = 10  # default value
+            if 'maxScreens' in self.session.config:
+                person.maxScreens = self.session.config['maxScreens']
+            if 'screenTime' in self.session.config:
+                person.screenTime = self.session.config['screenTime']
 
 
 class Group(BaseGroup):
@@ -38,6 +42,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    maxScreens = models.DecimalField(max_digits=5, decimal_places=2)
+    screenTime = models.DecimalField(max_digits=5, decimal_places=2)
+
     task_reward = models.DecimalField(max_digits=5, decimal_places=2)
     target_income = models.DecimalField(max_digits=5, decimal_places=2)
     # add timestamps
