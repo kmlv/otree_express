@@ -42,7 +42,7 @@
     });
     </script>
 
-    <script type="text/javascript" maxScreens="{{ player.maxScreens }}" screenTime="{{ player.screenTime }}" src="{% static "jsFiles/start.js" %}?2"></script>
+    <script type="text/javascript" maxScreens="{{ player.maxScreens }}" screenTime="{{ player.screenTime }}" pointDistMin="{{ player.pointDistMin }}" pointDistMax="{{ player.pointDistMax }}" src="{% static "jsFiles/start.js" %}?{{ player.timestamp }}"></script>
 
 
 {% endblock %}

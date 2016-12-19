@@ -5,13 +5,20 @@ angular.module('Game', []).controller("gameController",
         var script = $('script[src*=start]');
         var maxScreens = script.attr('maxScreens');
         var screenTime = script.attr('screenTime');
-        console.log(maxScreens);
+        var pointDistMin = script.attr('pointDistMin');
+        var pointDistMax = script.attr('pointDistMax');
 
         if (typeof maxScreens === "undefined") {
             maxScreens = 20;
         }
         if (typeof screenTime === "undefined"){
             screenTime = 20;
+        }
+        if (typeof pointDistMax === "undefined"){
+            pointDistMax = 120;
+        }
+        if (typeof pointDistMin === "undefined"){
+            pointDistMin = 20;
         }
         // config files
         $scope.parsedIncome = 0;
@@ -25,6 +32,8 @@ angular.module('Game', []).controller("gameController",
             afterGame: false
         };
 
+        $scope.pointDistMin = parseInt(pointDistMin);
+        $scope.pointDistMax = parseInt(pointDistMax) - $scope.pointDistMin;
         $scope.income = 0;
         $scope.totalincome = 0;
         $scope.taskGoal = parseInt(maxScreens);
@@ -154,7 +163,7 @@ angular.module('Game', []).controller("gameController",
             $scope.task++;
             console.log("task ", $scope.task);
             $scope.income += $scope.locatorState.getPointvalue();
-            $scope.maxpoints = (Math.floor(Math.random() * 80) + 40);// * $scope.scale;
+            $scope.maxpoints = (Math.floor(Math.random() * $scope.pointDistMax) + $scope.pointDistMin);// * $scope.scale;
             $("#income").text("So far, your income is $" +
                 $scope.floatToMoney($scope.income).toFixed(2) + ".");
             // save income as integer
@@ -165,8 +174,6 @@ angular.module('Game', []).controller("gameController",
             console.log('saved income to div ', $('#task_reward').val());
 
             // reaches income goal or passes max number of tasks, done with game
-            //else {
-            //$scope.task++;
             $scope.points.pop();
             $scope.plot.setData([$scope.points]);
             $scope.plot.draw();
@@ -177,7 +184,6 @@ angular.module('Game', []).controller("gameController",
             $timeout.cancel($scope.mytimeout);
             $scope.time = $scope.timelimit;
             $scope.mytimeout = $timeout($scope.onTimeout, 1000);
-            //}
         };
 
         $scope.floatToMoney = function (number) {
@@ -243,7 +249,7 @@ angular.module('Game', []).controller("gameController",
             this.maxlength = Math.sqrt(square(100 - 0) + square(100 - 0));
 
             this.point = new Point(this.width / 2, this.height * 7 / 8, 15);
-            $scope.maxpoints = (Math.floor(Math.random() * 80) + 20);// * $scope.scale;
+            $scope.maxpoints = (Math.floor(Math.random() * $scope.pointDistMax) + $scope.pointDistMin);
 
             if (this.practice) $scope.maxpoints = maxpoints;// * $scope.scale;
 

@@ -524,6 +524,8 @@ SESSION_CONFIGS = [
         'targetIncome': [3, 3],
         'screenTime': ptt_express_treatment_config.screenTime,
         'maxScreens': ptt_express_treatment_config.maxScreens,
+        'pointDistMin': ptt_express_treatment_config.pointDistMin,
+        'pointDistMax': ptt_express_treatment_config.pointDistMax
     },
     {
         'name': 'mauss_questionnaire',
@@ -606,6 +608,8 @@ SESSION_CONFIGS = [
         'num_readers': ptt_express_treatment_config.num_readers,
         'reader_endowment': ptt_express_treatment_config.reader_endowment,
         'Params': ptt_express_treatment_config.params,
+        'pointDistMin': ptt_express_treatment_config.pointDistMin,
+        'pointDistMax': ptt_express_treatment_config.pointDistMax,
         'app_sequence': [
             '_Cover_Welcome',
             'emo_quest_panas_mauss_discrete',
