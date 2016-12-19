@@ -3,6 +3,8 @@ from otree.api import (
     Currency as c, currency_range, safe_json
 )
 
+import logging
+
 author = 'Your name here'
 
 doc = """
@@ -33,8 +35,12 @@ class Subsession(BaseSubsession):
                 person.target_income = 10  # default value
             if 'maxScreens' in self.session.config:
                 person.maxScreens = self.session.config['maxScreens']
+            else:
+                person.maxScreens = 20
             if 'screenTime' in self.session.config:
                 person.screenTime = self.session.config['screenTime']
+            else:
+                person.screenTime = 20
 
 
 class Group(BaseGroup):

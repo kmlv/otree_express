@@ -521,7 +521,9 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2,
         'app_sequence': ['search_task'],
         'debug': False,
-        'targetIncome': [3, 3]
+        'targetIncome': [3, 3],
+        'screenTime': ptt_express_treatment_config.screenTime,
+        'maxScreens': ptt_express_treatment_config.maxScreens,
     },
     {
         'name': 'mauss_questionnaire',
@@ -599,6 +601,8 @@ SESSION_CONFIGS = [
         'real_world_currency_per_point': ptt_express_treatment_config.real_world_currency_per_point,
         'num_demo_participants': ptt_express_treatment_config.num_demo_participants,
         'targetIncome': ptt_express_treatment_config.targetIncome,
+        'screenTime': ptt_express_treatment_config.screenTime,
+        'maxScreens': ptt_express_treatment_config.maxScreens,
         'num_readers': ptt_express_treatment_config.num_readers,
         'reader_endowment': ptt_express_treatment_config.reader_endowment,
         'Params': ptt_express_treatment_config.params,

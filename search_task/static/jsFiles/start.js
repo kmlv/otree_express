@@ -5,6 +5,7 @@ angular.module('Game', []).controller("gameController",
         var script = $('script[src*=start]');
         var maxScreens = script.attr('maxScreens');
         var screenTime = script.attr('screenTime');
+        console.log(maxScreens);
 
         if (typeof maxScreens === "undefined") {
             maxScreens = 20;
@@ -40,8 +41,7 @@ angular.module('Game', []).controller("gameController",
         // barrier : have all people ready for part 2
         $scope.practiceTimeout = function () {
             $scope.time--;
-            if ($scope.time < 1) {
-            } else
+            if ($scope.time >= 1)
                 $scope.mytimeout = $timeout($scope.practiceTimeout, 1000);
         };
         $scope.onTimeout = function () {
