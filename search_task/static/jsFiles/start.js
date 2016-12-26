@@ -1,7 +1,3 @@
-//var Game = angular.module('Game', []);
-
-//Game.controller("gameController",
-
 angular.module('Game', []).controller("gameController",
     ["$rootScope", "$scope", "$sce", "$timeout", function($rootScope, $scope, $sce, $timeout)
 {
@@ -158,8 +154,6 @@ angular.module('Game', []).controller("gameController",
         console.log('saved income to div ', $('#task_reward').val());
 
         // reaches income goal or passes max number of tasks, done with game
-         //else {
-          //$scope.task++;
           $scope.points.pop();
           $scope.plot.setData([$scope.points]);
           $scope.plot.draw();
@@ -170,7 +164,6 @@ angular.module('Game', []).controller("gameController",
           $timeout.cancel($scope.mytimeout);
           $scope.time = $scope.timelimit;
           $scope.mytimeout = $timeout($scope.onTimeout,1000);
-        //}
   };
 
     $scope.floatToMoney = function(number) {
@@ -191,14 +184,6 @@ angular.module('Game', []).controller("gameController",
 
     Point.prototype.draw = function(ctx) {
       // draws triangle
-      /*
-      var path = new Path2D();
-      var l = this.radius * Math.sqrt(3) / 4;
-      path.moveTo(this.x, this.y - this.value - l);
-      path.lineTo(this.x - this.radius, this.y - this.value + l);
-      path.lineTo(this.x + this.radius, this.y  - this.value + l);
-      ctx.fill(path);
-      */
       ctx.beginPath();
       ctx.arc(this.x, this.y - this.value, this.radius, 0, 2*Math.PI);
       ctx.fillStyle = '#CC1600';
