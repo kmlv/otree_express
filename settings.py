@@ -491,13 +491,6 @@ SESSION_CONFIGS = [
     },
 #########################################################################################################
     {
-        'name': 'Grouping_test',
-        'display_name': "test of group interactions",
-        'num_demo_participants': 4,
-        'app_sequence': ['grouping_test'],
-    },
-
-    {
         'name': 'test',
         'display_name': "test of waiting",
         'num_demo_participants': 4,
