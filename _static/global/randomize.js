@@ -1,5 +1,11 @@
 /*
-* Given: Table with id questions
+ * randomize.js
+ * Ankur Goswami, agoswami3@ucsc.edu
+ * Quick script to randomize table rows
+ */
+
+/*
+* Given: Table with id randomizeTable
 * Replace a random row after another random row rows.length number of times
 */
 var randomize = function (){
