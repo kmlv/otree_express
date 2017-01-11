@@ -5,16 +5,14 @@
     Questionnaire - Page 2 (of 2)
 {% endblock %}
 
-
-{% block styles %}
-{% endblock %}
-
 {% block scripts %}
-    <script type="text/javascript">
-            window.onload = function () {
-                document.getElementById("arrive_time").value = (new Date()).toISOString();
-            }
-    </script>
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById("arrive_time").value = (new Date()).toISOString();
+    }
+</script>
+
+<script type="text/javascript" src="{% static "global/randomize.js" %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -34,22 +32,23 @@
 
     <br/>
 
-    <table class="table table-striped" >
+    <table class="table table-striped" id="randomizeTable">
         <tr>
             <td align="right"> <strong> <em> Feeling / Emotion: </em> </strong> </td>
 
-            <td align="center" > <strong> <em> Right Now </em>
-                <b style="color: grey; ">(1 = not at all; 4 = moderately; 7 = extremely)</b>
- </em> </strong> </td>
-
+            <td align="center"> 
+                <strong> 
+                    <em> Right Now </em>
+                    <b style="color: grey; ">(1 = not at all; 4 = moderately; 7 = extremely)</b>
+                </strong> 
+            </td>
         </tr>
-          {% for field in form|allButLast %}
-
+        {% for field in form|allButLast %}
         <tr>
             <td align="right"> <strong> {{ emotions|index:forloop.counter0 }} </strong>  </td>
             <td style="color:grey", align="center" >{% formfield field with label=None %} </td>
         </tr>
-         {% endfor %}
+        {% endfor %}
     </table>
 
     <br/>
