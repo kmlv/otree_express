@@ -2,15 +2,15 @@
 {% load staticfiles otree_tags %}
 
 
-{% block global_styles  %}
+{% block global_styles %}
+    <style>
+        *{
+            color: blue;
+        }
+    </style>
 {% endblock %}
 
-{% block global_scripts  %}
-<script   
-    src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-    integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
-    crossorigin="anonymous"></script>
-
+{% block global_scripts %}
 <script type="text/javascript">
     window.onload = function () {
         document.getElementById("arrive_time").value = (new Date()).toISOString();
@@ -23,7 +23,7 @@
     * Replace a random row after another random row rows.length number of times
     */
     var randomize = function (){
-        var rows = $("#questions > tbody > tr")
+        var rows = $("#randomizeTable > tbody > tr")
         for(var i = 0; i < rows.length; i++){
             // Pick a two spots in the table that are not the first row 
             var spot1 = Math.floor(Math.random() * rows.length + 1)
