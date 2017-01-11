@@ -3,6 +3,8 @@ from otree.api import (
     Currency as c, currency_range, safe_json
 )
 
+import logging
+
 author = 'Your name here'
 
 doc = """
@@ -31,6 +33,22 @@ class Subsession(BaseSubsession):
                     assert False, 'targetIncome is not set properly'
             else:
                 person.target_income = 10  # default value
+            if 'maxScreens' in self.session.config:
+                person.maxScreens = self.session.config['maxScreens']
+            else:
+                person.maxScreens = 20
+            if 'screenTime' in self.session.config:
+                person.screenTime = self.session.config['screenTime']
+            else:
+                person.screenTime = 20
+            if 'pointDistMin' in self.session.config:
+                person.pointDistMin = self.session.config['pointDistMin']
+            else:
+                person.pointDistMin = 20
+            if 'pointDistMax' in self.session.config:
+                person.pointDistMax = self.session.config['pointDistMax']
+            else:
+                person.pointDistMax = 100
 
 
 class Group(BaseGroup):
@@ -38,6 +56,11 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    maxScreens = models.DecimalField(max_digits=5, decimal_places=2)
+    screenTime = models.DecimalField(max_digits=5, decimal_places=2)
+    pointDistMin = models.DecimalField(max_digits=5, decimal_places=2)
+    pointDistMax = models.DecimalField(max_digits=5, decimal_places=2)
+
     task_reward = models.DecimalField(max_digits=5, decimal_places=2)
     target_income = models.DecimalField(max_digits=5, decimal_places=2)
     # add timestamps

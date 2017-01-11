@@ -1,5 +1,7 @@
 from otree.api import Currency as c, currency_range
 from . import models
+import time
+import datetime
 from ._builtin import Page, WaitPage
 from .models import Constants
 
@@ -18,9 +20,16 @@ class SearchTask(Page):
     form_fields = ['task_reward', 'time_SearchTask']
 
     def vars_for_template(self):
+        now = datetime.datetime.now()
+        timestamp = time.mktime(now.timetuple())
         return {
             'target_income': self.player.target_income,
+            'maxScreens': self.player.maxScreens,
             'role': self.player.role(),
+            'screenTime': self.player.screenTime,
+            'pointDistMin': self.player.pointDistMin,
+            'pointDistMax': self.player.pointDistMax,
+            'timestamp': timestamp,
         }
 
     def before_next_page(self):
