@@ -2,7 +2,15 @@
 {% load staticfiles otree_tags %}
 
 
-{% block global_styles %}
+{% block global_styles  %}
+<!--Here we're going to define out global styles for all apps-->
+
+    <style type="text/css">
+        html *{
+            font-size: medium !important;
+        }
+    </style>
+
 {% endblock %}
 
 {% block global_scripts %}
