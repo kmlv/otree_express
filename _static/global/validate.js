@@ -47,4 +47,4 @@ $(document).ready(function(){
     $('*').keyup(function(){
         validate(validated, invalid);
     });
-})
+});
