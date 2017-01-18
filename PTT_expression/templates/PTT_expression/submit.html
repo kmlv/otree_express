@@ -8,23 +8,28 @@
 
 {% block sub %}
     <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            var inputs     = $(".form-control");
-            var emojiareas = $(".emojionearea-editor");
+        $(document).ready(function () {
+            var inputs = $(".form-control");
+            var newInputs = $([]);
+            inputs.each(function(index){
+                if($(this).hasClass("area")){
+                    newInputs.add($(this).next());
+                } else{
+                    newInputs.add($(this));
+                }
+            });
             var validate = function(){
                 var boolReduce = function(arr){
                     var flag = true;
-                    arr.each((index) => {
-                        if($(this).val() != "" && $(this).attr("id") != "arrive_time"){
+                    arr.each(function(index){
+                        if($(this).val() == ""){
                             flag = false;
                             return false;
                         }
                     });
                     return flag;
                 }
-                var areInputsFilled = boolReduce(inputs);
-                var areEmojisFilled = boolReduce(emojiareas);
-                if(areInputsFilled && areEmojisFilled){
+                if(boolReduce(newInputs)){
                     $(".disp").prop('disabled', false);
                     $("#invalid-fields").hide();
                 } else {
@@ -33,7 +38,7 @@
                 }
             }
             validate();
-            inputs.keyup(validate);
+            $('*').keyup(validate);
         });
     
     </script>
