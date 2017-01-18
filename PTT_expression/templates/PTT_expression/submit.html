@@ -9,12 +9,19 @@
 {% block sub %}
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
-            var inputs = $('.form-control');
+            var inputs     = $(".form-control");
+            var emojiareas = $(".emojionearea-editor");
             var validate = function(){
-                var filled = inputs.filter(function(index){
-                    return $(this).val() != "" && $(this).attr("id") != "arrive_time"
-                });
-                if(filled.length != 0){
+                var boolReduce = function(arr){
+                    return arr.reduce((flag, next) => {
+                        if(!flag)
+                            return flag;
+                        return next.val() != "" && next.attr("id") != "arrive_time";
+                    }, true);
+                }
+                var areInputsFilled = boolReduce(inputs);
+                var areEmojisFilled = boolReduce(emojiareas);
+                if(areInputsFilled && areEmojisFilled){
                     $(".disp").prop('disabled', false);
                     $("#invalid-fields").hide();
                 } else {
