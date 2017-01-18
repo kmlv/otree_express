@@ -13,11 +13,14 @@
             var emojiareas = $(".emojionearea-editor");
             var validate = function(){
                 var boolReduce = function(arr){
-                    return arr.reduce((flag, next) => {
-                        if(!flag)
-                            return flag;
-                        return next.val() != "" && next.attr("id") != "arrive_time";
-                    }, true);
+                    var flag = true;
+                    arr.each((index) => {
+                        if($(this).val() != "" && $(this).attr("id") != "arrive_time"){
+                            flag = false;
+                            return false;
+                        }
+                    });
+                    return flag;
                 }
                 var areInputsFilled = boolReduce(inputs);
                 var areEmojisFilled = boolReduce(emojiareas);
