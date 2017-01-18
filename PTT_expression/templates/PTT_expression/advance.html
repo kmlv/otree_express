@@ -1,33 +1,9 @@
 {% comment %}
     advance.html
     Ankur Goswami (agoswam3@ucsc.edu)
-    Factored out advance without message.
-    To work, make sure your form elements are all optional.
-    Doesn't work on radio buttons
+    
 {% endcomment %}
 
 {% block nomessage %}
-    
-    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            var inputs = $('.form-control');
-            var validate = function(){
-                var filled = inputs.filter(function(index){
-                    return $(this).val() != "" && $(this).attr("id") != "arrive_time"
-                });
-                if(filled.length != 0){
-                    $(".no-input").prop('disabled', true);
-                } else {
-                    $(".no-input").prop('disabled', false);
-                }
-            }
-            inputs.keyup(validate);
-        });
-    
-    </script>
-
     <input class="next-button no-input" type="submit" value="here.">
-
 {% endblock nomessage %}
