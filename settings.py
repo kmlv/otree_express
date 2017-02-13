@@ -175,7 +175,7 @@ SESSION_CONFIGS = [
         'Params': [
         {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [1, 4]},
         ],
-        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -190,7 +190,7 @@ SESSION_CONFIGS = [
         'Params': [
         {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
 # DM WTP BLOCK
@@ -206,8 +206,8 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
-        # 'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
-        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        # 'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -223,7 +223,7 @@ SESSION_CONFIGS = [
             {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.2],
              'end': [3, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -238,7 +238,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -252,7 +252,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
 # DM WTA BLOCK
@@ -267,7 +267,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTA','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -281,7 +281,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.2], 'end': [3, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info', 'PANAS_final'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -295,7 +295,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
 
@@ -311,7 +311,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -325,7 +325,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -339,7 +339,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
 # TP WTA BLOCK
@@ -354,7 +354,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTA','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -368,7 +368,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -382,7 +382,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
 #############
@@ -401,7 +401,7 @@ SESSION_CONFIGS = [
 {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 5]},
 {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [2, 4]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask','PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True,
         'doc': """
         The parameter matrix:
@@ -428,7 +428,7 @@ SESSION_CONFIGS = [
 {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ':   None, 'Met_par': [1.3]                , 'end': [6, 3]},
 {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.25]     , 'end': [2, 4]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -443,7 +443,7 @@ SESSION_CONFIGS = [
             {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 4]},
             {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 5]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -458,7 +458,7 @@ SESSION_CONFIGS = [
             {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.1], 'end': [3, 3]},
             {'treat': 'FM', 'val_typ': None, 'elic_met': None, 'BDM_typ': None, 'Met_par': None, 'end': [3, 5]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -477,7 +477,7 @@ SESSION_CONFIGS = [
             {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'av_inc'],
              'end': [3, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True,
         'doc': """
             This is the parameter arrangement
@@ -491,22 +491,10 @@ SESSION_CONFIGS = [
     },
 #########################################################################################################
     {
-        'name': 'test',
-        'display_name': "test of waiting",
-        'num_demo_participants': 4,
-        'app_sequence': ['zzz_test_app'],
-    },
-    {
         'name': 'batson_ques',
         'display_name': "Batson (1988) Questionnaire",
         'num_demo_participants': 3,
         'app_sequence': ['batson_questionnaire'],
-    },
-    {
-        'name': 'Panas',
-        'display_name': "PANAS_final Questionnaire",
-        'num_demo_participants': 1,
-        'app_sequence': ['PANAS_final'],
     },
     {
         'name': 'search_task',
@@ -519,13 +507,6 @@ SESSION_CONFIGS = [
         'maxScreens': ptt_express_treatment_config.maxScreens,
         'pointDistMin': ptt_express_treatment_config.pointDistMin,
         'pointDistMax': ptt_express_treatment_config.pointDistMax
-    },
-    {
-        'name': 'mauss_questionnaire',
-        'display_name': 'Mauss Questionnaire, n=1',
-        'num_demo_participants': 1,
-        'app_sequence': ['mauss_questionnaire'],
-        'debug': True,
     },
     {
         'name': 'emo_quest_panas_mauss_discrete',
@@ -546,7 +527,7 @@ SESSION_CONFIGS = [
         'display_name': "AMT ultimatum",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
-        'app_sequence': ['batson_questionnaire', 'ultimatum', 'batson_questionnaire2', 'payment_info'],
+        'app_sequence': ['batson_questionnaire', 'batson_questionnaire2', 'payment_info'],
         'debug': True
     },
     {
@@ -665,23 +646,17 @@ SESSION_CONFIGS = [
     #     'app_sequence': ['prisoner', 'payment_info'],
     # },
     # {
-    #     'name': 'ultimatum',
-    #     'display_name': "Ultimatum (randomized: strategy vs. direct response)",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['ultimatum', 'payment_info'],
-    # },
-    # {
     #     'name': 'ultimatum_strategy',
     #     'display_name': "Ultimatum (strategy method treatment)",
     #     'num_demo_participants': 2,
-    #     'app_sequence': ['ultimatum', 'payment_info'],
+    #     'app_sequence': ['payment_info'],
     #     'treatment': 'strategy',
     # },
     # {
     #     'name': 'ultimatum_non_strategy',
     #     'display_name': "Ultimatum (direct response treatment)",
     #     'num_demo_participants': 2,
-    #     'app_sequence': ['ultimatum', 'payment_info'],
+    #     'app_sequence': ['payment_info'],
     #     'treatment': 'direct_response',
     # },
     # {
