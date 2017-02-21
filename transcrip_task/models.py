@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 # <standard imports>
 from __future__ import division
+
+from mock.mock import self
 from otree.db import models
 from otree.constants import BaseConstants
 from otree.models import BaseSubsession, BaseGroup, BasePlayer
@@ -50,13 +52,12 @@ def distance_and_ok(transcribed_text, reference_text, max_error_rate):
 
 class Constants(BaseConstants):
     name_in_url = 'transcrip_task'
-    players_per_group = 2
+    players_per_group = None
     num_rounds = 1
 
     endowment = c(10)
     multiplication_factor = 3
-
-    allowed_error_rates = [0, 0.03]
+    #allowed_error_rates = [0.05, 0.3]
     #show_transcription_1 = True
 
     reference_texts = [
@@ -65,30 +66,14 @@ class Constants(BaseConstants):
     paragraph_count = len(reference_texts)
 
 
-
 class Subsession(BaseSubsession):
-    pass
+    allowed_error_rates = models.CommaSeparatedIntegerField(max_length=6 )
 
+    def before_session_starts(self):
+        self.allowed_error_rates = self.session.config['allowed_error_rates']
 
 class Group(BaseGroup):
-    time_Send = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-    time_SendBack = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
-
-    sent_amount = models.CurrencyField(
-        choices=currency_range(0, Constants.endowment, c(1)),
-        doc="""Amount sent by P1""",
-    )
-
-    sent_back_amount = models.CurrencyField(
-        doc="""Amount sent back by P2""",
-    )
-
-    def set_payoffs(self):
-        p1 = self.get_player_by_id(1)
-        p2 = self.get_player_by_id(2)
-        p1.payoff = Constants.endowment - self.sent_amount + self.sent_back_amount
-        p2.payoff = self.sent_amount * Constants.multiplication_factor - self.sent_back_amount
-
+    pass
 
 class Player(BasePlayer):
     time_Instructions = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))

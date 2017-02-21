@@ -7,6 +7,7 @@
 
 {% block scripts %}
 
+
     <script type="text/javascript">
             window.onload = function () {
                 document.getElementById("arrive_time").value = (new Date()).toISOString();
@@ -16,7 +17,7 @@
 {% endblock %}
 
 {% block content %}
-
+    
     {# this recordsTime#}
     {% formfield  player.time_InitialCover with label=None  %}
 

@@ -23,3 +23,5 @@ db.sqlite3
 *.pyc
 
 .idea/misc.xml
+
+dump.rdb
