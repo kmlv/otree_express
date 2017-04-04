@@ -41,6 +41,11 @@ class Player(BasePlayer):
     q_age = models.PositiveIntegerField(verbose_name='What is your age?',
                                         choices=range(13, 125),
                                         initial=None)
+
+    q_station = models.PositiveIntegerField(verbose_name='What is your computer station number? (see white sticker on computer or ask experimenter)',
+                                        choices=range(1, 17),
+                                        initial=None)
+
     q_gender = models.CharField(initial=None,
                                 choices=['Male', 'Female', 'Other'],
                                 verbose_name='What is your gender?',
