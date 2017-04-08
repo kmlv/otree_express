@@ -170,12 +170,12 @@ SESSION_CONFIGS = [
         'display_name': "Free Message, 2 players",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
-        'targetIncome': [12, 9],
         'num_readers': 0,
+        'targetIncome': [10],  # search task
         'Params': [
-        {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [1, 4]},
+        {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
         ],
-        'app_sequence': ['PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -190,7 +190,7 @@ SESSION_CONFIGS = [
         'Params': [
         {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
 # DM WTP BLOCK
@@ -207,7 +207,7 @@ SESSION_CONFIGS = [
 {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
         # 'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
-        'app_sequence': ['PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -223,7 +223,7 @@ SESSION_CONFIGS = [
             {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.2],
              'end': [3, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -238,7 +238,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -252,7 +252,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
 # DM WTA BLOCK
@@ -267,7 +267,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTA','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -281,7 +281,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.2], 'end': [3, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -295,7 +295,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
 
@@ -311,7 +311,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -325,7 +325,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -339,7 +339,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
 # TP WTA BLOCK
@@ -354,7 +354,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTA','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -368,7 +368,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -382,7 +382,7 @@ SESSION_CONFIGS = [
         'Params': [
 {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
 #############
@@ -401,7 +401,7 @@ SESSION_CONFIGS = [
 {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 5]},
 {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [2, 4]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True,
         'doc': """
         The parameter matrix:
@@ -428,7 +428,7 @@ SESSION_CONFIGS = [
 {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ':   None, 'Met_par': [1.3]                , 'end': [6, 3]},
 {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.25]     , 'end': [2, 4]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -443,7 +443,7 @@ SESSION_CONFIGS = [
             {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 4]},
             {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 5]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -458,7 +458,7 @@ SESSION_CONFIGS = [
             {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.1], 'end': [3, 3]},
             {'treat': 'FM', 'val_typ': None, 'elic_met': None, 'BDM_typ': None, 'Met_par': None, 'end': [3, 5]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -477,7 +477,7 @@ SESSION_CONFIGS = [
             {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'av_inc'],
              'end': [3, 3]},
         ],
-        'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True,
         'doc': """
             This is the parameter arrangement
@@ -501,12 +501,12 @@ SESSION_CONFIGS = [
         'display_name': 'Search Task',
         'num_demo_participants': 2,
         'app_sequence': ['search_task'],
-        'debug': False,
-        'targetIncome': [3, 3],
-        'screenTime': ptt_express_treatment_config.screenTime,
-        'maxScreens': ptt_express_treatment_config.maxScreens,
-        'pointDistMin': ptt_express_treatment_config.pointDistMin,
-        'pointDistMax': ptt_express_treatment_config.pointDistMax
+        'debug' : False,
+        'targetIncome':  [10],
+        'screenTime':  10,
+        'maxScreens':  3,
+        'pointDistMax':  100,
+        'pointDistMin':  20,
     },
     {
         'name': 'emo_quest_panas_mauss_discrete',
@@ -595,182 +595,6 @@ SESSION_CONFIGS = [
         ],
         'debug': False
     }
-    #############################################
-    # {
-    #     'name': 'my_public_goods_',
-    #     'display_name': "KLV Public Goods",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': ['my_public_goods_', 'survey', 'payment_info'],
-    # },
-    # {
-    #     'name': 'klv_trust_game',
-    #     'display_name': "KLV Trust Game",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['klv_trust_game', 'payment_info'],
-    # },
-    # {
-    #     'name': 'klv_matching_pennies',
-    #     'display_name': "KLV Matching Pennies",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['klv_matching_pennies', 'payment_info'],
-    # },
-    # {
-    #     'name': 'public_goods',
-    #     'display_name': "Public Goods",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': ['public_goods', 'payment_info'],
-    # },
-    # {
-    #     'name': 'trust',
-    #     'display_name': "Trust Game",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['trust', 'payment_info'],
-    # },
-    # {
-    #     'name': 'beauty',
-    #     'display_name': "Beauty Contest",
-    #     'num_demo_participants': 5,
-    #     'num_bots': 5,
-    #     'app_sequence': ['beauty', 'payment_info'],
-    # },
-    # {
-    #     'name': 'survey',
-    #     'display_name': "Survey",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': ['survey', 'payment_info'],
-    # },
-    # {
-    #     'name': 'prisoner',
-    #     'display_name': "Prisoner's Dilemma",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['prisoner', 'payment_info'],
-    # },
-    # {
-    #     'name': 'ultimatum_strategy',
-    #     'display_name': "Ultimatum (strategy method treatment)",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['payment_info'],
-    #     'treatment': 'strategy',
-    # },
-    # {
-    #     'name': 'ultimatum_non_strategy',
-    #     'display_name': "Ultimatum (direct response treatment)",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['payment_info'],
-    #     'treatment': 'direct_response',
-    # },
-    # {
-    #     'name': 'battle_of_the_sexes',
-    #     'display_name': "Battle of the Sexes",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': [
-    #         'battle_of_the_sexes', 'payment_info'
-    #     ],
-    # },
-    # {
-    #     'name': 'vickrey_auction',
-    #     'display_name': "Vickrey Auction",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': ['vickrey_auction', 'payment_info'],
-    # },
-    # {
-    #     'name': 'volunteer_dilemma',
-    #     'display_name': "Volunteer's Dilemma",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': ['volunteer_dilemma', 'payment_info'],
-    # },
-    # {
-    #     'name': 'cournot',
-    #     'display_name': "Cournot Competition",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': [
-    #         'cournot', 'payment_info'
-    #     ],
-    # },
-    # {
-    #     'name': 'principal_agent',
-    #     'display_name': "Principal Agent",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['principal_agent', 'payment_info'],
-    # },
-    # {
-    #     'name': 'dictator',
-    #     'display_name': "Dictator Game",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['dictator', 'payment_info'],
-    # },
-    # {
-    #     'name': 'matching_pennies',
-    #     'display_name': "Matching Pennies",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': [
-    #         'matching_pennies',
-    #     ],
-    # },
-    # {
-    #     'name': 'traveler_dilemma',
-    #     'display_name': "Traveler's Dilemma",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['traveler_dilemma', 'payment_info'],
-    # },
-    # {
-    #     'name': 'bargaining',
-    #     'display_name': "Bargaining Game",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['bargaining', 'payment_info'],
-    # },
-    # {
-    #     'name': 'common_value_auction',
-    #     'display_name': "Common Value Auction",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': ['common_value_auction', 'payment_info'],
-    # },
-    # {
-    #     'name': 'stackelberg',
-    #     'display_name': "Stackelberg Competition",
-    #     'real_world_currency_per_point': 0.01,
-    #     'num_demo_participants': 2,
-    #     'app_sequence': [
-    #         'stackelberg', 'payment_info'
-    #     ],
-    # },
-    # {
-    #     'name': 'bertrand',
-    #     'display_name': "Bertrand Competition",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': [
-    #         'bertrand', 'payment_info'
-    #     ],
-    # },
-    # {
-    #     'name': 'real_effort',
-    #     'display_name': "Real-effort transcription task",
-    #     'num_demo_participants': 1,
-    #     'app_sequence': [
-    #         'real_effort',
-    #     ],
-    # },
-    # {
-    #     'name': 'lemon_market',
-    #     'display_name': "Lemon Market Game",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': [
-    #         'lemon_market', 'payment_info'
-    #     ],
-    # },
-    # {
-    #     'name': 'public_goods_simple',
-    #     'display_name': "Public Goods (simple version from tutorial)",
-    #     'num_demo_participants': 3,
-    #     'app_sequence': ['public_goods_simple', 'survey', 'payment_info'],
-    # },
-    #
-    # {
-    #     'name': 'trust_simple',
-    #     'display_name': "Trust Game (simple version from tutorial)",
-    #     'num_demo_participants': 2,
-    #     'app_sequence': ['trust_simple'],
-    # },
 
 ]
 

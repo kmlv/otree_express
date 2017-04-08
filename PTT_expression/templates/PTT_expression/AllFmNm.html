@@ -14,6 +14,11 @@
             }
     </script>
 
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="/static/emoji_keyboard/emojionearea.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/emoji_keyboard/emojionearea.min.css">
+    <script type="text/javascript" src="/static/jsFiles/emojiArea.js"></script>
+    <script type="text/javascript" src='{% static "global/validate.js" %}'></script>
 
 {% endblock %}
 
@@ -65,17 +70,25 @@
 
             <p> If you would like to write a <b>message to <em>Role A</em> regarding his/her decision</b>, use the message box below:</p>
 
-            {% formfield group.b_message with label="Message box" %}
 
-            <p> If you do not wish to write any message, make sure the message box is empty and click {% include "../../PTT_expression/templates/PTT_expression/advance.html" %} </p>
+            <textarea name="b_message" rows="10" cols="40" id="id_b_message" class="form-control area"></textarea>
+
+
         </div>
+    <p>
+        If you do not wish to write any message, make sure the message box is empty and click
+         <input class="next-button no-input" type="submit" value="here.">
+    </p>
+
     {% endif %}
 
     <br/>
     <br/>
 
     {% if group.treatment == 'FM' %}
-        {% include "../../PTT_expression/templates/PTT_expression/submit.html" %}
+        <input class="btn btn-large btn-primary next-button disp" type="submit" value="Submit">
+        <span id="invalid-fields" style="color: darkgray;"> Write your message before submitting. </span>
+        <!--{% include "../../PTT_expression/templates/PTT_expression/submit.html" %}-->
     {% elif group.treatment == 'NM' %}
         {% next_button %}
     {% endif %}
@@ -86,3 +99,11 @@
 
 {% endblock  %}
 
+
+
+
+
+<!-- {% formfield group.b_message with label="Message box" %} -->
+
+<!--            <p> If you do not wish to write any message, make sure the message box is empty and click {% include "../../PTT_expression/templates/PTT_expression/advance.html" %} </p>
+-->
