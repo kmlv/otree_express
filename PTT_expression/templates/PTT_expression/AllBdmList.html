@@ -15,29 +15,28 @@
             }
     </script>
 
-
-{#    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>#}
-{#    <script type="text/javascript">#}
-{#        jQuery(document).ready(function ($) {#}
-{#            var input = $('#id_b_message');#}
-{#            input.text("");#}
-{#            var hello = function(){#}
-{#                if(input.val() != ""){#}
-{#                    $("#hideNext").show();#}
-{#                } else {#}
-{#                    $("#hideNext").hide();#}
-{#                }#}
-{#            }#}
-{#            $("textarea").on({#}
-{#                mouseenter: hello,#}
-{#                mouseleave: hello,#}
-{#                click: hello,#}
-{#                blur: hello,#}
-{#                keyup: hello#}
-{#            });#}
-{#            $("#hideNext").hide();#}
-{#        });#}
-{#    </script>#}
+<!--{#    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>#}-->
+<!--{#    <script type="text/javascript">#}-->
+<!--{#        jQuery(document).ready(function ($) {#}-->
+<!--{#            var input = $('#id_b_message');#}-->
+<!--{#            input.text("");#}-->
+<!--{#            var hello = function(){#}-->
+<!--{#                if(input.val() != ""){#}-->
+<!--{#                    $("#hideNext").show();#}-->
+<!--{#                } else {#}-->
+<!--{#                    $("#hideNext").hide();#}-->
+<!--{#                }#}-->
+<!--{#            }#}-->
+<!--{#            $("textarea").on({#}-->
+<!--{#                mouseenter: hello,#}-->
+<!--{#                mouseleave: hello,#}-->
+<!--{#                click: hello,#}-->
+<!--{#                blur: hello,#}-->
+<!--{#                keyup: hello#}-->
+<!--{#            });#}-->
+<!--{#            $("#hideNext").hide();#}-->
+<!--{#        });#}-->
+<!--{#    </script>#}-->
 
     <!-- Add the following scripts to your file -->
     <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
@@ -98,12 +97,10 @@
     {% elif group.treatment == 'TP' %}
         <p> If you would like to write a <b>message to the <em>Reader</em> regarding Role A's decision</b>, use the message box below:</p>
     {% endif %}
-        <!--{% formfield group.b_message with label="Message box" %}-->
         <textarea name="b_message" rows="10" cols="40" id="id_b_message" class="form-control area"></textarea>
 
     </div>
     <p>
-        <!--If you do not wish to write any message, make sure the message box is empty and click {% include "../../PTT_expression/templates/PTT_expression/advance.html" %}-->
         If you do not wish to write any message, make sure the message box is empty and click
          <input class="next-button no-input" type="submit" value="here.">
     </p>
@@ -150,7 +147,7 @@
 
                 <style>
                 #list_div {
-                    width: 40%;
+                    width: 50%;
                 }
                 </style>
 
