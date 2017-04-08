@@ -91,7 +91,7 @@ for var in Constants.panasmauss_list:
             verbose_name=var,
             widget=widgets.RadioSelectHorizontal()
         )
-        )
+    )
 
 # [1, '1 (Not at all)'],
 # [2, '2'],
