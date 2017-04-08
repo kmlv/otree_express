@@ -39,6 +39,14 @@
 {#        });#}
 {#    </script>#}
 
+    <!-- Add the following scripts to your file -->
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="/static/emoji_keyboard/emojionearea.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/emoji_keyboard/emojionearea.min.css">
+    <script type="text/javascript" src="/static/jsFiles/emojiArea.js"></script>
+    <script type="text/javascript" src='{% static "global/validate.js" %}'></script>
+
+
 {% endblock %}
 
 
@@ -90,10 +98,14 @@
     {% elif group.treatment == 'TP' %}
         <p> If you would like to write a <b>message to the <em>Reader</em> regarding Role A's decision</b>, use the message box below:</p>
     {% endif %}
-        {% formfield group.b_message with label="Message box" %}
+        <!--{% formfield group.b_message with label="Message box" %}-->
+        <textarea name="b_message" rows="10" cols="40" id="id_b_message" class="form-control area"></textarea>
+
     </div>
     <p>
-        If you do not wish to write any message, make sure the message box is empty and click {% include "../../PTT_expression/templates/PTT_expression/advance.html" %}
+        <!--If you do not wish to write any message, make sure the message box is empty and click {% include "../../PTT_expression/templates/PTT_expression/advance.html" %}-->
+        If you do not wish to write any message, make sure the message box is empty and click
+         <input class="next-button no-input" type="submit" value="here.">
     </p>
     <br/>
     <br/>
@@ -138,7 +150,7 @@
 
                 <style>
                 #list_div {
-                    width: 30%;
+                    width: 40%;
                 }
                 </style>
 
