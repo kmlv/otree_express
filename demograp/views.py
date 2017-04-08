@@ -15,6 +15,7 @@ class Demographics(Page):
                    'q_zipcode',
                    'q_opinion',
                    'time_Demographics',
+                   'q_station'
                    ]
 
 

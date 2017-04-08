@@ -1,5 +1,5 @@
-/.idea
-.idea/workspace.xml
+.idea/
+
 *.pyc
 *\_pycache_\*.pyc
 *.sqlite3
