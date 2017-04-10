@@ -101,8 +101,8 @@
 
     </div>
     <p>
-        If you do not wish to write any message, make sure the message box is empty and click
-         <input class="next-button no-input" type="submit" value="here.">
+        <!--If you do not wish to write any message, make sure the message box is empty and click-->
+         <!--<input class="next-button no-input" type="submit" value="here.">-->
     </p>
     <br/>
     <br/>
@@ -134,7 +134,12 @@
                         <td> {% formfield field with label=None %} </td>
                     </tr>
                 {% endfor %}
+
          </table>
+        {#% !!!!!!!!! TEMPORARY !!!!!!!!!!!!!! #}
+        <br/>
+        <p> If you do not wish to write any message, type one blank space in the message box and answer all questions in the table.</p>
+
 
         {# WTA #}
         {% elif group.value_type == 'WTA' %}
@@ -164,16 +169,23 @@
                 </table>
 
                 </div>
+                {#% !!!!!!!!! TEMPORARY !!!!!!!!!!!!!! #}
+
+                <br/>
+                <p> If you do not wish to write any message, type one blank space in the message box and answer all questions in the table.</p>
 
         {% endif %}
         <br/>
 
 
 
-    {# SCRIPTS#}
+        <br/>
+        <br/>
+
 
 {#    {% next_button %}#}
-    {% include "../../PTT_expression/templates/PTT_expression/submit.html" %}
+    <input class="btn btn-large btn-primary next-button disp" type="submit" value="Submit">
+    <span id="invalid-fields" style="color: darkgray;"> Write your message before submitting. </span>
 
 
     <br/> {# line break #}

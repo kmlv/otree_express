@@ -206,7 +206,7 @@ class AllBdmCont(Page):
 
     # defining whether message is sent or not
     def before_next_page(self):
-        if self.group.b_message == "":
+        if self.group.b_message == "" or self.group.b_message == " ":
             self.group.want_send_message = 'No'
             self.group.msg_sent = 0
             if self.group.b_value is None:
@@ -278,8 +278,7 @@ class AllBdmList(Page):
 
 
     def before_next_page(self):
-
-        if self.group.b_message == "":
+        if self.group.b_message == "" or self.group.b_message == " ":
             self.group.want_send_message = 'No'
             self.group.msg_sent = 0
             if self.group.b_value is None:
@@ -359,7 +358,7 @@ class AllFmNm(Page):
     # defining whether message is sent or not
     def before_next_page(self):
         if self.group.treatment == 'FM':
-            if self.group.b_message == "":
+            if self.group.b_message == "" or self.group.b_message == " ":
                 self.group.want_send_message = 'No'
                 self.group.msg_sent = False
             else:
