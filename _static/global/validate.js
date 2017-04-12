@@ -2,13 +2,14 @@
  * validate.js
  * Ankur Goswami, agoswam3@ucsc.edu
  * Validate emoji fields and normal text fields
+ *
+ * Rachel Chen, me@rachelchen.me
+ * continue development
  */
 
-var validate = function(validatedFn, errorFn){
-    var inputs = $(".form-control:not(.area, #arrive_time)");
-    var emojiareas = $(".emojionearea-editor");
-    var boolReduce = function(arr){
+var boolReduce = function(arr){
         var flag = true;
+        // This .each() is jQuery specific. Using .reduce() directly will throw an error
         arr.each(function(index){
             if($(this).html() == "" && $(this).val() == ""){
                 flag = false;
@@ -17,6 +18,10 @@ var validate = function(validatedFn, errorFn){
         });
         return flag;
     }
+
+var validate = function(validatedFn, errorFn){
+    var inputs = $(".form-control:not(.area, #arrive_time)");
+    var emojiareas = $(".emojionearea-editor");
     var areInputsFilled = boolReduce(inputs);
     var areEmojisFilled = boolReduce(emojiareas);
     if(areInputsFilled && areEmojisFilled){
@@ -24,12 +29,6 @@ var validate = function(validatedFn, errorFn){
     } else {
         errorFn()
     }
-
-    // This is specific to emojiarea text fields.
-    if(areEmojisFilled)
-        $(".no-input").prop('disabled', true);
-    else
-        $(".no-input").prop('disabled', false);
 }
 
 var validated = function(){
@@ -43,8 +42,19 @@ var invalid = function(){
 }
 
 $(document).ready(function(){
-    validate(validated, invalid);
     $('*').keyup(function(){
         validate(validated, invalid);
     });
+    $('.skip-button').click(function() {
+        // reset input value
+        $(".form-control:not(.area, #arrive_time)").each(function() {
+            $(this).val('');
+        })
+        // reset message value
+        $('.area')[0].emojioneArea.setText('');
+        // manually validated
+        validated()
+        // help the user click because he/she is stupid
+        $('.next-button')[0].click()
+    })
 });

@@ -76,8 +76,7 @@
        <textarea name="b_message" rows="10" cols="40" id="id_b_message" class="form-control area"></textarea>
     </div>
     <p>
-        <!--If you do not wish to write any message, make sure the message box is empty and click-->
-         <!--<input class="next-button no-input" type="submit" value="here.">-->
+        <b>If you do not wish to write any message, <a href="#" class="skip-button">please click here to continue</a></b>
     </p>
     <br/>
     <br/>
@@ -124,18 +123,11 @@
 
     {% endif %}
 
-    {#% !!!!!!!!! TEMPORARY !!!!!!!!!!!!!! #}
-    <br/>
-    <p> If you do not wish to write any message, type one blank space in the message box and provide a valuation of zero.</p>
-
-        <br/>
-        <br/>
-
-
 
 {#    {% next_button %}#}
-    <input class="btn btn-large btn-primary next-button disp" type="submit" value="Submit">
-    <span id="invalid-fields" style="color: darkgray;"> Write your message before submitting. </span>
+    <p id="invalid-fields" style="color: red;"> Please complete all required fields before proceeding. </p>
+    <input class="btn btn-large btn-primary next-button disp" type="submit" value="Submit" disabled>
+
 
 
 
