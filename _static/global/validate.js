@@ -43,7 +43,6 @@ var invalid = function(){
 }
 
 $(document).ready(function(){
-    validate(validated, invalid);
     $('*').keyup(function(){
         validate(validated, invalid);
     });
