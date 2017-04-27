@@ -166,7 +166,7 @@ import ptt_express_treatment_config
 SESSION_CONFIGS = [
     {
         'name': 'PTT_express_FM_n2',
-        'participation_fee': 5.00,
+        'participation_fee': 4.00,
         'display_name': "Free Message, 2 players",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
@@ -175,7 +175,7 @@ SESSION_CONFIGS = [
         'Params': [
         {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
         ],
-        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -207,7 +207,7 @@ SESSION_CONFIGS = [
 {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
         # 'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
-        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
@@ -403,14 +403,6 @@ SESSION_CONFIGS = [
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True,
-        'doc': """
-        The parameter matrix:
-{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par':     [0, 'end'], 'end': [3, 4]},
-{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par':[0,'end', 0.25], 'end': [6, 3]},
-{'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ':   None, 'Met_par':          [1.1], 'end': [1, 4]},
-{'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 5]},
-{'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [2, 4]},
-        """
     },
     {
         'name': 'Multiple_treatments_4DM_2TP',
@@ -470,18 +462,15 @@ SESSION_CONFIGS = [
         'num_readers': 1,
         'reader_endowment': [3],  # to be extended to a list for when there is more than one readers
         'Params': [
-            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],
-             'end': [3, 3]},
-            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.5],
-             'end': [3, 3]},
-            {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'av_inc'],
-             'end': [3, 3]},
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.5], 'end': [3, 3]},
+            {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'av_inc'], 'end': [3, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True,
         'doc': """
             This is the parameter arrangement
-            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 
              'end': [3, 3]},
             {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.5],
              'end': [3, 3]},

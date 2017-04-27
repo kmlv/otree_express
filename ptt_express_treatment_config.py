@@ -13,10 +13,10 @@
 real_world_currency_per_point = 1
 participation_fee = 4.00,
 num_demo_participants = 14
-targetIncome = [5]
+targetIncome = [10]
 screenTime = 25
 maxScreens = 20
-pointDistMax = 700
+pointDistMax = 120
 pointDistMin = 20
 num_readers = 0
 reader_endowment = [3]
