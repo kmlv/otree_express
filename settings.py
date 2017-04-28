@@ -588,7 +588,9 @@ SESSION_CONFIGS = [
         'app_sequence': [
             '_Cover_Welcome',
             'emo_quest_panas_mauss_discrete',
-            'search_task', 'PTT_expression',
+            'PTT_express_instructions',
+            'search_task', 
+            'PTT_expression',
             'emo_quest_panas_mauss_discrete2',
             'demograp',
             'payment_info'
