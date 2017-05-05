@@ -44,9 +44,9 @@ class ControlQuestions(Page):
                 'ctrlQ_who_transfers',
                 'ctrlQ_A_earnings',
                 'ctrlQ_B_earnings',
-                'time_ControlQuestions',
+                'time_ControlQuestions'
             ]
-        elif self.group.treatment in ['DM', 'TP', 'TP-R']:
+        elif self.group.treatment in ['DM', 'TP']:
             return [
                 'ctrlQ_anonymity',
                 'ctrlQ_who_transfers',
@@ -54,7 +54,13 @@ class ControlQuestions(Page):
                 'ctrlQ_A_earnings',
                 'ctrlQ_B_sends_message',
                 'ctrlQ_B_earnings',
-                'time_ControlQuestions',
+                'time_ControlQuestions'
+            ]
+        elif self.group.treatment in ['TP-R']:
+            return [
+                'ctrlQ_anonymity',
+                'ctrlQ_who_transfers',
+                'time_ControlQuestions'
             ]
 
     def iterate_fc(self):
