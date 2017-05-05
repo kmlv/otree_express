@@ -62,6 +62,7 @@ class ControlQuestions(Page):
                 'ctrlQ_who_transfers',
                 'time_ControlQuestions'
             ]
+        
 
     def iterate_fc(self):
         self.player.fields_checked = self.player.fields_checked + 1

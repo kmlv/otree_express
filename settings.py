@@ -204,9 +204,8 @@ SESSION_CONFIGS = [
         'num_readers': 0,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
-        # 'app_sequence': ['PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
@@ -577,7 +576,9 @@ SESSION_CONFIGS = [
         'app_sequence': [
             '_Cover_Welcome',
             'emo_quest_panas_mauss_discrete',
-            'search_task', 'PTT_expression',
+            'PTT_express_instructions',
+            'search_task', 
+            'PTT_expression',
             'emo_quest_panas_mauss_discrete2',
             'demograp',
             'payment_info'
