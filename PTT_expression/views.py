@@ -206,6 +206,10 @@ class AllBdmCont(Page):
 
     # defining whether message is sent or not
     def before_next_page(self):
+
+        self.group.b_message = self.group.b_message.replace(',', ';')  # this is because we store data in CSV format
+        # and commas cause some issues with that
+
         if self.group.b_message == "" or self.group.b_message == " ":
             self.group.want_send_message = 'No'
             self.group.msg_sent = 0
@@ -278,6 +282,10 @@ class AllBdmList(Page):
 
 
     def before_next_page(self):
+
+        self.group.b_message = self.group.b_message.replace(',', ';')  # this is because we store data in CSV format
+        # and commas cause some issues with that
+
         if self.group.b_message == "" or self.group.b_message == " ":
             self.group.want_send_message = 'No'
             self.group.msg_sent = 0
@@ -357,6 +365,10 @@ class AllFmNm(Page):
 
     # defining whether message is sent or not
     def before_next_page(self):
+
+        self.group.b_message = self.group.b_message.replace(',', ';')  # this is because we store data in CSV format
+        # and commas cause some issues with that
+
         if self.group.treatment == 'FM':
             if self.group.b_message == "" or self.group.b_message == " ":
                 self.group.want_send_message = 'No'

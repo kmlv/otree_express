@@ -1,0 +1,10 @@
+venv
+*.pyc
+staticfiles
+./db.sqlite3
+.idea
+*~
+*.sqlite3
+_coverage_results/
+.DS_Store
+__pycache__

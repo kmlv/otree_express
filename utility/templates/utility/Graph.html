@@ -1,0 +1,111 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block styles %}
+    <link href="{% static "css/vue-range-slider.css" %}" rel="stylesheet">
+    <style> /* set the CSS */
+    .line {
+      fill: none;
+      stroke: black;
+      stroke-width: 2px;
+    }
+    .range-slider {
+        width: 290px !important;
+    }
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static "js/vue.min.js" %}"></script>
+    <script src="{% static "js/d3.min.js" %}"></script>
+    <script src="{% static "js/vue-range-slider.cjs.js" %}"></script>
+    <script type="text/javascript">
+    var appSpecific = {
+        precision: {{ Constants.precision }},
+        scale: {
+            type: '{{ Constants.scale.type }}',
+            max: {{ Constants.scale.max }}
+        },
+        constants: {
+            k: {{ Constants.constants.k }},
+            maxArea: {{ Constants.constants.maxArea }}
+        },
+        width: {{ Constants.width }},
+        height: {{ Constants.height }},
+        margin: {
+            top: {{ Constants.margin.top }},
+            right: {{ Constants.margin.right }},
+            bottom: {{ Constants.margin.bottom }},
+            left: {{ Constants.margin.left }},
+        },
+        label: {
+            x: '{{ Constants.label.x }}',
+            y: '{{ Constants.label.y }}'
+        },
+        mode: '{{ Constants.mode }}',
+        equation: {
+            m: {{ Constants.equation.m }},
+            px: {{ Constants.equation.px }},
+            py: {{ Constants.equation.py }},
+            a: {
+                x: {{ Constants.equation.a.x }},
+                y: {{ Constants.equation.a.y }}
+            },
+            b: {
+                x: {{ Constants.equation.b.x }},
+                y: {{ Constants.equation.b.y }}
+            }
+        }
+    }
+    </script>
+    <script src="{% static "js/graph.js" %}"></script>
+{% endblock %}
+
+{% block title %}
+    Risk Preference
+{% endblock %}
+
+{% block content %}
+
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <div class="graph col-md-6"></div>
+                <div class="col-md-6" style="margin-top: 50px" v-if="mode === 'probability'">
+                    <div class="row">
+                        <range-slider
+                        class="slider"
+                        min="0"
+                        max="100"
+                        step="1"
+                        v-model="prob.a">
+                        </range-slider>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3" v-html="prob.a.toFixed(0) + '%'">
+                        </div>
+                        <div class="col-md-3" style="text-align: right;" v-html="prob.b.toFixed(0) + '%'">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            Probability of A:
+                        </div>
+                        <div class="col-md-3" style="text-align: right;">
+                            Probability of B:
+                        </div>
+                    </div>
+                </div>
+                <div class="row" v-if="mode !== 'probability'">
+                    <div class="col-md-6" v-html="'Circle: ' + JSON.stringify(selected[0])">
+                    </div>
+                    <div class="col-md-6" v-if="selected[1] && selected[1].x" v-html="'Rect: ' + JSON.stringify(selected[1])">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% next_button %}
+
+{% endblock %}
