@@ -57,7 +57,7 @@ class Constants(BaseConstants):
 
     endowment = c(10)
     multiplication_factor = 3
-    #allowed_error_rates = [0.05, 0.3]
+    allowed_error_rates = [0.05, 0.3]
     #show_transcription_1 = True
 
     reference_texts = [
@@ -67,7 +67,7 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    allowed_error_rates = models.CommaSeparatedIntegerField(max_length=6 )
+    allowed_error_rates = Constants.allowed_error_rates
 
     def before_session_starts(self):
         self.allowed_error_rates = self.session.config['allowed_error_rates']
@@ -82,6 +82,7 @@ class Player(BasePlayer):
     transcribed_text = models.TextField()
     distance_1 = models.PositiveIntegerField()
     levenshtein_distance = models.PositiveIntegerField()
+    time_Instructions = models.LongStringField()
 
     def set_payoff(self):
         self.payoff = 0
