@@ -33,8 +33,8 @@ class InitialWait(WaitPage):
 
 
 class InitialStage2(Page):
-    form_model = models.Player
-    form_fields = ['time_InitialStage2']
+    # form_model = models.Player
+    # form_fields = ['time_InitialStage2']
     # timeout_seconds = 60
 
     def before_next_page(self):
@@ -56,7 +56,7 @@ class InitialStage2(Page):
 class RolesIncome(Page):
     """ Page 1: RolesIncome All """
     form_model = models.Player
-    form_fields = ['time_RolesIncome']
+    # form_fields = ['time_RolesIncome']
     # timeout_seconds = 60
 
     def vars_for_template(self):
@@ -69,7 +69,7 @@ class RolesIncome(Page):
 class ADecides(Page):
     """ Page 2A: A Decides """
     form_model = models.Group
-    form_fields = ['take_rate', 'time_ADecides']
+    form_fields = ['take_rate']
     # timeout_seconds = 60
 
     def is_displayed(self):
@@ -104,7 +104,7 @@ class ADecides(Page):
 class BPredicts(Page):
     """Page 2B: B Predicts"""
     form_model = models.Group
-    form_fields = ['expected_take_rate', 'time_BPredicts']
+    form_fields = ['expected_take_rate']
     # timeout_seconds = 60
 
     def is_displayed(self):
@@ -120,7 +120,7 @@ class BPredicts(Page):
 class ATakeResults(Page):
     """Take Results"""
     form_model = models.Group
-    form_fields = ['time_ATakeResults']
+
     # timeout_seconds = 15
 
     def is_displayed(self):
@@ -341,7 +341,7 @@ class AllBdmList(Page):
 class AllFmNm(Page):
     """ """
     form_model = models.Group
-    form_fields = ['b_message', 'time_AllFmNm']
+    form_fields = ['b_message']
 
     # timeout_seconds = 360
 
@@ -424,7 +424,7 @@ class BdmResults(Page):
 class DisplayMessageToA(Page):
     """Page _: message is shown to player A"""
     form_model = models.Group
-    form_fields = ['time_DisplayMessageToA']
+
     # timeout_seconds = 15
 
     def is_displayed(self):
@@ -470,7 +470,7 @@ class ResultsWaitPage(WaitPage):
 class Results(Page):
     """Page _: Page hosws table of final earnings"""
     form_model = models.Player
-    form_fields = ['time_Results']
+
     # timeout_seconds = 20
 
     def vars_for_template(self):

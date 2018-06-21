@@ -13,8 +13,8 @@ from .models import Constants
 
 
 class Instructions(Page):
-    form_model = models.Player
-    form_fields = ['time_Instructions']
+    #form_model = models.Player
+    #form_fields = ['time_Instructions']
     def vars_for_template(self):
         return {
             'treatment': self.group.treatment,
@@ -44,7 +44,7 @@ class ControlQuestions(Page):
                 'ctrlQ_who_transfers',
                 'ctrlQ_A_earnings',
                 'ctrlQ_B_earnings',
-                'time_ControlQuestions'
+                #'time_ControlQuestions'
             ]
         elif self.group.treatment in ['DM', 'TP']:
             return [
@@ -54,13 +54,13 @@ class ControlQuestions(Page):
                 'ctrlQ_A_earnings',
                 'ctrlQ_B_sends_message',
                 'ctrlQ_B_earnings',
-                'time_ControlQuestions'
+                #'time_ControlQuestions'
             ]
         elif self.group.treatment in ['TP-R']:
             return [
                 'ctrlQ_anonymity',
                 'ctrlQ_who_transfers',
-                'time_ControlQuestions'
+                #'time_ControlQuestions'
             ]
         
 
