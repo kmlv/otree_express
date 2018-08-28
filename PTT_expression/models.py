@@ -69,7 +69,12 @@ class Subsession(BaseSubsession):
                     grupo.BDM_uplimit = grupo.Method_params[1]
                     grupo.BDM_list_step = grupo.Method_params[2]
             i += 1
-
+            # create BDM List compensations - It generates as many variables list_price_{0} as Constants.max_price_list_size
+        for i in range(0, Constants.max_price_list_size): # code taken from allbdmlist in views
+            locals()['list_compensation_{0}'.format(i)] = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+            # create BDM List prices - It generates as many variables list_price_{0} as Constants.max_price_list_size
+        for i in range(0, Constants.max_price_list_size):
+            locals()['list_price_{0}_yes'.format(i)] = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
 
         # setting message PRICE
         i = 0
@@ -185,8 +190,8 @@ class Group(BaseGroup):
     SOP_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal())
 
     price_list_size = models.IntegerField()
-    
-    '''
+    #below code moved to before session starts
+    ''' 
     # create BDM List prices - It generates as many variables list_price_{0} as Constants.max_price_list_size
     for i in range(0, Constants.max_price_list_size):
         locals()['list_price_{0}_yes'.format(i)] = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)

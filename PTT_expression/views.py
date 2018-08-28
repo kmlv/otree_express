@@ -174,7 +174,7 @@ class ATakeResults(Page):
 class AllBdmCont(Page):
     """ """
     form_model = models.Group
-    form_fields = ['b_value', 'b_message', 'time_AllBdmCont']
+    form_fields = ['b_value', 'b_message']
 
     # timeout_seconds = 360
 
@@ -413,7 +413,7 @@ class AllFmNm(Page):
 class BdmResults(Page):
     """Page _:"""
     form_model = models.Group
-    form_fields = ['time_BdmResults']
+    # form_fields = ['time_BdmResults']
     # timeout_seconds = 15
 
     def is_displayed(self):
