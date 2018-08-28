@@ -33,9 +33,8 @@ class InitialWait(WaitPage):
 
 
 class InitialStage2(Page):
-    # form_model = models.Player
-    # form_fields = ['time_InitialStage2']
-    # timeout_seconds = 60
+    form_model = models.Player
+    form_fields = ['time_InitialStage2']
 
     def before_next_page(self):
         self.player.task_income = self.participant.vars['task_income']
@@ -56,7 +55,7 @@ class InitialStage2(Page):
 class RolesIncome(Page):
     """ Page 1: RolesIncome All """
     form_model = models.Player
-    # form_fields = ['time_RolesIncome']
+    form_fields = ['time_RolesIncome']
     # timeout_seconds = 60
 
     def vars_for_template(self):
@@ -69,7 +68,7 @@ class RolesIncome(Page):
 class ADecides(Page):
     """ Page 2A: A Decides """
     form_model = models.Group
-    form_fields = ['take_rate']
+    form_fields = ['take_rate', 'time_ADecides']
     # timeout_seconds = 60
 
     def is_displayed(self):
@@ -104,7 +103,7 @@ class ADecides(Page):
 class BPredicts(Page):
     """Page 2B: B Predicts"""
     form_model = models.Group
-    form_fields = ['expected_take_rate']
+    form_fields = ['expected_take_rate','time_BPredicts']
     # timeout_seconds = 60
 
     def is_displayed(self):
@@ -120,6 +119,7 @@ class BPredicts(Page):
 class ATakeResults(Page):
     """Take Results"""
     form_model = models.Group
+    form_fields = ['time_ATakeResults']
 
     # timeout_seconds = 15
 
@@ -174,7 +174,7 @@ class ATakeResults(Page):
 class AllBdmCont(Page):
     """ """
     form_model = models.Group
-    form_fields = ['b_value', 'b_message']
+    form_fields = ['b_value', 'b_message', 'time_AllBdmCont']
 
     # timeout_seconds = 360
 
@@ -341,7 +341,8 @@ class AllBdmList(Page):
 class AllFmNm(Page):
     """ """
     form_model = models.Group
-    form_fields = ['b_message']
+    form_fields = ['b_message', 'time_AllFmNm']
+    
 
     # timeout_seconds = 360
 
@@ -413,7 +414,7 @@ class AllFmNm(Page):
 class BdmResults(Page):
     """Page _:"""
     form_model = models.Group
-    # form_fields = ['time_BdmResults']
+    form_fields = ['time_BdmResults']
     # timeout_seconds = 15
 
     def is_displayed(self):
@@ -424,6 +425,7 @@ class BdmResults(Page):
 class DisplayMessageToA(Page):
     """Page _: message is shown to player A"""
     form_model = models.Group
+    form_fields = ['time_DisplayMessageToA']
 
     # timeout_seconds = 15
 
@@ -470,6 +472,7 @@ class ResultsWaitPage(WaitPage):
 class Results(Page):
     """Page _: Page hosws table of final earnings"""
     form_model = models.Player
+    form_fields = ['time_Results']
 
     # timeout_seconds = 20
 

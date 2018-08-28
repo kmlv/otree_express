@@ -19,7 +19,7 @@ pointDistMax = 120
 pointDistMin = 20
 num_readers = 0
 reader_endowment = [3]
-params = [
+params = [ #direct, free, no message 
     {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],  'end': [3, 3]},
     {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':        None, 'end': [3, 3]},
     {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 3]}

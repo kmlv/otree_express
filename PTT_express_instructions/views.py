@@ -13,8 +13,8 @@ from .models import Constants
 
 
 class Instructions(Page):
-    #form_model = models.Player
-    #form_fields = ['time_Instructions']
+    form_model = models.Player
+    form_fields = ['time_Instructions']
     def vars_for_template(self):
         return {
             'treatment': self.group.treatment,
@@ -27,6 +27,8 @@ class Instructions(Page):
             'BDM_uplimit': self.group.BDM_uplimit,
             'points': self.session.config['USE_POINTS'],
         }
+    def before_next_page(self):
+        print("asdfasdf" + self.player.time_Instructions)
 
 
     # timeout_seconds = 400
