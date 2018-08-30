@@ -2,7 +2,8 @@ from otree.api import Currency as c, currency_range
 from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
-
+from django.conf import settings
+#quiz is disabled when debug active, comment out the is_displayed for controlquestions when needed
 
 # class MyPage(Page):
 #
@@ -36,6 +37,8 @@ class Instructions(Page):
 
 class ControlQuestions(Page):
     form_model = models.Player
+    def is_displayed(self):
+        return not settings.DEBUG
 
     # timeout_seconds = 400
 
@@ -46,7 +49,7 @@ class ControlQuestions(Page):
                 'ctrlQ_who_transfers',
                 'ctrlQ_A_earnings',
                 'ctrlQ_B_earnings',
-                #'time_ControlQuestions'
+                'time_ControlQuestions'
             ]
         elif self.group.treatment in ['DM', 'TP']:
             return [
@@ -56,13 +59,13 @@ class ControlQuestions(Page):
                 'ctrlQ_A_earnings',
                 'ctrlQ_B_sends_message',
                 'ctrlQ_B_earnings',
-                #'time_ControlQuestions'
+                'time_ControlQuestions'
             ]
         elif self.group.treatment in ['TP-R']:
             return [
                 'ctrlQ_anonymity',
                 'ctrlQ_who_transfers',
-                #'time_ControlQuestions'
+                'time_ControlQuestions'
             ]
         
 
