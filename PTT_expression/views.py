@@ -107,6 +107,7 @@ class BPredicts(Page):
     # timeout_seconds = 60
 
     def is_displayed(self):
+
         return self.player.role() == 'B'
 
     def vars_for_template(self):
@@ -183,7 +184,9 @@ class AllBdmCont(Page):
             (self.group.treatment == 'DM' or self.group.treatment == 'TP' )
 
     def vars_for_template(self):
+
         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
+            
             p_a = self.group.get_player_by_role('A')
             p_b = self.group.get_player_by_role('B')
             return {
@@ -225,6 +228,8 @@ class AllBdmList(Page):
     """ """
     form_model = models.Group
 
+    
+
     def get_form_fields(self):
         #    setting self.group.price_list and self.group.price_list_size so we can set form_fields
         max_size = Constants.max_price_list_size
@@ -250,8 +255,8 @@ class AllBdmList(Page):
     # timeout_seconds = 360
 
     def is_displayed(self):
-        return self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'LIST' and \
-            (self.group.treatment == 'DM' or self.group.treatment == 'TP')
+        return(self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'LIST' and \
+            (self.group.treatment == 'DM' or self.group.treatment == 'TP'))
 
     def vars_for_template(self):
         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player

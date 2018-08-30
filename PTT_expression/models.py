@@ -69,10 +69,12 @@ class Subsession(BaseSubsession):
                     grupo.BDM_uplimit = grupo.Method_params[1]
                     grupo.BDM_list_step = grupo.Method_params[2]
             i += 1
+
             # create BDM List compensations - It generates as many variables list_price_{0} as Constants.max_price_list_size
         for i in range(0, Constants.max_price_list_size): # code taken from allbdmlist in views
             locals()['list_compensation_{0}'.format(i)] = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
             # create BDM List prices - It generates as many variables list_price_{0} as Constants.max_price_list_size
+        i = 0
         for i in range(0, Constants.max_price_list_size):
             locals()['list_price_{0}_yes'.format(i)] = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
 
@@ -200,6 +202,26 @@ class Group(BaseGroup):
     for i in range(0, Constants.max_price_list_size):
         locals()['list_compensation_{0}'.format(i)] = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
     '''
+    list_price_0_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_1_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_2_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_3_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_4_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_5_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_6_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_7_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_8_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_9_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_10_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_11_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_12_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_13_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_14_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_15_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_16_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_17_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_18_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_19_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
     # create vars for timestamps
     time_ADecides = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_BPredicts = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
