@@ -10,8 +10,8 @@ class MyPage(Page):
 
         # passes task reward to task_income
         self.participant.vars['task_income'] = self.player.task_income
-
-    timeout_seconds = 2
+    #timeout_seconds = 2
+    timeout_seconds = .1
 
 
 class temp_WillingnessBList(Page):
