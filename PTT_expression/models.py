@@ -169,6 +169,7 @@ class Group(BaseGroup):
 
     a_task_income = models.DecimalField(max_digits=5, decimal_places=2)
     b_task_income = models.CurrencyField()
+    discard = models.BooleanField()
 
     treatment = models.TextField()
     value_type = models.TextField()

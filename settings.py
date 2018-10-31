@@ -210,6 +210,21 @@ SESSION_CONFIGS = [
         'debug': True
     },
     {
+        'name': 'discardN2',
+        'participation_fee': 5.00,
+        'display_name': "discard message n=2 ",
+        'real_world_currency_per_point': 0.01,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3, 8],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [
+            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3], 'discard': 420},
+        ],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
         'name': 'PTT_express_DM_N2_WTP_BDM_LIST__0_endowment',
         'participation_fee': 5.00,
         'display_name': "Direct Message, N=2, WTP, BDM List [0, endowment] ",
