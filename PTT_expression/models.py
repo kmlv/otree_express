@@ -53,6 +53,7 @@ class Subsession(BaseSubsession):
             grupo.value_type = self.session.config['Params'][i]['val_typ']
             grupo.elicitation_method = self.session.config['Params'][i]['elic_met']
             grupo.BDM_type = self.session.config['Params'][i]['BDM_typ']
+            grupo.discard = 'discard' in self.session.config['Params'][i]
             grupo.endowment = self.session.config['Params'][i]['end']  # this writes a local at group level; used below
 
             # this loads the parameters of eliciation methods

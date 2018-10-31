@@ -435,7 +435,7 @@ class DisplayMessageToA(Page):
     # timeout_seconds = 15
 
     def is_displayed(self):
-        return self.player.role() == 'A' and \
+        return not self.group.discard and self.player.role() == 'A' and \
         (self.group.treatment == 'DM' or self.group.treatment == 'FM')
 
 

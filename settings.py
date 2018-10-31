@@ -163,7 +163,7 @@ import ptt_express_treatment_config
 
 ################
 
-SESSION_CONFIGS = [
+SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the message to be discarded
     {
         'name': 'PTT_express_FM_n2',
         'participation_fee': 4.00,
