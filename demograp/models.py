@@ -10,7 +10,7 @@ from otree.common import Currency as c, currency_range
 import random
 # </standard imports>
 
-from django_countries.fields import CountryField
+
 
 
 class Constants(BaseConstants):
@@ -35,8 +35,7 @@ class Player(BasePlayer):
         """Calculate payoff, which is zero for the survey"""
         self.payoff = 0
 
-    q_country = CountryField(
-        verbose_name='What is your country of citizenship?')
+    q_country = models.CharField()
 
     q_age = models.PositiveIntegerField(verbose_name='What is your age?',
                                         choices=range(13, 125),

@@ -22,7 +22,7 @@ SENTRY_DSN = 'http://4068d64a59a54b1aa0107e0c158c6194:851eeb1e34924c5ab13371a4bd
 #SENTRY_DSN = 'http://3108e33d261b4efb823ef3dd86e5644e:d9c57b4a0482466cbd5be4a643ab0310@sentry.otree.org/92'
 
 ADMIN_USERNAME = 'admin'
-
+OTREE_PRODUCTION = 1
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
