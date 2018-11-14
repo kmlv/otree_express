@@ -50,10 +50,11 @@ class Subsession(BaseSubsession):
         for grupo in self.get_groups()[0:num_groups]:  # the slice is because self.get_groups() include a group
             # containing the reader. Reader(s) always comes last
             grupo.treatment = self.session.config['Params'][i]['treat']
+            grupo.discard = 'discard' in self.session.config['Params'][i]
             grupo.value_type = self.session.config['Params'][i]['val_typ']
             grupo.elicitation_method = self.session.config['Params'][i]['elic_met']
             grupo.BDM_type = self.session.config['Params'][i]['BDM_typ']
-            grupo.discard = 'discard' in self.session.config['Params'][i]
+            
             grupo.endowment = self.session.config['Params'][i]['end']  # this writes a local at group level; used below
 
             # this loads the parameters of eliciation methods
@@ -82,10 +83,13 @@ class Subsession(BaseSubsession):
         # setting message PRICE
         i = 0
         for grupo in self.get_groups()[0:num_groups]:  # the slice is because self.get_groups() include a group
+            
             if grupo.treatment == 'FM':
                 grupo.message_price = 0
             elif grupo.treatment == 'NM':
                 grupo.message_price = None
+            elif grupo.treatment == 'DCM':
+                grupo.discard = True
             elif grupo.treatment == 'DM' or grupo.treatment == 'TP':
                 if len(grupo.Method_params) == 1:  # this is when the price is given in the config, not randomly
                     # generated
@@ -133,7 +137,9 @@ class Subsession(BaseSubsession):
 
         # Check if Params in session config is congruent with number of participants
         for grupo in self.get_groups():
-            if grupo.treatment == 'DM' or grupo.treatment == 'TP':
+            if(grupo.treatment == "DCM"):
+                assert True #add in more checks later
+            elif grupo.treatment == 'DM' or grupo.treatment == 'TP':
                 assert grupo.value_type is not None and grupo.elicitation_method is not None and \
                        ((grupo.BDM_type is not None and grupo.BDM_lolimit is not None and grupo.BDM_uplimit)
                         or grupo.SOP_price is not None), \

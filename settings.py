@@ -212,13 +212,13 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
     {
         'name': 'discardN2',
         'participation_fee': 5.00,
-        'display_name': "discard message n=2 ",
+        'display_name': "discard message n=2",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
         'targetIncome': [10.3, 8],
         'num_readers': 0,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
-        'Params': [
+        'Params': [ #treat LIO
             {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3], 'discard': 420},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],

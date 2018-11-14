@@ -19,10 +19,11 @@ pointDistMax = 120
 pointDistMin = 20
 num_readers = 0
 reader_endowment = [3]
-params = [ #direct, free, no message 
-    {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],  'end': [3, 3]},
-    {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':        None, 'end': [3, 3]},
-    {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 3]}
+params = [ #direct, free, no message #DCM - discard message dm fm nm
+    {'treat': 'DCM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],  'end': [3, 3]},
+    {'treat': 'DCM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':        None, 'end': [3, 3]},
+    {'treat': 'DCM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 3]}
+    #in a group of two, sometimes two people get assigned the same parameters in different applications
 ]
 
 
