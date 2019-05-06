@@ -1,4 +1,4 @@
-#!/Users/jeffreyyang/Desktop/otree_express/env/bin/python3.6
+#!/Users/klopezva/GitHubRepos/otree_express/env/bin/python3.6
 from django.core import management
 
 if __name__ == "__main__":

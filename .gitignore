@@ -1,5 +1,5 @@
 .idea/
-
+env
 *.pyc
 *\_pycache_\*.pyc
 *.sqlite3
