@@ -22,7 +22,7 @@ SENTRY_DSN = 'http://4068d64a59a54b1aa0107e0c158c6194:851eeb1e34924c5ab13371a4bd
 #SENTRY_DSN = 'http://3108e33d261b4efb823ef3dd86e5644e:d9c57b4a0482466cbd5be4a643ab0310@sentry.otree.org/92'
 
 ADMIN_USERNAME = 'admin'
-
+OTREE_PRODUCTION = 1
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
@@ -163,7 +163,7 @@ import ptt_express_treatment_config
 
 ################
 
-SESSION_CONFIGS = [
+SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the message to be discarded
     {
         'name': 'PTT_express_FM_n2',
         'participation_fee': 4.00,
@@ -205,6 +205,21 @@ SESSION_CONFIGS = [
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
             {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+        ],
+        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'debug': True
+    },
+    {
+        'name': 'discardN2',
+        'participation_fee': 5.00,
+        'display_name': "discard message n=2",
+        'real_world_currency_per_point': 0.01,
+        'num_demo_participants': 2,
+        'targetIncome': [10.3, 8],
+        'num_readers': 0,
+        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        'Params': [ #treat LIO
+            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3], 'discard': 420},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -575,12 +590,12 @@ SESSION_CONFIGS = [
         'pointDistMax': ptt_express_treatment_config.pointDistMax,
         'app_sequence': [
             '_Cover_Welcome',
-            'emo_quest_panas_mauss_discrete',
-            'PTT_express_instructions',
+            'emo_quest_panas_mauss_discrete', #check these apps
+            'PTT_express_instructions', 
             'search_task', 
             'PTT_expression',
             'emo_quest_panas_mauss_discrete2',
-            'demograp',
+            'demograp', 
             'payment_info'
         ],
         'debug': False
@@ -591,3 +606,4 @@ SESSION_CONFIGS = [
 # anything you put after the below line will override
 # oTree's default settings. Use with caution.
 otree.settings.augment_settings(globals())
+

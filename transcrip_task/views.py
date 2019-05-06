@@ -9,13 +9,13 @@ from django.conf import settings
 
 
 class Instructions(Page):
-    form_model = models.Player
+    form_model = 'player'
     form_fields = ['time_Instructions']
 
 
 class Transcription(Page):
-    form_model = models.Player
-    form_fields = ['transcribed_text', 'time_Transcription']
+    form_model = 'player'
+    form_fields = ['transcribed_text']
 
     def vars_for_template(self):
         return {

@@ -17,9 +17,10 @@ Role B
 {% endblock %}
 
 
-{% block content %}
 
-    {% formfield  group.time_BTakeResults with label=None  %}
+{% block content %}
+    <input type="hidden" name="time_BTakeResults" id="arrive_time">
+
 
     {# INFO#}
     <p> <em>Role A</em> has taken <b>{{group.take_rate}}%</b> ({{group.money_taken}}) of your <em>task income</em>. </p>

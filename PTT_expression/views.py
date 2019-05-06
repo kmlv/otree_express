@@ -35,7 +35,6 @@ class InitialWait(WaitPage):
 class InitialStage2(Page):
     form_model = models.Player
     form_fields = ['time_InitialStage2']
-    # timeout_seconds = 60
 
     def before_next_page(self):
         self.player.task_income = self.participant.vars['task_income']
@@ -104,10 +103,11 @@ class ADecides(Page):
 class BPredicts(Page):
     """Page 2B: B Predicts"""
     form_model = models.Group
-    form_fields = ['expected_take_rate', 'time_BPredicts']
+    form_fields = ['expected_take_rate','time_BPredicts']
     # timeout_seconds = 60
 
     def is_displayed(self):
+
         return self.player.role() == 'B'
 
     def vars_for_template(self):
@@ -121,6 +121,7 @@ class ATakeResults(Page):
     """Take Results"""
     form_model = models.Group
     form_fields = ['time_ATakeResults']
+
     # timeout_seconds = 15
 
     def is_displayed(self):
@@ -183,7 +184,9 @@ class AllBdmCont(Page):
             (self.group.treatment == 'DM' or self.group.treatment == 'TP' )
 
     def vars_for_template(self):
+
         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
+            
             p_a = self.group.get_player_by_role('A')
             p_b = self.group.get_player_by_role('B')
             return {
@@ -225,6 +228,8 @@ class AllBdmList(Page):
     """ """
     form_model = models.Group
 
+    
+
     def get_form_fields(self):
         #    setting self.group.price_list and self.group.price_list_size so we can set form_fields
         max_size = Constants.max_price_list_size
@@ -250,8 +255,8 @@ class AllBdmList(Page):
     # timeout_seconds = 360
 
     def is_displayed(self):
-        return self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'LIST' and \
-            (self.group.treatment == 'DM' or self.group.treatment == 'TP')
+        return(self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'LIST' and \
+            (self.group.treatment == 'DM' or self.group.treatment == 'TP'))
 
     def vars_for_template(self):
         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
@@ -342,6 +347,7 @@ class AllFmNm(Page):
     """ """
     form_model = models.Group
     form_fields = ['b_message', 'time_AllFmNm']
+    
 
     # timeout_seconds = 360
 
@@ -425,10 +431,11 @@ class DisplayMessageToA(Page):
     """Page _: message is shown to player A"""
     form_model = models.Group
     form_fields = ['time_DisplayMessageToA']
+
     # timeout_seconds = 15
 
     def is_displayed(self):
-        return self.player.role() == 'A' and \
+        return not self.group.discard and self.player.role() == 'A' and \
         (self.group.treatment == 'DM' or self.group.treatment == 'FM')
 
 
@@ -471,6 +478,7 @@ class Results(Page):
     """Page _: Page hosws table of final earnings"""
     form_model = models.Player
     form_fields = ['time_Results']
+
     # timeout_seconds = 20
 
     def vars_for_template(self):

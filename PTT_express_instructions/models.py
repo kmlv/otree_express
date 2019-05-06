@@ -100,7 +100,7 @@ class Player(BasePlayer):
     participation_fee = models.CurrencyField()
     # Check if this is the first time visiting the page by counting how many fields are validated
     # < 6 means this is the first time
-    number_of_questions = 6
+    number_of_questions = models.IntegerField(initial=6)
     # Start at -1 because we iterate at the start of field validation
     fields_checked = models.IntegerField(initial=-1)
 

@@ -50,9 +50,11 @@ class Subsession(BaseSubsession):
         for grupo in self.get_groups()[0:num_groups]:  # the slice is because self.get_groups() include a group
             # containing the reader. Reader(s) always comes last
             grupo.treatment = self.session.config['Params'][i]['treat']
+            grupo.discard = 'discard' in self.session.config['Params'][i]
             grupo.value_type = self.session.config['Params'][i]['val_typ']
             grupo.elicitation_method = self.session.config['Params'][i]['elic_met']
             grupo.BDM_type = self.session.config['Params'][i]['BDM_typ']
+            
             grupo.endowment = self.session.config['Params'][i]['end']  # this writes a local at group level; used below
 
             # this loads the parameters of eliciation methods
@@ -70,14 +72,24 @@ class Subsession(BaseSubsession):
                     grupo.BDM_list_step = grupo.Method_params[2]
             i += 1
 
+            # create BDM List compensations - It generates as many variables list_price_{0} as Constants.max_price_list_size
+        #for i in range(0, Constants.max_price_list_size): # code taken from allbdmlist in views
+         #   locals()['list_compensation_{0}'.format(i)] = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+            # create BDM List prices - It generates as many variables list_price_{0} as Constants.max_price_list_size
+        
+        #for i in range(0, Constants.max_price_list_size):
+         #   locals()['list_price_{0}_yes'.format(i)] = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
 
         # setting message PRICE
         i = 0
         for grupo in self.get_groups()[0:num_groups]:  # the slice is because self.get_groups() include a group
+            
             if grupo.treatment == 'FM':
                 grupo.message_price = 0
             elif grupo.treatment == 'NM':
                 grupo.message_price = None
+            elif grupo.treatment == 'DCM':
+                grupo.discard = True
             elif grupo.treatment == 'DM' or grupo.treatment == 'TP':
                 if len(grupo.Method_params) == 1:  # this is when the price is given in the config, not randomly
                     # generated
@@ -125,7 +137,9 @@ class Subsession(BaseSubsession):
 
         # Check if Params in session config is congruent with number of participants
         for grupo in self.get_groups():
-            if grupo.treatment == 'DM' or grupo.treatment == 'TP':
+            if(grupo.treatment == "DCM"):
+                assert True #add in more checks later
+            elif grupo.treatment == 'DM' or grupo.treatment == 'TP':
                 assert grupo.value_type is not None and grupo.elicitation_method is not None and \
                        ((grupo.BDM_type is not None and grupo.BDM_lolimit is not None and grupo.BDM_uplimit)
                         or grupo.SOP_price is not None), \
@@ -162,6 +176,7 @@ class Group(BaseGroup):
 
     a_task_income = models.DecimalField(max_digits=5, decimal_places=2)
     b_task_income = models.CurrencyField()
+    discard = models.BooleanField()
 
     treatment = models.TextField()
     value_type = models.TextField()
@@ -185,9 +200,8 @@ class Group(BaseGroup):
     SOP_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal())
 
     price_list_size = models.IntegerField()
-    price_list = []
-    responses_list = []
-
+    #below code moved to before session starts
+    ''' 
     # create BDM List prices - It generates as many variables list_price_{0} as Constants.max_price_list_size
     for i in range(0, Constants.max_price_list_size):
         locals()['list_price_{0}_yes'.format(i)] = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
@@ -195,6 +209,52 @@ class Group(BaseGroup):
     # create BDM compensation amount - It generates as many variables list_price_{0} as Constants.max_price_list_size
     for i in range(0, Constants.max_price_list_size):
         locals()['list_compensation_{0}'.format(i)] = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    '''
+    # low tech solutions because the for loops wouldn't work
+    list_price_0_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_1_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_2_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_3_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_4_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_5_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_6_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_7_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_8_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_9_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_10_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_11_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_12_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_13_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_14_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_15_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_16_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_17_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_18_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_price_19_yes = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
+
+    list_compensation_0 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_1 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_2 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_3 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_4 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_5 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_6 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_7 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_8 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_9 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_10 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_11 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_12 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_13 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_14 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_15 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_16 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_17 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_18 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+    list_compensation_19 = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
+
+
+
 
     # create vars for timestamps
     time_ADecides = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))

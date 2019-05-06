@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% block content %}
+  {# this recorded the timestamp #}
+    <input type="hidden" name="time_Results" id="arrive_time">
+
 
     {# this records the timestamp #}
     <script type="text/javascript">
@@ -13,8 +16,8 @@
                 document.getElementById("arrive_time").value = (new Date()).toISOString();
             }
     </script>
-    {% formfield  player.time_Results with label=None  %}
-    {# this recorded the timestamp #}
+
+    
 
     {% if player.role == 'A' or player.role == 'B' %}
 

@@ -2,7 +2,8 @@ from otree.api import Currency as c, currency_range
 from . import models
 from ._builtin import Page, WaitPage
 from .models import Constants
-
+from django.conf import settings
+#quiz is disabled when debug active, comment out the is_displayed for controlquestions when needed
 
 # class MyPage(Page):
 #
@@ -27,6 +28,8 @@ class Instructions(Page):
             'BDM_uplimit': self.group.BDM_uplimit,
             'points': self.session.config['USE_POINTS'],
         }
+    def before_next_page(self):
+        print("asdfasdf" + self.player.time_Instructions)
 
 
     # timeout_seconds = 400
@@ -34,6 +37,8 @@ class Instructions(Page):
 
 class ControlQuestions(Page):
     form_model = models.Player
+    def is_displayed(self):
+        return not settings.DEBUG
 
     # timeout_seconds = 400
 

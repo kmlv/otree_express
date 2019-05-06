@@ -52,6 +52,7 @@ class Player(BasePlayer):
 
     time_batson1 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_batson2 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
+    '''
 
     for i in range(len(Constants.emotion_list)):
         temp = '_'.join(Constants.emotion_list[i])
@@ -61,16 +62,17 @@ class Player(BasePlayer):
                                                           min=1,
                                                           max=9
                                                           )
+    
 
-    for i in range(len(Constants.filler_list)):
-        temp = '_'.join(Constants.filler_list[i])
+    for j in range(len(Constants.filler_list)):
+        temp = '_'.join(Constants.filler_list[j])
         locals()['{}'.format(temp)] = models.DecimalField(widget=widgets.HiddenInput(),
                                                           max_digits=3,
                                                           decimal_places=1,
                                                           min=1,
                                                           max=9
                                                           )
-
+    '''
 
 
 ###################
