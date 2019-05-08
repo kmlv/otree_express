@@ -1,2 +1,0 @@
-otree
-otree_startup
