@@ -35,7 +35,7 @@ class Player(BasePlayer):
         """Calculate payoff, which is zero for the survey"""
         self.payoff = 0
 
-    q_country = models.CharField()
+    q_country = models.CharField(verbose_name='What country are you from?')
 
     q_age = models.PositiveIntegerField(verbose_name='What is your age?',
                                         choices=range(13, 125),

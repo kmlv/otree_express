@@ -13,9 +13,11 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
-    DEBUG = False
+    DEBUG = False # change this after session over
 else:
-    DEBUG = True
+    DEBUG = False
+
+
 
 # sentry dsn is for receiving error messages when debug is off
 SENTRY_DSN = 'http://4068d64a59a54b1aa0107e0c158c6194:851eeb1e34924c5ab13371a4bd695efb@sentry.otree.org/91'
@@ -484,7 +486,7 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'debug': True,
         'doc': """
             This is the parameter arrangement
-            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],
              'end': [3, 3]},
             {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.5],
              'end': [3, 3]},
@@ -591,11 +593,11 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'app_sequence': [
             '_Cover_Welcome',
             'emo_quest_panas_mauss_discrete', #check these apps
-            'PTT_express_instructions', 
-            'search_task', 
+            'PTT_express_instructions',
+            'search_task',
             'PTT_expression',
             'emo_quest_panas_mauss_discrete2',
-            'demograp', 
+            'demograp',
             'payment_info'
         ],
         'debug': False
