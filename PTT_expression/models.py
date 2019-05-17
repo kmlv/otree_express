@@ -39,9 +39,24 @@ class Subsession(BaseSubsession):
         num_groups = len(self.session.config['Params'])
         print(num_groups)  # OK
 
+
+
         # group formation
         num_partic = self.session.config['num_demo_participants']  # reads number of participants - CHANGE for PRODUCT
         shuf_players = random.sample(range(1, num_partic + 1), num_partic)  # shuffle order of "players IDs"
+
+        # swap player 11 to last spot
+        # participant_labels = [p.participant.label for p in self.get_players()]
+        # print(participant_labels)
+        # try:
+        #     p11_id = participant_labels.index('LEEPS_11') + 1
+        #     swap_player = shuf_players[-1]
+        #     shuf_players[shuf_players.index(p11_id)] = swap_player
+        #     shuf_players[-1] = p11_id
+        # except ValueError:
+        #     print ('excepted')
+        #     pass
+
         grouping = [shuf_players[i:i + 2] for i in range(0, len(shuf_players), 2)]  # splits "IDs" into 2-sized groups
         self.set_group_matrix(grouping)  # assigns grouping
 
