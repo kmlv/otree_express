@@ -41,7 +41,7 @@ class Subsession(BaseSubsession):
 
         # group formation
         num_partic = self.session.config['num_demo_participants']  # reads number of participants - CHANGE for PRODUCT
-        # shuf_players = random.sample(range(1, num_partic + 1), num_partic)  # shuffle order of "players IDs"
+        shuf_players = random.sample(range(1, num_partic + 1), num_partic)  # shuffle order of "players IDs"
         grouping = [shuf_players[i:i + 2] for i in range(0, len(shuf_players), 2)]  # splits "IDs" into 2-sized groups
         self.set_group_matrix(grouping)  # assigns grouping
 
