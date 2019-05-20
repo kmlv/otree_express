@@ -45,16 +45,16 @@ class Subsession(BaseSubsession):
         num_partic = self.session.config['num_demo_participants']  # reads number of participants - CHANGE for PRODUCT
         #shuf_players = random.sample(range(1, num_partic + 1), num_partic)  # shuffle order of "players IDs"
         shuf_players = random.sample([i for i in range(1,num_partic + 1)], num_partic)
-        setAside = 10
-        shuf_players.remove(setAside)
-        shuf_players.append(setAside)
+        #setAside = 10
+        #shuf_players.remove(setAside)
+        #shuf_players.append(setAside)
 
 
 
         #shuf_players = random.sample(range(1, num_partic), num_partic - 1) # shuffle order of "players IDs"
         #shuf_players.append(num_partic)
         #shuf_players = range(1, num_partic + 1)  # shuffle order of "players IDs"
-        
+
         #shuf_players = [i for i in range(1, num_partic + 1)]
         # swap player 11 to last spot
         # participant_labels = [p.participant.label for p in self.get_players()]
@@ -76,16 +76,21 @@ class Subsession(BaseSubsession):
         self.set_group_matrix(grouping)  # assigns grouping
 
 
+
         # read params and treatments distribution
         i = 0
         for grupo in self.get_groups()[0:num_groups]:  # the slice is because self.get_groups() include a group
+            if self.session.config['Params'][i]['treat'] == 'DIS':
+                grupo.discard = True
+                grupo.treatment = 'DM'
             # containing the reader. Reader(s) always comes last
-            grupo.treatment = self.session.config['Params'][i]['treat']
+            else:
+                grupo.treatment = self.session.config['Params'][i]['treat']
             grupo.discard = 'discard' in self.session.config['Params'][i]
             grupo.value_type = self.session.config['Params'][i]['val_typ']
             grupo.elicitation_method = self.session.config['Params'][i]['elic_met']
             grupo.BDM_type = self.session.config['Params'][i]['BDM_typ']
-            
+
             grupo.endowment = self.session.config['Params'][i]['end']  # this writes a local at group level; used below
 
             # this loads the parameters of eliciation methods
@@ -107,14 +112,14 @@ class Subsession(BaseSubsession):
         #for i in range(0, Constants.max_price_list_size): # code taken from allbdmlist in views
          #   locals()['list_compensation_{0}'.format(i)] = models.CharField(choices=['Send message', 'Receive'], widget=widgets.RadioSelectHorizontal(), blank = True)
             # create BDM List prices - It generates as many variables list_price_{0} as Constants.max_price_list_size
-        
+
         #for i in range(0, Constants.max_price_list_size):
          #   locals()['list_price_{0}_yes'.format(i)] = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)
 
         # setting message PRICE
         i = 0
         for grupo in self.get_groups()[0:num_groups]:  # the slice is because self.get_groups() include a group
-            
+
             if grupo.treatment == 'FM':
                 grupo.message_price = 0
             elif grupo.treatment == 'NM':
@@ -232,7 +237,7 @@ class Group(BaseGroup):
 
     price_list_size = models.IntegerField()
     #below code moved to before session starts
-    ''' 
+    '''
     # create BDM List prices - It generates as many variables list_price_{0} as Constants.max_price_list_size
     for i in range(0, Constants.max_price_list_size):
         locals()['list_price_{0}_yes'.format(i)] = models.CharField(choices=['Yes', 'No'], widget=widgets.RadioSelectHorizontal(), blank = True)

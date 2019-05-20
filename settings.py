@@ -206,7 +206,7 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_readers': 0,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [
-            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+            {'treat': 'DIS', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
