@@ -13,9 +13,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
-    DEBUG = False # change this after session over
+    DEBUG = True # change this after session over
 else:
-    DEBUG = False
+    DEBUG = True
 
 
 
@@ -221,9 +221,9 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_readers': 0,
         'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
         'Params': [ #treat LIO
-            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3], 'discard': 420},
+            {'treat': 'DIS', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
-        'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {

@@ -181,12 +181,12 @@ class AllBdmCont(Page):
 
     def is_displayed(self):
         return self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'CONT' and \
-            (self.group.treatment == 'DM' or self.group.treatment == 'TP' )
+            (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'DIS')
 
     def vars_for_template(self):
 
         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
-            
+
             p_a = self.group.get_player_by_role('A')
             p_b = self.group.get_player_by_role('B')
             return {
@@ -228,7 +228,7 @@ class AllBdmList(Page):
     """ """
     form_model = models.Group
 
-    
+
 
     def get_form_fields(self):
         #    setting self.group.price_list and self.group.price_list_size so we can set form_fields
@@ -256,7 +256,7 @@ class AllBdmList(Page):
 
     def is_displayed(self):
         return(self.player.role() == 'B' and self.group.elicitation_method == 'BDM' and self.group.BDM_type == 'LIST' and \
-            (self.group.treatment == 'DM' or self.group.treatment == 'TP'))
+            (self.group.treatment == 'DM' or self.group.treatment == 'TP' or self.group.treatment == 'DIS'))
 
     def vars_for_template(self):
         if 'A' or 'B' in self.player.role():  # otherwise otree complains that there is no R player
@@ -347,7 +347,7 @@ class AllFmNm(Page):
     """ """
     form_model = models.Group
     form_fields = ['b_message', 'time_AllFmNm']
-    
+
 
     # timeout_seconds = 360
 
@@ -435,7 +435,8 @@ class DisplayMessageToA(Page):
     # timeout_seconds = 15
 
     def is_displayed(self):
-        return not self.group.discard and self.player.role() == 'A' and \
+        print('treatment is ' + self.group.treatment)
+        return self.player.role() == 'A' and \
         (self.group.treatment == 'DM' or self.group.treatment == 'FM')
 
 

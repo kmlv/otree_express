@@ -45,9 +45,9 @@ class Subsession(BaseSubsession):
         num_partic = self.session.config['num_demo_participants']  # reads number of participants - CHANGE for PRODUCT
         #shuf_players = random.sample(range(1, num_partic + 1), num_partic)  # shuffle order of "players IDs"
         shuf_players = random.sample([i for i in range(1,num_partic + 1)], num_partic)
-        #setAside = 10
-        #shuf_players.remove(setAside)
-        #shuf_players.append(setAside)
+        setAside = 11
+        shuf_players.remove(setAside)
+        shuf_players.append(setAside)
 
 
 
@@ -80,13 +80,13 @@ class Subsession(BaseSubsession):
         # read params and treatments distribution
         i = 0
         for grupo in self.get_groups()[0:num_groups]:  # the slice is because self.get_groups() include a group
-            if self.session.config['Params'][i]['treat'] == 'DIS':
-                grupo.discard = True
-                grupo.treatment = 'DM'
+            #if self.session.config['Params'][i]['treat'] == 'DIS':
+            #    grupo.discard = True
+            #    grupo.treatment = 'DM'
             # containing the reader. Reader(s) always comes last
-            else:
-                grupo.treatment = self.session.config['Params'][i]['treat']
-            grupo.discard = 'discard' in self.session.config['Params'][i]
+            # else:
+            grupo.treatment = self.session.config['Params'][i]['treat']
+            # grupo.discard = 'discard' in self.session.config['Params'][i]
             grupo.value_type = self.session.config['Params'][i]['val_typ']
             grupo.elicitation_method = self.session.config['Params'][i]['elic_met']
             grupo.BDM_type = self.session.config['Params'][i]['BDM_typ']
@@ -124,9 +124,10 @@ class Subsession(BaseSubsession):
                 grupo.message_price = 0
             elif grupo.treatment == 'NM':
                 grupo.message_price = None
-            elif grupo.treatment == 'DCM':
-                grupo.discard = True
-            elif grupo.treatment == 'DM' or grupo.treatment == 'TP':
+            # elif grupo.treatment == 'DCM':
+            #     grupo.discard = True
+            elif grupo.treatment == 'DM' or grupo.treatment == 'TP' or grupo.treatment == 'DIS':
+
                 if len(grupo.Method_params) == 1:  # this is when the price is given in the config, not randomly
                     # generated
                     grupo.message_price = grupo.Method_params[0]
@@ -173,9 +174,8 @@ class Subsession(BaseSubsession):
 
         # Check if Params in session config is congruent with number of participants
         for grupo in self.get_groups():
-            if(grupo.treatment == "DCM"):
-                assert True #add in more checks later
-            elif grupo.treatment == 'DM' or grupo.treatment == 'TP':
+
+            if grupo.treatment == 'DIS' or grupo.treatment == 'DM' or grupo.treatment == 'TP':
                 assert grupo.value_type is not None and grupo.elicitation_method is not None and \
                        ((grupo.BDM_type is not None and grupo.BDM_lolimit is not None and grupo.BDM_uplimit)
                         or grupo.SOP_price is not None), \
@@ -199,7 +199,7 @@ class Subsession(BaseSubsession):
 
         # check if BDM LIST => len met_par == 3, if BDM CONT len met_par < 3
         for grupo in self.get_groups():
-            if grupo.treatment == 'DM' or grupo.treatment == 'TP' and grupo.elicitation_method == 'BDM':
+            if grupo.treatment == 'DM' or grupo.treatment == 'DIS' or grupo.treatment == 'TP'and grupo.elicitation_method == 'BDM':
                 if grupo.BDM_type == 'LIST':
                     assert len(grupo.Method_params) == 3, 'BDM LIST requires len(Met_par)==3 in config'
                 elif grupo.BDM_type == 'CONT':
@@ -320,7 +320,7 @@ class Group(BaseGroup):
             elif p.role() == 'B':
                 if p.group.treatment in ['FM', 'NM']:
                     p.payoff = p.available_income1
-                elif p.group.treatment in ['DM', 'TP']:
+                elif p.group.treatment in ['DM', 'TP', 'DIS']:
                     p.payoff = p.available_income1 \
                                - (p.group.value_type == 'WTP') * p.group.msg_sent * p.group.message_price \
                                + (p.group.value_type == 'WTA') * (not p.group.msg_sent) * p.group.message_price

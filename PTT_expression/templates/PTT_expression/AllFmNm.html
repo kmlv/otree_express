@@ -71,7 +71,7 @@
 
             <p> If you would like to write a <b>message to <em>Role A</em> regarding his/her decision</b>, use the message box below:</p>
 
-            
+
             {% formfield group.b_message label="Message Box" %}
 
 
@@ -184,9 +184,9 @@
 {#################################################################}
 {# Stage 2: paid treatments DM/TP WTA/WTP BDMCONT/BDMLIST/SOP #}
 
-{% if group.treatment == 'DM' or group.treatment == 'TP' %}
+{% if group.treatment == 'DM' or group.treatment == 'TP' or group.treatment == 'DIS' %}
 
-    <p> You will then be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with. You will get the opportunity to write and send a message to {% if treatment == 'DM' %} him/her. This is a one-way, one-time message, and <em>Role A</em> will not have the chance to reply or change his/her decision. {% elif treatment == 'TP' %} the Reader. This is a one-way, one-time message, and the <em>Reader</em> will not have the chance to reply. The participant in <em>Role A</em> will not see this message. {% endif %} </p>
+    <p> You will then be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with. You will get the opportunity to write and send a message to {% if treatment == 'DM' or treatment == 'DIS'%} him/her. This is a one-way, one-time message, and <em>Role A</em> will not have the chance to reply or change his/her decision. {% elif treatment == 'TP' %} the Reader. This is a one-way, one-time message, and the <em>Reader</em> will not have the chance to reply. The participant in <em>Role A</em> will not see this message. {% endif %} </p>
 
 
 
@@ -264,7 +264,7 @@
     </br>
 {% endif %}
 
-{% if group.treatment == 'DM' or group.treatment == 'TP' %}
+{% if group.treatment == 'DM' or group.treatment == 'TP' or group.treatment == 'DIS' %}
 
     {% if group.value_type == 'WTP' %}
 
