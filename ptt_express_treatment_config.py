@@ -10,22 +10,25 @@
 # Notes: TEST
 
 real_world_currency_per_point = 1
-participation_fee = 5.00,
-num_demo_participants = 13
+participation_fee = 4.00,
+num_demo_participants = 12
 targetIncome = [10]
 screenTime = 20
 maxScreens = 20
 pointDistMax = 120
 pointDistMin = 20
-num_readers = 1
+
+num_readers = 0
 reader_endowment = [3]
 params = [ #direct, free, no message #DCM - discard message dm fm nm
-    {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
-    {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
-    {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
-    {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
-    {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
-    {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+
+
 ]
 
 

@@ -650,8 +650,6 @@ SESSION_CONFIGS = [  # add 'discard' key to params any value if you want the mes
         'app_sequence': [
             '_Cover_Welcome',
             'emo_quest_panas_mauss_discrete',  # check these apps
-            'PTT_express_instructions',
-            'search_task',
             'PTT_expression',
             'emo_quest_panas_mauss_discrete2',
             'demograp',
