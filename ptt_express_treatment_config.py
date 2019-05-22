@@ -5,26 +5,33 @@
 
 
 ############################################
-# Date: April 13 2017
+# Date: May 15 2017
 # Location: LEEPS
 # Notes: TEST
 
 real_world_currency_per_point = 1
 participation_fee = 4.00,
-num_demo_participants = 6
+num_demo_participants = 12
 targetIncome = [10]
 screenTime = 20
 maxScreens = 20
 pointDistMax = 120
 pointDistMin = 20
+
 num_readers = 0
 reader_endowment = [3]
 params = [ #direct, free, no message #DCM - discard message dm fm nm
-    {'treat': 'DCM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],  'end': [3, 3]},
-    {'treat': 'DCM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':        None, 'end': [3, 3]},
-    {'treat': 'DCM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 3]}
-    #in a group of two, sometimes two people get assigned the same parameters in different applications
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+    {'treat': 'DIS', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+
+
 ]
+
+
 
 
     # {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],  'end': [3, 3]},
@@ -38,20 +45,19 @@ params = [ #direct, free, no message #DCM - discard message dm fm nm
     # {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':        None, 'end': [3, 3]},
     # {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 3]},
     # {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 3]},
-    # {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 3]}    
+    # {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 3]}
 
     # {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],  'end': [3, 3]},
 	# {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
 	# {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
-	# {'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]}
 
    # {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 3]},
    #  {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 3]},
- 
+
 # ############################################
 # # Date: April 6 2017
 # # Location: LEEPS
-# # Notes: DM 
+# # Notes: DM
 
 # real_world_currency_per_point = 1
 # participation_fee = 4.00
@@ -132,3 +138,18 @@ params = [ #direct, free, no message #DCM - discard message dm fm nm
 #     {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],  'end': [3, 3]},
 # ]
 # #######################################
+
+
+
+#####################################
+
+            # {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3], 'discard': 420},
+            # {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3], 'discard': 420},
+            # {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3], 'discard': 420},
+            # {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3], 'discard': 420},
+            # {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3], 'discard': 420},
+            # {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3], 'discard': 420}
+    # {'treat': 'DCM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'],  'end': [3, 3]},
+    # {'treat': 'DCM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':        None, 'end': [3, 3]},
+    # {'treat': 'DCM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 3]}
+    #in a group of two, sometimes two people get assigned the same parameters in different applications

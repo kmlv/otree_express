@@ -1,4 +1,4 @@
-#!/Users/klopezva/GitHubRepos/otree_express/env/bin/python3.6
+#!/home/leeps/otree-kristian/otree_express/env/bin/python3
 
 import logging
 import optparse

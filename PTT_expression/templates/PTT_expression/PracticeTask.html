@@ -1,0 +1,182 @@
+{% extends "global/Base.html" %} {% load staticfiles otree_tags %}
+
+
+{% block styles %}
+<link href="{% static "jquery-ui/jquery-ui.min.css" %}" rel="stylesheet">
+<link rel = "stylesheet" href ="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style type="text/css">
+
+</style>
+
+{% endblock %}
+
+{% block title%}
+    Stage 1: Practice Screen
+{% endblock %}
+
+{% block scripts %}
+        {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="{% static "lib/flot/jquery.flot.js" %}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static "lib/jquery/jquery-ui.js" %}"></script>
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $("#hideNext").hide();
+    });
+    </script>
+
+    <script type="text/javascript" src="{% static "jsFiles/start.js" %}"></script>
+{% endblock %}
+
+
+
+
+{% block content %}
+    <input type="hidden" name="time_PracticeTask" id="arrive_time">
+{#    {% if subsession.debug_mode == True %}#}
+{#        <p>the goal is {{player.target_income}}</p>#}
+{#        <p>player id is {{player.id_in_group}}</p>#}
+{#    {% endif %}#}
+
+<div ng-app="Game" >
+
+    <div ng-controller="gameController" ng-init = "showgame()" ng-show="showpage.game">
+
+        <input id = 'target' type = "number" value = {{player.target_income}} style = 'display: none;'>
+        <input id = 'type'  type = "text" value = 'practice' style = 'display: none;'>
+        <div class="form-group required">
+            <div class="controls">
+                <input type="hidden" name="task_reward" id="task_reward" value="0">
+            </div>
+        </div>
+
+        <p class = text-left>This is a practice screen, and it does NOT count towards your income. </p>
+
+        <p class="text-left" >
+            In this screen, you can earn a maximum of <span ng-bind="maxpoints"></span> points.
+            Your current Task Income is $<span ng-bind="parsedIncome"></span>.
+        </p>
+
+        <p>
+          <b>Hint:</b> Since your total time is limited, once you are close enough to the max click on "Go To Next Task"
+        </p>
+                    <!-- real tasks -->
+          <div class="container" ng-show="showpage.game">
+            <div class="row">
+
+            </div>
+          </div>
+
+          <!-- income earning -->
+          <div class="container" >
+            <div class="row" >
+              <div class="col-md-3" >
+              </div>
+            </div>
+
+
+            <div class="row">
+
+
+            </div>
+            <br><br>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-md-5 text-left">
+                    <p id="nearness" class="text-center"></p>
+                  </div>
+                  <div class="col-md-4">
+                    <p id="location" class="text-center"></p>
+                  </div>
+                </div>
+                <!-- Game -->
+                <div class="row">
+                  <!-- changed width and height to be 500, used to be 600-->
+                  <div id="placeholder" style="width:400px;height:400px"></div>
+                </div>
+              </div>
+              <div class="col-md-4" ng-show="showpage.setup">
+                <!-- points earned -->
+                <br><br>
+                <div class="row" ng-show="showpage.setup">
+                  <div class="col-md-4 col-md-offset-3">
+                    <h5 id="timer">Time left (secs):</h5>
+                  </div>
+                  <div class="col-md-2">
+                    <h5 ng-bind="time"></h5>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 col-md-offset-3">
+                    <h5>Points earned:</h5>
+                  </div>
+                  <div class="col-md-2">
+                    <h5 id="points"></h5>
+                  </div>
+                </div>
+                <!-- locator -->
+                <div class="row">
+                  <div class="col-md-11 col-md-offset-3">
+                    <canvas id="locator" width="150px" height="250px"></canvas>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="text-center">
+                    <button id="nexttask" type="button" class="btn btn-success" ng-click="nexttask()">Go To Next Task</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <br/>
+        <br/>
+        <br/>
+
+
+        <br/>
+       {# Instructions #}
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-info" ng-click="instructionsShow = !instructionsShow">Show Instructions</button>
+                <br>
+                <div id="demo" ng-show="instructionsShow">
+                    <div class="instructions well well-lg">
+
+                            <p> In this stage, you will perform a sequence of tasks to earn your <em>task income.</em></p>
+                            <p> In the square on the left side of the screen, you will choose different locations using the mouse's left click. Search for the location that gives you the highest number of points. The "points earned" in your current location is shown on right side of the square, where you can also see the time left for the current task.</p>
+                            <p> Right above the square, you can see the direction in which you can earn more points. You can try as many locations as you want, within a time limit of 20 seconds per screen.</p>
+                            <p> The total number of points available in each task will be shown in the header. Your total <em>task income</em> will be the sum of your earnings in all these tasks. For every 100 points you earn, you will receive $1.00 (100 points = $1.00).</p>
+                            <p> You will be given two un-timed trial tasks before the series of actual tasks starts. </p> </br>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="hideNext" style="display: none;" ng-if='showpage.afterGame'>
+            <h5> Done with practice.</h5>
+            <h5> Continue to real task.</h5>
+            <br>
+            <p></p>
+            {% next_button %} </h3>
+        </div>
+{#{% if subsession.debug_mode == True %}#}
+{#{% next_button %}#}
+{#{% endif %}#}
+
+{% endblock %}
+

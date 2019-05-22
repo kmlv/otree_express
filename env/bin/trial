@@ -1,4 +1,4 @@
-#!/Users/klopezva/GitHubRepos/otree_express/env/bin/python3.6
+#!/home/leeps/otree-kristian/otree_express/env/bin/python3
 # Copyright (c) Twisted Matrix Laboratories.
 # See LICENSE for details.
 import os, sys
