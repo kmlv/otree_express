@@ -1,3 +1,4 @@
+import ptt_express_treatment_config
 import os
 from os import environ
 
@@ -13,10 +14,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
-    DEBUG = True # change this after session over
+    DEBUG = True  # change this after session over
 else:
     DEBUG = True
-
 
 
 # sentry dsn is for receiving error messages when debug is off
@@ -105,11 +105,11 @@ DEMO_PAGE_INTRO_TEXT = """
 #     },
 # ]
 ROOMS = [
-	{
-		'name': 'leeps',
-		'display_name': 'Leeps Lab',
-		'participant_label_file': 'leeps_room_labels.txt'
-	}
+    {
+        'name': 'leeps',
+        'display_name': 'Leeps Lab',
+                'participant_label_file': 'leeps_room_labels.txt'
+    }
 ]
 
 
@@ -132,15 +132,19 @@ mturk_hit_settings = {
     'frame_height': 500,
     'preview_template': 'global/MTurkPreview.html',
     'minutes_allotted_per_assignment': 40,
-    'expiration_hours': 1, # 1 day
-    #'grant_qualification_id': '3LQV637WQB4JX22NPA62LG08IF76BE',    #sandbox
-    'grant_qualification_id': '3X03PXFE93BZZPK7U8HT29SECH8OFF',   # real mturk (kristianlopezvargas)
-    #'grant_qualification_id': '3SL0IB85URSUSM2RNGYM7CLMXT3JRV',      # real mturk (kecolab)
+    'expiration_hours': 1,  # 1 day
+    # 'grant_qualification_id': '3LQV637WQB4JX22NPA62LG08IF76BE',    #sandbox
+    # real mturk (kristianlopezvargas)
+    'grant_qualification_id': '3X03PXFE93BZZPK7U8HT29SECH8OFF',
+    # 'grant_qualification_id': '3SL0IB85URSUSM2RNGYM7CLMXT3JRV',      # real mturk (kecolab)
     'qualification_requirements': [
-         qualification.LocaleRequirement("EqualTo", "US"),
-         qualification.PercentAssignmentsApprovedRequirement("GreaterThanOrEqualTo", 30),
-         qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 1),
-         qualification.Requirement('3X03PXFE93BZZPK7U8HT29SECH8OFF', 'DoesNotExist'),  # change for sandbox or real mturk
+        qualification.LocaleRequirement("EqualTo", "US"),
+        qualification.PercentAssignmentsApprovedRequirement(
+            "GreaterThanOrEqualTo", 30),
+        qualification.NumberHitsApprovedRequirement("GreaterThanOrEqualTo", 1),
+        # change for sandbox or real mturk
+        qualification.Requirement(
+            '3X03PXFE93BZZPK7U8HT29SECH8OFF', 'DoesNotExist'),
     ]
 }
 
@@ -161,11 +165,10 @@ SESSION_CONFIG_DEFAULTS = {
 
 ################
 # importing param configs
-import ptt_express_treatment_config
 
 ################
 
-SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the message to be discarded
+SESSION_CONFIGS = [  # add 'discard' key to params any value if you want the message to be discarded
     {
         'name': 'PTT_express_FM_n2',
         'participation_fee': 4.00,
@@ -175,7 +178,8 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_readers': 0,
         'targetIncome': [10],  # search task
         'Params': [
-        {'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
+            {'treat': 'FM', 'val_typ':  None, 'elic_met':  None,
+                'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -188,14 +192,16 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
-        'reader_endowment': [12],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [12],
         'Params': [
-        {'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
+            {'treat': 'NM', 'val_typ':  None, 'elic_met':  None,
+                'BDM_typ':   None, 'Met_par':           None, 'end': [3, 4]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
-# DM WTP BLOCK
+    # DM WTP BLOCK
     {
         'name': 'PTT_express_DM_N2_WTP_BDM_CONT__0_end',
         'participation_fee': 5.00,
@@ -204,9 +210,11 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 2,
         'targetIncome': [10.3, 8],
         'num_readers': 0,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
         'Params': [
-            {'treat': 'DIS', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+            {'treat': 'DIS', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -219,9 +227,11 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 2,
         'targetIncome': [10.3, 8],
         'num_readers': 0,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
-        'Params': [ #treat LIO
-            {'treat': 'DIS', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
+        'Params': [  # treat LIO
+            {'treat': 'DIS', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -234,7 +244,8 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 2,
         'targetIncome': [10],
         'num_readers': 0,
-        'reader_endowment': [3],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [3],
         'Params': [
             {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.2],
              'end': [3, 3]},
@@ -250,9 +261,11 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
+            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -264,14 +277,16 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
+            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'SOP',
+                'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
-# DM WTA BLOCK
+    # DM WTA BLOCK
     {
         'name': 'PTT_express_DM_N2_WTA_BDM_CONT__0_end',
         'display_name': "Direct Message, N=2, WTA, BDM Continuous [0, endowment] ",
@@ -279,9 +294,11 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTA','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+            {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -293,9 +310,11 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 2,
         'targetIncome': [10],
         'num_readers': 0,
-        'reader_endowment': [3],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [3],
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.2], 'end': [3, 3]},
+            {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM',
+                'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.2], 'end': [3, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -307,15 +326,17 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 2,
         'targetIncome': [10.3],
         'num_readers': 0,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
+            {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'SOP',
+                'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
 
-# TP WTP BLOCK
+    # TP WTP BLOCK
     {
         'name': 'PTT_express_TP_N2_WTP_BDM_CONT__0_end',
         'display_name': "Third Party, N=2, WTP, BDM Continuous [0, endowment] ",
@@ -323,9 +344,11 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
         'Params': [
-{'treat': 'TP', 'val_typ': 'WTP','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -337,9 +360,11 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
         'Params': [
-{'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -351,14 +376,16 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
         'Params': [
-{'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'SOP',
+                'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
-# TP WTA BLOCK
+    # TP WTA BLOCK
     {
         'name': 'PTT_express_TP_N2_WTA_BDM_CONT__0_end',
         'display_name': "Third Party, N=2, WTA, BDM Continuous [0, endowment] ",
@@ -366,9 +393,11 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
         'Params': [
-{'treat': 'TP', 'val_typ': 'WTA','elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+            {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -380,9 +409,11 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
         'Params': [
-{'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
+            {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM',
+                'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.2], 'end': [4, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -394,14 +425,16 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 3,
         'targetIncome': [10.3],
         'num_readers': 1,
-        'reader_endowment': [11],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [11],
         'Params': [
-{'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
+            {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'SOP',
+                'BDM_typ': None, 'Met_par': [.98], 'end': [4, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
-#############
+    #############
     {
         'name': 'Multiple_treatments_2DM_1TP_1NM_1FM',
         'display_name': "Multiple treatments 11 Players, 2DM, 1TP, 1NM, 1FM",
@@ -409,13 +442,19 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 11,
         'targetIncome': [4],
         'num_readers': 1,
-        'reader_endowment': [12], # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [12],
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par':     [0, 'end'], 'end': [3, 4]},
-{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.25], 'end': [6, 3]},
-{'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ':   None, 'Met_par':          [1.1], 'end': [1, 4]},
-{'treat': 'NM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [3, 5]},
-{'treat': 'FM', 'val_typ':  None, 'elic_met':  None, 'BDM_typ':   None, 'Met_par':           None, 'end': [2, 4]},
+            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par':     [0, 'end'], 'end': [3, 4]},
+            {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM',
+                'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.25], 'end': [6, 3]},
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'SOP',
+                'BDM_typ':   None, 'Met_par':          [1.1], 'end': [1, 4]},
+            {'treat': 'NM', 'val_typ':  None, 'elic_met':  None,
+                'BDM_typ':   None, 'Met_par':           None, 'end': [3, 5]},
+            {'treat': 'FM', 'val_typ':  None, 'elic_met':  None,
+                'BDM_typ':   None, 'Met_par':           None, 'end': [2, 4]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True,
@@ -427,14 +466,21 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 13,
         'targetIncome': [9],
         'num_readers': 1,
-        'reader_endowment': [12],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [12],
         'Params': [
-{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end']           , 'end': [3, 4]},
-{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'SOP', 'BDM_typ':   None, 'Met_par': [0.9]                , 'end': [6, 3]},
-{'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.25]  , 'end': [2, 4]},
-{'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'av_inc']        , 'end': [3, 4]},
-{'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'SOP', 'BDM_typ':   None, 'Met_par': [1.3]                , 'end': [6, 3]},
-{'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.25]     , 'end': [2, 4]},
+            {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 4]},
+            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'SOP',
+                'BDM_typ':   None, 'Met_par': [0.9], 'end': [6, 3]},
+            {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM',
+                'BDM_typ': 'LIST', 'Met_par': [0, 'av_inc', 0.25], 'end': [2, 4]},
+            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par': [0, 'av_inc'], 'end': [3, 4]},
+            {'treat': 'DM', 'val_typ': 'WTA', 'elic_met': 'SOP',
+                'BDM_typ':   None, 'Met_par': [1.3], 'end': [6, 3]},
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.25], 'end': [2, 4]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -446,10 +492,13 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 5,
         'targetIncome': [10.5],
         'num_readers': 1,
-        'reader_endowment': [3],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [3],
         'Params': [
-            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 4]},
-            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 5]},
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 4]},
+            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 5]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -461,10 +510,13 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 5,
         'targetIncome': [10],
         'num_readers': 1,
-        'reader_endowment': [3],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [3],
         'Params': [
-            {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.1], 'end': [3, 3]},
-            {'treat': 'FM', 'val_typ': None, 'elic_met': None, 'BDM_typ': None, 'Met_par': None, 'end': [3, 5]},
+            {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM',
+                'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.1], 'end': [3, 3]},
+            {'treat': 'FM', 'val_typ': None, 'elic_met': None,
+                'BDM_typ': None, 'Met_par': None, 'end': [3, 5]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
@@ -476,11 +528,15 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'num_demo_participants': 7,
         'targetIncome': [10.5],
         'num_readers': 1,
-        'reader_endowment': [3],  # to be extended to a list for when there is more than one readers
+        # to be extended to a list for when there is more than one readers
+        'reader_endowment': [3],
         'Params': [
-            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
-            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.5], 'end': [3, 3]},
-            {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'av_inc'], 'end': [3, 3]},
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
+            {'treat': 'TP', 'val_typ': 'WTP', 'elic_met': 'BDM',
+                'BDM_typ': 'LIST', 'Met_par': [0, 'end', 0.5], 'end': [3, 3]},
+            {'treat': 'TP', 'val_typ': 'WTA', 'elic_met': 'BDM',
+                'BDM_typ': 'CONT', 'Met_par': [0, 'av_inc'], 'end': [3, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True,
@@ -494,7 +550,7 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
              'end': [3, 3]},
         """
     },
-#########################################################################################################
+    #########################################################################################################
     {
         'name': 'batson_ques',
         'display_name': "Batson (1988) Questionnaire",
@@ -506,7 +562,7 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'display_name': 'Search Task',
         'num_demo_participants': 2,
         'app_sequence': ['search_task'],
-        'debug' : False,
+        'debug': False,
         'targetIncome':  [10],
         'screenTime':  10,
         'maxScreens':  3,
@@ -573,7 +629,8 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'name': 'transcrip_task',
         'display_name': "Transcription Task",
         'num_demo_participants': 1,
-        'allowed_error_rates': [0.5, 0.3],     #add many rates as transcription text you have
+        # add many rates as transcription text you have
+        'allowed_error_rates': [0.5, 0.3],
         'app_sequence': ['transcrip_task'],
     },
     #############################################
@@ -592,7 +649,7 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
         'pointDistMax': ptt_express_treatment_config.pointDistMax,
         'app_sequence': [
             '_Cover_Welcome',
-            'emo_quest_panas_mauss_discrete', #check these apps
+            'emo_quest_panas_mauss_discrete',  # check these apps
             'PTT_express_instructions',
             'search_task',
             'PTT_expression',
@@ -608,4 +665,3 @@ SESSION_CONFIGS = [ #add 'discard' key to params any value if you want the messa
 # anything you put after the below line will override
 # oTree's default settings. Use with caution.
 otree.settings.augment_settings(globals())
-
