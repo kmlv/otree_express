@@ -73,7 +73,7 @@ class ControlQuestions(Page):
         }
 
     def is_displayed(self):
-        return True
+        return self.group.treatment != 'DIS' # review later
 
     # timeout_seconds = 400
 

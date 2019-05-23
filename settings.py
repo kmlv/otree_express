@@ -14,9 +14,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # the environment variable OTREE_PRODUCTION controls whether Django runs in
 # DEBUG mode. If OTREE_PRODUCTION==1, then DEBUG=False
 if environ.get('OTREE_PRODUCTION') not in {None, '', '0'}:
-    DEBUG = True  # change this after session over
+    DEBUG = False# change this after session over
 else:
-    DEBUG = True
+    DEBUG = False
 
 
 # sentry dsn is for receiving error messages when debug is off
