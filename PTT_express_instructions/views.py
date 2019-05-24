@@ -27,6 +27,7 @@ class Instructions(Page):
             'endowment': self.player.endowment,
             'BDM_uplimit': self.group.BDM_uplimit,
             'points': self.session.config['USE_POINTS'],
+            'participation_fee' : c(self.player.participation_fee).to_real_world_currency(self.session),
         }
     def before_next_page(self):
         print("asdfasdf" + self.player.time_Instructions)
