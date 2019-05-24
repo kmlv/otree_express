@@ -1,22 +1,17 @@
 {% extends "global/Base.html" %}
 {% load staticfiles otree_tags %}
-
 {% block title %}
-    Role B's guess
+Role B's guess
 {% endblock %}
-
 {% block scripts %}
-
-    <script type="text/javascript">
-            window.onload = function () {
-                document.getElementById("arrive_time").value = (new Date()).toISOString();
-            }
-    </script>
-
-    <script type="text/javascript" src="{% static "jquery-ui/jquery-ui.min.js" %}"></script>
-
-    <script>
-        jQuery(document).ready(function ($) {
+<script type="text/javascript">
+window.onload = function() {
+    document.getElementById("arrive_time").value = (new Date()).toISOString();
+}
+</script>
+<script type="text/javascript" src="{% static " jquery-ui/jquery-ui.min.js" %}"></script>
+<script>
+    jQuery(document).ready(function ($) {
             $("#slider")
                 .slider({
                     start: function () {
@@ -35,34 +30,22 @@
                 .children(".ui-slider-handle").hide();
         });
     </script>
-
 {% endblock %}
-
-
 {% block styles %}
-    <link href="{% static "jquery-ui/jquery-ui.min.css" %}" rel="stylesheet">
+<link href="{% static " jquery-ui/jquery-ui.min.css" %}" rel="stylesheet">
 {% endblock %}
-
-
 {% block content %}
-
-    <input type="hidden" name="time_BPredicts" id="arrive_time">
-
-
- 
-
-    <p> At this moment, the participant in <em>Role A</em> with whom you are matched is deciding what percentage of your <em>task income</em> ({{player.task_income}})
-        to transfer to his/her own account.</p>
-    <p> What percentage do you think Role A will take from your account? Use the slider below to provide your guess. </p>
-    <p> </p>
-    <br/>
-    <br/>
-
-    <div style="width: 80%; margin: auto;">
-        <div style="text-align: center">You guess A will take <span id="slider_val">__</span>% of your task income
-            
-        ({% if not points %}${%endif%}<span id="dollars_taken">_.__</span>{% if points %} points{% endif %})</div>   <br> 
-        <!-- 
+<input type="hidden" name="time_BPredicts" id="arrive_time">
+<p> At this moment, the participant in <em>Role A</em> with whom you are matched is deciding what percentage of your <em>task income</em> ({{player.task_income}})
+    to transfer to his/her own account.</p>
+<p> What percentage do you think Role A will take from your account? Use the slider below to provide your guess. </p>
+<p> </p>
+<br />
+<br />
+<div style="width: 80%; margin: auto;">
+    <div style="text-align: center">You guess A will take <span id="slider_val">__</span>% of your task income
+        ({% if not points %}${%endif%}<span id="dollars_taken">_.__</span>{% if points %} points{% endif %})</div> <br>
+    <!-- 
          <div>
              
                  
@@ -72,223 +55,139 @@
             
          </div>
          -->
-        <div id="slider" style="clear: both; width: 96%; margin: auto;"></div>
-
-    </div>
-    <br/>
-
-    {% formfield  group.expected_take_rate with label=None %}
-
-
-    {% next_button %}
-
-    <br/> {# line break #}
-
-    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <div id="slider" style="clear: both; width: 96%; margin: auto;"></div>
+</div>
+<br />
+{% formfield group.expected_take_rate with label=None %}
+{% next_button %}
+<br /> {# line break #}
+<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("#expand").hide();
-        $("#expand-instructions").click(function() {
-            if($("#expand").is(":visible")){
-                $("#expand").hide("fast");
-                return;
-            }
-            $("#expand").show("fast");
-        });
+$(document).ready(function() {
+    $("#expand").hide();
+    $("#expand-instructions").click(function() {
+        if ($("#expand").is(":visible")) {
+            $("#expand").hide("fast");
+            return;
+        }
+        $("#expand").show("fast");
     });
+});
 </script>
-
 <style>
     #expand{
         padding-top: 10px;
     }
 </style>
-
 <button id="expand-instructions" class="btn " type="button"> Show Instructions</button>
-
 {####################################################################}
- <div id="expand" class="instructions well well-lg"> {#    paper effect starts #}
-
-
-
-<p>This session consists of a single round of interaction with two stages. In Stage 1, called <em>Task Stage</em>, you will work on a set of tasks to earn money. We will refer to the earned amount as the <em>task income</em>. Specific instructions for these tasks will be provided once Stage 1 starts.</p>
-
-{####################################################################}
-{#  Stage 2: general | All but TP #}
-{% if group.treatment != 'TP' %}
-
+<div id="expand" class="instructions well well-lg"> {# paper effect starts #}
+    <p>This session consists of a single round of interaction with two stages. In Stage 1, called <em>Task Stage</em>, you will work on a set of tasks to earn money. We will refer to the earned amount as the <em>task income</em>. Specific instructions for these tasks will be provided once Stage 1 starts.</p>
+    {####################################################################}
+    {# Stage 2: general | All but TP #}
+    {% if group.treatment != 'TP' %}
     <p> In Stage 2, called <em>Interaction Stage</em>, you will interact with another participant in the room. First, you will be anonymously paired with one another. This matching is random and, most likely, you will <b>not</b> be matched with the person sitting next to you. You will then be randomly assigned to be either of <strong><em>Role A</em></strong> or of <strong><em>Role B</em></strong>. Each pair will consists of one person in <em>Role A</em> and one person in <em>Role B</em>. You will be informed about your role on your computer screen as soon as Stage 2 starts. Since this is a one-time interaction, that will be the only role you will participate under. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment. </p> </br>
-
     <h4> Role A:</h4>
     <p> If you are assigned <em>Role A</em>, you are to decide how much of <em>Role B</em>’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of <em>Role B</em>’s <em>task income</em>, but you will not be able to transfer B’s endowment. Once you make your decision, it cannot be changed. </p> </br>
-
-{#        <div style="align-content: center; border:0px solid gray">#}
-{#            <img alt="Screenshot A's Decision" src="{% static "PTT_express_instructions/A_decision_screen.png" %}" width="700" align="center"/>#}
-{#        </div> </br>#}
-
+    {# <div style="align-content: center; border:0px solid gray">#}
+        {# <img alt="Screenshot A's Decision" src="{% static " PTT_express_instructions/A_decision_screen.png" %}" width="700" align="center" />#}
+        {# </div> </br>#}
     <h4> Role B:</h4>
     <p> If you are assigned <em>Role B</em>, you will first be asked to guess what percentage of your <em>task income</em> A will transfer to his/her own account.</p>
-
-{% endif %}
-
-
-
-{#    Stage 2: general | only TP #}
-{% if group.treatment  == 'TP' or group.treatment == 'TP-R' %}
-
+    {% endif %}
+    {# Stage 2: general | only TP #}
+    {% if group.treatment == 'TP' or group.treatment == 'TP-R' %}
     <p> In Stage 2, called <em>Interaction Stage</em>, there are three possible roles for each participant, <em>Role A</em>, <em>Role B</em> and <em>Role R</em>. First, one participant will be randomly assigned <em>Role R</em>. The rest of participants will be anonymously paired in groups of two. Within each group, roles will be randomly assigned so that there will be one person in <em>Role A</em> and one in <em>Role B</em>. This matching is random and, most likely, you will <b>not</b> be matched with the person sitting next to you. You will be informed about your role on your computer screen once Stage 2 starts. Since this is a one-time interaction, that will be the only role you will participate under. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment.</p>
-
     <h4> Role R: </h4>
     <p> If you are assigned <em>Role R</em> (Reader) your only task is to read the messages written by participants in <em>Role B</em> who are able to send a message to you. The Reader is the only participant that is going to read these messages. None of the other participants in today's session will ever read them. The Reader will not receive any information about participants of Roles A or B. After reading the messages, the Reader will confirm having read them.</p>
-
     <h4> Role A:</h4>
     <p> If you are assigned <em>Role A</em>, you are to decide how much of <em>Role B</em>’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of <em>Role B</em>’s <em>task income</em>, but you will not be able to transfer B’s endowment. Once you make your decision, it cannot be changed. The image below shows the screen where you will make your decision: </p> </br>
-
-        <div style="align-content: center; border:0px solid gray">
-            <img alt="Screenshot A's Decision" src="{% static "PTT_express_instructions/A_decision_screen.png" %}" width="700" align="center"/>
-        </div> </br>
-
+    <div style="align-content: center; border:0px solid gray">
+        <img alt="Screenshot A's Decision" src="{% static " PTT_express_instructions/A_decision_screen.png" %}" width="700" align="center" />
+    </div> </br>
     <h4> Role B:</h4>
     <p> If you are assigned <em>Role B</em>, you will first be asked to guess what percentage of your <em>task income</em> the participant in <em>Role A</em> will transfer to his/her own account.</p>
-      {# Role B must continue in #}
-
-{% endif %}
-
-
-{#  No message end #}
-{% if group.treatment == 'NM' %}
+    {# Role B must continue in #}
+    {% endif %}
+    {# No message end #}
+    {% if group.treatment == 'NM' %}
     <p> You will then be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with.</p> </br>
-{% endif %}
-
-{#  Free message end #}
-{% if group.treatment == 'FM' %}
+    {% endif %}
+    {# Free message end #}
+    {% if group.treatment == 'FM' %}
     <p> You will then be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with. You will get the opportunity to write and send a message to him/her. This is a one-way, one-time message, and <em>Role A</em> will not have the chance to reply or change his/her decision.</p> </br>
-{% endif %}
-
-
-
-
-{#################################################################}
-{# Stage 2: paid treatments DM/TP WTA/WTP BDMCONT/BDMLIST/SOP #}
-
-{% if group.treatment == 'DM' or group.treatment == 'TP' %}
-
+    {% endif %}
+    {#################################################################}
+    {# Stage 2: paid treatments DM/TP WTA/WTP BDMCONT/BDMLIST/SOP #}
+    {% if group.treatment == 'DM' or group.treatment == 'TP' %}
     <p> You will then be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with. You will get the opportunity to write and send a message to {% if treatment == 'DM' %} him/her. This is a one-way, one-time message, and <em>Role A</em> will not have the chance to reply or change his/her decision. {% elif treatment == 'TP' %} the Reader. This is a one-way, one-time message, and the <em>Reader</em> will not have the chance to reply. The participant in <em>Role A</em> will not see this message. {% endif %} </p>
-
-
-
     {# paid messages: DM/TP WTA/WTP BDMCONT #}
     {% if group.value_type == 'WTP' and group.elicitation_method == 'BDM' and group.BDM_type == 'CONT' %}
-
-        <p> You will be asked to state the maximum amount that you are willing to pay to send your message. We will refer to this amount as your <em>valuation</em>. </p>
-
-        <p> After you submit your <em>valuation</em>, you will be informed about the <em>actual price</em> of sending your message. The <em>actual price</em> is randomly generated by the computer, and all numbers between {% if not points %}${%endif%}0 {% if points %}points{% endif %} and {{ group.BDM_uplimit }} are equally likely.</p>
-
-        <p> If your <em>valuation</em> is greater than or equal to the <em>actual price</em>, your message will be sent, and you will pay the <em>actual price</em>. If your valuation is lower than the actual price, then you do not get to send your message, and you will not be charged.</p> </br>
-
-{#        reviewed with brit up to this point. Nov 03#}
-
+    <p> You will be asked to state the maximum amount that you are willing to pay to send your message. We will refer to this amount as your <em>valuation</em>. </p>
+    <p> After you submit your <em>valuation</em>, you will be informed about the <em>actual price</em> of sending your message. The <em>actual price</em> is randomly generated by the computer, and all numbers between {% if not points %}${%endif%}0 {% if points %}points{% endif %} and {{ group.BDM_uplimit }} are equally likely.</p>
+    <p> If your <em>valuation</em> is greater than or equal to the <em>actual price</em>, your message will be sent, and you will pay the <em>actual price</em>. If your valuation is lower than the actual price, then you do not get to send your message, and you will not be charged.</p> </br>
+    {# reviewed with brit up to this point. Nov 03#}
     {% elif value_type == 'WTA' and elicitation_method == 'BDM' and BDM_type == 'CONT' %}
-
-        <p> You will be asked to state the minimum amount that you are willing to accept for NOT sending your message. That is, your will report the least amount you would be willing to receive to forgo sending your message. We will refer to this amount as your <em>valuation</em>.</p>
-
-        <p> After you submit your <em>valuation</em>, you will be informed about the <em>actual compensation</em> you will receive for not sending your message. The <em>actual compensation</em> is randomly generated by the computer, and all numbers between {% if not points %}${%endif%}0 {% if points %}points{% endif %} and {{ group.BDM_uplimit }} are equally likely.</p>
-
-        <p> If the <em>actual compensation</em> is lower than your <em>valuation</em>, your message will be delivered and you will not receive any compensation. When the <em>actual compensation</em> is greater than or equal to your <em>valuation</em>, your message will not be delivered, and you will receive the <em>actual compensation</em>.</p> </br>
-
+    <p> You will be asked to state the minimum amount that you are willing to accept for NOT sending your message. That is, your will report the least amount you would be willing to receive to forgo sending your message. We will refer to this amount as your <em>valuation</em>.</p>
+    <p> After you submit your <em>valuation</em>, you will be informed about the <em>actual compensation</em> you will receive for not sending your message. The <em>actual compensation</em> is randomly generated by the computer, and all numbers between {% if not points %}${%endif%}0 {% if points %}points{% endif %} and {{ group.BDM_uplimit }} are equally likely.</p>
+    <p> If the <em>actual compensation</em> is lower than your <em>valuation</em>, your message will be delivered and you will not receive any compensation. When the <em>actual compensation</em> is greater than or equal to your <em>valuation</em>, your message will not be delivered, and you will receive the <em>actual compensation</em>.</p> </br>
     {% endif %}
-
-
-
-
     {# paid messages: WTA/WTP BDMLIST #}
     {% if group.value_type == 'WTP' and group.elicitation_method == 'BDM' and group.BDM_type == 'LIST' %}
-
     <p> You will be asked whether you are willing to pay a certain price to send your message. This question will be repeated for different prices.</p>
-
     <p> After you submit your responses, the computer will randomly select one of the prices listed. If you were willing to pay the selected price, your message will be sent, and you will pay the selected price. If you were not willing to pay the selected price, your message will not be sent, and you will not be charged. </p> </br>
-
     {% elif group.value_type == 'WTA' and group.elicitation_method == 'BDM' and group.BDM_type == 'LIST' %}
-
     <p> You will be asked to choose between sending your message or receiving a certain amount. This question will be repeated for a list of different amounts.</p>
-
     <p> After you submit your responses, the computer will randomly select one of the listed amounts. Your decision for the randomly selected amount will be then implemented. That is, your message will be delivered only if you had chosen 'send message' over receiving the corresponding amount. When calculating your final earnings, the randomly selected amount will be called <em>actual compensation</em>.
     </p>
-        </br>
-
-
+    </br>
     {% endif %}
-
-
     {# paid messages: WTA/WTP SOP #}
     {% if group.value_type == 'WTP' and group.elicitation_method == 'SOP' %}
-
     <p> You will be asked whether you are willing to pay a certain price to send your message. If you respond positively, your message will be sent, and you will pay that price. If you respond negatively, your message will not be sent, and you will not pay anything. </p> </br>
-
     {% elif group.value_type == 'WTA' and group.elicitation_method == 'SOP' %}
-
     <p> You will be asked whether you are willing to accept a certain amount in exchange for NOT sending your message. If you respond positively, your message will not be sent, and you will receive the certain amount as compensation. If you respond negatively, your message will be sent, and you will not receive any compensation. </p> </br>
-
     {% endif %}
-
-{% endif %}
-
-
-
-{#################################################################}
-{# everyone PAYOFFS and closing  #}
-
-<h4> Final Earnings: </h4>
-
-<p> After this interaction, members of each pair will be informed about both participants' <em>final earnings</em>, which will be calculated as follows. </p> </br>
-
+    {% endif %}
+    {#################################################################}
+    {# everyone PAYOFFS and closing #}
+    <h4> Final Earnings: </h4>
+    <p> After this interaction, members of each pair will be informed about both participants' <em>final earnings</em>, which will be calculated as follows. </p> </br>
     <p style="color: chocolate"><em> Role A's earnings = </em></p>
     <p><em> Endowment + Task income + Money taken from B's account.</em></p> </br>
-
-{% if group.treatment == 'NM' or group.treatment == 'FM'%}
+    {% if group.treatment == 'NM' or group.treatment == 'FM'%}
     <p style="color: chocolate"><em> Role B's earnings = </em></p>
     <p><em>Endowment + Task income - Money taken by Role A. </em> </p>
     </br>
-{% endif %}
-
-{% if group.treatment == 'DM' or group.treatment == 'TP' %}
-
+    {% endif %}
+    {% if group.treatment == 'DM' or group.treatment == 'TP' %}
     {% if group.value_type == 'WTP' %}
-
-        <p style="color: chocolate"><em> Role B's earnings when message <b>is</b> sent = </em></p>
-        <p><em> Endowment + Task income - Money taken by Role A - actual price of sending message.</em></p>
-        </br>
-        <p style="color: chocolate"><em> Role B's earnings when message <b>is not</b> sent = </em></p>
-        <p><em> Endowment + Task income - Money taken by Role A.</em></p>
-        <p></p>
-        </br>
-    {% endif %}
-
-    {% if group.value_type == 'WTA' %}
-        <p style="color: chocolate"><em> Role B's earnings when message <b>is not</b> sent = </em></p>
-        <p><em>Endowment + Task income - Money taken by Role A + actual compensation.</em></p>
-        <p></br> </p>
-        <p style="color: chocolate"><em> Role B's earnings when message <b>is</b> sent = </em></p>
-        <p><em>Endowment + Task income - Money taken by Role A.</em></p>
-        </br>
-    {% endif %}
-
-    {% if group.treatment == 'TP' %}
-        <p> </p>
-        <p style="color: chocolate"><em> Role R's earnings = </em></p>
-        <p><em> Endowment + Task income.</em></p>
-    {% endif %}
-
-
-{% endif %}
-    <p> Note that <em>final earnings</em> do not include your participation fee. Also, remember that this interaction will occur only once. </p>
-
+    <p style="color: chocolate"><em> Role B's earnings when message <b>is</b> sent = </em></p>
+    <p><em> Endowment + Task income - Money taken by Role A - actual price of sending message.</em></p>
     </br>
-
+    <p style="color: chocolate"><em> Role B's earnings when message <b>is not</b> sent = </em></p>
+    <p><em> Endowment + Task income - Money taken by Role A.</em></p>
+    <p></p>
+    </br>
+    {% endif %}
+    {% if group.value_type == 'WTA' %}
+    <p style="color: chocolate"><em> Role B's earnings when message <b>is not</b> sent = </em></p>
+    <p><em>Endowment + Task income - Money taken by Role A + actual compensation.</em></p>
+    <p></br> </p>
+    <p style="color: chocolate"><em> Role B's earnings when message <b>is</b> sent = </em></p>
+    <p><em>Endowment + Task income - Money taken by Role A.</em></p>
+    </br>
+    {% endif %}
+    {% if group.treatment == 'TP' %}
+    <p> </p>
+    <p style="color: chocolate"><em> Role R's earnings = </em></p>
+    <p><em> Endowment + Task income.</em></p>
+    {% endif %}
+    {% endif %}
+    <p> Note that <em>final earnings</em> do not include your participation fee. Also, remember that this interaction will occur only once. </p>
+    </br>
     <p> Please make sure you understand these instructions before you move onto the control questions. To help you, there will be a summary of the instructions in all the relevant screens. Yet, if you have any question, raise your hand and an experimenter will attend to your computer. Please remember it is not allowed to use your cellphone or talk to any other participant during the whole duration of the experiment.</p> </br>
     </br>
-
-    </div>   {#  paper effect ends#}
+</div> {# paper effect ends#}
 {####################################################################}
-
 {% endblock %}

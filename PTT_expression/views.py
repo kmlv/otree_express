@@ -474,6 +474,10 @@ class AllBdmCont(Page):
             self.group.want_send_message = 'Yes'
             self.group.msg_sent = (self.group.b_value >=
                                    self.group.message_price)
+        if self.group.treatment == 'DIS' and self.group.b_value > 0:
+            self.group.want_send_message = 'Yes'
+            self.group.msg_sent = (self.group.b_value >=
+                                   self.group.message_price)
 
 #########################################################################
 
@@ -683,7 +687,7 @@ class AllFmNm(Page):
 class BdmResults(Page):
     """Page _:"""
     form_model = models.Group
-    form_fields = ['time_BdmResults']
+    form_fields = ['time_BdmResults', 'b_message']
     # timeout_seconds = 15
 
     def is_displayed(self):

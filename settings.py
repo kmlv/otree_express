@@ -221,6 +221,10 @@ SESSION_CONFIGS = [  # add 'discard' key to params any value if you want the mes
     },
     {
         'name': 'discardN2',
+        'targetIncome' : [2],
+        'screenTime' : 20,
+        'maxScreens' : 2,
+        'pointDistMax' : 120,
         'participation_fee': 5.00,
         'display_name': "discard message n=2",
         'real_world_currency_per_point': 0.01,
