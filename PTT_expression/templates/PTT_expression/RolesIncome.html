@@ -64,34 +64,27 @@
     }
 </style>
 
-<button id="expand-instructions" class="btn " type="button"> Show Instructions</button>
+<button id="expand-instructions" class="btn " type="button" style="border-color: DimGray; color:DimGray"> Show Instructions</button>
+
 
 {####################################################################}
- <div id="expand" class="instructions well well-lg"> {#    paper effect starts #}
+{####################################################################}
+{####################################################################}
+<div id="expand" class="instructions well well-lg"> {# paper effect starts #}
 
-
-
-<p>This session consists of a single round of interaction with two stages. In Stage 1, called <em>Task Stage</em>, you will work on a set of tasks to earn money. We will refer to the earned amount as the <em>task income</em>. Specific instructions for these tasks will be provided once Stage 1 starts.</p>
+    <h1> Stage 2 - Instructions </h1>
 
 {####################################################################}
 {#  Stage 2: general | All but TP #}
-{% if group.treatment != 'TP' %}
 
+    {% if group.treatment != 'TP' and group.treatment != 'TP-R' %}
     <p> In Stage 2, called <em>Interaction Stage</em>, you will interact with another participant in the room. First, you will be anonymously paired with one another. This matching is random and, most likely, you will <b>not</b> be matched with the person sitting next to you. You will then be randomly assigned to be either of <strong><em>Role A</em></strong> or of <strong><em>Role B</em></strong>. Each pair will consists of one person in <em>Role A</em> and one person in <em>Role B</em>. You will be informed about your role on your computer screen as soon as Stage 2 starts. Since this is a one-time interaction, that will be the only role you will participate under. You will not be informed about the identity of the person you are paired with, neither during nor after the experiment. </p> </br>
-
     <h4> Role A:</h4>
-    <p> If you are assigned <em>Role A</em>, you are to decide how much of <em>Role B</em>’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of <em>Role B</em>’s <em>task income</em>, but you will not be able to transfer B’s endowment. Once you make your decision, it cannot be changed. </p> </br>
-
-{#        <div style="align-content: center; border:0px solid gray">#}
-{#            <img alt="Screenshot A's Decision" src="{% static "PTT_express_instructions/A_decision_screen.png" %}" width="700" align="center"/>#}
-{#        </div> </br>#}
+    <p> If you are assigned <em>Role A</em>, you are to decide how much of <em>Role B</em>’s <em>task income</em> you would like to transfer into your own account. You are able to transfer anywhere from 0 to 100 percent of <em>Role B</em>’s <em>task income</em>, but you will not be able to transfer B’s endowment. Once you make your decision, it cannot be changed.</p> </br>
 
     <h4> Role B:</h4>
-    <p> If you are assigned <em>Role B</em>, you will first be asked to guess what percentage of your <em>task income</em> A will transfer to his/her own account.</p>
-
+    <p> If you are assigned <em>Role B</em>, you will first be asked to guess what percentage of your <em>task income </em> you think <em>Role A</em> will transfer to his/her own account.</p>
 {% endif %}
-
-
 
 {#    Stage 2: general | only TP #}
 {% if group.treatment  == 'TP' or group.treatment == 'TP-R' %}
@@ -131,20 +124,46 @@
 {#################################################################}
 {# Stage 2: paid treatments DM/TP WTA/WTP BDMCONT/BDMLIST/SOP #}
 
-{% if group.treatment == 'DM' or group.treatment == 'TP' %}
+{% if group.treatment == 'DM' or group.treatment == 'TP' or group.treatment == 'DIS' %}
 
-    <p> You will then be informed about the amount that has been taken from your account by the participant in <em>Role A</em> that you are matched with. You will get the opportunity to write and send a message to {% if treatment == 'DM' %} him/her. This is a one-way, one-time message, and <em>Role A</em> will not have the chance to reply or change his/her decision. {% elif treatment == 'TP' %} the Reader. This is a one-way, one-time message, and the <em>Reader</em> will not have the chance to reply. The participant in <em>Role A</em> will not see this message. {% endif %} </p>
-
+    <p> You will then be informed about the amount that has been taken from your account by the participant in <em>Role A</em>.
+        {% if treatment == 'DM' %}
+            You will get the opportunity to write and send a message to him/her. This is a one-way, one-time message, and <em>Role A</em> will not have the chance to reply or change his/her decision.
+        {% elif treatment == 'TP' %}
+            You will get the opportunity to write and send a message to the Reader. This is a one-way, one-time message, and the <em>Reader</em> will not have the chance to reply. The participant in <em>Role A</em> will not see this message.
+        {% elif treatment == 'DIS' %}
+    Then you may get the opportunity to write something on the computer screen. <b>Whatever you write, however, will be deleted as soon as you go to the next page. No one, not even the experimenter, will ever see this.</b>
+        {% endif %} </p>
 
 
     {# paid messages: DM/TP WTA/WTP BDMCONT #}
     {% if group.value_type == 'WTP' and group.elicitation_method == 'BDM' and group.BDM_type == 'CONT' %}
 
-        <p> You will be asked to state the maximum amount that you are willing to pay to send your message. We will refer to this amount as your <em>valuation</em>. </p>
+        <p> You will be asked to state the maximum amount that you are willing to pay
+        {% if treatment == 'DM' or  treatment == 'TP' %}
+         to send your message.
+        {% elif treatment == 'DIS' %}
+         for writing something on this screen.
+        {% endif %}
+         We will refer to this amount as your <em>valuation</em>.</p>
 
-        <p> After you submit your <em>valuation</em>, you will be informed about the <em>actual price</em> of sending your message. The <em>actual price</em> is randomly generated by the computer, and all numbers between {% if not points %}${%endif%}0 {% if points %}points{% endif %} and {{ group.BDM_uplimit }} are equally likely.</p>
+        <p> After you submit your <em>valuation</em>, you will be informed about the <em>actual price</em> of
+        {% if treatment == 'DM' or  treatment == 'TP' %}
+         sending your message.
+        {% elif treatment == 'DIS' %}
+         writting on this screen.
+        {% endif %}
+         The <em>actual price</em> is randomly generated by the computer, and all numbers between 0 and 3 dollars are equally likely.</p>
 
-        <p> If your <em>valuation</em> is greater than or equal to the <em>actual price</em>, your message will be sent, and you will pay the <em>actual price</em>. If your valuation is lower than the actual price, then you do not get to send your message, and you will not be charged.</p> </br>
+        <p>
+        {% if treatment == 'DM' or  treatment == 'TP' %}
+         If your <em>valuation</em> is greater than or equal to the <em>actual price</em>, your message will be sent, and you will pay the <em>actual price</em>. If instead your <em>valuation</em> is lower than the <em>actual price</em>, then you do not get to deliver your message, and you will not be charged.</p>
+        <p> Notice that, since your message is delivered only when your <em>valuation</em> exceeds the <em>actual price</em>, you will never pay for sending your message a price higher than your stated <em>valuation</em>.
+        {% elif treatment == 'DIS' %}
+         If your <em>valuation</em> is greater than or equal to the <em>actual price</em>, you will be able to proceed to the screen where you can write something, and you will pay the <em>actual price</em>. If instead your <em>valuation</em> is lower than the <em>actual price</em>, then you will not get to write anything, and you will not be charged. </p>
+        {% endif %}        </p>
+
+        </br>
 
 {#        reviewed with brit up to this point. Nov 03#}
 
@@ -152,13 +171,15 @@
 
         <p> You will be asked to state the minimum amount that you are willing to accept for NOT sending your message. That is, your will report the least amount you would be willing to receive to forgo sending your message. We will refer to this amount as your <em>valuation</em>.</p>
 
-        <p> After you submit your <em>valuation</em>, you will be informed about the <em>actual compensation</em> you will receive for not sending your message. The <em>actual compensation</em> is randomly generated by the computer, and all numbers between {% if not points %}${%endif%}0 {% if points %}points{% endif %} and {{ group.BDM_uplimit }} are equally likely.</p>
+        <p> After you submit your <em>valuation</em>, you will be informed about the <em>actual compensation</em> you will receive for not sending your message. The <em>actual compensation</em> is randomly generated by the computer, and all numbers between {% if not points %}${%endif%}0 {% if points %}points{% endif %} and 3 are equally likely.</p>
 
-        <p> If the <em>actual compensation</em> is lower than your <em>valuation</em>, your message will be delivered and you will not receive any compensation. When the <em>actual compensation</em> is greater than or equal to your <em>valuation</em>, your message will not be delivered, and you will receive the <em>actual compensation</em>.</p> </br>
+        <p> If the <em>actual compensation</em> is lower than your <em>valuation</em>, your message will be delivered and you will not receive any compensation. When the <em>actual compensation</em> is greater than or equal to your <em>valuation</em>, your message will not be delivered, and you will receive the <em>actual compensation</em>.</p>
+        <p> Notice that, since your message is delivered only when your <em>valuation</em> exceeds the <em>actual compensation</em>, you will never receive a compensation for not sending that is below your stated <em>valuation</em>.
+        </p>
+
+        </br>
 
     {% endif %}
-
-
 
 
     {# paid messages: WTA/WTP BDMLIST #}
@@ -194,7 +215,6 @@
 {% endif %}
 
 
-
 {#################################################################}
 {# everyone PAYOFFS and closing  #}
 
@@ -211,26 +231,51 @@
     </br>
 {% endif %}
 
-{% if group.treatment == 'DM' or group.treatment == 'TP' %}
+{% if group.treatment == 'DM' or group.treatment == 'TP' or group.treatment == 'DIS' %}
 
     {% if group.value_type == 'WTP' %}
 
-        <p style="color: chocolate"><em> Role B's earnings when message <b>is</b> sent = </em></p>
-        <p><em> Endowment + Task income - Money taken by Role A - actual price of sending message.</em></p>
+        <p style="color: chocolate"><em> Role B's earnings when
+    {% if group.treatment == 'DM' or group.treatment == 'TP'%}
+            message <b>is</b> sent =
+    {% elif group.treatment == 'DIS' %}
+            they <b>are</b> able to write something =
+        {% endif %}
+         </em></p>
+
+        <p><em> Endowment + Task income - Money taken by Role A -
+    {% if group.treatment == 'DM' or group.treatment == 'TP'%}
+        actual price of sending message.
+    {% elif group.treatment == 'DIS' %}
+        actual price of writing on the screen.
+    {% endif %}
+    </em></p>
         </br>
-        <p style="color: chocolate"><em> Role B's earnings when message <b>is not</b> sent = </em></p>
+        <p style="color: chocolate"><em> Role B's earnings when
+    {% if group.treatment == 'DM' or group.treatment == 'TP'%}
+            message <b>is not</b> sent =
+    {% elif group.treatment == 'DIS' %}
+            they <b>are not</b> able to write something =
+        {% endif %}
+         </em></p>
         <p><em> Endowment + Task income - Money taken by Role A.</em></p>
         <p></p>
-        </br>
+
     {% endif %}
 
     {% if group.value_type == 'WTA' %}
         <p style="color: chocolate"><em> Role B's earnings when message <b>is not</b> sent = </em></p>
         <p><em>Endowment + Task income - Money taken by Role A + actual compensation.</em></p>
-        <p></br> </p>
-        <p style="color: chocolate"><em> Role B's earnings when message <b>is</b> sent = </em></p>
+        <p> </p>
+        <p style="color: chocolate"><em> Role B's earnings when message <b>is</b>
+    {% if group.treatment == 'DM' or group.treatment == 'TP'%}
+            sent =
+    {% elif group.treatment == 'DIS' %}
+            written =
+        {% endif %}
+        </em></p>
         <p><em>Endowment + Task income - Money taken by Role A.</em></p>
-        </br>
+
     {% endif %}
 
     {% if group.treatment == 'TP' %}
@@ -239,17 +284,14 @@
         <p><em> Endowment + Task income.</em></p>
     {% endif %}
 
-
 {% endif %}
-    <p> Note that <em>final earnings</em> do not include your participation fee. Also, remember that this interaction will occur only once. </p>
-
-    </br>
-
-    <p> Please make sure you understand these instructions before you move onto the control questions. To help you, there will be a summary of the instructions in all the relevant screens. Yet, if you have any question, raise your hand and an experimenter will attend to your computer. Please remember it is not allowed to use your cellphone or talk to any other participant during the whole duration of the experiment.</p> </br>
-    </br>
 
     </div>   {#  paper effect ends#}
 {####################################################################}
+{####################################################################}
+{####################################################################}
+
+
 
 
 {% endblock %}

@@ -1,0 +1,29 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+
+{% block title %}
+    Stage 1
+{% endblock %}
+
+{% block scripts %}
+
+    {# this records the timestamp #}
+    <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("arrive_time").value = (new Date()).toISOString();
+            }
+    </script>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <input type="hidden" id="arrive_time" name="time_InitialStage1">
+
+     <p> Stage 1 is about to start. Please click on the next button to proceed.</p>
+
+    {% next_button %}
+
+{% endblock %}

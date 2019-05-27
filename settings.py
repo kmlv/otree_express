@@ -168,7 +168,7 @@ SESSION_CONFIG_DEFAULTS = {
 
 ################
 
-SESSION_CONFIGS = [  # add 'discard' key to params any value if you want the message to be discarded
+SESSION_CONFIGS = [  
     {
         'name': 'PTT_express_FM_n2',
         'participation_fee': 4.00,
@@ -204,7 +204,7 @@ SESSION_CONFIGS = [  # add 'discard' key to params any value if you want the mes
     # DM WTP BLOCK
     {
         'name': 'PTT_express_DM_N2_WTP_BDM_CONT__0_end',
-        'participation_fee': 5.00,
+        'participation_fee': 4.00,
         'display_name': "Direct Message, N=2, WTP, BDM Continuous [0, endowment] ",
         'real_world_currency_per_point': 0.01,
         'num_demo_participants': 2,
@@ -213,31 +213,29 @@ SESSION_CONFIGS = [  # add 'discard' key to params any value if you want the mes
         # to be extended to a list for when there is more than one readers
         'reader_endowment': [11],
         'Params': [
-            {'treat': 'DIS', 'val_typ': 'WTP', 'elic_met': 'BDM',
+            {'treat': 'DM', 'val_typ': 'WTP', 'elic_met': 'BDM',
                 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
         ],
         'app_sequence': ['zFake_searchTask', 'PTT_express_instructions', 'PTT_expression', 'payment_info'],
         'debug': True
     },
     {
-        'name': 'discardN2',
-        'targetIncome' : [2],
-        'screenTime' : 20,
-        'maxScreens' : 2,
-        'pointDistMax' : 120,
-        'participation_fee': 5.00,
-        'display_name': "discard message n=2",
+        'name': 'PTT_express_DIS_N2_WTP_BDM_CONT__0_end',
+        'display_name': "Discard message - N2 WTP BDM CONT [0 end]",
         'real_world_currency_per_point': 0.01,
+        'participation_fee': 4.00,
         'num_demo_participants': 2,
-        'targetIncome': [10.3, 8],
         'num_readers': 0,
-        # to be extended to a list for when there is more than one readers
         'reader_endowment': [11],
-        'Params': [  # treat LIO
-            {'treat': 'DIS', 'val_typ': 'WTP', 'elic_met': 'BDM',
-                'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [5, 3]},
+        'targetIncome': [4],
+        'screenTime': 15,
+        'maxScreens': 2,
+        'pointDistMax': 120,
+        'pointDistMin': 20,
+        'Params': [
+            {'treat': 'DIS', 'val_typ': 'WTP', 'elic_met': 'BDM', 'BDM_typ': 'CONT', 'Met_par': [0, 'end'], 'end': [3, 3]},
         ],
-        'app_sequence': ['zFake_searchTask', 'PTT_expression', 'payment_info'],
+        'app_sequence': ['PTT_expression'],
         'debug': True
     },
     {

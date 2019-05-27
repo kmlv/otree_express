@@ -207,12 +207,22 @@ class ControlQuestions(Page):
 #################################################
 # Search task views
 
+
+class InitialStage1(Page):
+    form_model = models.Player
+    form_fields = ['time_InitialStage1']
+
+
+class GameInstructions(Page):
+    form_model = models.Player
+    form_fields = ['time_GameInstructions']
+
+
 class PracticeTask(Page):
     form_model = models.Player
     form_fields = ['time_PracticeTask']
     #pass
     # timeout_seconds = 200
-
 
 class SearchTask(Page):
     # timeout_seconds = 400
@@ -244,9 +254,6 @@ class SearchTask(Page):
         # self.player.intermediate_reward = self.player.task_reward + self.group.treatment_endowment
 
 
-class GameInstructions(Page):
-    form_model = models.Player
-    form_fields = ['time_GameInstructions']
 
 
 
@@ -275,6 +282,8 @@ class InitialWait(WaitPage):
     """ Page 0: wait for partner in group - so income from effort task is read """
     title_text = "Waiting"
     body_text = "Please wait for others to arrive to this stage before you proceed to the next one. Thank you."
+
+
 
 
 class InitialStage2(Page):
@@ -778,6 +787,7 @@ class Results(Page):
 page_sequence = [
     Instructions,
     ControlQuestions,
+    InitialStage1,
     GameInstructions,
     PracticeTask,
     SearchTask,

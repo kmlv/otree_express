@@ -504,6 +504,7 @@ class Player(BasePlayer):
     task_reward = models.DecimalField(max_digits=5, decimal_places=2)
     target_income = models.DecimalField(max_digits=5, decimal_places=2)
     # add timestamps
+    time_InitialStage1 = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_GameInstructions = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_PracticeTask = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
     time_SearchTask = models.TextField(widget=widgets.HiddenInput(attrs={'id': 'arrive_time'}))
